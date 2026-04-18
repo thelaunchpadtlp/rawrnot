@@ -5,60 +5,148 @@
   --font-body: "Inter", sans-serif;
   --font-label: "Inter", sans-serif;
 
-  --color-background: #131313;
-  --color-on-background: #e5e2e1;
-  --color-primary: #ffb2bf;
-  --color-on-primary: #660028;
-  --color-primary-container: #ff4d81;
-  --color-on-primary-container: #5a0022;
-  --color-secondary: #c8c6c8;
-  --color-on-secondary: #303032;
-  --color-secondary-container: #474649;
-  --color-on-secondary-container: #b6b4b7;
-  --color-tertiary: #ffb3b5;
-  --color-on-tertiary: #680019;
-  --color-tertiary-container: #ff5167;
-  --color-on-tertiary-container: #5b0015;
-  --color-error: #ffb4ab;
-  --color-on-error: #690005;
-  --color-error-container: #93000a;
-  --color-on-error-container: #ffdad6;
-  --color-surface: #131313;
-  --color-on-surface: #e5e2e1;
-  --color-surface-variant: #353534;
-  --color-on-surface-variant: #e4bdc2;
-  --color-outline: #ab888c;
-  --color-outline-variant: #5b3f43;
-  --color-inverse-surface: #e5e2e1;
-  --color-inverse-on-surface: #313030;
-  --color-inverse-primary: #bc004f;
-  --color-surface-dim: #131313;
-  --color-surface-bright: #393939;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container-low: #1c1b1b;
-  --color-surface-container: #201f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353534;
+  /* Use CSS variables for dynamic theming */
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-inverse-primary: var(--inverse-primary);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
 
   --radius-xl: 1.5rem;
 }
 
+:root {
+  /* Default: Obsidian Dark Theme */
+  --background: #131313;
+  --on-background: #e5e2e1;
+  --primary: #ffb2bf;
+  --on-primary: #660028;
+  --primary-container: #ff4d81;
+  --on-primary-container: #5a0022;
+  --secondary: #c8c6c8;
+  --on-secondary: #303032;
+  --secondary-container: #474649;
+  --on-secondary-container: #b6b4b7;
+  --tertiary: #ffb3b5;
+  --on-tertiary: #680019;
+  --tertiary-container: #ff5167;
+  --on-tertiary-container: #5b0015;
+  --error: #ffb4ab;
+  --on-error: #690005;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+  --surface: #131313;
+  --on-surface: #e5e2e1;
+  --surface-variant: #353534;
+  --on-surface-variant: #e4bdc2;
+  --outline: #ab888c;
+  --outline-variant: #5b3f43;
+  --inverse-surface: #e5e2e1;
+  --inverse-on-surface: #313030;
+  --inverse-primary: #bc004f;
+  --surface-dim: #131313;
+  --surface-bright: #393939;
+  --surface-container-lowest: #0e0e0e;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #201f1f;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+}
+
+.theme-lightcraft {
+  /* Lightcraft Roar: Light/Vintage Theme */
+  /* Based on design guidelines: textured paper, skeuomorphic shadows, vintage serifs */
+  --background: #fdfaf6; /* Vintage paper */
+  --on-background: #2a2420;
+  --primary: #bc004f; /* More intense pink for light mode */
+  --on-primary: #ffffff;
+  --primary-container: #ffd9de;
+  --on-primary-container: #3f0016;
+  --secondary: #635b5b;
+  --on-secondary: #ffffff;
+  --secondary-container: #e4e2e4;
+  --on-secondary-container: #1b1b1d;
+  --tertiary: #920027;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #ffdada;
+  --on-tertiary-container: #40000c;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #410002;
+  --surface: #fdfaf6;
+  --on-surface: #2a2420;
+  --surface-variant: #f2e0e1;
+  --on-surface-variant: #514344;
+  --outline: #837375;
+  --outline-variant: #d5c2c3;
+  --inverse-surface: #362f2e;
+  --inverse-on-surface: #fbeee0;
+  --inverse-primary: #ffb2bf;
+  --surface-dim: #e4d9d2;
+  --surface-bright: #fff8f5;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f9f3ef;
+  --surface-container: #f3ede9;
+  --surface-container-high: #ede7e3;
+  --surface-container-highest: #e7e2dd;
+}
+
 @layer utilities {
   .liquid-glass {
-    background: rgba(53, 53, 52, 0.4);
+    background: var(--glass-bg, rgba(53, 53, 52, 0.4));
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
   .ghost-border {
-    box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1);
+    box-shadow: 0 0 0 1px var(--border-color, rgba(228, 189, 194, 0.1));
   }
   .text-editorial {
     letter-spacing: -0.02em;
   }
 }
 
+:root {
+  --glass-bg: rgba(53, 53, 52, 0.4);
+  --border-color: rgba(228, 189, 194, 0.1);
+}
+
+.theme-lightcraft {
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-  @apply bg-background text-on-background font-body;
+  @apply bg-background text-on-background font-body transition-colors duration-500;
   min-height: 100dvh;
 }
 

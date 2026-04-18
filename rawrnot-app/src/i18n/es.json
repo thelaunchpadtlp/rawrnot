@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "portfolio": "Portafolio",
+    "dashboard": "Tablero",
+    "briefing": "Briefing",
+    "quoting": "Cotización",
+    "journal": "Diario",
+    "about": "Nosotros"
+  },
+  "portfolio": {
+    "hero_tag": "En vivo: Genesis Collection",
+    "hero_title_1": "PRECISIÓN",
+    "hero_title_2": "SALVAJE",
+    "hero_desc": "El Apex Digital del trabajo creativo. Cerramos la brecha entre el instinto visceral y la ejecución técnica de élite.",
+    "cta_project": "DESATAR PROYECTO",
+    "cta_roar": "EL RUGIDO",
+    "vault_tag": "La Bóveda",
+    "vault_title": "Fragmentos Destacados"
+  },
+  "briefing": {
+    "title_1": "Desata a la",
+    "title_2": "Bestia Creativa.",
+    "desc": "Bienvenido al Roar Portal. Tu visión es la presa; rastreémosla con precisión letal.",
+    "phase": "Fase",
+    "moniker_label": "Nombre del Proyecto",
+    "narrative_label": "La Narrativa (Potenciada por IA)",
+    "refine_cta": "Refinar con IA",
+    "strength_label": "Fuerza del Brief",
+    "checklist_title": "Lista de Verificación"
+  },
+  "quoting": {
+    "title": "La Bóveda",
+    "desc": "Accede a ejecución técnica de élite para tus instintos creativos más puros. Selecciona servicios para comenzar tu especificación.",
+    "build_title": "Construye tu Spec",
+    "budget_label": "PARÁMETRO DE PRESUPUESTO",
+    "generate_cta": "Generar Cotización"
+  }
+}

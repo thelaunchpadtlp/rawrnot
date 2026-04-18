@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Portfolio: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary/30 relative min-h-screen w-full overflow-x-hidden">
       {/* Hero: Full-bleed background visual */}
@@ -20,23 +23,23 @@ const Portfolio: React.FC = () => {
         <div className="lg:col-span-7 space-y-8">
           <div className="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-surface-tint/10 border border-surface-tint/20">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            <span className="text-label-md font-bold tracking-widest uppercase text-primary text-xs">Now Live: Genesis Collection</span>
+            <span className="text-label-md font-bold tracking-widest uppercase text-primary text-[10px]">{t('portfolio.hero_tag')}</span>
           </div>
           <h2 className="font-headline text-6xl leading-[0.95] tracking-tighter text-on-background lg:text-[5rem]">
-            UNTAMED <br />
-            <span className="text-primary italic">PRECISION</span>
+            {t('portfolio.hero_title_1')} <br />
+            <span className="text-primary italic">{t('portfolio.hero_title_2')}</span>
           </h2>
           <p className="font-body text-body-lg text-on-surface-variant max-w-md leading-relaxed">
-            The Digital Apex of creative agency work. We bridge the gap between visceral instinct and elite technical execution.
+            {t('portfolio.hero_desc')}
           </p>
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="bg-gradient-to-r from-primary to-primary-container px-8 py-4 rounded-full text-on-primary-fixed font-bold flex items-center gap-2 group hover:shadow-[0_0_30px_rgba(255,77,129,0.4)] transition-all">
-              UNLEASH PROJECT
+            <button className="bg-gradient-to-r from-primary to-primary-container px-8 py-4 rounded-full text-on-primary-fixed font-bold flex items-center gap-2 group hover:shadow-[0_0_30px_rgba(255,77,129,0.4)] transition-all text-xs">
+              {t('portfolio.cta_project')}
               <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
-            <button className="px-8 py-4 rounded-full border border-outline-variant hover:bg-white/5 transition-all text-on-surface font-semibold flex items-center gap-2">
+            <button className="px-8 py-4 rounded-full border border-outline-variant hover:bg-white/5 transition-all text-on-surface font-semibold flex items-center gap-2 text-xs">
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>campaign</span>
-              THE ROAR
+              {t('portfolio.cta_roar')}
             </button>
           </div>
         </div>
@@ -66,11 +69,11 @@ const Portfolio: React.FC = () => {
       <section className="relative z-20 px-6 py-24 max-w-7xl mx-auto space-y-12">
         <div className="flex justify-between items-end">
           <div className="space-y-2">
-            <span className="font-label text-primary font-bold uppercase tracking-[0.2em] text-xs">The Vault</span>
-            <h2 className="font-headline text-4xl">Featured Fragments</h2>
+            <span className="font-label text-primary font-bold uppercase tracking-[0.2em] text-[10px]">{t('portfolio.vault_tag')}</span>
+            <h2 className="font-headline text-4xl">{t('portfolio.vault_title')}</h2>
           </div>
-          <button className="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 text-sm">
-            View All Projects
+          <button className="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 text-xs uppercase font-bold tracking-widest">
+            View All
             <span className="material-symbols-outlined text-sm">north_east</span>
           </button>
         </div>

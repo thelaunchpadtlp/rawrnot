@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "dashboard": "Dashboard",
+    "briefing": "Briefing",
+    "quoting": "Quoting",
+    "journal": "Journal",
+    "about": "About"
+  },
+  "portfolio": {
+    "hero_tag": "Now Live: Genesis Collection",
+    "hero_title_1": "UNTAMED",
+    "hero_title_2": "PRECISION",
+    "hero_desc": "The Digital Apex of creative agency work. We bridge the gap between visceral instinct and elite technical execution.",
+    "cta_project": "UNLEASH PROJECT",
+    "cta_roar": "THE ROAR",
+    "vault_tag": "The Vault",
+    "vault_title": "Featured Fragments"
+  },
+  "briefing": {
+    "title_1": "Unleash the",
+    "title_2": "Creative Beast.",
+    "desc": "Welcome to the Roar Portal. Your vision is the prey; let’s track it down with lethal precision.",
+    "phase": "Phase",
+    "moniker_label": "Project Moniker",
+    "narrative_label": "The Narrative (AI Enhanced)",
+    "refine_cta": "Refine with AI",
+    "strength_label": "Brief Strength",
+    "checklist_title": "Submission Checklist"
+  },
+  "quoting": {
+    "title": "The Vault",
+    "desc": "Access elite technical execution for your most raw creative instincts. Select services to begin your spec.",
+    "build_title": "Build Your Spec",
+    "budget_label": "BUDGET PARAMETER",
+    "generate_cta": "Generate Quote"
+  }
+}
