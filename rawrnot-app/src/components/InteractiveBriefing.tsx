@@ -28,29 +28,8 @@ const InteractiveBriefing: React.FC = () => {
 
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary min-h-screen">
-      {/* Top Navigation Shell */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
-        <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-pink-300">menu</span>
-          <span className="font-headline tracking-tighter text-2xl font-bold uppercase text-pink-400 dark:text-pink-300 italic font-black">RAW'R'NOT</span>
-        </div>
-        <div className="flex items-center gap-6">
-          <nav className="hidden md:flex gap-8">
-            <a className="text-neutral-400 hover:text-pink-300 transition-colors text-sm font-medium uppercase tracking-widest" href="#">Workspace</a>
-            <a className="text-pink-300 transition-colors text-sm font-medium uppercase tracking-widest" href="#">Briefing</a>
-            <a className="text-neutral-400 hover:text-pink-300 transition-colors text-sm font-medium uppercase tracking-widest" href="#">Assets</a>
-          </nav>
-          <div className="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
-            <img 
-              className="w-full h-full object-cover" 
-              alt="majestic lion"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHUvIMUur5_DfuxwG5Q0ulH_4vbrHUIUBD8Z6nNrdDekaD8sK5lvYsB0JaJg3yzR5_6ooWWaSI_9qwKV0ZO4LnGy9_JSDC1efdkr0UvpkW4NZ4een0xFPkwtwPcHVVIr1O7E6c-iIgswXBOrmFMaX2ANTLLuZB4rJgaa5UuBdjwH2Rx6JEZoqW8ajRZFPN0Px5ZVhe7yIwQFeMWmn11ekynnKI_blkjSIscQaG9KqE68BqBNQaFzN4o6BKVi20OLKnDL3tmrzNhMk" 
-            />
-          </div>
-        </div>
-      </header>
+      <main className="pt-12 pb-32 px-4 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-      <main className="pt-28 pb-32 px-4 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left Column: Asymmetric Briefing Canvas */}
         <div className="lg:col-span-8 space-y-12">
           {/* Hero Title Section */}
@@ -233,25 +212,6 @@ const InteractiveBriefing: React.FC = () => {
           </div>
         </aside>
       </main>
-
-      {/* Bottom Navigation Shell */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full max-w-md bg-neutral-800/20 backdrop-blur-[32px] border border-white/10 z-50 flex justify-around items-center px-4 py-2">
-        <button className="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
-          <span className="material-symbols-outlined">dashboard</span>
-        </button>
-        <button className="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
-          <span className="material-symbols-outlined">folder_open</span>
-        </button>
-        <button className="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 duration-500 ease-out">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>add_circle</span>
-        </button>
-        <button className="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 duration-500 ease-out">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
-        </button>
-        <button className="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
-          <span className="material-symbols-outlined">account_circle</span>
-        </button>
-      </nav>
 
       {/* Decorative Background Elements */}
       <div className="fixed top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
