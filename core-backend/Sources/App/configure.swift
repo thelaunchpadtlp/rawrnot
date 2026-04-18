@@ -33,16 +33,31 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateSinpeTransaction())
     app.migrations.add(CreateBusinessModels())
     app.migrations.add(CreateCMSModels())
+    app.migrations.add(CreateFormModels())
+    app.migrations.add(CreateContractModels())
 
     // 3. Seed initial data
-    try await seedOwners(app)
+    try await seedUsers(app)
     try await seedServices(app)
     try await seedCMS(app)
+    try await seedForms(app)
 
     // 4. Register routes
     try routes(app)
-}
+    }
+    }
 
+    async func seedForms(_ app: Application) throws {
+    let count = try await FormDefinition.query(on: app.db).count()
+    if count == 0 {
+    let inquiryForm = FormDefinition(
+        name: "Initial Inquiry",
+        schema: "[{\"id\":\"name\",\"type\":\"text\",\"label\":\"Full Name\",\"required\":true},{\"id\":\"email\",\"type\":\"email\",\"label\":\"Email Address\",\"required\":true},{\"id\":\"interest\",\"type\":\"select\",\"label\":\"Service of Interest\",\"options\":[\"Cinematic Shoot\",\"Editorial Core\",\"Nexus Identity\"]},{\"id\":\"message\",\"type\":\"textarea\",\"label\":\"Tell us your vision\",\"required\":false}]"
+    )
+    try await inquiryForm.save(on: app.db)
+    app.logger.info("Smart Form Seeded: Initial Inquiry.")
+    }
+    }
 func seedOwners(_ app: Application) async throws {
     let count = try await User.query(on: app.db).count()
     if count == 0 {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { GlassCard, LiquidCard, BentoGrid, PrimaryButton } from './MolecularComponents';
+import SmartForm from './SmartForm';
+import ESignature from './ESignature';
 
 // Common interface for all dynamic blocks
 interface BlockProps {
@@ -74,12 +76,33 @@ const BentoStatusGridBlock: React.FC<BlockProps> = ({ data }) => (
   </section>
 );
 
+const SmartFormBlock: React.FC<BlockProps> = ({ data }) => (
+  <section className="py-12">
+    <SmartForm formId={data.formId} name={data.name} schema={data.schema} />
+  </section>
+);
+
+const ContractBlock: React.FC<BlockProps> = ({ data }) => (
+  <section className="bg-surface-container-low p-12 ghost-border max-w-4xl mx-auto space-y-8 my-20">
+    <h2 className="font-headline text-4xl border-b border-primary pb-6 italic">{data.title}</h2>
+    <div className="font-body text-on-surface-variant leading-relaxed text-lg whitespace-pre-wrap">
+       {data.content}
+    </div>
+    <div className="pt-12 border-t border-outline-variant">
+      <h4 className="font-mono text-[10px] uppercase tracking-widest text-primary mb-6">Execution & Authorization</h4>
+      <ESignature contractId={data.contractId} />
+    </div>
+  </section>
+);
+
 // The Factory: Maps block names to components
 const RenderFactory: React.FC<{ type: string; payload: string }> = ({ type, payload }) => {
   const data = JSON.parse(payload);
   switch (type) {
     case 'Hero': return <HeroBlock data={data} />;
     case 'BentoStatusGrid': return <BentoStatusGridBlock data={data} />;
+    case 'SmartForm': return <SmartFormBlock data={data} />;
+    case 'Contract': return <ContractBlock data={data} />;
     default: return <div className="p-4 border border-dashed border-outline">Unknown Block: {type}</div>;
   }
 };

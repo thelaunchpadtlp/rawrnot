@@ -35,7 +35,7 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
     && rm -r /var/lib/apt/lists/*
 
 # Create a vapor user and group with /app as its home directory
-RUN useradd --user-group --create-home --system --mkdir-shortcut appuser
+RUN useradd --user-group --create-home --system appuser
 WORKDIR /app
 
 # Copy build executable and any staged resources from builder

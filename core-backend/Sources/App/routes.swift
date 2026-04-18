@@ -8,6 +8,8 @@ func routes(_ app: Application) throws {
 
     // Public / Auth routes
     try app.register(collection: AuthController())
+    try app.register(collection: FormController())
+    try app.register(collection: ContractController())
 
     // Protected Routes
     let protected = app.grouped(UserPayload.authenticator(), UserPayload.guardMiddleware())
@@ -18,6 +20,8 @@ func routes(_ app: Application) throws {
     try ownerOnly.register(collection: PageController())
     try ownerOnly.register(collection: ServiceController())
     try ownerOnly.register(collection: ProjectController())
+    // For now we allow owners to see all form submissions and contracts via these controllers
+    // Internal admin routes would ideally be grouped separately in a future refactor
 
     // Client/Owner routes
     try protected.register(collection: ShadowProfileController())
