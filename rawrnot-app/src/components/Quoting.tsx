@@ -62,7 +62,7 @@ const Quoting: React.FC = () => {
     return sum + (service?.price || 0);
   }, 0);
 
-  const budgetRatio = Math.min(totalPrice / budget, 1.2);
+  
 
   return (
     <div className="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary min-h-screen pb-40">

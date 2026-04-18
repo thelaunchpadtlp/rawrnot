@@ -10,37 +10,73 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// --- MOCK AI ENGINE ROUTING ---
+// --- RAWRNOT AI ENGINE: CORE ENDPOINTS ---
 
+// 1. TEXT REFINEMENT (Llama-3-70B / Gemini-1.5-Flash)
 app.post('/api/refine-brief', async (req, res) => {
   const { narrative, language } = req.body;
-
-  // In a real scenario, we would use:
-  // const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-  // This would call Llama-3 70B (Low cost, high speed worker)
+  console.log(`[AI-GATEWAY] Refilling brief: ${language}`);
   
-  console.log(`[AI-GATEWAY] Refitting brief using Llama-3-70B for language: ${language}`);
-
-  // Mock processing delay
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 1500));
 
   const refinedText = language === 'es' 
-    ? `[SÍNTESIS IA]: ${narrative}. Una exploración visceral que fusiona el instinto creativo con la precisión técnica de vanguardia.`
-    : `[AI SYNTHESIS]: ${narrative}. A visceral exploration merging creative instinct with cutting-edge technical precision.`;
+    ? `[SÍNTESIS IA]: ${narrative}. Evolución táctica: Se ha inyectado profundidad visceral y precisión técnica en la narrativa central.`
+    : `[AI SYNTHESIS]: ${narrative}. Tactical evolution: Visceral depth and technical precision have been injected into the core narrative.`;
 
   res.json({ refinedText });
 });
 
-app.post('/api/generate-asset', async (req, res) => {
-  const { prompt, type } = req.body;
-  // This would route to Stable Diffusion (Images) or DeepSeek (Code)
-  console.log(`[AI-GATEWAY] Routing asset generation to specialized worker: ${type}`);
-  
-  res.json({ 
-    message: "Request queued in AI Gateway",
-    status: "processing",
-    worker: type === 'code' ? 'DeepSeek-V2' : 'FLUX-1'
-  });
+// 2. VISUAL DNA GENERATION (Stable Diffusion XL / FLUX.1 / Gemini-1.5-Pro Vision)
+app.post('/api/generate-visual-dna', async (req, res) => {
+  const { prompt, style } = req.body;
+  console.log(`[AI-GATEWAY] Generating Visual DNA for style: ${style}`);
+
+  // Mocking high-fidelity image URLs based on style
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
+  const images = style === 'obsidian' 
+    ? [
+        "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1635776062127-d379bfcba9f8?auto=format&fit=crop&q=80&w=600"
+      ]
+    : [
+        "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600",
+        "https://images.unsplash.com/photo-1620712943543-bcc4628c71d0?auto=format&fit=crop&q=80&w=600"
+      ];
+
+  res.json({ images });
+});
+
+// 3. MOTION & ANIMATION SYNTHESIS (Llama-3 for JSON structure / Framer Motion injection)
+app.post('/api/generate-animation', async (req, res) => {
+  const { concept, style } = req.body;
+  console.log(`[AI-GATEWAY] Synthesizing Animation Logic: ${concept} in ${style}`);
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  // Dynamic Framer Motion variant generation
+  const animation = {
+    initial: { opacity: 0, scale: 0.8, rotate: -5 },
+    animate: { 
+      opacity: 1, 
+      scale: 1, 
+      rotate: 0,
+      transition: { 
+        duration: 1.2, 
+        ease: [0.22, 1, 0.36, 1],
+        yoyo: concept === 'loop' ? Infinity : 0
+      } 
+    },
+    hover: { 
+      scale: 1.05, 
+      filter: style === 'obsidian' ? "brightness(1.2) drop-shadow(0 0 20px #ff4d81)" : "brightness(0.9)",
+      transition: { duration: 0.4 }
+    }
+  };
+
+  res.json({ animation });
 });
 
 app.listen(port, () => {

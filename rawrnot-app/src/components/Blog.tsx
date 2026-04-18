@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const Blog: React.FC = () => {
-  const { t } = useLanguage();
+  
 
   const articles = [
     {

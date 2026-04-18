@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const CrmDashboard: React.FC = () => {
-  const { t } = useLanguage();
+  
 
   const projects = [
     { name: 'Golden Mane Rebrand', progress: 84, status: 'Active', color: '#ff4d81' },

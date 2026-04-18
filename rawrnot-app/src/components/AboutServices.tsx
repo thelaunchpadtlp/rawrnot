@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutServices: React.FC = () => {
-  const { t } = useLanguage();
+  
 
   return (
     <div className="bg-background text-on-background font-body min-h-screen pb-32">
