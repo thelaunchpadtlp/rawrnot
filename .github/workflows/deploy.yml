@@ -1,0 +1,57 @@
+name: Deploy to Google Cloud Run
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  PROJECT_ID: thelaunchpadtlp
+  REGION: us-east1
+  REPOSITORY: rawrnot-repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Google Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Authorize Docker
+        run: gcloud auth configure-docker us-east1-docker.pkg.dev
+
+      - name: Build and Push Backend
+        run: |
+          docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/core-backend:${{ github.sha }} ./core-backend
+          docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/core-backend:${{ github.sha }}
+
+      - name: Build and Push Frontend
+        run: |
+          docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }} ./rawrnot-app
+          docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }}
+
+      - name: Deploy Backend to Cloud Run
+        run: |
+          gcloud run deploy core-backend \
+            --image us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/core-backend:${{ github.sha }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --add-cloudsql-instances ${{ env.PROJECT_ID }}:${{ env.REGION }}:rawrnot-db \
+            --set-env-vars "DATABASE_HOST=localhost,DATABASE_USER=rawrnot_user,DATABASE_NAME=rawrnot_db"
+
+      - name: Deploy Frontend to Cloud Run
+        run: |
+          gcloud run deploy rawrnot-app \
+            --image us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated
