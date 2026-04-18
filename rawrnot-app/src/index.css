@@ -5,7 +5,6 @@
   --font-body: "Inter", sans-serif;
   --font-label: "Inter", sans-serif;
 
-  /* Use CSS variables for dynamic theming */
   --color-background: var(--background);
   --color-on-background: var(--on-background);
   --color-primary: var(--primary);
@@ -45,111 +44,110 @@
 }
 
 :root {
-  /* Default: Obsidian Dark Theme */
-  --background: #131313;
-  --on-background: #e5e2e1;
-  --primary: #ffb2bf;
-  --on-primary: #660028;
-  --primary-container: #ff4d81;
-  --on-primary-container: #5a0022;
-  --secondary: #c8c6c8;
-  --on-secondary: #303032;
-  --secondary-container: #474649;
-  --on-secondary-container: #b6b4b7;
-  --tertiary: #ffb3b5;
-  --on-tertiary: #680019;
-  --tertiary-container: #ff5167;
-  --on-tertiary-container: #5b0015;
-  --error: #ffb4ab;
-  --on-error: #690005;
-  --error-container: #93000a;
-  --on-error-container: #ffdad6;
-  --surface: #131313;
-  --on-surface: #e5e2e1;
-  --surface-variant: #353534;
-  --on-surface-variant: #e4bdc2;
-  --outline: #ab888c;
-  --outline-variant: #5b3f43;
-  --inverse-surface: #e5e2e1;
-  --inverse-on-surface: #313030;
-  --inverse-primary: #bc004f;
-  --surface-dim: #131313;
-  --surface-bright: #393939;
-  --surface-container-lowest: #0e0e0e;
-  --surface-container-low: #1c1b1b;
-  --surface-container: #201f1f;
-  --surface-container-high: #2a2a2a;
-  --surface-container-highest: #353534;
+  /* Obsidian Dark */
+  --background: #0a0a0a;
+  --on-background: #f0f0f0;
+  --primary: #ff4d81;
+  --on-primary: #ffffff;
+  --primary-container: #3f0016;
+  --on-primary-container: #ffd9de;
+  --secondary: #b0b0b0;
+  --on-secondary: #000000;
+  --secondary-container: #2a2a2a;
+  --on-secondary-container: #e0e0e0;
+  --tertiary: #c084fc;
+  --on-tertiary: #000000;
+  --tertiary-container: #300050;
+  --on-tertiary-container: #e0b0ff;
+  --surface: #0a0a0a;
+  --on-surface: #f0f0f0;
+  --surface-variant: #1a1a1a;
+  --on-surface-variant: #a0a0a0;
+  --outline: #404040;
+  --outline-variant: #2a2a2a;
+  --surface-container: #121212;
+  --surface-container-high: #1a1a1a;
+  --surface-container-highest: #242424;
+  
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glow-color: rgba(255, 77, 129, 0.3);
 }
 
 .theme-lightcraft {
-  /* Lightcraft Roar: Light/Vintage Theme */
-  /* Based on design guidelines: textured paper, skeuomorphic shadows, vintage serifs */
-  --background: #fdfaf6; /* Vintage paper */
-  --on-background: #2a2420;
-  --primary: #bc004f; /* More intense pink for light mode */
+  /* Lightcraft Primal */
+  --background: #fdfaf6;
+  --on-background: #1c1917;
+  --primary: #920027;
   --on-primary: #ffffff;
-  --primary-container: #ffd9de;
-  --on-primary-container: #3f0016;
-  --secondary: #635b5b;
+  --primary-container: #ffdada;
+  --on-primary-container: #40000c;
+  --secondary: #57534e;
   --on-secondary: #ffffff;
-  --secondary-container: #e4e2e4;
-  --on-secondary-container: #1b1b1d;
-  --tertiary: #920027;
+  --secondary-container: #e7e5e4;
+  --on-secondary-container: #1c1917;
+  --tertiary: #005ac1;
   --on-tertiary: #ffffff;
-  --tertiary-container: #ffdada;
-  --on-tertiary-container: #40000c;
-  --error: #ba1a1a;
-  --on-error: #ffffff;
-  --error-container: #ffdad6;
-  --on-error-container: #410002;
+  --tertiary-container: #d8e2ff;
+  --on-tertiary-container: #001a41;
   --surface: #fdfaf6;
-  --on-surface: #2a2420;
-  --surface-variant: #f2e0e1;
-  --on-surface-variant: #514344;
-  --outline: #837375;
-  --outline-variant: #d5c2c3;
-  --inverse-surface: #362f2e;
-  --inverse-on-surface: #fbeee0;
-  --inverse-primary: #ffb2bf;
-  --surface-dim: #e4d9d2;
-  --surface-bright: #fff8f5;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f9f3ef;
-  --surface-container: #f3ede9;
-  --surface-container-high: #ede7e3;
-  --surface-container-highest: #e7e2dd;
+  --on-surface: #1c1917;
+  --surface-variant: #f5f5f4;
+  --on-surface-variant: #57534e;
+  --outline: #d6d3d1;
+  --outline-variant: #e7e5e4;
+  --surface-container: #f5f2ed;
+  --surface-container-high: #ebe8e3;
+  --surface-container-highest: #e1ddd8;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glow-color: rgba(146, 0, 39, 0.1);
 }
 
 @layer utilities {
   .liquid-glass {
-    background: var(--glass-bg, rgba(53, 53, 52, 0.4));
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
   }
-  .ghost-border {
-    box-shadow: 0 0 0 1px var(--border-color, rgba(228, 189, 194, 0.1));
+  
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
   }
-  .text-editorial {
-    letter-spacing: -0.02em;
-  }
-}
 
-:root {
-  --glass-bg: rgba(53, 53, 52, 0.4);
-  --border-color: rgba(228, 189, 194, 0.1);
-}
-
-.theme-lightcraft {
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --border-color: rgba(0, 0, 0, 0.1);
+  .skeuo-shadow {
+    box-shadow: 
+      2px 2px 4px rgba(0,0,0,0.1),
+      inset 1px 1px 2px rgba(255,255,255,0.8),
+      inset -1px -1px 2px rgba(0,0,0,0.05);
+  }
 }
 
 body {
-  @apply bg-background text-on-background font-body transition-colors duration-500;
+  @apply bg-background text-on-background font-body transition-colors duration-700 ease-in-out;
   min-height: 100dvh;
 }
 
 h1, h2, h3, .font-headline {
-  @apply font-headline;
+  @apply font-headline italic;
+  letter-spacing: -0.04em;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }

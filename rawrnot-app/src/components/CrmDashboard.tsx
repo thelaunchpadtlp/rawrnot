@@ -1,171 +1,168 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const CrmDashboard: React.FC = () => {
+  const { t } = useLanguage();
+
+  const projects = [
+    { name: 'Golden Mane Rebrand', progress: 84, status: 'Active', color: '#ff4d81' },
+    { name: 'Apex Commerce Engine', progress: 32, status: 'Review', color: '#c084fc' },
+    { name: 'Nocturnal Synthesis', progress: 100, status: 'Complete', color: '#4ade80' }
+  ];
+
   return (
-    <div className="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen pb-32">
-      <main className="pt-12 px-6 max-w-7xl mx-auto">
+    <div className="bg-background text-on-background font-body min-h-screen pb-32">
+      <main className="pt-12 px-6 max-w-7xl mx-auto space-y-12">
         {/* Dashboard Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="text-5xl font-headline font-bold tracking-tighter text-on-background mb-2">Obsidian Prime</h2>
-            <p className="text-on-surface-variant font-light tracking-wide uppercase text-sm">Active Project Portfolio • Q4 2024</p>
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-6xl font-headline font-black uppercase tracking-tighter italic text-primary"
+            >
+              Obsidian Prime
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-on-surface-variant font-black tracking-[0.3em] uppercase text-[10px] mt-2"
+            >
+              Command Center // Active Spec Tracking
+            </motion.p>
           </div>
-          <div className="flex gap-4">
-            <button className="bg-gradient-to-tr from-primary to-primary-container text-on-primary-fixed font-medium px-8 py-3 rounded-full shadow-lg shadow-primary/10 hover:scale-105 active:scale-95 duration-300">
-              New Initiative
-            </button>
-          </div>
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary text-on-primary font-black uppercase tracking-widest px-8 py-4 rounded-full text-[10px] shadow-2xl shadow-primary/20"
+          >
+            Launch New Spec
+          </motion.button>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-12 gap-6">
-          {/* Project Status Tracking (Large) */}
-          <div className="col-span-12 md:col-span-8 liquid-glass p-8 rounded-xl min-h-[400px] flex flex-col justify-between">
-            <div>
-              <div className="flex justify-between items-start mb-8">
-                <h3 className="text-2xl font-headline font-semibold italic text-primary">Live Pulse</h3>
-                <div className="flex -space-x-3">
-                  <img 
-                    className="w-8 h-8 rounded-full border-2 border-surface" 
-                    alt="team member"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBimQe3KVP0_-Sl4ibiQf0vzk9kQaPxhjIHQWBy8rC3HVTOTrfH49dS2VLaEnZ2yMovNlIz9UnDvpiACu70ScVMhUAUB73E7m8pcIk490DawXwHfV_V4KMJ6VF8DeBbdQkRp80Fvc5-mxkJfNcpGVBiHai182mcVt7f2RdLUNUv2VMQlaWyFK22ougpZFqO01eZd1YvTcAEycIX1gP9RAgffdlyFr8jKgMfCbWD3StfJlkKjhMn2OHAQDpOofQeg0mCOOvj5ra_jTI" 
+        {/* Bento Grid */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Main Pulse Tracker */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="col-span-12 lg:col-span-8 liquid-glass p-10 rounded-3xl space-y-12"
+          >
+            <div className="flex justify-between items-center">
+              <h3 className="text-3xl font-headline font-black uppercase italic tracking-tighter">Live Pulse</h3>
+              <div className="flex -space-x-4">
+                {[
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100',
+                  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100',
+                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100'
+                ].map((src, i) => (
+                  <motion.img 
+                    key={i}
+                    whileHover={{ y: -5, zIndex: 10 }}
+                    src={src} 
+                    className="w-10 h-10 rounded-full border-2 border-background object-cover cursor-pointer"
                   />
-                  <img 
-                    className="w-8 h-8 rounded-full border-2 border-surface" 
-                    alt="team member"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO4TPnuAlHFhxubVy3jLeXj3wLo-W5EGF_ohEMpfdWyzhsyoB9a_USj33bTWEeQ_7TNYhVuOGVSAWpzWxIrO4kSpt0_kIQa1ruAEZdf0wfAGs4QiB892Rp04V-ZIKmyyboANXFxbcAaY9MLmA8s-_F5noVFW9raH4OQ6SWj6H-30TW4hD91DQZC1ev17p2x_qywl6aZOPXDSSOX1yxFfkeB4vzEK3lAH4bLS_AmOvdU1NXYkpDKeA6Kjo4FdwBkUxYhusdSHDbHSk" 
-                  />
-                  <div className="w-8 h-8 rounded-full bg-surface-container-highest border-2 border-surface flex items-center justify-center text-[10px] text-on-surface-variant">+4</div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="group cursor-pointer">
-                  <div className="flex justify-between items-end mb-2">
-                    <span className="font-headline italic text-xl">Project: Golden Mane Rebrand</span>
-                    <span className="text-primary text-sm font-medium">84% Complete</span>
-                  </div>
-                  <div className="h-[2px] w-full bg-surface-container-highest overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-primary to-tertiary w-[84%] transition-all duration-1000"></div>
-                  </div>
-                </div>
-                <div className="group cursor-pointer">
-                  <div className="flex justify-between items-end mb-2">
-                    <span className="font-headline italic text-xl">Apex Commerce Engine</span>
-                    <span className="text-on-surface-variant text-sm font-medium">32% Complete</span>
-                  </div>
-                  <div className="h-[2px] w-full bg-surface-container-highest overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-primary to-tertiary w-[32%] transition-all duration-1000"></div>
-                  </div>
-                </div>
+                ))}
+                <div className="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-background flex items-center justify-center text-[10px] font-black">+4</div>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/5">
-              <div className="flex flex-col">
-                <span className="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Total Assets</span>
-                <span className="text-2xl font-headline font-bold">1,204</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Open Tickets</span>
-                <span className="text-2xl font-headline font-bold text-error">12</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Client Health</span>
-                <span className="text-2xl font-headline font-bold text-primary">Elite</span>
-              </div>
+            <div className="space-y-10">
+              {projects.map((project, i) => (
+                <div key={i} className="space-y-4">
+                  <div className="flex justify-between items-end">
+                    <span className="font-headline text-2xl uppercase font-black italic tracking-tighter">{project.name}</span>
+                    <span className="text-primary text-[10px] font-black uppercase tracking-widest">{project.progress}% Complete</span>
+                  </div>
+                  <div className="h-2 w-full bg-background rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: `${project.progress}%` }}
+                      transition={{ duration: 1, delay: i * 0.2 }}
+                      className="h-full bg-gradient-to-r from-primary to-primary-container shadow-[0_0_15px_rgba(255,77,129,0.3)]"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/5">
+              {[
+                { label: 'Total Assets', value: '1,204' },
+                { label: 'Open Tickets', value: '12', color: 'text-error' },
+                { label: 'Hunt Health', value: 'Elite', color: 'text-primary' }
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-col">
+                  <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest mb-2">{stat.label}</span>
+                  <span className={`text-4xl font-headline font-black italic tracking-tighter ${stat.color || 'text-on-surface'}`}>{stat.value}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Quick Actions */}
+          <div className="col-span-12 lg:col-span-4 flex flex-col gap-8">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="flex-1 bg-surface-container-high p-8 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center space-y-6"
+            >
+              <span className="material-symbols-outlined text-5xl text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>pets</span>
+              <h4 className="text-2xl font-headline font-black uppercase italic tracking-tighter">The Pride Network</h4>
+              <p className="text-on-surface-variant text-sm font-light">Instant communication with elite contributors.</p>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="flex-1 bg-surface-container-high p-8 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center space-y-6"
+            >
+              <span className="material-symbols-outlined text-5xl text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
+              <h4 className="text-2xl font-headline font-black uppercase italic tracking-tighter">Secure Vault</h4>
+              <p className="text-on-surface-variant text-sm font-light">Tier-1 encrypted asset delivery.</p>
+            </motion.div>
           </div>
 
-          {/* Lion Status Icons / Quick Actions (Vertical) */}
-          <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
-            <div className="liquid-glass p-6 rounded-xl flex-1 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white/5 transition-all">
-              <span className="material-symbols-outlined text-4xl text-primary mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>pets</span>
-              <h4 className="text-lg font-headline italic">The Pride Network</h4>
-              <p className="text-sm text-on-surface-variant px-4">Instant communication with elite contributors.</p>
-            </div>
-            <div className="liquid-glass p-6 rounded-xl flex-1 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white/5 transition-all">
-              <span className="material-symbols-outlined text-4xl text-tertiary mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
-              <h4 className="text-lg font-headline italic">Secure Vault</h4>
-              <p className="text-sm text-on-surface-variant px-4">Tier-1 encrypted asset storage and delivery.</p>
-            </div>
-          </div>
-
-          {/* Document Storage / Content Snare (Horizontal Wide) */}
-          <div className="col-span-12 lg:col-span-7 bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-8">
+          {/* Document Pipeline */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="col-span-12 bg-surface-container-low p-10 rounded-3xl border border-white/5 relative overflow-hidden"
+          >
+            <div className="relative z-10 space-y-10">
+              <div className="flex justify-between items-center">
                 <div>
-                  <h3 className="text-2xl font-headline font-semibold">Document Pipeline</h3>
-                  <p className="text-sm text-on-surface-variant font-light">Awaiting client signature for 3 modules</p>
+                  <h3 className="text-3xl font-headline font-black uppercase italic tracking-tighter">Document Pipeline</h3>
+                  <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-widest mt-2">Awaiting client signature for 3 modules</p>
                 </div>
-                <span className="material-symbols-outlined text-on-surface-variant">folder_open</span>
+                <span className="material-symbols-outlined text-on-surface-variant">folder_special</span>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-primary flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="material-symbols-outlined text-primary-container">description</span>
-                    <div>
-                      <p className="text-sm font-medium">Brand Guidelines.pdf</p>
-                      <p className="text-xs text-on-surface-variant">Due in 2 days</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { name: 'Brand Guidelines.pdf', status: 'Due in 2 days', tag: 'High' },
+                  { name: 'Style Tile #04', status: 'Review Required', tag: 'Spec' },
+                  { name: 'Motion Logic', status: 'Signature Pending', tag: 'Core' }
+                ].map((doc, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    className="bg-background/40 p-6 rounded-2xl border border-white/5 flex items-center justify-between group cursor-pointer"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                        <span className="material-symbols-outlined text-sm">description</span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold uppercase tracking-tight">{doc.name}</p>
+                        <p className="text-[10px] text-on-surface-variant font-black uppercase tracking-widest mt-1">{doc.status}</p>
+                      </div>
                     </div>
-                  </div>
-                  <button className="text-xs text-primary uppercase font-bold tracking-tighter">Sign</button>
-                </div>
-                <div className="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-tertiary-container flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="material-symbols-outlined text-tertiary">inventory_2</span>
-                    <div>
-                      <p className="text-sm font-medium">Style Tile #04</p>
-                      <p className="text-xs text-on-surface-variant">Review Required</p>
-                    </div>
-                  </div>
-                  <button className="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">View</button>
-                </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
-          </div>
-
-          {/* Upcoming Milestones */}
-          <div className="col-span-12 lg:col-span-5 liquid-glass p-8 rounded-xl">
-            <h3 className="text-xl font-headline font-semibold mb-6 flex items-center gap-3">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>calendar_today</span>
-              Timeline Apex
-            </h3>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
-                  <div className="w-[1px] h-full bg-outline-variant mt-2"></div>
-                </div>
-                <div>
-                  <p className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Oct 24</p>
-                  <h5 className="text-md font-headline italic text-lg">Web Infrastructure Handover</h5>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
-                  <div className="w-[1px] h-full bg-outline-variant mt-2"></div>
-                </div>
-                <div>
-                  <p className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Oct 28</p>
-                  <h5 className="text-md font-headline italic text-lg">Global PR Launch Event</h5>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="w-2 h-2 rounded-full bg-surface-container-highest mt-2"></div>
-                </div>
-                <div>
-                  <p className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Nov 02</p>
-                  <h5 className="text-md font-headline italic text-lg text-on-surface-variant">Q4 Review & Scaling</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 blur-[120px] rounded-full" />
+          </motion.div>
         </div>
       </main>
     </div>
