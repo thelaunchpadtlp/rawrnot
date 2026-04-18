@@ -35,18 +35,32 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateCMSModels())
     app.migrations.add(CreateFormModels())
     app.migrations.add(CreateContractModels())
+    app.migrations.add(CreateExtensionModels())
 
     // 3. Seed initial data
     try await seedUsers(app)
     try await seedServices(app)
     try await seedCMS(app)
     try await seedForms(app)
+    try await seedExtensions(app)
 
     // 4. Register routes
     try routes(app)
     }
     }
 
+    async func seedExtensions(_ app: Application) throws {
+    let count = try await ExtensionModule.query(on: app.db).count()
+    if count == 0 {
+    let adobePlugin = ExtensionModule(name: "Adobe Bridge Connector", type: "connector", configJson: "{\"apiKey\":\"pending\",\"syncFolder\":\"/rawrnot/renders\"}")
+    try await adobePlugin.save(on: app.db)
+
+    let googleCalendar = ExtensionModule(name: "Google Calendar Sync", type: "connector", configJson: "{\"scopes\":[\"calendar.events\"],\"autoBook\":true}")
+    try await googleCalendar.save(on: app.db)
+
+    app.logger.info("Extensions Seeded: Adobe and Google.")
+    }
+    }
     async func seedForms(_ app: Application) throws {
     let count = try await FormDefinition.query(on: app.db).count()
     if count == 0 {
