@@ -1,96 +1,67 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import InteractiveBriefing from './components/InteractiveBriefing';
-import Portfolio from './components/Portfolio';
-import CrmDashboard from './components/CrmDashboard';
-import Quoting from './components/Quoting';
-import Blog from './components/Blog';
-import AboutServices from './components/AboutServices';
-import AnimationLab from './components/AnimationLab';
-import { ThemeProvider, useTheme } from './contexts/ThemeContext';
-import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import NexusHub from './pages/NexusHub';
+import Marketplace from './pages/Marketplace';
+import TheEcho from './pages/TheEcho';
+import ClientPortal from './pages/ClientPortal';
+import CheckoutBooking from './pages/CheckoutBooking';
+import QuotingBriefing from './pages/QuotingBriefing';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import { GoogleLogin } from '@react-oauth/google';
+import DynamicPage from './pages/DynamicPage';
+import TheArchitect from './pages/TheArchitect';
 
-type View = 'portfolio' | 'briefing' | 'crm' | 'quoting' | 'blog' | 'about' | 'lab';
+function AppContent() {
+...
+        <div className="relative z-10 pt-20">
+          <Routes>
+            {/* Dynamic Public Routes */}
+            <Route path="/" element={<DynamicPage />} />
+            <Route path="/p/:slug" element={<DynamicPage />} />
+            <Route path="/portfolio" element={<DynamicPage />} />
+            <Route path="/journal" element={<DynamicPage />} />
+            
+            {/* Fixed Public Routes */}
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/echo" element={<TheEcho />} />
+            <Route path="/quote" element={<QuotingBriefing />} />
 
-const AppContent: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>('portfolio');
-  const { theme, toggleTheme } = useTheme();
-  const { language, setLanguage, t } = useLanguage();
+            {/* Protected Client Routes */}
+            <Route path="/portal" element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <ClientPortal />
+              </ProtectedRoute>
+            } />
+            <Route path="/checkout" element={
+              <ProtectedRoute requiredRole="CLIENT">
+                <CheckoutBooking />
+              </ProtectedRoute>
+            } />
 
-  const views: Record<View, React.ReactNode> = {
-    portfolio: <Portfolio />,
-    blog: <Blog />,
-    about: <AboutServices />,
-    quoting: <Quoting />,
-    briefing: <InteractiveBriefing />,
-    crm: <CrmDashboard />,
-    lab: <AnimationLab />,
-  };
-
-  return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <div className="fixed inset-0 noise-overlay z-[9999]" />
-
-      <header className="fixed top-0 w-full z-[100] flex justify-between items-center px-6 py-4 bg-background/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border-b border-white/5 transition-colors duration-700">
-        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-primary">menu</span>
-          <span className="font-headline tracking-tighter text-2xl font-bold uppercase text-primary italic font-black">RAW'R'NOT</span>
-        </motion.div>
-        
-        <nav className="hidden lg:flex gap-4 items-center">
-          {(['portfolio', 'blog', 'about', 'quoting', 'briefing', 'crm', 'lab'] as View[]).map((view) => (
-            <button 
-              key={view}
-              onClick={() => setCurrentView(view)}
-              className={`relative px-4 py-2 transition-colors text-[10px] font-bold uppercase tracking-widest ${currentView === view ? 'text-primary' : 'text-on-background/40 hover:text-primary'}`}
-            >
-              {view === 'lab' ? 'Motion Synth' : t(`nav.${view}`)}
-              {currentView === view && (
-                <motion.div layoutId="nav-underline" className="absolute bottom-0 left-4 right-4 h-[2px] bg-primary" />
-              )}
-            </button>
-          ))}
-
-          <div className="h-4 w-[1px] bg-white/10 mx-2"></div>
-
-          <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={toggleTheme} className="text-primary hover:bg-primary/10 transition-colors p-2 rounded-full">
-            <AnimatePresence mode="wait">
-              <motion.span key={theme} initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} className="material-symbols-outlined text-xl">
-                {theme === 'obsidian' ? 'light_mode' : 'dark_mode'}
-              </motion.span>
-            </AnimatePresence>
-          </motion.button>
-
-          <button onClick={() => setLanguage(language === 'en' ? 'es' : 'en')} className="text-[10px] font-black uppercase tracking-tighter text-on-background/40 hover:text-primary px-2 py-1 border border-on-background/10 rounded transition-colors">
-            {language === 'en' ? 'ES' : 'EN'}
-          </button>
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <motion.div whileHover={{ scale: 1.05 }} className="w-10 h-10 rounded-full overflow-hidden border border-primary/30 cursor-pointer">
-            <img className="w-full h-full object-cover" alt="majestic lion" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=200&h=200" />
-          </motion.div>
+            {/* Protected Owner Routes */}
+            <Route path="/nexus" element={
+              <ProtectedRoute requiredRole="OWNER">
+                <NexusHub />
+              </ProtectedRoute>
+            } />
+            <Route path="/architect" element={
+              <ProtectedRoute requiredRole="OWNER">
+                <TheArchitect />
+              </ProtectedRoute>
+            } />
+          </Routes>
         </div>
-      </header>
-
-      <main className="relative pt-20">
-        <AnimatePresence mode="wait">
-          <motion.div key={currentView} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-            {views[currentView]}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-    </div>
+      </div>
+    </Router>
   );
-};
+}
 
 function App() {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </ThemeProvider>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 

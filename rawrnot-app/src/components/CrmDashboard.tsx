@@ -11,8 +11,13 @@ const CrmDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="bg-background text-on-background font-body min-h-screen pb-32">
-      <main className="pt-12 px-6 max-w-7xl mx-auto space-y-12">
+    <div className="bg-background text-on-background font-body min-h-screen pb-32 relative">
+      {/* Design Reference Overlay (Lower Opacity) */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
+        <img src="/assets/stitch/dashboard.png" className="w-full h-full object-cover" alt="Design Reference" />
+      </div>
+
+      <main className="pt-12 px-6 max-w-7xl mx-auto space-y-12 relative z-10">
         {/* Dashboard Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>

@@ -1,153 +1,118 @@
 @import "tailwindcss";
 
 @theme {
+  /* 
+   * DUAL-AESTHETIC CSS VARIABLES 
+   * Values mapped dynamically based on standard class names, controlled by the "dark" / "light" classes on <html> 
+   */
+  --color-background: var(--bg-primary);
+  --color-on-background: var(--text-primary);
+  
+  --color-surface-container-lowest: var(--surface-lowest);
+  --color-surface-container-low: var(--surface-low);
+  --color-surface-container: var(--surface-base);
+  --color-surface-container-high: var(--surface-high);
+  --color-surface-container-highest: var(--surface-highest);
+  --color-surface-bright: var(--surface-bright);
+  
+  --color-primary: var(--brand-primary);
+  --color-on-primary: var(--brand-on-primary);
+  
+  --color-outline: var(--border-outline);
+  --color-outline-variant: var(--border-outline-variant);
+
   --font-headline: "Newsreader", serif;
   --font-body: "Inter", sans-serif;
-  --font-label: "Inter", sans-serif;
-
-  --color-background: var(--background);
-  --color-on-background: var(--on-background);
-  --color-primary: var(--primary);
-  --color-on-primary: var(--on-primary);
-  --color-primary-container: var(--primary-container);
-  --color-on-primary-container: var(--on-primary-container);
-  --color-secondary: var(--secondary);
-  --color-on-secondary: var(--on-secondary);
-  --color-secondary-container: var(--secondary-container);
-  --color-on-secondary-container: var(--on-secondary-container);
-  --color-tertiary: var(--tertiary);
-  --color-on-tertiary: var(--on-tertiary);
-  --color-tertiary-container: var(--tertiary-container);
-  --color-on-tertiary-container: var(--on-tertiary-container);
-  --color-error: var(--error);
-  --color-on-error: var(--on-error);
-  --color-error-container: var(--error-container);
-  --color-on-error-container: var(--on-error-container);
-  --color-surface: var(--surface);
-  --color-on-surface: var(--on-surface);
-  --color-surface-variant: var(--surface-variant);
-  --color-on-surface-variant: var(--on-surface-variant);
-  --color-outline: var(--outline);
-  --color-outline-variant: var(--outline-variant);
-  --color-inverse-surface: var(--inverse-surface);
-  --color-inverse-on-surface: var(--inverse-on-surface);
-  --color-inverse-primary: var(--inverse-primary);
-  --color-surface-dim: var(--surface-dim);
-  --color-surface-bright: var(--surface-bright);
-  --color-surface-container-lowest: var(--surface-container-lowest);
-  --color-surface-container-low: var(--surface-container-low);
-  --color-surface-container: var(--surface-container);
-  --color-surface-container-high: var(--surface-container-high);
-  --color-surface-container-highest: var(--surface-container-highest);
-
-  --radius-xl: 1.5rem;
 }
 
-:root {
-  /* Obsidian Dark */
-  --background: #0a0a0a;
-  --on-background: #f0f0f0;
-  --primary: #ff4d81;
-  --on-primary: #ffffff;
-  --primary-container: #3f0016;
-  --on-primary-container: #ffd9de;
-  --secondary: #b0b0b0;
-  --on-secondary: #000000;
-  --secondary-container: #2a2a2a;
-  --on-secondary-container: #e0e0e0;
-  --tertiary: #c084fc;
-  --on-tertiary: #000000;
-  --tertiary-container: #300050;
-  --on-tertiary-container: #e0b0ff;
-  --surface: #0a0a0a;
-  --on-surface: #f0f0f0;
-  --surface-variant: #1a1a1a;
-  --on-surface-variant: #a0a0a0;
-  --outline: #404040;
-  --outline-variant: #2a2a2a;
-  --surface-container: #121212;
-  --surface-container-high: #1a1a1a;
-  --surface-container-highest: #242424;
+@layer base {
+  :root {
+    /* LIGHTCRAFT ROAR (Artisanal Paper, Skeuomorphic) */
+    --bg-primary: #f4f1ea;
+    --text-primary: #2d2824;
+    
+    --surface-lowest: #ffffff;
+    --surface-low: #f9f8f4;
+    --surface-base: #ece8df;
+    --surface-high: #e2dccf;
+    --surface-highest: #d6cfbf;
+    --surface-bright: #ffffff;
+    
+    --brand-primary: #90003b;
+    --brand-on-primary: #ffffff;
+    
+    --border-outline: #8c827a;
+    --border-outline-variant: #d4cec5;
+    
+    /* Lightcraft Specific Utilities */
+    --ambient-shadow-css: inset 0 2px 4px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.05);
+    --ghost-border-css: 0 0 0 1px rgba(140, 130, 122, 0.2);
+    --liquid-bg: rgba(244, 241, 234, 0.7);
+  }
+
+  .dark {
+    /* OBSIDIAN DARK (Liquid Glass, High Contrast) */
+    --bg-primary: #131313;
+    --text-primary: #e5e2e1;
+    
+    --surface-lowest: #0e0e0e;
+    --surface-low: #1c1b1b;
+    --surface-base: #201f1f;
+    --surface-high: #2a2a2a;
+    --surface-highest: #353534;
+    --surface-bright: #393939;
+    
+    --brand-primary: #ffb2bf;
+    --brand-on-primary: #660028;
+    
+    --border-outline: #ab888c;
+    --border-outline-variant: #5b3f43;
+    
+    /* Obsidian Specific Utilities */
+    --ambient-shadow-css: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228,189,194,0.1);
+    --ghost-border-css: 0 0 0 1px rgba(91,63,67,0.3);
+    --liquid-bg: rgba(53, 53, 52, 0.4);
+  }
+
+  body {
+    @apply bg-background text-on-background font-body transition-colors duration-500 ease-in-out;
+  }
   
-  --glass-bg: rgba(10, 10, 10, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glow-color: rgba(255, 77, 129, 0.3);
-}
-
-.theme-lightcraft {
-  /* Lightcraft Primal */
-  --background: #fdfaf6;
-  --on-background: #1c1917;
-  --primary: #920027;
-  --on-primary: #ffffff;
-  --primary-container: #ffdada;
-  --on-primary-container: #40000c;
-  --secondary: #57534e;
-  --on-secondary: #ffffff;
-  --secondary-container: #e7e5e4;
-  --on-secondary-container: #1c1917;
-  --tertiary: #005ac1;
-  --on-tertiary: #ffffff;
-  --tertiary-container: #d8e2ff;
-  --on-tertiary-container: #001a41;
-  --surface: #fdfaf6;
-  --on-surface: #1c1917;
-  --surface-variant: #f5f5f4;
-  --on-surface-variant: #57534e;
-  --outline: #d6d3d1;
-  --outline-variant: #e7e5e4;
-  --surface-container: #f5f2ed;
-  --surface-container-high: #ebe8e3;
-  --surface-container-highest: #e1ddd8;
-
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glow-color: rgba(146, 0, 39, 0.1);
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
+  }
 }
 
 @layer utilities {
   .liquid-glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+    background-color: var(--liquid-bg);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    @apply border border-outline-variant/10;
   }
   
-  .noise-overlay {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    pointer-events: none;
+  .ghost-border {
+    box-shadow: var(--ghost-border-css);
+    @apply border border-outline-variant/5;
+  }
+  
+  .ambient-shadow {
+    box-shadow: var(--ambient-shadow-css);
+  }
+  
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-primary to-[#ff4d81];
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--brand-primary), #ff4d81);
   }
 
-  .skeuo-shadow {
-    box-shadow: 
-      2px 2px 4px rgba(0,0,0,0.1),
-      inset 1px 1px 2px rgba(255,255,255,0.8),
-      inset -1px -1px 2px rgba(0,0,0,0.05);
+  .font-headline {
+    font-family: 'Newsreader', serif;
   }
-}
 
-body {
-  @apply bg-background text-on-background font-body transition-colors duration-700 ease-in-out;
-  min-height: 100dvh;
-}
-
-h1, h2, h3, .font-headline {
-  @apply font-headline italic;
-  letter-spacing: -0.04em;
-}
-
-button {
-  @apply cursor-pointer;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-background;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
 }

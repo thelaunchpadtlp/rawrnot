@@ -75,8 +75,13 @@ const InteractiveBriefing: React.FC = () => {
   };
 
   return (
-    <div className="bg-background text-on-background font-body min-h-screen">
-      <main className="pt-12 pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div className="bg-background text-on-background font-body min-h-screen relative">
+      {/* Design Reference Overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
+        <img src="/assets/stitch/briefing.png" className="w-full h-full object-cover" alt="Briefing Design Reference" />
+      </div>
+
+      <main className="pt-12 pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
 
         <div className="lg:col-span-8 space-y-12">
           <section className="relative">
