@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e5e2e1",
+                        "on-primary-container": "#5a0022",
+                        "on-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "primary": "#ffb2bf",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "on-tertiary-container": "#5b0015",
+                        "primary-fixed": "#ffd9de",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#90003b",
+                        "surface-bright": "#393939",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "error": "#ffb4ab",
+                        "surface": "#131313",
+                        "on-tertiary": "#680019",
+                        "error-container": "#93000a",
+                        "on-primary": "#660028",
+                        "secondary-container": "#474649",
+                        "surface-container-highest": "#353534",
+                        "surface-tint": "#ffb2bf",
+                        "on-surface-variant": "#e4bdc2",
+                        "outline": "#ab888c",
+                        "secondary": "#c8c6c8",
+                        "primary-container": "#ff4d81",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-secondary": "#303032",
+                        "inverse-primary": "#bc004f",
+                        "tertiary-container": "#ff5167",
+                        "on-tertiary-fixed": "#40000c",
+                        "on-secondary-fixed-variant": "#474649",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed": "#e4e2e4",
+                        "surface-variant": "#353534",
+                        "on-secondary-container": "#b6b4b7",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#ffdada",
+                        "tertiary": "#ffb3b5",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#3f0016",
+                        "outline-variant": "#5b3f43"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.2);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(228, 189, 194, 0.1);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 w-full bg-neutral-900/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-pink-300">menu</span>
+<h1 class="font-newsreader tracking-tighter text-2xl font-bold uppercase text-pink-400 italic font-black">RAW'R'NOT</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 items-center">
+<span class="text-pink-300 font-medium cursor-pointer">Dashboard</span>
+<span class="text-neutral-400 hover:text-pink-200 transition-colors cursor-pointer">Projects</span>
+<span class="text-neutral-400 hover:text-pink-200 transition-colors cursor-pointer">Archives</span>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+<img alt="Lion Logo Avatar" data-alt="high-end professional portrait of a studio executive in minimalist black attire with dramatic soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl1OZ78Z8_i16PbQXNHexYBtG9ajfsvtQ-1LpMp8ZD87i6dYLmtcEdY926_tGeM0Lboomu8Xmq-kBqbg2a57CZRHG9ttZSDtH9qYgTNMD5-3WmlFEtlCaBon48h6IKAPX2sL97xCjvOcJJ9RNXQpFTSMhoTmC7UJFuj6jP9c1gY4mUSGWGAA0xxWNPyDJMQcEyvvdEtLGnu8dQg2up8X8pSW8WWIRSawn9BSOtiJRGmeuIXvGIezA_1TcQfBkjEBNTj2W2G2YmzDA"/>
+</div>
+</div>
+</header>
+<main class="pt-28 px-6 max-w-7xl mx-auto">
+<!-- Dashboard Header -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-5xl font-headline font-bold tracking-tighter text-on-background mb-2">Obsidian Prime</h2>
+<p class="text-on-surface-variant font-light tracking-wide uppercase text-sm">Active Project Portfolio • Q4 2024</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-gradient-to-tr from-primary to-primary-container text-on-primary-fixed font-medium px-8 py-3 rounded-full shadow-lg shadow-primary/10 hover:scale-105 active:scale-95 duration-300">
+                    New Initiative
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Project Status Tracking (Large) -->
+<div class="col-span-12 md:col-span-8 liquid-glass p-8 rounded-xl min-h-[400px] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<h3 class="text-2xl font-headline font-semibold italic text-primary">Live Pulse</h3>
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="headshot of a woman creative director in a neutral studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBimQe3KVP0_-Sl4ibiQf0vzk9kQaPxhjIHQWBy8rC3HVTOTrfH49dS2VLaEnZ2yMovNlIz9UnDvpiACu70ScVMhUAUB73E7m8pcIk490DawXwHfV_V4KMJ6VF8DeBbdQkRp80Fvc5-mxkJfNcpGVBiHai182mcVt7f2RdLUNUv2VMQlaWyFK22ougpZFqO01eZd1YvTcAEycIX1gP9RAgffdlyFr8jKgMfCbWD3StfJlkKjhMn2OHAQDpOofQeg0mCOOvj5ra_jTI"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="headshot of a male technical lead with glasses in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO4TPnuAlHFhxubVy3jLeXj3wLo-W5EGF_ohEMpfdWyzhsyoB9a_USj33bTWEeQ_7TNYhVuOGVSAWpzWxIrO4kSpt0_kIQa1ruAEZdf0wfAGs4QiB892Rp04V-ZIKmyyboANXFxbcAaY9MLmA8s-_F5noVFW9raH4OQ6SWj6H-30TW4hD91DQZC1ev17p2x_qywl6aZOPXDSSOX1yxFfkeB4vzEK3lAH4bLS_AmOvdU1NXYkpDKeA6Kjo4FdwBkUxYhusdSHDbHSk"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border-2 border-surface flex items-center justify-center text-[10px] text-on-surface-variant">+4</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="group cursor-pointer">
+<div class="flex justify-between items-end mb-2">
+<span class="font-newsreader italic text-xl">Project: Golden Mane Rebrand</span>
+<span class="text-primary text-sm font-medium">84% Complete</span>
+</div>
+<div class="h-[2px] w-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary w-[84%] transition-all duration-1000"></div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="flex justify-between items-end mb-2">
+<span class="font-newsreader italic text-xl">Apex Commerce Engine</span>
+<span class="text-on-surface-variant text-sm font-medium">32% Complete</span>
+</div>
+<div class="h-[2px] w-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary w-[32%] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/5">
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Total Assets</span>
+<span class="text-2xl font-newsreader font-bold">1,204</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Open Tickets</span>
+<span class="text-2xl font-newsreader font-bold text-error">12</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">Client Health</span>
+<span class="text-2xl font-newsreader font-bold text-primary">Elite</span>
+</div>
+</div>
+</div>
+<!-- Lion Status Icons / Quick Actions (Vertical) -->
+<div class="col-span-12 md:col-span-4 flex flex-col gap-6">
+<div class="liquid-glass p-6 rounded-xl flex-1 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">pets</span>
+<h4 class="text-lg font-headline italic">The Pride Network</h4>
+<p class="text-sm text-on-surface-variant px-4">Instant communication with elite contributors.</p>
+</div>
+<div class="liquid-glass p-6 rounded-xl flex-1 flex flex-col items-center justify-center text-center group cursor-pointer hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-4" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h4 class="text-lg font-headline italic">Secure Vault</h4>
+<p class="text-sm text-on-surface-variant px-4">Tier-1 encrypted asset storage and delivery.</p>
+</div>
+</div>
+<!-- Document Storage / Content Snare (Horizontal Wide) -->
+<div class="col-span-12 md:col-span-12 lg:col-span-7 bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-2xl font-headline font-semibold">Document Pipeline</h3>
+<p class="text-sm text-on-surface-variant font-light">Awaiting client signature for 3 modules</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">folder_open</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-primary flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">description</span>
+<div>
+<p class="text-sm font-medium">Brand Guidelines.pdf</p>
+<p class="text-xs text-on-surface-variant">Due in 2 days</p>
+</div>
+</div>
+<button class="text-xs text-primary uppercase font-bold tracking-tighter">Sign</button>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-tertiary-container flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">inventory_2</span>
+<div>
+<p class="text-sm font-medium">Style Tile #04</p>
+<p class="text-xs text-on-surface-variant">Review Required</p>
+</div>
+</div>
+<button class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">View</button>
+</div>
+</div>
+</div>
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- Upcoming Milestones (Small Square-ish) -->
+<div class="col-span-12 md:col-span-12 lg:col-span-5 liquid-glass p-8 rounded-xl">
+<h3 class="text-xl font-headline font-semibold mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+                    Timeline Apex
+                </h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+<div class="w-[1px] h-full bg-outline-variant mt-2"></div>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Oct 24</p>
+<h5 class="text-md font-newsreader italic text-lg">Web Infrastructure Handover</h5>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
+<div class="w-[1px] h-full bg-outline-variant mt-2"></div>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Oct 28</p>
+<h5 class="text-md font-newsreader italic text-lg">Global PR Launch Event</h5>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-surface-container-highest mt-2"></div>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Nov 02</p>
+<h5 class="text-md font-newsreader italic text-lg text-on-surface-variant">Q4 Review &amp; Scaling</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 w-full z-50 flex justify-around items-center px-4">
+<div class="bg-neutral-800/20 backdrop-blur-[32px] w-[90%] rounded-full max-w-md flex justify-around items-center py-2 px-4 shadow-2xl border border-white/10">
+<button class="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 duration-500 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
+<span class="material-symbols-outlined">folder_open</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW'R'NOT - System Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "tertiary-container": "#ff5167",
+                        "on-tertiary": "#680019",
+                        "on-surface": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#40000c",
+                        "primary-fixed": "#ffd9de",
+                        "primary": "#ffb2bf",
+                        "on-tertiary-container": "#5b0015",
+                        "on-secondary-fixed-variant": "#474649",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#bc004f",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "on-secondary-container": "#b6b4b7",
+                        "tertiary-fixed": "#ffdada",
+                        "surface-container-highest": "#353534",
+                        "on-surface-variant": "#e4bdc2",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary": "#303032",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "outline": "#ab888c",
+                        "on-primary-fixed": "#3f0016",
+                        "surface-tint": "#ffb2bf",
+                        "secondary": "#c8c6c8",
+                        "surface-variant": "#353534",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#5b3f43",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#393939",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "on-primary-fixed-variant": "#90003b",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "tertiary": "#ffb3b5",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#e4e2e4",
+                        "secondary-container": "#474649",
+                        "on-primary-container": "#5a0022",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "primary-container": "#ff4d81",
+                        "on-primary": "#660028"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar Implementation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-zinc-950/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold italic text-pink-500 font-headline tracking-tighter">RAW'R'NOT</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-pink-400 border-b-2 border-pink-500 pb-1 font-headline tracking-tighter" href="#">Dashboard</a>
+<a class="text-zinc-400 hover:text-pink-300 transition-colors duration-300 font-headline tracking-tighter" href="#">Spatial</a>
+<a class="text-zinc-400 hover:text-pink-300 transition-colors duration-300 font-headline tracking-tighter" href="#">Support</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-400 hover:text-pink-300 transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-zinc-400 hover:text-pink-300 transition-colors" data-icon="account_circle">account_circle</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Editorial Section Header -->
+<section class="lg:col-span-12 mb-8">
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-4">
+                System <span class="italic text-primary">Resonance</span>
+</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                Reviewing the interaction nodes of the RAW'R'NOT ecosystem. Below are the protocols for achievement confirmation and transactional recovery.
+            </p>
+</section>
+<!-- Main Content Area: Left Column (Error State) -->
+<div class="lg:col-span-7 space-y-12">
+<!-- Alert Section: Error -->
+<div class="p-8 rounded-xl bg-surface-container-low relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-error" data-icon="warning">warning</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+</div>
+<h2 class="text-xl font-headline font-bold">Transaction Failed</h2>
+</div>
+<div class="space-y-4 mb-8">
+<p class="text-on-surface-variant leading-relaxed">
+                            We couldn't process your last request. This usually happens due to a temporary connection interruption or insufficient permissions in your current zone.
+                        </p>
+<div class="bg-surface-container-lowest p-5 rounded-lg border-l-4 border-error/50">
+<h4 class="text-sm font-bold uppercase tracking-widest text-error mb-2">Instructions</h4>
+<ul class="text-sm space-y-2 text-on-surface/80">
+<li class="flex gap-2"><span class="text-error font-bold">1.</span> Verify your network stability in the spatial settings.</li>
+<li class="flex gap-2"><span class="text-error font-bold">2.</span> Refresh your worker session from the Apex dashboard.</li>
+<li class="flex gap-2"><span class="text-error font-bold">3.</span> Retry the sync protocol in 30 seconds.</li>
+</ul>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-3 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold text-sm tracking-wide shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                            Retry Transaction
+                        </button>
+<button class="px-8 py-3 rounded-full border border-outline-variant/20 text-on-surface hover:bg-surface-bright transition-all text-sm font-bold">
+                            View Log Details
+                        </button>
+</div>
+</div>
+</div>
+<!-- Contextual Info Card -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 rounded-xl liquid-glass border border-white/5">
+<span class="material-symbols-outlined text-tertiary mb-4" data-icon="shield_person">shield_person</span>
+<h3 class="font-headline text-xl mb-2">Security Node</h3>
+<p class="text-sm text-on-surface-variant">All failed attempts are logged and encrypted within your Elite Tier vault for future audit.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="bolt">bolt</span>
+<h3 class="font-headline text-xl mb-2">Instant Recovery</h3>
+<p class="text-sm text-on-surface-variant">Automatic re-routing is currently active for 85% of global spatial flows.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Focus on Success Dialogue -->
+<div class="lg:col-span-5">
+<!-- Success! rawrs Earned Dialogue (Mockup of Modal) -->
+<div class="relative p-1 rounded-2xl bg-gradient-to-tr from-primary/30 via-tertiary/20 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+<div class="bg-surface-container-high rounded-[1.25rem] p-8 text-center flex flex-col items-center">
+<div class="w-32 h-32 mb-8 relative">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl"></div>
+<div class="relative w-full h-full rounded-full border-4 border-primary/30 flex items-center justify-center bg-surface-container-lowest overflow-hidden">
+<img alt="Success background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="abstract flowing liquid metal texture with pink and red bioluminescent highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2iOuU0ykh6aYBfPgWPMt0HXCq0PLbJfkJ93GWMq4XYrs2oziyvdVTBQZyPAGMAsUP_5StCN7LWT-Per6cZY30rvzu7mXnBeQ0Z2GpmLd3lX7IxFl7gCoWbGrzqkKUbkHUJYAEDb3YkCH4qo5BHjpF7NCH8iQLVKQmuUAy50BGq0JLtuXKl_qYE_wbhpjzlGJ7Vmy_WfFQqJZ8oGyEKGFCHasqTcEEMHd_X7PF2MNPyP6mgkFqYIIlezIyawvN724Xu5a6HLSsrMY"/>
+<span class="material-symbols-outlined text-5xl text-primary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<h2 class="font-headline text-4xl font-bold tracking-tighter mb-2">Success!</h2>
+<p class="text-primary font-bold text-xl mb-6">rawrs Earned</p>
+<div class="bg-surface-container-lowest w-full rounded-xl p-6 mb-8 flex items-center justify-between">
+<div class="text-left">
+<span class="text-[10px] uppercase tracking-widest text-zinc-500 block mb-1">Accumulated</span>
+<span class="text-3xl font-headline font-bold text-on-surface">+1,420</span>
+</div>
+<div class="h-12 w-[1px] bg-outline-variant/30"></div>
+<div class="text-right">
+<span class="text-[10px] uppercase tracking-widest text-zinc-500 block mb-1">Level Progress</span>
+<span class="text-xl font-bold text-tertiary">88%</span>
+</div>
+</div>
+<!-- Progress Bar Component -->
+<div class="w-full mb-10">
+<div class="flex justify-between text-[10px] uppercase tracking-widest mb-2 font-bold text-zinc-400">
+<span>Apex Initiate</span>
+<span>Elite Tier</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[88%] bg-gradient-to-r from-tertiary to-on-tertiary-container"></div>
+</div>
+</div>
+<button class="w-full py-4 rounded-full bg-primary text-on-primary font-bold tracking-wide hover:brightness-110 active:scale-[0.98] transition-all">
+                        Collect &amp; Continue
+                    </button>
+<button class="mt-4 text-xs font-bold text-zinc-500 hover:text-primary transition-colors uppercase tracking-widest">
+                        Share Achievement
+                    </button>
+</div>
+</div>
+<!-- Asymmetric Metadata Card -->
+<div class="mt-8 ml-auto w-4/5 p-6 rounded-xl liquid-glass border-l-4 border-primary">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="history_edu">history_edu</span>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-1 text-on-surface">Lore Entry</h4>
+<p class="text-sm italic text-on-surface-variant font-headline">"The roar was heard across the digital void, claiming what was once raw and making it absolute."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Mobile Toggle Placeholder) and BottomNavBar for Mobile -->
+<footer class="md:hidden">
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-zinc-900/60 backdrop-blur-2xl flex justify-around items-center px-4 pb-8 pt-4 rounded-t-3xl border-t border-white/5 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-pink-500/20 text-pink-400 rounded-2xl px-6 py-2 scale-90 active:scale-110 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Pulse</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="watch">watch</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Watch</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Menu</span>
+</a>
+</nav>
+</footer>
+<!-- Accessibility Anchor for Screen Readers -->
+<div aria-live="polite" class="sr-only" id="status-announcer">
+        Interaction successful. 1,420 rawrs have been added to your account.
+    </div>
+</body></html>

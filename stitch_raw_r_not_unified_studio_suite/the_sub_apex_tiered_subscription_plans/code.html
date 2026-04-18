@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#474649",
+                    "on-secondary": "#303032",
+                    "inverse-primary": "#bc004f",
+                    "surface-tint": "#ffb2bf",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#131313",
+                    "tertiary-container": "#ff5167",
+                    "secondary-container": "#474649",
+                    "surface-container": "#201f1f",
+                    "on-error": "#690005",
+                    "outline": "#ab888c",
+                    "on-secondary-fixed": "#1b1b1d",
+                    "on-tertiary-container": "#5b0015",
+                    "tertiary-fixed-dim": "#ffb3b5",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary": "#ffb3b5",
+                    "secondary-fixed": "#e4e2e4",
+                    "on-tertiary-fixed-variant": "#920027",
+                    "primary-fixed": "#ffd9de",
+                    "surface-variant": "#353534",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#ff4d81",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "on-primary-fixed": "#3f0016",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed": "#40000c",
+                    "outline-variant": "#5b3f43",
+                    "on-surface-variant": "#e4bdc2",
+                    "surface": "#131313",
+                    "on-primary-container": "#5a0022",
+                    "error-container": "#93000a",
+                    "background": "#131313",
+                    "on-primary": "#660028",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-bright": "#393939",
+                    "on-surface": "#e5e2e1",
+                    "tertiary-fixed": "#ffdada",
+                    "secondary": "#c8c6c8",
+                    "on-secondary-container": "#b6b4b7",
+                    "secondary-fixed-dim": "#c8c6c8",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary": "#680019",
+                    "on-primary-fixed-variant": "#90003b",
+                    "surface-container-highest": "#353534",
+                    "primary": "#ffb2bf",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(228, 189, 194, 0.1);
+        }
+        .metallic-accent {
+            background: linear-gradient(135deg, rgba(255,178,191,0.2) 0%, rgba(255,77,129,0.1) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-fixed">
+<!-- TopNavBar Implementation -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold tracking-tighter text-[#ffb2bf] font-['Newsreader']">raw'r'not</span>
+<nav class="hidden md:flex gap-8 items-center font-['Newsreader'] tracking-tighter text-gray-400">
+<a class="hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Vault</a>
+<a class="hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Territory</a>
+<a class="text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1" href="#">The Pride</a>
+<a class="hover:text-[#ffb2bf] transition-colors duration-300" href="#">Sharing Hub</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-[#ffb2bf] scale-98 active:opacity-80">notifications</button>
+<button class="material-symbols-outlined text-[#ffb2bf] scale-98 active:opacity-80">account_circle</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1440px] mx-auto relative overflow-hidden">
+<!-- Ambient Decorative Elements -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px] -z-10"></div>
+<!-- Hero Section -->
+<section class="mb-24 text-center">
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter mb-6 text-on-surface italic">
+                The Sub-Apex
+            </h1>
+<p class="text-xl md:text-2xl font-headline italic text-on-surface-variant max-w-2xl mx-auto opacity-80">
+                Tiered membership models for elite technical execution and untamed creative instinct.
+            </p>
+</section>
+<!-- Subscription Grid (Asymmetric Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<!-- Tier 1: The Cub -->
+<div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col justify-between transition-all duration-500 hover:bg-surface-bright group relative overflow-hidden">
+<div class="absolute inset-0 metallic-accent opacity-20 pointer-events-none"></div>
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="font-headline text-3xl font-bold tracking-tighter">The Cub</span>
+<span class="material-symbols-outlined text-outline">architecture</span>
+</div>
+<div class="mb-8">
+<span class="text-5xl font-headline font-bold text-primary">$2,400</span>
+<span class="text-on-surface-variant font-label ml-2">/ month</span>
+</div>
+<ul class="space-y-4 mb-12">
+<li class="flex items-center gap-3 text-sm font-label text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Retainer for 10 hrs of Creative Design
+                        </li>
+<li class="flex items-center gap-3 text-sm font-label text-on-surface">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Standard Technical Support
+                        </li>
+<li class="flex items-center gap-3 text-sm font-label text-on-surface-variant opacity-50">
+<span class="material-symbols-outlined text-lg">block</span>
+                            Exclusive Pride Tools
+                        </li>
+</ul>
+</div>
+<button class="w-full py-4 rounded-full border border-outline-variant text-on-surface font-bold font-label hover:bg-primary hover:text-on-primary transition-all duration-300">
+                    Initiate Access
+                </button>
+</div>
+<!-- Tier 2: The Pride (Highlighted/Larger) -->
+<div class="md:col-span-4 md:-mt-8 md:mb-8 glass-panel rounded-xl p-10 flex flex-col justify-between transition-all duration-500 bg-surface-container-high border-primary/30 shadow-2xl relative group">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-1 bg-gradient-to-r from-primary to-primary-container rounded-full text-on-primary-fixed text-[10px] font-black uppercase tracking-widest">
+                    Most Coveted
+                </div>
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="font-headline text-4xl font-black tracking-tighter italic">The Pride</span>
+<span class="material-symbols-outlined text-primary scale-125" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="mb-8">
+<span class="text-6xl font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">$5,800</span>
+<span class="text-on-surface-variant font-label ml-2">/ month</span>
+</div>
+<ul class="space-y-5 mb-12">
+<li class="flex items-center gap-3 text-base font-label text-on-surface font-semibold">
+<span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            Retainer for 40 hrs of Creative Design
+                        </li>
+<li class="flex items-center gap-3 text-base font-label text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Priority Elite Execution
+                        </li>
+<li class="flex items-center gap-3 text-base font-label text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Unlocks "The Territory" Analytics
+                        </li>
+<li class="flex items-center gap-3 text-base font-label text-on-surface">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            24/7 Direct Engineering Line
+                        </li>
+</ul>
+</div>
+<button class="w-full py-5 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-black font-label shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+                    CLAIM THE PRIDE
+                </button>
+</div>
+<!-- Tier 3: The Apex -->
+<div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col justify-between transition-all duration-500 hover:bg-surface-bright group relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/10 to-transparent pointer-events-none"></div>
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="font-headline text-3xl font-bold tracking-tighter">The Apex</span>
+<span class="material-symbols-outlined text-tertiary">diamond</span>
+</div>
+<div class="mb-8">
+<span class="text-5xl font-headline font-bold text-tertiary">$12,000</span>
+<span class="text-on-surface-variant font-label ml-2">/ month</span>
+</div>
+<ul class="space-y-4 mb-12">
+<li class="flex items-center gap-3 text-sm font-label text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Retainer for 100 hrs of Creative Design
+                        </li>
+<li class="flex items-center gap-3 text-sm font-label text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Full Creative Direction &amp; Strategy
+                        </li>
+<li class="flex items-center gap-3 text-sm font-label text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Custom Engineering Frameworks
+                        </li>
+<li class="flex items-center gap-3 text-sm font-label text-tertiary font-bold">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Access to "The Vault" Beta
+                        </li>
+</ul>
+</div>
+<button class="w-full py-4 rounded-full border border-tertiary/40 text-tertiary font-bold font-label hover:bg-tertiary hover:text-on-tertiary transition-all duration-300">
+                    Ascend to Apex
+                </button>
+</div>
+</div>
+<!-- Feature Bento Grid (Editorial Tension) -->
+<section class="mt-32">
+<h2 class="text-4xl md:text-5xl font-headline font-light tracking-tight mb-16 italic">Elite Tools &amp; Ecosystem</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Feature 1: The Vault -->
+<div class="md:col-span-2 h-[400px] rounded-xl overflow-hidden relative group">
+<img alt="Abstract digital landscape" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dark ethereal digital tunnel with glowing pink and purple data streams and deep obsidian textures in a cinematic perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOqTx8FPfjZ6FQ9qPKeT6_zUIJDrW7Z96_r5Ot3HIUPJ5lsMJj6poh1YcekzKEdShMVgRS01ZFw6czHlOya2_9-tSM3DMB-nQuSUcrr1Wpz6VyKvPh4bhq0-7hWqcFsgebuYHEI_yuYFaI1LF-C2IsccXmmd6nVGF3YZnFeH4T0CvslzseVImIL3iFBLtMXA4Blp6oNubjWSwwZ504w565QEBctXkBuwv9hy9u0UEyehIfc18XC7GD0iyDiaM3mdi9lMgrOoWtbKs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<h3 class="text-3xl font-headline font-bold mb-2">The Vault</h3>
+<p class="text-on-surface-variant font-body max-w-md">Our private asset library. Over 40,000 components, shaders, and brutalist templates available only to Pride and Apex members.</p>
+</div>
+</div>
+<!-- Feature 2: High precision sans -->
+<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">precision_manufacturing</span>
+<h3 class="text-2xl font-headline font-bold mb-2">Technical Apex</h3>
+<p class="text-sm font-body text-on-surface-variant">We don't just design; we execute with mathematical precision using our proprietary Inter Mono framework.</p>
+</div>
+<!-- Feature 3: Multimedia UI -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-center items-center text-center border border-outline-variant/10">
+<div class="w-24 h-24 rounded-full bg-gradient-to-tr from-primary to-primary-container mb-6 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed text-4xl">stream</span>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-2">Live Iteration</h3>
+<p class="text-sm font-body text-on-surface-variant">Real-time collaboration wells where your vision meets our raw instinct instantly.</p>
+</div>
+<!-- Feature 4: Performance Logic -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-10 flex flex-col md:flex-row gap-8 items-center border border-outline-variant/5">
+<div class="w-full md:w-1/2">
+<h3 class="text-3xl font-headline font-bold mb-4">Performance-Based Logic</h3>
+<p class="text-on-surface-variant font-body mb-6">Subscriptions are calculated on elite technical execution hours. No waste, just results.</p>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-3/4"></div>
+</div>
+<div class="flex justify-between mt-2 font-label text-[10px] text-on-surface-variant uppercase tracking-widest">
+<span>Efficiency</span>
+<span>98.2% Precision</span>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-[200px] rounded-lg overflow-hidden glass-panel flex items-center justify-center">
+<img alt="Cyber security visualization" class="w-full h-full object-cover opacity-50" data-alt="Macro shot of high-tech circuit board with glowing pink neon traces and futuristic liquid cooling pipes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApF4BIW7wNGsK9stVenZHEP-zhz3XSuynY0SZXXcWXKPQhqp4gePxrcr0dXne4YAriY6lmULajxOAzZkuziXgxod4cVNOYN4xNYHkYESUaTYg-l4b0_k5erM0mluQ3bWFVrx-sGA2drHByGPKTEeriSt3e4kG5GCeLt5K5DbsV_sMn6PbpdcWAmtAALD3VCiHvvU1j3zSZ48_ROXwt76YyrZ6uYk_it2-xgSUHPrwj0WetwfqN56DrGDSB6Uhxz47SoCot0wC2pTA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="mt-40 mb-20 glass-panel rounded-xl p-16 text-center border-t-0 border-b-0 border-l-0 border-r-0 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<h2 class="text-5xl md:text-7xl font-headline font-bold tracking-tighter mb-8">Ready to join the Hunt?</h2>
+<p class="text-xl font-headline italic text-on-surface-variant mb-12 max-w-xl mx-auto">Elite membership is capped monthly to ensure technical integrity. Secure your position in the hierarchy.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="px-12 py-5 rounded-full bg-primary text-on-primary-fixed font-black font-label hover:scale-105 transition-all">
+                    START THE JOURNEY
+                </button>
+<button class="px-12 py-5 rounded-full border border-outline-variant text-on-surface font-black font-label hover:bg-surface-bright transition-all">
+                    CONTACT THE ARCHITECTS
+                </button>
+</div>
+</section>
+</main>
+<!-- SideNavBar (Suppressed on Landing but kept for hierarchy logic) -->
+<aside class="hidden h-screen w-64 fixed left-0 top-0 bg-[#0e0e0e] flex flex-col h-full py-6 transition-transform duration-200 ease-in-out">
+<div class="px-6 mb-12">
+<span class="text-xl font-black text-[#ffb2bf] font-['Inter']">The Territory</span>
+<p class="text-xs text-gray-500 font-medium mt-1">Elite Technical Execution</p>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="text-gray-500 hover:text-gray-200 mx-2 p-3 hover:bg-[#2a2a2a] rounded-lg transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-medium">Marketplace</span>
+</div>
+<div class="bg-gradient-to-r from-[#ffb2bf] to-[#ff4d81] text-white rounded-lg mx-2 p-3 shadow-lg flex items-center gap-3">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-medium">Projects</span>
+</div>
+<div class="text-gray-500 hover:text-gray-200 mx-2 p-3 hover:bg-[#2a2a2a] rounded-lg transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-medium">Analytics</span>
+</div>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-[#2a2a2a] text-[#ffb2bf] py-3 rounded-lg font-bold text-sm">Upgrade to Pride</button>
+</div>
+</aside>
+<footer class="bg-surface-container-lowest py-20 px-8">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<span class="text-3xl font-black text-[#ffb2bf] font-['Newsreader'] tracking-tighter">raw'r'not</span>
+<p class="mt-4 text-sm text-on-surface-variant font-body">The Digital Apex. Where untamed instinct meets surgical technical precision. Elite creative execution for the next paradigm.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div>
+<h4 class="font-label font-black text-[10px] uppercase tracking-widest text-primary mb-6">Hierarchy</h4>
+<ul class="space-y-3 text-sm text-on-surface-variant font-label">
+<li><a class="hover:text-on-surface transition-colors" href="#">The Vault</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">The Territory</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">The Pride</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-black text-[10px] uppercase tracking-widest text-primary mb-6">Support</h4>
+<ul class="space-y-3 text-sm text-on-surface-variant font-label">
+<li><a class="hover:text-on-surface transition-colors" href="#">System Status</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">Direct Connect</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label font-black text-[10px] uppercase tracking-widest text-primary mb-6">Social</h4>
+<ul class="space-y-3 text-sm text-on-surface-variant font-label">
+<li><a class="hover:text-on-surface transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">Twitter (X)</a></li>
+<li><a class="hover:text-on-surface transition-colors" href="#">LinkedIn</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-outline-variant/10 flex justify-between items-center text-[10px] font-label text-on-surface-variant uppercase tracking-[0.2em]">
+<span>© 2024 raw'r'not elite operations</span>
+<span>All Instincts Reserved</span>
+</div>
+</footer>
+</body></html>

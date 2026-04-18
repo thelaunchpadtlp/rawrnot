@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#5b0015",
+                "on-error-container": "#ffdad6",
+                "primary-container": "#ff4d81",
+                "outline-variant": "#5b3f43",
+                "tertiary-fixed": "#ffdada",
+                "primary-fixed": "#ffd9de",
+                "surface-container-low": "#1c1b1b",
+                "inverse-surface": "#e5e2e1",
+                "surface-bright": "#393939",
+                "tertiary-fixed-dim": "#ffb3b5",
+                "primary-fixed-dim": "#ffb2bf",
+                "background": "#131313",
+                "surface-container": "#201f1f",
+                "secondary-fixed-dim": "#c8c6c8",
+                "surface-variant": "#353534",
+                "surface-dim": "#131313",
+                "on-secondary-container": "#b6b4b7",
+                "on-surface-variant": "#e4bdc2",
+                "on-tertiary-fixed-variant": "#920027",
+                "surface-container-highest": "#353534",
+                "on-primary-container": "#5a0022",
+                "on-primary": "#660028",
+                "on-background": "#e5e2e1",
+                "on-secondary-fixed": "#1b1b1d",
+                "outline": "#ab888c",
+                "on-tertiary-fixed": "#40000c",
+                "error-container": "#93000a",
+                "secondary-container": "#474649",
+                "inverse-primary": "#bc004f",
+                "on-secondary-fixed-variant": "#474649",
+                "on-primary-fixed-variant": "#90003b",
+                "on-secondary": "#303032",
+                "surface-container-lowest": "#0e0e0e",
+                "inverse-on-surface": "#313030",
+                "surface": "#131313",
+                "error": "#ffb4ab",
+                "on-tertiary": "#680019",
+                "surface-container-high": "#2a2a2a",
+                "on-error": "#690005",
+                "on-primary-fixed": "#3f0016",
+                "surface-tint": "#ffb2bf",
+                "tertiary-container": "#ff5167",
+                "primary": "#ffb2bf",
+                "on-surface": "#e5e2e1",
+                "secondary": "#c8c6c8",
+                "tertiary": "#ffb3b5",
+                "secondary-fixed": "#e4e2e4"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "1.5rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Newsreader"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.vintage-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBpUf-0QiO1Gt0NJJkbY8dtSk_7f8BvpQiO4MLcNQaoEzvU9lDT4HK1jwMbTRh1DyODlXAs0kfrvCXwBvcDi69ElTS-zIn5wNNfZCDVuVb2bCG4FCq5o0p-Ky0QQzjBFYeEV1NT7PinyyBS3li_ZdARJNweAMl5qFQzVjhaeUJjlUQuUGbxOlVp2f848Rxma5zRZfII5ODtjdQm0--nUIZ-_pdowsxLbSMcYpTJUmvUdMCSTHr3O6qFmtOaFKAKU8Aols-8DCZ2icA);
+    background-blend-mode: overlay
+    }
+.paper-shadow {
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2), 5px 5px 15px rgba(0, 0, 0, 0.3)
+    }
+.skeuo-inner {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(255, 255, 255, 0.05)
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/40 backdrop-blur-3xl dark:bg-[#131313]/40 flex justify-between items-center px-8 h-20 max-w-full mx-auto shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)] bg-gradient-to-b from-[#2a2a2a]/10 to-transparent">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-[#ffb2bf] dark:text-[#ffb2bf] font-['Newsreader'] tracking-tighter">APEX AGENCY</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Newsreader'] tracking-tighter text-lg dark:font-['Newsreader'] text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1" href="#">Marketplace</a>
+<a class="font-['Newsreader'] tracking-tighter text-lg dark:font-['Newsreader'] text-white/60 hover:text-white transition-colors" href="#">Journal</a>
+<a class="font-['Newsreader'] tracking-tighter text-lg dark:font-['Newsreader'] text-white/60 hover:text-white transition-colors" href="#">Network</a>
+<a class="font-['Newsreader'] tracking-tighter text-lg dark:font-['Newsreader'] text-white/60 hover:text-white transition-colors" href="#">Status</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-white/60 hover:text-primary transition-all duration-300 active:scale-95" data-icon="dark_mode">dark_mode</button>
+<div class="h-6 w-[1px] bg-white/10"></div>
+<!-- Vintage Theme Switcher Toggle -->
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container-lowest rounded-full skeuo-inner border border-white/5">
+<span class="text-[10px] uppercase tracking-widest text-white/40 font-bold">Raw</span>
+<div class="w-8 h-4 bg-primary-container rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-md"></div>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Apex</span>
+</div>
+<button class="material-symbols-outlined text-white/60 hover:text-primary transition-all duration-300 active:scale-95" data-icon="notifications">notifications</button>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary/20" data-alt="Close up portrait of a stylish creative director with sharp features and thoughtful expression in dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_jPYCAy8jOF-fX3LZyNlQOxFDDL4lGZxuHrWJgKVZkBY0NmkAdootgOucyElb4Kshpzct9t4tDV-iBJOTlnw275vj2oVJoYW-F1MIm1p49xo6-jIukRU8v_Ij5wLwptE7yd9UQsG02tVUMHm1HNpMnNgVYdQVYXU-jABOgj_qQiPCLgk6QT3VA0_wBVK_LOZMg4dWnqzLpwfKyQmbPGfZMVc7oHU5XGhc0eXD4WhONLwzNk6x1ynY0j7EOgla_xKtWJrkoR231g"/>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Hero Section: Editorial Asymmetry -->
+<header class="relative mb-24 grid grid-cols-12 items-end">
+<div class="col-span-12 lg:col-span-7 z-10">
+<h1 class="font-headline text-display-lg text-on-background leading-none tracking-tighter mb-6">
+                    The <span class="italic text-primary">Artisanal</span><br/>Marketplace
+                </h1>
+<p class="font-body text-body-lg text-on-surface-variant max-w-md leading-relaxed">
+                    Premium creative services delivered with surgical precision and raw instinct. Each package is hand-crafted for the digital elite.
+                </p>
+</div>
+<div class="hidden lg:block col-span-5 relative -ml-20">
+<div class="aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden relative paper-shadow">
+<img alt="Vintage Camera" class="w-full h-full object-cover mix-blend-luminosity opacity-80" data-alt="Close-up of a vintage black 35mm film camera resting on an aged newspaper with dramatic low key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJkzdisxEidowbcYUsaJaPlT2k5GttSQbozXijz6CEVVONY4TMtEU6B_301V0HmtQWbOk4Yfa004AFIDxk1wX2hevmFWxL2_6m_PjGgjRgokU0Jafuc1YX-JskRrkP-A2pibsRswXT9F9jfkc6Tf5wPAJ03cf_9W2RJ1z1JWpEoFT_R-xGdh54GDadvk2wJ4udkGhO-jL1om4aMdZ8r-UDY8KtP4cYkAhsVN9POVTE4cDji29MYeUnJSIA_dw1OEI-eQe9ULHvR2w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label text-label-md text-primary tracking-[0.3em] uppercase">Est. 2024</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Service Grid: Bento Style with Skeuomorphic Elements -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service Card 1: Cinematography -->
+<div class="group relative bg-[#e5e2e1] text-[#131313] rounded-xl p-8 vintage-texture paper-shadow transition-transform duration-500 hover:-translate-y-2 flex flex-col justify-between min-h-[480px]">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-4xl text-[#131313]/10" data-icon="videocam">videocam</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="font-label text-[10px] uppercase tracking-[0.2em] border-b border-[#131313]/20 pb-1">Service Type: 01</span>
+<div class="flex items-center gap-1 bg-[#131313]/5 px-2 py-1 rounded border border-[#131313]/10">
+<span class="material-symbols-outlined text-xs" data-icon="token">token</span>
+<span class="font-label text-xs font-bold tracking-tight">1,200 RAWRS</span>
+</div>
+</div>
+<h3 class="font-headline text-3xl font-bold italic mb-4">Cinematography</h3>
+<p class="font-body text-sm leading-relaxed text-[#131313]/70 mb-8">
+                        Elite visual storytelling. 4K high-bitrate capture with custom color grading and raw film texture integration.
+                    </p>
+</div>
+<div class="space-y-4">
+<div class="h-[1px] bg-[#131313]/10 w-full"></div>
+<button class="w-full py-4 bg-[#131313] text-[#ffb2bf] rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-lg active:scale-95">
+                        Acquire Service
+                    </button>
+</div>
+</div>
+<!-- Service Card 2: Creative Direction (Large/Wide) -->
+<div class="lg:col-span-2 group relative bg-surface-container-high rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-primary/5 min-h-[480px] flex flex-col md:flex-row">
+<div class="flex-1 p-8 md:p-12 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-12">
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-white/40 border-b border-white/10 pb-1">Service Type: 02</span>
+<div class="flex items-center gap-1 bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label text-xs font-bold text-primary tracking-tight">2,500 RAWRS</span>
+</div>
+</div>
+<h3 class="font-headline text-4xl font-bold mb-6">Creative Direction</h3>
+<p class="font-body text-on-surface-variant leading-relaxed max-w-sm">
+                            Architecting the soul of your brand. From conceptual moodboarding to final execution management across all mediums.
+                        </p>
+</div>
+<div class="mt-12 flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-variant text-[10px] uppercase tracking-widest font-bold text-white/60 rounded skeuo-inner">Strategy</span>
+<span class="px-4 py-2 bg-surface-variant text-[10px] uppercase tracking-widest font-bold text-white/60 rounded skeuo-inner">Conceptual</span>
+<span class="px-4 py-2 bg-surface-variant text-[10px] uppercase tracking-widest font-bold text-white/60 rounded skeuo-inner">Management</span>
+</div>
+</div>
+<div class="w-full md:w-1/3 h-64 md:h-auto bg-surface-container-highest relative">
+<img alt="Design Studio" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700" data-alt="Interior of a minimalist design studio with large windows, architectural sketches on the wall, and high-end workstations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5z28wTyf4fhJFeXrTgqLzdZAanFijm2iLjZ2B88gN2GHTZQsBwWVb8hJzSv-vG_e_FJgFv-IzAAIgsuWtc9zULrK_xBjxax0EAlH5Y0gyNz9Co5LyLasDWJU7rSqxArszFBa6sE_evObjSkpNH7DwQ1JuL65dI729bYN5fc0fA1SEhFe7Ia2G83TaTY7ru-sSRjP1o7hUMROxs2bfw0k4GtMUVm5lUZt0qGlWNLNv15RkBN70FIbddyECFF527IlHwzJReAPYOoc"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-high to-transparent"></div>
+<div class="absolute bottom-8 right-8">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="north_east">north_east</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Service Card 3: Brand Identity (Asymmetric Glass) -->
+<div class="lg:col-span-2 relative bg-surface-variant/20 backdrop-blur-3xl rounded-xl p-8 border border-white/5 shadow-2xl overflow-hidden min-h-[400px]">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="relative z-10 grid md:grid-cols-2 gap-8 h-full">
+<div class="flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-3xl mb-4 italic">Brand Identity</h3>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed mb-6">
+                                Crafting visual signatures that command authority. Logo suites, typography systems, and color hierarchies that define markets.
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-xs uppercase tracking-widest text-primary font-bold">
+<span class="w-2 h-2 bg-primary rounded-full"></span> Custom Typography
+                                </li>
+<li class="flex items-center gap-3 text-xs uppercase tracking-widest text-white/40">
+<span class="w-2 h-2 bg-white/20 rounded-full"></span> Color Psychology
+                                </li>
+<li class="flex items-center gap-3 text-xs uppercase tracking-widest text-white/40">
+<span class="w-2 h-2 bg-white/20 rounded-full"></span> Motion Guidelines
+                                </li>
+</ul>
+</div>
+<div class="mt-8">
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-black italic">1,800</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-white/40">Rawrs tokens</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 skeuo-inner border border-white/5 relative group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="grid grid-cols-2 gap-4 h-full content-center">
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-3xl text-white/20" data-icon="polyline">polyline</span>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-3xl text-white/20" data-icon="ink_pen">ink_pen</span>
+</div>
+<div class="aspect-square bg-surface-container-high rounded-lg flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-3xl text-white/20" data-icon="grid_4x4">grid_4x4</span>
+</div>
+<div class="aspect-square bg-primary-container rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl text-on-primary-container" data-icon="draw">draw</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Card 4: Post Production (Vertical Skew) -->
+<div class="group relative bg-[#1c1b1b] rounded-xl p-8 border border-white/5 paper-shadow flex flex-col justify-between overflow-hidden">
+<div class="absolute -bottom-10 -right-10 opacity-5">
+<span class="material-symbols-outlined text-[200px]" data-icon="timeline">timeline</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="movie_edit">movie_edit</span>
+</div>
+<span class="font-label text-xs font-bold text-primary">850 RAWRS</span>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-4">Post Production</h3>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                        The final alchemy. Masterful editing, VFX integration, and high-fidelity sound design to unify your vision.
+                    </p>
+</div>
+<div class="relative z-10 pt-8">
+<div class="w-full h-1 bg-surface-container-highest rounded-full mb-6 overflow-hidden">
+<div class="w-[75%] h-full bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest text-white/40 font-bold">
+<span>High Priority</span>
+<span>Available</span>
+</div>
+<button class="mt-6 w-full py-4 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+                        Details
+                    </button>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact Segment -->
+<section class="mt-32 grid grid-cols-12 gap-8 items-center">
+<div class="col-span-12 md:col-span-6">
+<h2 class="font-headline text-headline-md mb-4 italic">Request a Bespoke Audit</h2>
+<p class="font-body text-on-surface-variant max-w-sm mb-8">
+                    Not finding the specific predator you need? Contact our dispatch for a custom architectural quote.
+                </p>
+<div class="flex gap-4">
+<input class="flex-1 bg-surface-container-lowest border-none outline-none focus:ring-1 focus:ring-primary rounded-sm px-6 py-4 text-xs font-bold tracking-widest placeholder:text-white/20" placeholder="ENTER YOUR COORDINATES" type="email"/>
+<button class="bg-primary text-on-primary-fixed px-8 py-4 rounded-sm font-bold text-xs uppercase tracking-[0.2em] hover:bg-primary-container transition-colors">Submit</button>
+</div>
+</div>
+<div class="hidden md:block col-span-6 h-64 bg-surface-container-low rounded-xl relative overflow-hidden paper-shadow">
+<img alt="Artisanal Workshop" class="w-full h-full object-cover grayscale opacity-40 hover:scale-110 transition-transform duration-1000" data-alt="Monochrome image of a workbench with high-end fountain pens, vintage sketches, and a mechanical watch in sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0rHUAxC9EyhneaTAcCNKWBjXPg_3PA3H-33ig60-P0WacAld42viJx4SPqm4e7psOGdbVy3zdQM3ygpbxxd9MKpIfKVGuG97gHz0_qY7D7N1yjGW9tlZ7cKQa0Afls5CZYgeaZ0htOjQ9E8ycVc9k5XtkFxk8XAc_DwXPO-3htOAbKzany3Po_1v5qgsF0V_3e4rBW9qIAajJENhY2bjSGbgQokYdSPY45CBHL2kk3owy9EkmBie5p0XLJboGHKyyaNO4JfinOCA"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background to-transparent"></div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-8 bg-[#0e0e0e] border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<span class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] text-white/30">© 2024 THE DIGITAL APEX. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-6">
+<a class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] text-white/30 hover:text-[#ffb2bf] transition-colors" href="#">Privacy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] text-white/30 hover:text-[#ffb2bf] transition-colors" href="#">Terms</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] text-white/30 hover:text-[#ffb2bf] transition-colors" href="#">API Status</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] text-white/30 hover:text-[#ffb2bf] transition-colors" href="#">Careers</a>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="w-8 h-8 flex items-center justify-center text-white/30 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="language">language</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-white/30 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</button>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW'R'NOT | Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-container": "#5b0015",
+                "on-secondary-fixed-variant": "#474649",
+                "on-background": "#e5e2e1",
+                "inverse-primary": "#bc004f",
+                "surface-bright": "#393939",
+                "on-primary-fixed-variant": "#90003b",
+                "on-secondary-container": "#b6b4b7",
+                "tertiary-fixed": "#ffdada",
+                "tertiary-container": "#ff5167",
+                "on-tertiary-fixed-variant": "#920027",
+                "error": "#ffb4ab",
+                "on-primary": "#660028",
+                "primary": "#ffb2bf",
+                "on-surface-variant": "#e4bdc2",
+                "on-primary-fixed": "#3f0016",
+                "surface": "#131313",
+                "outline": "#ab888c",
+                "background": "#131313",
+                "surface-container-low": "#1c1b1b",
+                "on-tertiary-fixed": "#40000c",
+                "on-tertiary": "#680019",
+                "on-error-container": "#ffdad6",
+                "primary-fixed": "#ffd9de",
+                "inverse-on-surface": "#313030",
+                "secondary-fixed": "#e4e2e4",
+                "outline-variant": "#5b3f43",
+                "tertiary": "#ffb3b5",
+                "on-secondary-fixed": "#1b1b1d",
+                "surface-dim": "#131313",
+                "error-container": "#93000a",
+                "tertiary-fixed-dim": "#ffb3b5",
+                "on-error": "#690005",
+                "primary-container": "#ff4d81",
+                "surface-tint": "#ffb2bf",
+                "on-secondary": "#303032",
+                "primary-fixed-dim": "#ffb2bf",
+                "secondary-container": "#474649",
+                "inverse-surface": "#e5e2e1",
+                "secondary-fixed-dim": "#c8c6c8",
+                "secondary": "#c8c6c8",
+                "surface-container-lowest": "#0e0e0e",
+                "surface-container": "#201f1f",
+                "surface-variant": "#353534",
+                "surface-container-highest": "#353534",
+                "on-primary-container": "#5a0022",
+                "surface-container-high": "#2a2a2a",
+                "on-surface": "#e5e2e1"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Newsreader"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 178, 191, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-pink-300">menu</span>
+<h1 class="font-newsreader tracking-tighter text-2xl font-bold uppercase text-pink-300">RAW'R'NOT</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-neutral-400 text-sm font-medium tracking-widest uppercase">The Digital Apex</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="Lion Logo Avatar" class="w-full h-full object-cover" data-alt="Stylized lion logo with gold and burgundy details on a dark obsidian background, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4JvTvyNkhUWTTqReAE0iutW0tJqu3Ei5hPD7yFXvvAan66dnTaS1U0arSrRNDL_NHo2tfxu_4KK3qHif2RqlFI5VQ_y2lsYkzRq_SAhnFZfSCvVyg8eBajpXIDUlElTEHv6q59sSAQI_QzqcaTgtAGbr6oJxHRQxU6mZK2nL9b86FJulrKxwuxqB3_HtM9-Xbsdm8NbAyGW4kk44ich6SwcD1NROvwv_CEKJSe832M5S7zr73dp-66sCv94939NjIyv4bfFxx9zM"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section: The Lion's Den -->
+<section class="relative mb-20">
+<div class="absolute inset-0 -z-10 opacity-20 blur-[120px] bg-gradient-to-tr from-primary to-tertiary-container rounded-full w-2/3 h-2/3 mx-auto translate-y-[-20%]"></div>
+<div class="flex flex-col md:flex-row items-center gap-12 py-12">
+<div class="relative w-full md:w-1/2 flex justify-center order-2 md:order-1">
+<div class="relative group">
+<!-- Main Lion Visual -->
+<div class="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-primary/20 shadow-2xl transition-transform duration-700 group-hover:scale-105">
+<img alt="Immersive Lion" class="w-full h-full object-cover scale-110" data-alt="Intense close-up of a majestic lion face with amber eyes, cinematic low-key lighting, dark moody background, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs7d1JxnEYY6s0o1NFN78u_cQI6wIJZpgZfJG5ojRXVr9Mee0RRq1GPPIhIQF3VcCnDRBsqkHDAZvsO249Ps5KMJ_mfcfAFaLI3NrVD8bVC4gbi2fATr8ciQp3KtoUwsbD6Qmp8_aonk7OAcSnIxReOB-Fg4o_9jh3GbFKglJBptrtviyiN61pH-UWn1DKg3K6HUOn1ssrLCmJmUgb4KpvDcJZtW6hCxmCkbl-YaAsQ_7MkmZbEYR-DwSpQpwsRfW9W1s3-zA3vRk"/>
+</div>
+<!-- Animated Roar Effect Layers -->
+<div class="absolute -inset-4 border border-primary/10 rounded-full animate-ping opacity-20"></div>
+<div class="absolute -inset-12 border border-tertiary/5 rounded-full animate-pulse opacity-10"></div>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col items-start order-1 md:order-2">
+<h2 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-none mb-4 italic text-glow">
+                        OWN THE <br/>TERRITORY.
+                    </h2>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-md leading-relaxed mb-8">
+                        Welcome to the Den. Your creative empire is synced and ready for deployment. Command with precision.
+                    </p>
+<!-- Dominance Meter (Nudge) -->
+<div class="w-full max-w-md bg-surface-container-highest/40 backdrop-blur-xl p-6 rounded-2xl border border-white/5">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label text-xs uppercase tracking-widest text-primary font-bold">Dominance Meter</span>
+<span class="font-label text-xs text-on-surface-variant">84% Optimal</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[84%] shadow-[0_0_15px_rgba(255,77,129,0.5)]"></div>
+</div>
+<p class="mt-3 text-[10px] text-neutral-500 uppercase tracking-tighter">System Status: Alpha State. 2 pending updates in Briefing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Core Modules -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
+<!-- Module: CRM (Large) -->
+<div class="md:col-span-8 md:row-span-1 liquid-glass rounded-3xl p-8 border border-white/5 flex flex-col justify-between group transition-all duration-500 hover:bg-white/5">
+<div class="flex justify-between items-start">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-2" data-weight="fill">group</span>
+<h3 class="font-headline text-3xl font-bold italic">CRM</h3>
+</div>
+<div class="bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+<span class="text-primary text-xs font-bold uppercase tracking-widest">12 New Leads</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mt-auto overflow-hidden">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of a creative professional woman, high-end studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMR99fMJj4_aYzmkdBWZcyl_vyF44LuZO_8SM-qNq6hcQp-N1q4cNUa0N_JGmv4w5yMd-Ckmr9UzZwZjDS01MwDeyd8m9PQ-tImuVn7q3V6DWhJxWXlCu8Pk627rbCrIEsUQDYAwkaPWaKMhB67HeR-QcVK2dpi-4xao7RhGcyMUplXiRHYHTMeIzh9JQPQbWYJ7al3cLxVLmfJORYsRxWykTGMlWY5cubpl-kwNS2G8V2SsC5o5c8UQZyX9zLMbWTdVPywZ0VhNA"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of a young male director, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt8z6qZOYlyIA4zskr42V9V9mZvOR0eGb2-da204MRDSm0jQnj3aBy3zc2zovpgxszNu3zOWTcD5rodssnopqst6a0j6GWmkGPweyxdiSfS6GbqpMviKuwlWPS-iVSI7NHPp8P8DCgR80rwT66VT2Q40Sxj-QVpTst9Sj0DrrvHLVT3nfnyyzkRBtqUblm4dlZ_z5EmotfdGyvNU-PpxnUxtsXNMzlCJ09TiksmlRNjYBqGJaOtjGeRITrvvPgey3HYRduUlEugRU"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of an artist, moody natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf56drcZ-Li6Ip7chXc61zFqqLdhAZjJlWuT9OfThaRnjub6Kc-qpJvLSV2HpSNK9KMo4KKaCgmFI65mEWDJbrSUZApMbEHsqbGYWeew1-cTm2bRhvVCGqadftWky_9yTdqrDkzsLoAqvr7NnYW2qmWa56Ak8xx8GNqpSOXLyASe060Hihgl4D3S3OcSonjB-01ZrMhMTxkGZLJ4mcWzzkjGBcDHJ03esZiOzZAkGuHN-KdilpIF7pxEU1d0CmcS1ZMqQh7YzTNSI"/>
+</div>
+<span class="text-sm text-on-surface-variant font-medium">Recent connections tracking active.</span>
+</div>
+</div>
+<!-- Module: Briefing -->
+<div class="md:col-span-4 md:row-span-1 liquid-glass rounded-3xl p-8 border border-white/5 flex flex-col justify-between group hover:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-weight="fill">description</span>
+<div>
+<h3 class="font-headline text-2xl font-bold italic mb-1">Briefing</h3>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs text-primary font-bold uppercase">3 New Briefs</span>
+</div>
+</div>
+</div>
+<!-- Module: Portfolio (Gallery style) -->
+<div class="md:col-span-4 md:row-span-2 relative overflow-hidden rounded-3xl border border-white/5 group">
+<img alt="Portfolio" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="High-fashion photography aesthetic, artistic composition with dynamic shadows and light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRsEl-idx7t6x1avUI9uwnLWYaQqFhu2iCWEa-dYi_ewKCpmr5LLSIIUYJR9EbkdSGLi3W5q0Dq3wVFyENlYeE4HZu74IrSF-szo_FidEV4L417qEAmeab_rD5wHbgdxGmdYbdcf8J8P0YgDkYiMUDosd3UfceYVKKNLl6Gmtdvj0dERYJf8GqDi4eLXPxlm6npxI8uif_1tdaVvBEDai5l_YwJwSlrX3_2wSGrtBxUsSHlvAkQOuMu204Rm7jMRNER3AFLVsuwHo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-white text-4xl mb-2" data-weight="fill">photo_library</span>
+<h3 class="font-headline text-2xl font-bold italic text-white">Gallery</h3>
+<p class="text-white/60 text-sm">Portfolio Update: 95% Complete</p>
+</div>
+</div>
+<!-- Module: Calendar -->
+<div class="md:col-span-4 md:row-span-1 liquid-glass rounded-3xl p-8 border border-white/5 flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">calendar_month</span>
+<span class="text-xs font-bold text-neutral-500">TODAY</span>
+</div>
+<div>
+<p class="text-primary text-sm font-bold uppercase mb-1">Next Shoot: 2pm</p>
+<h3 class="font-headline text-xl font-bold italic">Urban Echo Campaign</h3>
+</div>
+</div>
+<!-- Module: Quoting -->
+<div class="md:col-span-4 md:row-span-1 bg-surface-container-high rounded-3xl p-8 border border-white/5 flex items-center gap-6 group hover:bg-primary transition-all duration-500">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-white" data-weight="fill">request_quote</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold italic group-hover:text-white">Quotes</h3>
+<p class="text-xs uppercase tracking-tighter text-on-surface-variant group-hover:text-white/80">4 Pending Approval</p>
+</div>
+</div>
+<!-- Module: Blog -->
+<div class="md:col-span-8 md:row-span-1 liquid-glass rounded-3xl p-8 border border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1">
+<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-2 block">Latest Insight</span>
+<h3 class="font-headline text-3xl font-bold italic leading-tight mb-4">Capturing the Raw: Why Imperfection is the New Luxury.</h3>
+<button class="text-xs font-bold uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary transition-colors">Read Article</button>
+</div>
+<div class="w-full md:w-48 h-full rounded-2xl overflow-hidden shrink-0">
+<img alt="Blog Thumb" class="w-full h-full object-cover" data-alt="Vintage camera on a wooden table, soft light, editorial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYO4FU-NCkzhngXne_qhml3AZMHbrQipPkHj_Qg9EJhwCF_mg0QrS6Et6RvQ1ijrs33Q34BspLHiGpYqiyQJ18mgjXokrtQph23fWH950BCBlcyRd9hRcqy-2PACwmLufInExrCtZk2Wq3JiqkQ3qtITKbPwdemvGnCVm4-_rSc2bQlxjrQUp7n5BnYFnvmD6TV7lEcOHjyllvlOtPbU38WbaihSKapHBiUutRHpt80q3LeQy9kuPJOCV7uQ7I7AqcwgENT41J_0A"/>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-50">
+<div class="bg-neutral-800/20 backdrop-blur-[32px] rounded-full border border-white/10 flex justify-around items-center px-4 py-3 shadow-2xl">
+<!-- Active State: Dashboard (Home) -->
+<button class="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 transition-all duration-500 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90">
+<span class="material-symbols-outlined">folder_open</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+<button class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- Navigation Drawer (Hidden by default, semantic anchor) -->
+<aside class="fixed inset-y-0 left-0 -translate-x-full z-[60] h-screen w-80 bg-neutral-900/95 backdrop-blur-2xl rounded-r-3xl flex flex-col p-8 gap-4 shadow-[50px_0_100px_rgba(0,0,0,0.5)] transition-transform duration-300">
+<div class="flex items-center gap-4 mb-10">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/30">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a confident creative lead, minimalist professional background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAhhphTn4j0kC4Bqz84Kkwr5vgOo2HwbBpwuVKP84eS5gTkZByfxp82OuaeDzk9ZZXqQrVnMPd1GeY2dD1eAkcGNhpKYslj6vXfKwTU-ZApQOjPHDYQqgqD-kXOvvg4qWgwtICOuhD4P783JKMOJL3Jp_Tz3UTjjWeAiXtwk9ifBT6cUt508JWvQPtfqFFr9AcqCvROIKTiAtp7CHkl_UQBim9k9Vd_04t2lFPD0Ctlya0RSYufbTun-mhb80X1HIgwJoOdnRR-iQ"/>
+</div>
+<div>
+<h4 class="font-newsreader italic font-black text-pink-400 text-xl">Creative Lead</h4>
+<p class="text-neutral-400 text-xs tracking-tight">The Digital Apex</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl text-neutral-400 hover:bg-white/10 transition-all group" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-inter tracking-tight">CRM</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl bg-white/5 text-pink-300 border-l-4 border-pink-500 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-inter tracking-tight">Briefing</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl text-neutral-400 hover:bg-white/10 transition-all" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span class="font-inter tracking-tight">Gallery</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl text-neutral-400 hover:bg-white/10 transition-all" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="font-inter tracking-tight">Blog</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl text-neutral-400 hover:bg-white/10 transition-all" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="font-inter tracking-tight">Quotes</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 rounded-xl text-neutral-400 hover:bg-white/10 transition-all" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-inter tracking-tight">Calendar</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-white/5">
+<p class="text-[10px] text-neutral-600 uppercase tracking-widest">V1.0.4 • Alpha Environment</p>
+</div>
+</aside>
+</body></html>

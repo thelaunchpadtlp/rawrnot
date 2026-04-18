@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474649",
+                        "on-secondary": "#303032",
+                        "inverse-primary": "#bc004f",
+                        "surface-tint": "#ffb2bf",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#ff5167",
+                        "secondary-container": "#474649",
+                        "surface-container": "#201f1f",
+                        "on-error": "#690005",
+                        "outline": "#ab888c",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "on-tertiary-container": "#5b0015",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary": "#ffb3b5",
+                        "secondary-fixed": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "primary-fixed": "#ffd9de",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#ff4d81",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-primary-fixed": "#3f0016",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed": "#40000c",
+                        "outline-variant": "#5b3f43",
+                        "on-surface-variant": "#e4bdc2",
+                        "surface": "#131313",
+                        "on-primary-container": "#5a0022",
+                        "error-container": "#93000a",
+                        "background": "#131313",
+                        "on-primary": "#660028",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#ffdada",
+                        "secondary": "#c8c6c8",
+                        "on-secondary-container": "#b6b4b7",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary": "#680019",
+                        "on-primary-fixed-variant": "#90003b",
+                        "surface-container-highest": "#353534",
+                        "primary": "#ffb2bf",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .ghost-border {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+        .lion-meter-gradient {
+            background: linear-gradient(90deg, #ffb3b5 0%, #5b0015 100%);
+        }
+        .cta-gradient {
+            background: linear-gradient(135deg, #ffb2bf 0%, #ff4d81 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#0e0e0e] flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-black text-[#ffb2bf] font-headline tracking-tighter">The Territory</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 mt-1">Elite Technical Execution</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Projects (Mapped to Dashboard Intent) -->
+<a class="bg-gradient-to-r from-[#ffb2bf] to-[#ff4d81] text-white rounded-lg mx-2 p-3 shadow-lg flex items-center gap-3 transition-transform duration-200 ease-in-out scale-98 active:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span class="font-medium">Projects</span>
+</a>
+<a class="text-gray-500 hover:text-gray-200 mx-2 p-3 flex items-center gap-3 hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-medium">Marketplace</span>
+</a>
+<a class="text-gray-500 hover:text-gray-200 mx-2 p-3 flex items-center gap-3 hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="text-gray-500 hover:text-gray-200 mx-2 p-3 flex items-center gap-3 hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-medium">Community</span>
+</a>
+<a class="text-gray-500 hover:text-gray-200 mx-2 p-3 flex items-center gap-3 hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full cta-gradient text-on-primary-fixed py-3 rounded-full font-bold text-sm shadow-lg mb-8 hover:opacity-90 transition-opacity">
+                Upgrade to Pride
+            </button>
+<div class="space-y-1">
+<a class="text-gray-500 hover:text-gray-200 p-3 flex items-center gap-3 text-sm hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="text-gray-500 hover:text-gray-200 p-3 flex items-center gap-3 text-sm hover:bg-[#2a2a2a] rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Top App Bar Shell -->
+<header class="fixed top-0 right-0 left-64 h-20 bg-[#131313]/40 backdrop-blur-3xl z-40 ghost-border flex justify-between items-center px-8">
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl font-bold tracking-tighter text-[#ffb2bf]">raw'r'not</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-gray-400 font-headline hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Vault</a>
+<a class="text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1 font-headline" href="#">The Territory</a>
+<a class="text-gray-400 font-headline hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Pride</a>
+<a class="text-gray-400 font-headline hover:text-[#ffb2bf] transition-colors duration-300" href="#">Sharing Hub</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-background"></span>
+</div>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">Dominic V.</p>
+<p class="text-[10px] text-primary">Alpha Tier</p>
+</div>
+<img class="w-10 h-10 rounded-full border border-primary/30 object-cover" data-alt="portrait of a confident creative professional man with short beard and stylish glasses in moody studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPXQFWwCWbaPDE804V7euX2mn80OYYXkWT6HUqKwTA6bAMBRHN4S7Q_ttgSUsNCFtFSQRKzFpQsYZE6klQKul0r-elF5IKQgm2uBuGgpOOvmyfTeVkaQxVnTRpYGUAtcM09BrrqLloUlU7Teehw3qjbZEj_a4LRXIq08JKC-fTScSisjN6McADmsvSZ7BRTTMyn3wS1mh53jkwiQiWtW1vYuTbMJPeBQ2N0cLN77CzX6_Mv4ge1y7zYzzSa9Gr6eJlqAYSDv7fCck"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-28 pb-12 px-8 min-h-screen">
+<!-- Hero Header with Asymmetry -->
+<section class="mb-12 flex flex-col md:flex-row gap-8 items-end">
+<div class="max-w-2xl">
+<h2 class="font-headline text-5xl md:text-7xl font-light tracking-tight leading-none mb-4">
+                    The <span class="text-primary italic font-medium">Digital</span> Apex.
+                </h2>
+<p class="text-on-surface-variant text-lg max-w-lg">
+                    Manage your elite assets and strategic reservations within the core of The Territory. Precision is our primal instinct.
+                </p>
+</div>
+<div class="flex-1 flex justify-end gap-4 pb-2">
+<div class="liquid-glass ghost-border px-6 py-4 rounded-xl flex flex-col">
+<span class="label-md text-primary mb-1">PROJECT STATUS</span>
+<span class="title-lg font-bold">94% APEX</span>
+</div>
+<div class="liquid-glass ghost-border px-6 py-4 rounded-xl flex flex-col">
+<span class="label-md text-primary mb-1">VAULT STORAGE</span>
+<span class="title-lg font-bold">1.2 TB / 5 TB</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Current Briefs: Large Feature Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-high rounded-xl p-8 ghost-border relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl -mr-20 -mt-20 group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-3xl">Current Briefs</h3>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:rotate-12 transition-transform" data-icon="arrow_outward">arrow_outward</span>
+</div>
+<div class="space-y-6">
+<!-- Brief Item 1 -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-4 border-primary hover:bg-surface-bright transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="text-xl font-bold font-headline">Project: Obsidian Monolith</h4>
+<p class="text-sm text-on-surface-variant">Global Brand Relaunch Strategy</p>
+</div>
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 rounded-full font-bold">IN PROGRESS</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">
+<span>Lion Heart Quality Meter</span>
+<span>88% Efficiency</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full lion-meter-gradient" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<!-- Brief Item 2 -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-4 border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="text-xl font-bold font-headline">Asset Deployment: Neon Genesis</h4>
+<p class="text-sm text-on-surface-variant">Multi-channel technical execution</p>
+</div>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-3 py-1 rounded-full font-bold uppercase">Briefing Phase</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">
+<span>Lion Heart Quality Meter</span>
+<span>42% Efficiency</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full lion-meter-gradient" style="width: 42%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Asset Vault: Vertical Side Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-xl p-8 ghost-border overflow-hidden flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_queue">cloud_queue</span>
+<h3 class="font-headline text-3xl">Asset Vault</h3>
+</div>
+<div class="flex-1 space-y-4">
+<div class="bg-surface-container-high/40 p-4 rounded-xl flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm">Brand_Guidelines_V2.pdf</p>
+<p class="text-[10px] text-on-surface-variant">Added 2 hours ago • 24.5 MB</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="download">download</span>
+</div>
+<div class="bg-surface-container-high/40 p-4 rounded-xl flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="movie">movie</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm">Campaign_Hero_Draft.mp4</p>
+<p class="text-[10px] text-on-surface-variant">Added Yesterday • 1.2 GB</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="play_circle">play_circle</span>
+</div>
+<div class="bg-surface-container-high/40 p-4 rounded-xl flex items-center gap-4 hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="image">image</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-sm">High_Res_Render_01.png</p>
+<p class="text-[10px] text-on-surface-variant">Added 3 days ago • 12.8 MB</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="download">download</span>
+</div>
+</div>
+<button class="mt-8 w-full border border-outline-variant/30 py-3 rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors">
+                    Access Full Repository
+                </button>
+</div>
+<!-- Active Reservations: Glassmorphic Calendar -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-8 ghost-border">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h3 class="font-headline text-3xl">Active Reservations</h3>
+<p class="text-on-surface-variant text-sm italic">Secure your next execution block.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-highest rounded-lg text-xs font-bold hover:bg-surface-bright transition-colors">MONTH</button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold">WEEK</button>
+</div>
+</div>
+<div class="liquid-glass ghost-border rounded-2xl p-6 overflow-x-auto">
+<div class="min-w-[600px]">
+<div class="grid grid-cols-7 mb-4">
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest">MON</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest">TUE</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest">WED</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest">THU</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest">FRI</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-primary">SAT</div>
+<div class="text-center text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-primary">SUN</div>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<!-- Calendar row placeholder -->
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm opacity-40">21</div>
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm opacity-40">22</div>
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm opacity-40">23</div>
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm">24</div>
+<div class="h-28 bg-surface-container-low/80 rounded-lg p-2 border border-primary/20 text-sm ring-1 ring-primary/40 relative">
+<span class="font-bold">25</span>
+<div class="mt-2 bg-primary/20 p-2 rounded text-[9px] font-bold border-l-2 border-primary leading-tight">
+                                    CORE STRATEGY SESSION
+                                    <span class="block text-primary/80 mt-1">14:00 - 15:30</span>
+</div>
+</div>
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm">26</div>
+<div class="h-28 bg-surface-container-lowest/30 rounded-lg p-2 border border-outline-variant/10 text-sm">27</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Exclusive Plans: Tactical Info -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-gradient-to-br from-surface-container-highest to-surface-container-low rounded-xl p-8 ghost-border relative overflow-hidden flex-1 group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" data-alt="dramatic macro shot of a lion eye with intense golden iris and dark fur texture around it" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_DMNBZwqkPmzGBW4Db5uRtouB0NzzofbkroL3SFkSTHmuFPDRFRrdJfx4L6npeJIUFAflZXywUXb8mXqRsrTw09lCIb5VY5rDG3CQlELhow8YTc9TqHWQa8YgHrIBCvba08XLA7Kjo3mzHCJhSZNsq64GnQ3Da9r_HwI9bsPWA45g3YqMVaukcEvhP25VyPXMvZRdpU7fZGglWiEYu7XWgwkfR7CNr8LYjYD8On9PLgimXJtyVDAMrEbOAGrPAEhb3ZznR9snFM"/>
+<div class="relative z-10">
+<h3 class="font-headline text-3xl mb-4">Exclusive Plans</h3>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Unlock the 'Pride Tier' for 24/7 priority execution and raw-data visualization tools.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Unlimited Vault Capacity
+                            </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Direct Alpha Messaging
+                            </li>
+<li class="flex items-center gap-2 text-sm opacity-50">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+                                Custom Asset Nodes
+                            </li>
+</ul>
+<button class="w-full bg-surface-bright border border-primary/20 py-3 rounded-full text-sm font-bold hover:bg-primary hover:text-on-primary transition-all">
+                            Review Membership
+                        </button>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl p-6 ghost-border flex items-center justify-between group cursor-pointer hover:bg-surface-bright transition-colors">
+<div>
+<p class="text-[10px] font-black text-primary tracking-widest mb-1 uppercase">Next Session</p>
+<h4 class="font-headline text-xl">Technical Audit</h4>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold">14:00</p>
+<p class="text-[10px] text-on-surface-variant">TOMORROW</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB - Suppression on specific sub-screens not applicable here as it is main dashboard -->
+<button class="fixed bottom-8 right-8 cta-gradient w-16 h-16 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined text-white text-3xl group-hover:rotate-90 transition-transform" data-icon="add">add</span>
+</button>
+</body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;0,6..72,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#474649",
+                        "on-secondary": "#303032",
+                        "inverse-primary": "#bc004f",
+                        "surface-tint": "#ffb2bf",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#ff5167",
+                        "secondary-container": "#474649",
+                        "surface-container": "#201f1f",
+                        "on-error": "#690005",
+                        "outline": "#ab888c",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "on-tertiary-container": "#5b0015",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary": "#ffb3b5",
+                        "secondary-fixed": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "primary-fixed": "#ffd9de",
+                        "surface-variant": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#ff4d81",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-primary-fixed": "#3f0016",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed": "#40000c",
+                        "outline-variant": "#5b3f43",
+                        "on-surface-variant": "#e4bdc2",
+                        "surface": "#131313",
+                        "on-primary-container": "#5a0022",
+                        "error-container": "#93000a",
+                        "background": "#131313",
+                        "on-primary": "#660028",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#ffdada",
+                        "secondary": "#c8c6c8",
+                        "on-secondary-container": "#b6b4b7",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary": "#680019",
+                        "on-primary-fixed-variant": "#90003b",
+                        "surface-container-highest": "#353534",
+                        "primary": "#ffb2bf",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .ghost-border {
+            box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#ffb2bf] font-['Newsreader']">raw'r'not</div>
+<div class="hidden md:flex items-center space-x-10 font-['Newsreader'] tracking-tighter">
+<a class="text-gray-400 hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Vault</a>
+<a class="text-gray-400 hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Territory</a>
+<a class="text-gray-400 hover:text-[#ffb2bf] transition-colors duration-300" href="#">The Pride</a>
+<a class="text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1" href="#">Sharing Hub</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-gray-400 hover:text-[#ffb2bf] scale-98 active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-gray-400 hover:text-[#ffb2bf] scale-98 active:opacity-80">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Shared Component - Hidden on focused hub) -->
+<!-- Suppressed per Rule: Contextual suppression for focused tasks -->
+<main class="pt-32 pb-20 px-6 max-w-[1400px] mx-auto">
+<!-- Hero Section: Editorial Tension -->
+<header class="grid grid-cols-12 gap-6 mb-24 items-end">
+<div class="col-span-12 lg:col-span-7">
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-none mb-6">
+                    Exponential <br/> <span class="text-primary italic">Presence.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl font-light leading-relaxed">
+                    Leverage Reed's Law to amplify your technical execution. Forge alliances, unlock the collective, and dominate the digital landscape through viral precision.
+                </p>
+</div>
+<div class="col-span-12 lg:col-span-5 flex justify-end">
+<div class="liquid-glass ghost-border p-6 rounded-xl w-full max-w-sm">
+<div class="flex items-center space-x-4 mb-4">
+<div class="bg-primary/20 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<p class="text-sm font-label text-primary uppercase tracking-widest">Active Mechanism</p>
+<h3 class="text-xl font-bold">Team Buy</h3>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-6">Invite 2 peers to unlock a 20% group discount on this service.</p>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary to-on-tertiary-container h-full w-[66%]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-xs font-label text-on-surface-variant">2 of 3 spots filled</span>
+<span class="text-xs font-label text-primary">Pending unlock</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid: The Sharing Tools -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-24">
+<!-- iMessage Mockup (Large) -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-low rounded-xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+<div class="absolute top-0 right-0 p-4">
+<span class="text-xs font-label text-on-surface-variant/50">Preview: iMessage</span>
+</div>
+<div>
+<h2 class="text-2xl font-headline font-bold mb-4">Precision Link</h2>
+<p class="text-on-surface-variant text-sm mb-8">Optimized for high-trust conversions in private chats.</p>
+</div>
+<div class="w-full max-w-[280px] self-center liquid-glass rounded-[2rem] p-4 shadow-2xl space-y-3">
+<div class="relative rounded-2xl overflow-hidden aspect-square mb-2">
+<img class="w-full h-full object-cover" data-alt="Abstract cinematic 3D render of a golden lion head sculpted in liquid glass with soft moody lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9oErJC1f-QSfahDsFlft8BNPAYUxSVjIWhid-ve_mHhA_ge-7JCQBsvbdA176Uh5v8rrpEwyaicKPxdYQc_cXIUiuD98Asdk4uG2PMKUKi9dzRfoHG24LwQ_KDTHJRBNwD2Bkill5v85Z3zlwlA3EA1EqbdgJoG2xpG_zTWZjUoEsYzwIA1VxrDlge7cp0XDViU2HW8kaELMntjqIMIl1D8fpfOt8pgC5BguxKZ9LNIX9XFhcj3YOmGAiOKJG6Vib4TWaAys3coE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+<span class="text-[10px] text-primary font-bold uppercase tracking-widest">Premium Access</span>
+<p class="text-white text-xs font-medium">The Pride: Technical Elite Hub</p>
+</div>
+</div>
+<div class="px-2">
+<p class="text-[10px] text-gray-400">Join the pride. Secure your 20% group discount within 24 hours.</p>
+<p class="text-[9px] text-gray-500 mt-1 uppercase">rawrnot.tech</p>
+</div>
+</div>
+<button class="mt-8 bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold py-3 px-8 rounded-full w-full text-sm uppercase tracking-widest scale-98 active:opacity-90">
+                    Copy iMessage Bundle
+                </button>
+</div>
+<!-- Instagram Stories (Portrait) -->
+<div class="bg-surface-container-high rounded-xl overflow-hidden relative group min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Close up of black liquid waves moving with high contrast and pink neon highlights on the crests" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpVLaYb5OWGv_O30Yr2Dn2XI0GdqYlTbqT1Z8kJU0vl9JWK4MlvSiY8WAqrzg549xvRlKP9L7wI25uf2GMo99POdZl0zuQlw6vhH8Q1qhOTewc9epzfzYPEAXYVvSIlGybDfuBTcHtv3lWZ1cRukX_ymEV1pG6oE7t52VeHOB-pjHwIFFOR3O5PwocvL3XsnlYfcIFUkKmvv7i8Y4BzwavvUdkHqIca00O3jwD-M-JgQHprGlrnN9AR_Z6XlSS3jSqKEHuPOaVGpA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="relative p-8 flex flex-col h-full justify-between">
+<div>
+<span class="material-symbols-outlined text-primary mb-4">photo_camera</span>
+<h2 class="text-xl font-headline font-bold">Story Arc</h2>
+</div>
+<div class="w-32 aspect-[9/16] liquid-glass rounded-lg border border-white/10 self-center flex flex-col items-center justify-center p-2">
+<div class="w-full h-full rounded bg-surface-container-highest relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Geometric minimalist architecture with sharp shadows and soft pink gradient sky in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtfxGtpZaeIBIMFXlHB7iOh9wfJIqx4wQnNSpQieEstn20YXTbGwLmpUTjaWqsHWjjy2K63scNKj9BZ8onfIQG6H1iFgxQL6X4YqPBuaQao88oepEAQ24HFuLax51Tyiva9vEH3H4M6XLNDziox0eWjvtHtrhxXiK07SxT3EJZ6ri7uLTbWc5th--jYRjkh1ndgVBaF82AkDu2MZNPAdfbn9jHyRXr9C-pvdpDLYVm8ekBcILRgCzokpJyLAZgToVedGhjugcDDQ"/>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-3 bg-primary rounded-full shadow-lg shadow-primary/50"></div>
+</div>
+</div>
+<button class="border border-outline-variant/30 text-on-surface text-xs font-bold py-3 px-4 rounded-full uppercase tracking-tighter bg-surface/50 backdrop-blur-md">
+                        Generate Story
+                    </button>
+</div>
+</div>
+<!-- WhatsApp Template (Minimal) -->
+<div class="bg-surface-container rounded-xl p-8 flex flex-col justify-between min-h-[400px]">
+<div>
+<span class="material-symbols-outlined text-[#25D366] mb-4">chat</span>
+<h2 class="text-xl font-headline font-bold">Encrypted Whisper</h2>
+<p class="text-sm text-on-surface-variant mt-2 leading-relaxed">Fast-loading text sequences for WhatsApp groups.</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg font-mono text-[10px] text-secondary border-l-2 border-primary">
+<p class="mb-2">Hey team! 🦁</p>
+<p class="mb-2">I'm unlocking 'The Territory' elite tools. Need 2 more for the 20% discount.</p>
+<p class="text-primary underline">https://rawrnot.tech/ref/1923</p>
+</div>
+<button class="bg-surface-bright text-on-surface font-bold py-3 px-6 rounded-full w-full text-xs uppercase tracking-widest border border-outline-variant/20 hover:bg-surface-container-highest transition-colors">
+                    Send to WhatsApp
+                </button>
+</div>
+</div>
+<!-- Reed's Law Insights: Asymmetric Layout -->
+<section class="grid grid-cols-12 gap-12 mb-20 items-center">
+<div class="col-span-12 md:col-span-5 order-2 md:order-1">
+<div class="aspect-square bg-surface-container-highest rounded-[3rem] relative p-12 overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="Soft flowing smoke in shades of deep charcoal and dark pink moving across a dark void with subtle grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw5_yq-r0Hdzifb70dLF58_CZI8jwjvcD94CTasKyq4UiC5z-gaLGOfT9uv2fze8-omiaUhZCG6qcoT8ktYcdFwghUPBvo-jkQCWN7EEeKpsJGPtg-0z_GERCLnA7s6MpAde4YoZ34FYEgZsHxYXYhHAvrX3QZgftUfVLgk9np34X4VNsd7cMM5iB7Zk__f75rELcO3hyT-6hIM-LnOVVZ25Oj_MW7RFzAEYWhYW40ojN9M-V3SdNUsCOabeldcXoX1IK8dbsjyZE"/>
+</div>
+<div class="relative z-10 text-center">
+<span class="text-8xl font-headline font-black text-primary/10 select-none">2^n</span>
+<div class="mt-[-2rem]">
+<h4 class="text-3xl font-headline italic">Reed's Law</h4>
+<p class="text-on-surface-variant font-label text-xs uppercase tracking-[0.3em] mt-2">Network of Groups</p>
+</div>
+</div>
+<!-- Ghost Border Elements -->
+<div class="absolute top-10 left-10 w-20 h-20 border border-primary/20 rounded-full animate-pulse"></div>
+<div class="absolute bottom-20 right-10 w-32 h-32 border border-primary/10 rounded-full"></div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 order-1 md:order-2">
+<h3 class="text-4xl font-headline font-bold mb-6 leading-tight">The power of <span class="text-primary">Sub-Groups.</span></h3>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                    Standard viral loops scale linearly. Reed’s Law states the utility of large networks, particularly social networks, can scale exponentially with the size of the network. We've built the Echo to facilitate the formation of these sub-communities instantly.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold">Group-Specific Liquidity</p>
+<p class="text-sm text-on-surface-variant">Instant discount activation when the pride reaches critical mass.</p>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold">Social Proof Mockups</p>
+<p class="text-sm text-on-surface-variant">High-fidelity rich previews that demand attention in crowded feeds.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- Final CTA Area -->
+<section class="liquid-glass ghost-border rounded-3xl p-12 text-center relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-tertiary-container/10 blur-[100px]"></div>
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-headline font-bold mb-6 italic">Ready to roar?</h2>
+<p class="text-on-surface-variant mb-10">Your invite links are primed. One more peer and your 20% discount becomes permanent across all 'Vault' services.</p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed px-10 py-4 rounded-full font-bold uppercase tracking-widest w-full md:w-auto shadow-lg shadow-primary/20">
+                        Distribute Now
+                    </button>
+<button class="border border-outline-variant text-on-surface px-10 py-4 rounded-full font-bold uppercase tracking-widest w-full md:w-auto hover:bg-surface-bright transition-colors">
+                        View Analytics
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Shell Support (BottomNavBar for Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant/10 px-4 py-2 flex justify-around items-center z-50">
+<div class="flex flex-col items-center p-2 text-gray-500">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-label mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center p-2 text-gray-500">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="text-[10px] font-label mt-1">Territory</span>
+</div>
+<div class="flex flex-col items-center p-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-[10px] font-label mt-1">Pride</span>
+</div>
+<div class="flex flex-col items-center p-2 text-gray-500">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-label mt-1">Settings</span>
+</div>
+</nav>
+</body></html>

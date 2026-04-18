@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW'R'NOT Journal | Digital Apex</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#e5e2e1",
+                      "on-primary-container": "#5a0022",
+                      "on-surface": "#e5e2e1",
+                      "background": "#131313",
+                      "primary": "#ffb2bf",
+                      "inverse-surface": "#e5e2e1",
+                      "on-error": "#690005",
+                      "surface-container": "#201f1f",
+                      "tertiary-fixed-dim": "#ffb3b5",
+                      "on-tertiary-container": "#5b0015",
+                      "primary-fixed": "#ffd9de",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "surface-container-low": "#1c1b1b",
+                      "on-primary-fixed-variant": "#90003b",
+                      "surface-bright": "#393939",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary-fixed-variant": "#920027",
+                      "error": "#ffb4ab",
+                      "surface": "#131313",
+                      "on-tertiary": "#680019",
+                      "error-container": "#93000a",
+                      "on-primary": "#660028",
+                      "secondary-container": "#474649",
+                      "surface-container-highest": "#353534",
+                      "surface-tint": "#ffb2bf",
+                      "on-surface-variant": "#e4bdc2",
+                      "outline": "#ab888c",
+                      "secondary": "#c8c6c8",
+                      "primary-container": "#ff4d81",
+                      "primary-fixed-dim": "#ffb2bf",
+                      "on-secondary": "#303032",
+                      "inverse-primary": "#bc004f",
+                      "tertiary-container": "#ff5167",
+                      "on-tertiary-fixed": "#40000c",
+                      "on-secondary-fixed-variant": "#474649",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary-fixed": "#e4e2e4",
+                      "surface-variant": "#353534",
+                      "on-secondary-container": "#b6b4b7",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed": "#ffdada",
+                      "tertiary": "#ffb3b5",
+                      "on-error-container": "#ffdad6",
+                      "surface-dim": "#131313",
+                      "on-primary-fixed": "#3f0016",
+                      "outline-variant": "#5b3f43"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              },
+              "animation": {
+                "float": "float 6s ease-in-out infinite",
+                "grain": "grain 8s steps(10) infinite",
+                "fade-up": "fadeUp 0.8s ease-out forwards"
+              },
+              "keyframes": {
+                "float": {
+                  "0%, 100%": { transform: "translateY(0) scale(1)" },
+                  "50%": { transform: "translateY(-20px) scale(1.05)" }
+                },
+                "grain": {
+                  "0%, 100%": { transform: "translate(0, 0)" },
+                  "10%": { transform: "translate(-5%, -5%)" },
+                  "20%": { transform: "translate(-10%, 5%)" },
+                  "30%": { transform: "translate(5%, -10%)" },
+                  "40%": { transform: "translate(-5%, 15%)" },
+                  "50%": { transform: "translate(-10%, 5%)" },
+                  "60%": { transform: "translate(15%, 0)" },
+                  "70%": { transform: "translate(0, 10%)" },
+                  "80%": { transform: "translate(-15%, 0)" },
+                  "90%": { transform: "translate(10%, 5%)" }
+                },
+                "fadeUp": {
+                  "0%": { opacity: "0", transform: "translateY(30px)" },
+                  "100%": { opacity: "1", transform: "translateY(0)" }
+                }
+              }
+            },
+          }
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.liquid-glass {
+    background: rgba(53, 53, 52, 0.4);
+    backdrop-filter: blur(24px)
+    }
+.text-glow {
+    text-shadow: 0 0 20px rgba(255, 178, 191, 0.3)
+    }
+.grain-overlay::after {
+    content: "";
+    position: fixed;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAJ9044G1gvgWJ6MrAhN514-rn-C17pY24u-bM7Vbxd6h5ncTYk0JGEEb9SEJdZg2oJU2qtaovwVIxBykZzw_DLRFbGin58JHfM8vqgPc8UXtvEbPnoOi_mh6Cu_Zyx2IqInE5eCBVr7AUDZpIuoWPJ8rJ4gS8iYhMKvPdF_8uq0G7_7rrZlvCdFN2Ac7n--La7wFLL6Lad00vBLDUaVWpoXrBhZ_qHcedS_nE4b_JYkRrnysRIjB18M3SBoUb5mLW_s_DXemMimqk);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+    animation: grain 8s steps(10) infinite
+    }
+.brush-accent {
+    mask-image: url("data:image/svg+xml;utf8,<svg viewBox=\"0 0 100 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 10 Q 25 0 50 10 Q 75 20 100 10\" stroke=\"black\" fill=\"transparent\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg>");
+    mask-repeat: no-repeat;
+    mask-size: contain
+    }
+.floating-particle {
+    position: absolute;
+    background: rgba(255, 178, 191, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1
+    }
+body::-webkit-scrollbar {
+    width: 4px
+    }
+body::-webkit-scrollbar-track {
+    background: #131313
+    }
+body::-webkit-scrollbar-thumb {
+    background: #ff4d81;
+    border-radius: 10px
+    }
+.stagger-1 {
+    animation-delay: 0.1s
+    }
+.stagger-2 {
+    animation-delay: 0.2s
+    }
+.stagger-3 {
+    animation-delay: 0.3s
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white overflow-x-hidden grain-overlay">
+<!-- TopAppBar from COMPONENTS_9 -->
+<header class="fixed top-0 w-full z-50 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)] flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-pink-300 dark:text-pink-200 hover:bg-white/10 transition-colors p-2 rounded-full active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-pink-400 dark:text-pink-300 font-newsreader italic font-black text-2xl uppercase tracking-tighter">RAW'R'NOT</span>
+</div>
+<div class="hidden md:flex gap-8 items-center font-label text-sm font-medium">
+<a class="text-pink-300 hover:text-pink-200 transition-colors" href="#">Journal</a>
+<a class="text-neutral-400 hover:text-pink-200 transition-colors" href="#">Archives</a>
+<a class="text-neutral-400 hover:text-pink-200 transition-colors" href="#">Creators</a>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-pink-300/20 overflow-hidden scale-95 active:scale-90 transition-transform duration-300">
+<img alt="Lion Logo Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAOH8umit6olPZLVp0mNM4CU4Pdm_orbBd8YrPrZ3H9dypsy-_elY09KFS2JcX3Kq7MwW_7zDxk7XndEuWpAY5uXE4qd_F05BLhOCHfhPTynT5bR8yZ9SJpi1ZTfEQb27WM_0bwDum4tUBjKhr5TDkP12BVQYIDMA07ljodzelqOI2YUiFAnfB-zzSqQiBmDVGlUDp5FivDFvhafXHaMRcXA_96eFRMZ38NxO0FCa3onBVNbe4LP4w_Q9icESDms0lv9_6ROnoTUA"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-12 max-w-[1440px] mx-auto">
+<!-- Hero Editorial Header -->
+<section class="mb-24 relative animate-fade-up">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 blur-[80px] rounded-full animate-float"></div>
+<div class="flex flex-col md:flex-row items-end gap-8 relative z-10">
+<div class="md:w-2/3">
+<span class="font-label text-primary uppercase tracking-[0.3em] text-xs font-bold mb-4 block">The Digital Apex // Issue 04</span>
+<h1 class="font-headline text-5xl md:text-8xl italic font-black leading-tight tracking-tighter text-glow">
+                    Untamed <span class="text-outline relative inline-block">Instinct,<span class="absolute -bottom-2 left-0 w-full h-1 bg-primary/40 blur-[1px]"></span></span><br/>
+                    Elite <span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">Execution.</span>
+</h1>
+</div>
+<div class="md:w-1/3 text-neutral-400 font-light leading-relaxed pb-4">
+                Exploring the friction between the raw human creative pulse and the precision of high-frequency digital synthesis.
+            </div>
+</div>
+</section>
+<!-- Asymmetric Multimedia Journal Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Featured Video Article -->
+<div class="md:col-span-7 group animate-fade-up stagger-1">
+<div class="relative rounded-xl overflow-hidden aspect-[4/5] surface-container-high shadow-2xl transition-all duration-700 group-hover:scale-[1.01] border border-white/5">
+<!-- Floating particle effect -->
+<div class="floating-particle w-2 h-2 top-1/4 left-1/4 animate-float" style="animation-delay: 1s;"></div>
+<div class="floating-particle w-1 h-1 bottom-1/3 right-1/4 animate-float" style="animation-delay: 2.5s;"></div>
+<img alt="cinematic wide shot of a glowing neon pink portal" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyocxqgNCh-rQ7DztCnN6B8euLWPNhpq5eQHwzAiN1w7_R9u6uGme0nn-SsyTc6FkuiPgFjeSGl_QNRAZRvoXrY_jIzL3z-Ccccb8Q3_epsoJzvWPbGWXOmY07SkcMDJhsF29ai0_J1K5KgvgE2ptHJAVxINg72sfAoG8x0HB8k-G22yxeqoXcw9KPDUSETTkV-ouo1ZIJYdao4s-ElzbiFU9_iQ9s72EoK3hNhjBP6ynFVFdK8QUjosxw-rQlAFjjpRyTPjJHnyo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<!-- Hand-drawn style brush stroke accent -->
+<div class="absolute top-8 right-8 w-24 h-24 border-t-2 border-r-2 border-primary/20 rounded-tr-3xl"></div>
+<div class="absolute inset-0 p-10 flex flex-col justify-end">
+<div class="bg-primary/20 backdrop-blur-md w-fit px-3 py-1 rounded-full border border-primary/30 mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Video Essay</span>
+</div>
+<h2 class="font-headline text-4xl font-bold mb-4 leading-tight group-hover:italic transition-all duration-500">The Architecture of Silence in a Digital Roar</h2>
+<p class="text-neutral-400 font-light line-clamp-2 mb-6 max-w-md">How minimal aesthetic constraints can amplify the primal impact of multimedia storytelling.</p>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-on-primary-fixed shadow-lg shadow-primary/20 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Side Asymmetric Column -->
+<div class="md:col-span-5 space-y-12 animate-fade-up stagger-2">
+<!-- Illustration Post -->
+<article class="surface-container-lowest p-8 rounded-xl border-l-4 border-primary transition-all hover:bg-surface-container-low group relative overflow-hidden">
+<!-- Artistic digital brushstroke background element -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+<span class="font-label text-pink-300 text-xs mb-4 block tracking-widest uppercase flex items-center gap-2">
+<span class="w-4 h-px bg-pink-300/40"></span> Digital Illustration
+                </span>
+<h3 class="font-headline text-2xl font-bold mb-3 italic group-hover:translate-x-2 transition-transform">Organic Geometry</h3>
+<p class="text-neutral-500 text-sm mb-6 leading-relaxed">Redefining the relationship between botanical patterns and parametric design logic.</p>
+<div class="rounded-lg overflow-hidden h-48 relative">
+<img alt="abstract digital artwork" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUxZqgNwHYkpwpq7Gx8aHDHyZXLNWJLKHToYLj1D16zyd0FvCp0uNIFYPAfcUdbAORACejZ5xDaJ2MXnn5kKneMTA1Dc8YcZ8DdGPw7zmwo1t3cbsbxmSfOCKY-2rCgETnHp9C8O1SN81-CQwjUc8XUr1v4sy6Vi9sgxlY0jqvhSW275oDNaKWnWYIxKoE2dHYCv4JoFwjLY656NgAsBbE7sQHdufTenMM6zELw1sX7Rh-jXCOZxLXAMq0o6KQ3zc6LuuaYg9wC0I"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+</article>
+<!-- High-Res Portrait Section -->
+<div class="relative group cursor-pointer animate-fade-up stagger-3">
+<div class="liquid-glass p-1 rounded-xl relative">
+<!-- Brush stroke corner accents -->
+<div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="rounded-lg overflow-hidden aspect-square">
+<img alt="moody high-fashion portrait" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx3A4ID5OB-5et6-AnxWVJlN_VjUJw2otNJSSGu-PVZ7KeKUNv2qT6h77AFmpeYj9LhF6o0bBTQWVZ2gZpN8pTkXAyyEUcRMbFLb32HOCEHg_npcGipS55KyH0eRkaHKsjATzwoqGckG5SZ3_vkUvXi4cRVKMOfiTqTttLlgjxxiO1O91Nl_rjKrIcaRPq1wYXEhOmF8nxyO4LKhhz0Vz317hcvK8NvEIJrYH1fjQC87IxAVZDNOdZX5xG12QdkSLB0drD3A-3PVk"/>
+</div>
+</div>
+<div class="absolute -bottom-6 -right-6 p-6 liquid-glass rounded-xl max-w-[240px] shadow-2xl border border-white/10 group-hover:-translate-y-2 transition-transform duration-500">
+<span class="font-headline text-lg italic block mb-2">Neon Shadows</span>
+<p class="text-[10px] text-neutral-400 uppercase tracking-widest">A photography series by Aris Thorne</p>
+<!-- Small hand-drawn circle -->
+<div class="absolute -top-2 -right-2 w-4 h-4 rounded-full border border-primary/30 animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Bento-Style Lower Grid -->
+<div class="md:col-span-4 group h-full animate-fade-up">
+<div class="surface-container-high p-8 rounded-xl h-full flex flex-col justify-between border border-white/5 hover:bg-surface-bright transition-colors duration-500 relative overflow-hidden">
+<div class="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/5 rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-1000"></div>
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6 group-hover:rotate-[360deg] transition-transform duration-1000" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Synthetic Soul</h4>
+<p class="text-neutral-400 text-sm leading-relaxed relative z-10">Can an AI truly replicate the 'flaws' that make artisan craft feel human? We dive into the uncanny valley of digital textiles.</p>
+</div>
+<div class="mt-8 relative z-10">
+<a class="text-primary font-label text-xs uppercase tracking-[0.2em] flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        Read Full Journal <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 animate-fade-up stagger-1">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="rounded-xl overflow-hidden aspect-video relative group border border-white/5">
+<img alt="ultra close up of camera lens" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANHdbT76Mr9BJYAIFzvodnIOUmlsjXYUFekBgqwr3ZHMqYWaUefXJHT2O5_dPA8ca9iT2rrLx0G_DWytE3Mgb6_MZfHqIIL0I_12L6YxlJ_veNl3s9UC47RTYpS-V2JoghBkDa3jSAuphMQNb2KAJWCmzyRhA3GQwRQ6bhZCFAjk_BGgxxkquUza3xwRBVOI5tRnQjmPgn2r6naXKWxxCNKG1SfK04Ku_O6qCPNp3y6sHjjytAIG5j3IorS0ffjTBfx1azGjYQ-bg"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+<span class="font-headline text-white italic text-xl">The Lens of Truth</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden aspect-video relative group border border-white/5">
+<img alt="modern minimalist home office" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAJH4Kdh0C1LC7w52Aw1B6P82uc3Rn2ALipUHqYYF0hxSy37H6Vebg4eqe5ZOr5Gq8PgtxwwZ3slvn2BCgr3zCyA8MPYhV5qx0I7LpxDFwuuRZ9f5Am1IHH7xO_0goGXJjntu4aNLsZ2-nsU60FkxK26RuJkhg9lvmDCsGQO8NvCsUZbJ9XdXSmE1J1_9f-oU6VF-9Q7cZYqXlob01qcWXKY7HjLmyxPerilKXnY5VOrgmj4Cfhn6vUFQzbTKsD9otGHtslMvhppY"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+<span class="font-headline text-white italic text-xl">The Precision Suite</span>
+</div>
+</div>
+<div class="md:col-span-2 relative h-56 rounded-xl overflow-hidden bg-surface-container-lowest flex items-center px-12 group border border-white/10">
+<div class="absolute right-0 top-0 w-2/3 h-full overflow-hidden opacity-30">
+<img alt="dramatic mountain peaks" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-[3000ms]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmNNQilvwHGqtcfLIEFidmyxF8IT9-3mlltnbMuRf0R6avIGGbENH_ILIdRvRh1zE9NnPYCxM8pFdhBt-oUCzS3CDEdKNEu6yETeo-xVmgI6yixMmjg1t_QKnnQHe-56LLqrtpf4PQYfGTfp-3FCW2Zn10s_gY4_j4Izi1PdqJeIcuHbHrsEK3VNcduYSmf6X8EzFWuyIIw9p6DIjrf_RHa2xlJ4xLAFK-P8wVQn1xJ01uJtQxbquuROIEhLwRx0-z8WQ-chm6D00"/>
+</div>
+<!-- Artistic scribble line SVG -->
+<svg class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-full pointer-events-none opacity-20" viewbox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+<path class="animate-pulse" d="M0,100 Q100,50 200,100 T400,100 T600,100 T800,100 T1000,100" fill="none" stroke="white" stroke-width="0.5"></path>
+</svg>
+<div class="relative z-10 w-full md:w-auto">
+<h5 class="font-headline text-3xl font-black tracking-tighter group-hover:italic transition-all">JOIN THE PRIDE.</h5>
+<p class="text-neutral-500 text-xs uppercase tracking-widest mt-1">Weekly digital insights delivered to your apex.</p>
+<div class="mt-6 flex flex-col sm:flex-row gap-3">
+<input class="bg-surface-container-highest border-none text-xs px-4 py-3 w-full sm:w-64 focus:ring-1 focus:ring-primary rounded-lg" placeholder="email@rawrnot.com" type="email"/>
+<button class="bg-primary text-on-primary-fixed px-8 py-3 text-xs font-bold rounded-full uppercase tracking-widest active:scale-95 transition-transform hover:shadow-lg hover:shadow-primary/20">Sub</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar from COMPONENTS_9 -->
+<nav class="fixed bottom-6 left-0 w-full z-50 flex justify-around items-center px-4">
+<div class="bg-neutral-800/20 backdrop-blur-[32px] w-[90%] rounded-full max-w-md flex justify-around items-center py-2 px-4 shadow-2xl border border-white/10">
+<a class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<a class="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 duration-500 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</a>
+<a class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</a>
+<a class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</a>
+<a class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</a>
+</div>
+</nav>
+</body></html>

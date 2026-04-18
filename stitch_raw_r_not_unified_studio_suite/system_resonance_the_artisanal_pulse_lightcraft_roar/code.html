@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#474649",
+                      "background": "#131313",
+                      "surface-variant": "#353534",
+                      "on-secondary-container": "#b6b4b7",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "surface-container": "#201f1f",
+                      "primary": "#ffb2bf",
+                      "tertiary-fixed": "#ffdada",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#303032",
+                      "on-primary-container": "#5a0022",
+                      "secondary": "#c8c6c8",
+                      "on-background": "#e5e2e1",
+                      "secondary-fixed": "#e4e2e4",
+                      "inverse-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "tertiary": "#ffb3b5",
+                      "on-surface-variant": "#e4bdc2",
+                      "surface-container-low": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#474649",
+                      "inverse-on-surface": "#313030",
+                      "on-tertiary-fixed": "#40000c",
+                      "on-tertiary": "#680019",
+                      "tertiary-fixed-dim": "#ffb3b5",
+                      "tertiary-container": "#ff5167",
+                      "on-primary": "#660028",
+                      "inverse-primary": "#bc004f",
+                      "primary-fixed": "#ffd9de",
+                      "on-error": "#690005",
+                      "on-surface": "#e5e2e1",
+                      "surface-container-highest": "#353534",
+                      "on-tertiary-fixed-variant": "#920027",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#5b3f43",
+                      "on-tertiary-container": "#5b0015",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#3f0016",
+                      "on-primary-fixed-variant": "#90003b",
+                      "primary-fixed-dim": "#ffb2bf",
+                      "error-container": "#93000a",
+                      "surface-tint": "#ffb2bf",
+                      "surface-container-high": "#2a2a2a",
+                      "surface": "#131313",
+                      "surface-dim": "#131313",
+                      "surface-bright": "#393939",
+                      "primary-container": "#ff4d81",
+                      "outline": "#ab888c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-glass {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .artisanal-border {
+            box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1), 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .lion-pulse {
+            mask-image: radial-gradient(circle, black 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-4 bg-neutral-950/40 backdrop-blur-3xl bg-gradient-to-b from-neutral-800/10 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold italic text-pink-200 font-['Newsreader'] tracking-tighter">RAW'R'NOT</span>
+<div class="hidden md:flex gap-6 text-sm font-['Newsreader'] tracking-tighter">
+<a class="text-neutral-400 font-medium hover:text-pink-200 transition-colors duration-300" href="#">English</a>
+<a class="text-neutral-400 font-medium hover:text-pink-200 transition-colors duration-300" href="#">Spanish</a>
+<a class="text-neutral-400 font-medium hover:text-pink-200 transition-colors duration-300" href="#">Obsidian</a>
+<a class="text-pink-300 border-b-2 border-pink-500 pb-1 hover:text-pink-200 transition-colors duration-300" href="#">Lightcraft</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-pink-300 hover:text-pink-200 scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+<button class="p-2 text-pink-300 hover:text-pink-200 scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant/20">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close up portrait of a creative professional with focused expression and soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgZs1Wbi2ckahH_ioP8gV_-X9OtiztaPjzAA4vRmt3tqSIWs5zsRgYnJptHMZ5wi-5VesbyAp5FR-A4NpFfglMuz04tpuv8owqZqQD8C8oOyixhQu0B0ROcLPvHKdzKt6DMSGOFr4I1Zu0fBm7cL2XEXp4iT1VJ9mULbmOUwaXtpLz2Qj8un1a2P6-25LcfFH2IErE5q3j2BJGZwrB65thR1KONdIXVCY-JA6EGFKDWl2KmRAm_rRIWCpltfPPS-hkP8IeW_Jdr7M"/>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-5rem)] w-64 bg-[#131313] border-r border-neutral-800/20 py-6 font-['Inter'] font-light">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="pets" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<div>
+<p class="text-pink-300 font-black text-sm">The Lion</p>
+<p class="text-neutral-500 text-xs">Elite Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 px-6 py-3 text-pink-400 border-r-4 border-pink-500 bg-neutral-900/50 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="graphic_eq">graphic_eq</span>
+<span class="text-sm">Resonance</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-neutral-500 hover:bg-neutral-800/40 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="token">token</span>
+<span class="text-sm">Earning</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-neutral-500 hover:bg-neutral-800/40 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="text-sm">Assets</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-neutral-500 hover:bg-neutral-800/40 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm">Status</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="bg-surface-container-high rounded-xl p-4 mb-6">
+<p class="text-[10px] uppercase tracking-widest text-neutral-500 mb-2">Power Mode</p>
+<p class="text-xs font-bold text-pink-200">ZERO DISTORTION</p>
+</div>
+<a class="flex items-center gap-4 py-3 text-neutral-500 hover:text-pink-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="text-sm">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-8 lg:p-12 overflow-y-auto">
+<header class="mb-16">
+<h1 class="font-headline text-5xl md:text-7xl font-light tracking-tighter text-on-surface mb-4">
+                    System Resonance: <span class="italic text-primary">The Artisanal Pulse</span>
+</h1>
+<p class="font-body text-neutral-400 max-w-2xl leading-relaxed">
+                    Experiencing the tactile feedback of the creative engine. Every raw'r collected is a heartbeat in the machine, rendered through the Lightcraft aesthetic.
+                </p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Hero Resonance Panel (Asymmetric) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-3xl artisanal-border liquid-glass p-8 min-h-[400px] flex flex-col justify-end">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Lion pulse visualization" class="w-full h-full object-cover lion-pulse" data-alt="Abstract digital visualization of a lion's head made of shimmering pink light particles against a deep obsidian background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ6dfiKh9RMese9MdpR36f9OLf6-OiefDUk0Gh95POuH8W98De-0fK9Qf8Yh9Tq1OaWZwJZiK6stMtfX3H22SkZGwcPnEpmC29G7U9ElxBqMi4n-uJwpMlzEJaBgtjOfMRfUSGg32uz6FsXk-I43T8y_siPT0t_IEZYteRg4131bKTsIPZpfOY9z6Poq2MLWLS_4vHA3O6_IiURRHbxXVeRP7JVUBk3OaxJOZUKePVno-4fmdcS2DQVXv-6qKQR56dtt7kY5focTs"/>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center artisanal-border">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl text-on-surface">Lion Heart Active</h3>
+<p class="text-sm text-neutral-400 font-label tracking-widest uppercase">Stability: 99.8%</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs text-primary font-medium artisanal-border">CORE SYNCED</span>
+<span class="px-4 py-1.5 rounded-full bg-surface-container-highest text-xs text-neutral-300 font-medium artisanal-border">ULTRA-LOW LATENCY</span>
+</div>
+</div>
+</div>
+<!-- Token Accumulation (Vertical) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-3xl p-8 artisanal-border flex flex-col items-center justify-center text-center">
+<div class="relative mb-8">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+<span class="material-symbols-outlined text-8xl text-primary relative z-10" data-icon="toll">toll</span>
+</div>
+<h2 class="font-headline text-4xl text-on-surface mb-2 tracking-tighter">8,432</h2>
+<p class="text-sm text-neutral-500 font-label uppercase tracking-[0.2em] mb-6">Raw'rs Accumulated</p>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-[72%]"></div>
+</div>
+<p class="mt-4 text-xs text-neutral-400 italic font-headline">Next tier: King of the Pride</p>
+</div>
+<!-- Status Alerts (Bento Item) -->
+<div class="md:col-span-4 bg-surface-container-highest/50 rounded-3xl p-6 artisanal-border flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-headline text-xl">Pulse Log</h4>
+<span class="material-symbols-outlined text-neutral-500" data-icon="history">history</span>
+</div>
+<div class="space-y-4">
+<div class="p-3 bg-surface-container-lowest rounded-xl flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_#ffb2bf]"></div>
+<span class="text-sm text-neutral-300">Resonance Shift Detected</span>
+<span class="text-[10px] text-neutral-500 ml-auto">2m ago</span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-xl flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-sm text-neutral-300">Asset "Mane" Compiled</span>
+<span class="text-[10px] text-neutral-500 ml-auto">14m ago</span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-xl flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-pink-900"></div>
+<span class="text-sm text-neutral-500">Scheduled Purge Complete</span>
+<span class="text-[10px] text-neutral-500 ml-auto">1h ago</span>
+</div>
+</div>
+</div>
+<!-- Artisanal Visual Feedback (Large Wide) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-3xl overflow-hidden artisanal-border flex flex-col md:flex-row">
+<div class="md:w-1/2 p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-3xl mb-4">Precision Feedback</h3>
+<p class="text-sm text-neutral-400 leading-relaxed mb-6">
+                                Interactions are weighted with digital mass. Every click generates a unique haptic resonance mapped to the Lightcraft spectral palette.
+                            </p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed px-8 py-3 rounded-full font-bold text-sm self-start shadow-xl hover:shadow-primary/20 transition-all active:scale-95">
+                            CALIBRATE PULSE
+                        </button>
+</div>
+<div class="md:w-1/2 min-h-[250px] relative">
+<img alt="Artisanal texture" class="w-full h-full object-cover" data-alt="High resolution texture of artisanal hand-made paper with visible fibers and a soft pinkish-gray hue under natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL2LeYzSQdXD5zD7ti0iDWw752t3QXdP313NMDiKGBzM7f-QInowbRxOHEPWji0R5ZOMRsMMhcNB1ai6pV_LZNiVPvBsRWtTtoLMPC1le9cNN_hnojaReuyjWVxK2Resc5HmZiQQh-N8GqhV5eWHsrOPkVSZmMica4dC5cifvykBTnLp0IGZ1TQ_pQQvcfNxkZUMQ2A5kKNTNzhcCJc61RjfvnO0ETy1xKSfcnhW3u7YMmiUO75foKC6PI9esykTfxplHX0Ux0OpI"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-32 h-32 artisanal-border liquid-glass rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-on-surface" data-icon="fingerprint">fingerprint</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Feedback (Toast Style) -->
+<div class="fixed bottom-8 right-8 z-[100] liquid-glass artisanal-border rounded-2xl p-4 flex items-center gap-4 animate-bounce-slow">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="celebration" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Resonance Peak!</p>
+<p class="text-xs text-neutral-400">Harmonic alignment achieved.</p>
+</div>
+</div>
+</body></html>

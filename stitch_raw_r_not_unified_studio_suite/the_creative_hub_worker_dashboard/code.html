@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#131313",
+                    "tertiary-container": "#ff5167",
+                    "on-tertiary": "#680019",
+                    "on-surface": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#40000c",
+                    "primary-fixed": "#ffd9de",
+                    "primary": "#ffb2bf",
+                    "on-tertiary-container": "#5b0015",
+                    "on-secondary-fixed-variant": "#474649",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-primary": "#bc004f",
+                    "tertiary-fixed-dim": "#ffb3b5",
+                    "on-secondary-container": "#b6b4b7",
+                    "tertiary-fixed": "#ffdada",
+                    "surface-container-highest": "#353534",
+                    "on-surface-variant": "#e4bdc2",
+                    "surface": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#303032",
+                    "secondary-fixed-dim": "#c8c6c8",
+                    "on-background": "#e5e2e1",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "outline": "#ab888c",
+                    "on-primary-fixed": "#3f0016",
+                    "surface-tint": "#ffb2bf",
+                    "secondary": "#c8c6c8",
+                    "surface-variant": "#353534",
+                    "surface-container": "#201f1f",
+                    "outline-variant": "#5b3f43",
+                    "inverse-on-surface": "#313030",
+                    "surface-bright": "#393939",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed-variant": "#920027",
+                    "on-primary-fixed-variant": "#90003b",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "tertiary": "#ffb3b5",
+                    "surface-dim": "#131313",
+                    "secondary-fixed": "#e4e2e4",
+                    "secondary-container": "#474649",
+                    "on-primary-container": "#5a0022",
+                    "on-secondary-fixed": "#1b1b1d",
+                    "primary-container": "#ff4d81",
+                    "on-primary": "#660028"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.2);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen p-6 space-y-8 bg-zinc-950/40 backdrop-blur-3xl h-full w-64 border-r border-zinc-800/20 sticky top-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="token">token</span>
+</div>
+<div class="flex flex-col">
+<span class="text-pink-500 font-bold font-headline tracking-tight text-lg">Apex Worker</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-zinc-500">Elite Tier</span>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 py-3 px-4 text-pink-400 font-bold border-r-2 border-pink-500 pr-4 bg-white/5 rounded-l-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Inter'] text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-zinc-500 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Inter'] text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-zinc-500 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-['Inter'] text-sm font-medium">Compute</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-zinc-500 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="bubble_chart">bubble_chart</span>
+<span class="font-['Inter'] text-sm font-medium">Flows</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-zinc-500 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-zinc-800/40">
+<button class="w-full py-3 px-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold rounded-full text-sm hover:opacity-90 transition-opacity">
+                    New Project
+                </button>
+<a class="flex items-center gap-3 py-3 px-4 mt-4 text-zinc-500 hover:bg-white/5 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_center">help_center</span>
+<span class="font-['Inter'] text-sm font-medium">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 bg-background relative overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-zinc-950/40 backdrop-blur-3xl text-pink-500 sticky top-0 z-40 w-full px-8 py-4 max-w-screen-2xl mx-auto flex justify-between items-center shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold italic text-pink-500 font-['Newsreader'] tracking-tighter">RAW'R'NOT</span>
+<nav class="hidden lg:flex gap-6">
+<a class="text-pink-400 border-b-2 border-pink-500 pb-1 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-zinc-400 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Spatial</a>
+<a class="text-zinc-400 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-zinc-500 text-sm">search</span>
+<input class="bg-surface-container-lowest border-none rounded-sm py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-outline-variant w-64 text-on-surface placeholder:text-zinc-600" placeholder="Search Assets..." type="text"/>
+</div>
+<button class="material-symbols-outlined p-2 text-zinc-400 hover:text-pink-300" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 text-zinc-400 hover:text-pink-300" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-12">
+<!-- Hero Editorial Header -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+<div class="lg:col-span-8">
+<h1 class="text-6xl md:text-7xl font-headline font-bold tracking-tight text-on-surface-variant leading-none">
+                            The <span class="italic text-primary">Creative</span><br/>Engine Room.
+                        </h1>
+<p class="mt-6 text-lg text-zinc-400 max-w-xl font-body">
+                            Harnessing the Obsidian Roar aesthetic for high-performance creative orchestration. All systems nominal.
+                        </p>
+</div>
+<div class="lg:col-span-4 flex flex-col items-end">
+<div class="bg-surface-container-high rounded-3xl p-6 editorial-shadow w-full lg:w-auto min-w-[240px]">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary mb-2 block">Creative Streak</span>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-headline font-bold text-on-surface">24</span>
+<span class="text-zinc-500 font-body">Days Active</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-[85%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<section class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 grid-rows-3 gap-6 h-auto md:h-[900px]">
+<!-- Main Queue Card -->
+<div class="md:col-span-4 md:row-span-2 glass-panel rounded-3xl p-8 editorial-shadow overflow-hidden flex flex-col relative group">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-[100px] group-hover:bg-primary/20 transition-all duration-700"></div>
+<div class="flex justify-between items-center mb-8 relative">
+<h2 class="text-2xl font-headline font-bold">Active Project Pipeline</h2>
+<button class="text-primary hover:underline text-sm font-label uppercase tracking-widest">View History</button>
+</div>
+<div class="space-y-6 relative flex-1">
+<!-- Project Item -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-6 group hover:bg-surface-bright transition-colors duration-300">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant abstract liquid waves with pink and orange highlights flowing across a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-3ZcFTmCXFlhKXHVT7ChmdomKmH7TQ1N3_Qiw0aHqZeWV5x1cvfKAUJELsuFPj2NW_wLJATgQUh8eigCd-sdmtJ5DvTqxHQC1im46gNJtcD3hrYnHcAJj7xowda1hkVBCfPsw8J9McN1OtnBMiBY7pWofWNscFNBkug3hpDVhxQhLVFBzO7qxicJ7tUy5bJdlKKmChfK4RTDA7gUAxYz0Cnh6pqNTkiOy9bPxbHxhMDgeSfAmbTl-HJNwxBcvpQiDUSX4OmErrKU"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Neon Horizon Render</h3>
+<p class="text-xs text-zinc-500 mt-1 italic">Client: Cyber-Atelier</p>
+</div>
+<span class="text-[10px] px-2 py-1 rounded bg-primary/10 text-primary border border-primary/20 uppercase tracking-tighter">In Processing</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[72%]"></div>
+</div>
+<span class="text-xs font-label text-zinc-400">72%</span>
+</div>
+</div>
+</div>
+<!-- Project Item -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-6 group hover:bg-surface-bright transition-colors duration-300">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="geometric chrome shapes reflecting warm light against a charcoal grey studio backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUYiD6Qc6vOc0zfwG0YQjPLyXEIeJvaHKhYzIJkzD-V7a7Yx-bOADdRlowqopemn853oKCwS8xZV7FpqyE5qHR-StJ4KzjKji5WvVlJu0BWBjyq1W5XLOo2iNP3YjMh0l-YBOheHgQofBe3lwa8_e_29boBd8fROdoe7qkMqfKK6cjefq4hH7jECJVDH6LrsH2BEmyUaHrOXLNeavVxEcCZ8QR8A8a5XQ9QmAJx3QpNWyJZs8cWptH8s9dI1F_cNxzmZn09ZvKDRA"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Obsidian Shell Texture Pack</h3>
+<p class="text-xs text-zinc-500 mt-1 italic">Internal Project</p>
+</div>
+<span class="text-[10px] px-2 py-1 rounded bg-zinc-800 text-zinc-400 border border-white/5 uppercase tracking-tighter">Queued</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-zinc-700 w-0"></div>
+</div>
+<span class="text-xs font-label text-zinc-400">Waiting</span>
+</div>
+</div>
+</div>
+<!-- Project Item -->
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-6 group hover:bg-surface-bright transition-colors duration-300">
+<div class="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="retro technology aesthetic with glowing computer circuits and soft neon pink backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx6wkFXl2qIrKqueJguTHTJA-N-hKYGd5_9PkTZqw21BAqCeEadhfxXQcmSpgGfSMAejF8lUtraHjcuUmTQ_yvibnVi7sn9rVGN6K_ZJFbZxnfzRHPg4yX3XK6_6wXDFbQbY1QuQo8ErO7eIeuitEfr5w_Pf2t23fCxp2N_T3ZGocfSistznYS1OcEA9Z52KBa5lT_Zn09f0xhrpUBPm5vXXk_g1Hn8p7dwSdR2BoZek2R9mif8wwO9LVj-jQlmfeSYDuJNRLXp3g"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-on-surface">Vintage Glitch Sequence</h3>
+<p class="text-xs text-zinc-500 mt-1 italic">Client: Retro-Waves</p>
+</div>
+<span class="text-[10px] px-2 py-1 rounded bg-tertiary/10 text-tertiary border border-tertiary/20 uppercase tracking-tighter">Review Needed</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[100%]"></div>
+</div>
+<span class="text-xs font-label text-zinc-400">Action Required</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Stats / Badge -->
+<div class="md:col-span-2 md:row-span-1 glass-panel rounded-3xl p-6 editorial-shadow border border-white/5 flex flex-col justify-center items-center text-center overflow-hidden relative">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20" data-alt="abstract digital painting with deep burgundy and obsidian tones and soft glowing particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC17cIqeNUQcyWmC1sDVVfRFccnHRfGyh5yXg8-8PK_cMROuhacjbc-6-EgeAAwSC2mop_gR_b1BB-Wz0B6OYcchS-AEnF-JQwNZOLK86MN4k5H4C_zVRMFD49H8Rwn8JvtYziZJU6g4NFuin9oJ3_PWaPeechbOzA6rzZqMKBD2dxGjp5iyMbKCxJx_7XFHRq9rvEKc8If3ckiB1k6jpS9uS6dwUI79UFXc02_Catbc5Y8OIvHqwk1FmjqeIXpjk1dggbXJlDFmr4"/>
+</div>
+<div class="relative z-10">
+<div class="w-20 h-20 mx-auto rounded-full bg-surface-tint/10 flex items-center justify-center border border-primary/20 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface">Master Orchestrator</h3>
+<p class="text-xs text-zinc-500 font-label tracking-widest mt-1">RANK #12 WORLDWIDE</p>
+</div>
+</div>
+<!-- Resource Usage (Asymmetric Card) -->
+<div class="md:col-span-2 md:row-span-1 bg-surface-container-highest rounded-3xl p-8 editorial-shadow flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="memory">memory</span>
+                                System Compute
+                            </h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs font-label text-zinc-400 mb-2">
+<span>GPU LOAD</span>
+<span class="text-primary">88%</span>
+</div>
+<div class="h-1 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[88%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-label text-zinc-400 mb-2">
+<span>BANDWIDTH</span>
+<span>1.2 Gbps</span>
+</div>
+<div class="h-1 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-zinc-500 w-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-zinc-600 font-label uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            Servers Connected: Tokyo-01
+                        </div>
+</div>
+<!-- Asset Processing Hub -->
+<div class="md:col-span-3 md:row-span-1 glass-panel rounded-3xl p-8 editorial-shadow flex flex-col justify-between group overflow-hidden">
+<div class="flex justify-between items-start">
+<h2 class="text-2xl font-headline font-bold">Asset Processing</h2>
+<span class="material-symbols-outlined text-zinc-500" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="mt-8 flex gap-4">
+<div class="flex-1 p-4 bg-surface-container-lowest rounded-xl border border-white/5 hover:border-primary/40 transition-colors">
+<span class="block text-xs font-label text-zinc-500 mb-1">RAW FILES</span>
+<span class="text-2xl font-headline font-bold">142</span>
+</div>
+<div class="flex-1 p-4 bg-surface-container-lowest rounded-xl border border-white/5 hover:border-primary/40 transition-colors">
+<span class="block text-xs font-label text-zinc-500 mb-1">PROCESSED</span>
+<span class="text-2xl font-headline font-bold text-primary">89</span>
+</div>
+<div class="flex-1 p-4 bg-surface-container-lowest rounded-xl border border-white/5 hover:border-primary/40 transition-colors">
+<span class="block text-xs font-label text-zinc-500 mb-1">FAILED</span>
+<span class="text-2xl font-headline font-bold text-error">0</span>
+</div>
+</div>
+</div>
+<!-- Task Quick Access -->
+<div class="md:col-span-3 md:row-span-1 bg-gradient-to-br from-surface-container-high to-surface-container-highest rounded-3xl p-8 editorial-shadow flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<h3 class="font-bold">Next Directives</h3>
+<button class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+<div class="space-y-3 mt-6">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-zinc-300">Sync meta-layers for project 'Lion'</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-zinc-600 text-lg" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-zinc-500">Approve cloud-compute overages</span>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-zinc-600 text-lg" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-zinc-500">Refine obsidian-texture gradients</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Multimedia Section -->
+<section class="relative h-[400px] rounded-3xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="cinematic close-up of high-tech computer hardware with glowing blue and pink lights reflecting on glass surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzl_dHga5YXq4jJALUd3m3MKRl1E8KX_hLJNUMNrXGVhd05A0qhiJHNhIZ0cIgvBNgQhgWs8zgU_CkBc7BV4Arqm44V1LeowE9dd9poj4OdOZkclKUm4ye40EYMT98vp9lU4t4prHBFuDSHspOkNs_zbO8q6ccuYJPo_X-9Nsr7dS_GwWM5S0Yge_oRrZ-CSgevdqWswVDr1svKY8C_k_cTu8nMEPjKaMBCShQYQKMNxVB3hC8qWjhfzCYpe-hvLK-9fRH0BK67dw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-12 left-12 max-w-2xl">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary mb-4 block">Experimental View</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface">Liquid Flow Diagnostics</h2>
+<p class="mt-4 text-zinc-300 font-body">Real-time visualization of the creative asset ecosystem. Toggle spatial mode to explore nested dependencies within the liquid glass material framework.</p>
+<button class="mt-8 px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-background transition-all">Launch Spatial View</button>
+</div>
+</section>
+</div>
+<footer class="mt-12 p-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-pink-500 font-bold italic font-headline">RAW'R'NOT</span>
+<span class="text-zinc-600 text-[10px] font-label uppercase tracking-widest ml-4">© 2024 Digital Apex Systems</span>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">Protocol</a>
+<a class="text-zinc-500 hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">Security</a>
+<a class="text-zinc-500 hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">Terminal</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-900/60 backdrop-blur-2xl shadow-2xl border-t border-white/5 rounded-t-3xl">
+<button class="flex flex-col items-center justify-center bg-pink-500/20 text-pink-400 rounded-2xl px-6 py-2 transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Pulse</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="watch">watch</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Watch</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Menu</span>
+</button>
+</nav>
+</body></html>

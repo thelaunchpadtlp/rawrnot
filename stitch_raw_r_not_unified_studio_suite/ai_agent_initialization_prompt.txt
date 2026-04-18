@@ -1,0 +1,19 @@
+# AI AGENT INITIALIZATION PROMPT (Copy-Paste to Jules/Claude/AI Studio)
+
+"Hello. I am initiating the development phase for a high-fidelity project called **raw’r’not (The Digital Apex)**. 
+
+I am providing you with the **ULTIMATE CRYSTALLIZED MANIFEST**, which contains the full architectural blueprint (MACH+MCP), aesthetic governance (Obsidian vs Lightcraft), and strategic behavioral logic.
+
+**Your Instructions:**
+1.  **Read and Analyze:** Thoroughly ingest the manifest below and the technical documents it references.
+2.  **Setup the Environment:** Prepare a plan to initialize a serverless environment on **Google Cloud Run**.
+3.  **Implement the DNA:** Use the provided design tokens from `DESIGN.md` to ensure a zero-distortion theme toggle.
+4.  **Agentic Interop:** Prioritize the deployment of the **MCP Server** to allow subsequent agents to collaborate on the CRM and Checkout logic.
+
+**THE MANIFEST:**
+[PASTE CONTENT OF ULTIMATE CRYSTALLIZED MANIFEST HERE]
+
+**THE DESIGN TOKENS (DESIGN.md):**
+[PASTE CONTENT OF DESIGN.MD FROM {{DATA:DESIGN_SYSTEM:DESIGN_SYSTEM_1}} HERE]
+
+Confirm when you have ingested this context and are ready to provide the first architectural infrastructure plan."

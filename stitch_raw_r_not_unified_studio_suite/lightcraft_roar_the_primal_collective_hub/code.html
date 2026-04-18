@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#90003b",
+                    "on-primary-fixed": "#3f0016",
+                    "surface-dim": "#131313",
+                    "on-tertiary-container": "#5b0015",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "background": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#ffd9de",
+                    "outline": "#ab888c",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary-container": "#b6b4b7",
+                    "on-error": "#690005",
+                    "inverse-primary": "#bc004f",
+                    "outline-variant": "#5b3f43",
+                    "secondary-fixed-dim": "#c8c6c8",
+                    "tertiary-fixed-dim": "#ffb3b5",
+                    "secondary-container": "#474649",
+                    "tertiary-fixed": "#ffdada",
+                    "tertiary": "#ffb3b5",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-tint": "#ffb2bf",
+                    "surface-bright": "#393939",
+                    "primary": "#ffb2bf",
+                    "on-primary": "#660028",
+                    "on-tertiary-fixed": "#40000c",
+                    "surface": "#131313",
+                    "surface-variant": "#353534",
+                    "tertiary-container": "#ff5167",
+                    "on-secondary-fixed": "#1b1b1d",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "on-secondary-fixed-variant": "#474649",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#e4bdc2",
+                    "secondary": "#c8c6c8",
+                    "on-primary-container": "#5a0022",
+                    "on-secondary": "#303032",
+                    "on-tertiary-fixed-variant": "#920027",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed": "#e4e2e4",
+                    "primary-container": "#ff4d81",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary": "#680019",
+                    "on-surface": "#e5e2e1",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Implementation -->
+<nav class="flex justify-between items-center px-8 py-4 w-full fixed z-50 bg-[#131313]/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold italic text-[#ffb2bf] dark:text-[#ffb2bf] font-['Newsreader'] tracking-tighter">Lightcraft Roar</span>
+<div class="hidden md:flex gap-6">
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Archive</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Editorial</a>
+<a class="text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1 font-['Newsreader'] tracking-tighter" href="#">The Apex</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Dispatch</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-gray-400 hover:text-white transition-colors"><span class="material-symbols-outlined">dark_mode</span></button>
+<button class="p-2 text-gray-400 hover:text-white transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a creative professional with focused expression in a dimly lit studio with warm accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3nelpDFW921aF_2bDQxj0Pqk7r2l-jf8fxydMUUMdN0-6L8LDjET5OMPGWJX7jeSX7kTdMX0iRpmj7qKvMB4Da170pgeeSv3N-0VGXS1aq3ofECeTLq2b2DDvXU3zJl4sd1SnYL69l3glyQdtQmo7XYeT44yGV90tg3EIJr_hMfS1b9Quo5CwJYhSP0dD9tTYSUpPpA8vVxO9yTikU3U8Jr72pDVTZa1MEurP89pi8ceD0yM9u9PMD9SvDVLr4LiSVRdNYGrpaH4"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Implementation -->
+<aside class="hidden lg:flex flex-col h-screen py-6 px-4 fixed left-0 top-0 w-64 bg-[#0e0e0e] z-40 pt-24">
+<div class="mb-10 px-4">
+<h2 class="font-['Newsreader'] text-xl text-white">The Lion</h2>
+<p class="text-xs text-gray-500 tracking-tight">Elite Technical Execution</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-gray-500 pl-4 py-2 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out group" href="#">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span class="font-['Inter'] text-sm tracking-tight">Chronicle</span>
+</a>
+<a class="flex items-center gap-3 text-[#ffb2bf] font-bold border-l-4 border-[#ff4d81] pl-4 py-2 bg-surface-container-low/50" href="#">
+<span class="material-symbols-outlined text-lg">palette</span>
+<span class="font-['Inter'] text-sm tracking-tight">Studio</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 py-2 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span class="font-['Inter'] text-sm tracking-tight">Instinct</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 py-2 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span class="font-['Inter'] text-sm tracking-tight">Vault</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 py-2 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-['Inter'] text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pb-8">
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed rounded-full font-bold text-sm mb-6 flex items-center justify-center gap-2 hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                Forge New
+            </button>
+<a class="flex items-center gap-3 text-gray-500 py-2 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="font-['Inter'] text-sm tracking-tight">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-64 pt-28 pb-20 px-6 md:px-12 min-h-screen relative overflow-hidden">
+<div class="paper-texture absolute inset-0 z-0"></div>
+<!-- Hero Section: Editorial Asymmetry -->
+<header class="relative z-10 mb-20">
+<div class="flex flex-col md:flex-row gap-12 items-end">
+<div class="max-w-2xl">
+<span class="inline-block px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-6">Active Expedition</span>
+<h1 class="font-headline text-5xl md:text-7xl leading-[0.9] tracking-tighter text-on-background italic">
+                        Primal <br/> Collective <span class="text-primary not-italic font-bold">Hunt</span>
+</h1>
+<p class="mt-8 font-body text-lg text-on-surface-variant max-w-md leading-relaxed">
+                        Orchestrate elite acquisition loops through Reed's Law. High-fidelity group buys for the digitally sophisticated.
+                    </p>
+</div>
+<div class="flex-1 w-full relative group">
+<div class="absolute -inset-4 bg-primary/5 blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="relative h-[300px] rounded-xl overflow-hidden shadow-2xl border border-outline-variant/20">
+<img alt="Apex Abstract" class="w-full h-full object-cover grayscale brightness-75 group-hover:scale-105 transition-transform duration-700" data-alt="abstract architectural geometry with harsh dramatic shadows and clean lines in a high-contrast monochromatic desert environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1cYxc2f29ip1txUTDHfpvhXUSE5fENxPh0aRbuyclQFBfcRN05SMpeC6uzbJrwYruN54Tu5Aktz60sI-pFnt4YtcmHGyUv7QMBRqvuDG0_3uJ-0D3BSE8Fx1U484852YIzX-G9XYieZipwddLgKq10Iqx5jB-QcrtWE2ynhspbcexIz8TsOwt31TNmBGqBRAHcF1Aqj3l_kVxdvjY7EUnJjxWFvuqgGhvEMO5tGTS3YddDYqTFw1rAQgWNnslnQht2Mn-yGZiZtk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<p class="text-xs font-label uppercase tracking-widest text-primary mb-1">Current Status</p>
+<p class="font-headline text-2xl text-white italic">The Apex Frequency is Stable.</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid Sections -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
+<!-- Group Hunt Meter (Bento 8-col) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-8 relative overflow-hidden group border border-outline-variant/10 shadow-lg">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl">groups</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline text-3xl mb-12 text-white">Collective Momentum</h3>
+<div class="space-y-12">
+<div>
+<div class="flex justify-between items-end mb-4">
+<span class="font-label text-sm tracking-widest uppercase text-on-surface-variant">Primal Threshold</span>
+<span class="font-headline text-4xl text-primary font-bold italic">78%</span>
+</div>
+<div class="h-4 bg-surface-container-highest rounded-full overflow-hidden p-1 shadow-inner border border-outline-variant/5">
+<div class="h-full bg-gradient-to-r from-tertiary to-tertiary-container rounded-full w-[78%] shadow-[0_0_15px_rgba(255,77,129,0.4)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-surface-container rounded-lg p-6 border border-outline-variant/5">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-2">Hunters</p>
+<p class="text-2xl font-headline italic text-white">1,248</p>
+</div>
+<div class="bg-surface-container rounded-lg p-6 border border-outline-variant/5">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-2">Unlocked Tier</p>
+<p class="text-2xl font-headline italic text-white">Legendary</p>
+</div>
+<div class="bg-surface-container rounded-lg p-6 border border-outline-variant/5">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-2">Time Remaining</p>
+<p class="text-2xl font-headline italic text-white">04:12:44</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Cryptographic Link (Bento 4-col) -->
+<div class="md:col-span-4 bg-surface-container-high rounded-xl p-8 border border-outline-variant/20 shadow-xl flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4">key</span>
+<h3 class="font-headline text-3xl mb-4 text-white">Invite Code</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8">Generate an immutable, cryptographic access token to expand your enclave.</p>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg font-mono text-xs text-primary/80 border border-primary/20 flex items-center justify-between">
+<span>LCR-ROAR-X82-K9-992</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white transition-colors">content_copy</span>
+</div>
+<button class="w-full py-4 border border-primary/40 text-primary rounded-full font-bold hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        Generate New Node
+                    </button>
+</div>
+</div>
+<!-- Reed's Law Visualization (Bento 5-col) -->
+<div class="md:col-span-5 bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 relative overflow-hidden min-h-[400px]">
+<h3 class="font-headline text-3xl mb-2 text-white">Reed's Law</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mb-8">Group Utility Visualization</p>
+<div class="relative h-64 flex items-center justify-center">
+<!-- Illustrative Accent -->
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<div class="w-48 h-48 rounded-full border-2 border-dashed border-primary animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute w-64 h-64 rounded-full border border-primary/30 animate-[spin_30s_linear_infinite_reverse]"></div>
+</div>
+<div class="text-center z-10">
+<div class="text-6xl font-headline text-primary italic font-black">2<sup class="text-2xl">N</sup></div>
+<p class="mt-4 text-sm font-label text-on-surface-variant max-w-[200px] mx-auto italic">Value scales exponentially with every formed collective subgroup.</p>
+</div>
+</div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="flex items-center justify-between py-3 border-t border-outline-variant/10">
+<span class="text-xs font-label text-gray-500">Nodes Active</span>
+<span class="text-sm font-headline text-white italic">4.8k</span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-outline-variant/10">
+<span class="text-xs font-label text-gray-500">Sub-collectives</span>
+<span class="text-sm font-headline text-white italic">142</span>
+</div>
+</div>
+</div>
+<!-- Team Buy Feature (Bento 7-col) -->
+<div class="md:col-span-7 bg-surface-container-high rounded-xl overflow-hidden flex flex-col md:flex-row group border border-outline-variant/20 shadow-2xl">
+<div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img alt="Artisanal Tool" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of a high-end luxury watch movement showing intricate gears and mechanical parts with shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACnr5wz8yPVgN-iV9iky9-SJ-Wcc71Uj3Nslu5o8PHSiUKyVMGwaivWn5p4ztjJI6diI1zaQUy89lbNG1OlY_uZ9nXAfjGrnfGvUA6UCRvmvaxSQrwZE6byrdr_1nMe88zviYV7pxzZbm9yiTejZx1ow6my1oQk4cZDKrc7UFS0dbJ3Rwsizpy9lrZGX_d0CBZsPOp_auJjdxAR3L-CynHSCEYsR8k5mHe6QmpH3AVysYyAKHHRScGJe3a4Z90hDywYSuy6H-zY5M"/>
+</div>
+<div class="w-full md:w-1/2 p-10 flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-4xl mb-4 text-white italic">Apex Horizon <span class="not-italic text-primary">Chronograph</span></h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Limited release for the Hunt. Precision engineering meets raw collective power.</p>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs uppercase tracking-widest border-b border-outline-variant/10 pb-2">
+<span class="text-gray-500">Market Price</span>
+<span class="text-white line-through">$4,200</span>
+</div>
+<div class="flex justify-between text-xs uppercase tracking-widest pb-2">
+<span class="text-primary font-bold">Hunt Price</span>
+<span class="text-primary font-bold">$2,850</span>
+</div>
+</div>
+</div>
+<button class="w-full py-5 bg-white text-background rounded-none font-headline text-xl italic font-bold hover:bg-primary transition-colors duration-300">
+                        Join the Hunt
+                    </button>
+</div>
+</div>
+</section>
+<!-- Artisanal Accents & Decorative Floating Elements -->
+<div class="fixed bottom-10 right-10 z-50 pointer-events-none opacity-40">
+<div class="w-40 h-40 border border-primary/20 rounded-full flex items-center justify-center">
+<div class="w-32 h-32 border border-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">token</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="lg:ml-64 py-12 px-8 border-t border-outline-variant/10 relative z-10 bg-[#0e0e0e]/50 backdrop-blur-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="max-w-xs">
+<p class="font-headline text-2xl text-white italic mb-2">Lightcraft Roar</p>
+<p class="text-xs text-gray-500 font-label leading-relaxed">A digital environment built for the apex of technical execution and primal instinct. All rights reserved.</p>
+</div>
+<div class="flex gap-12">
+<div>
+<h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-4">Foundation</h5>
+<ul class="text-sm text-gray-400 space-y-2">
+<li><a class="hover:text-white transition-colors" href="#">Principles</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Reed's Law</a></li>
+<li><a class="hover:text-white transition-colors" href="#">The Lion's Oath</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs uppercase tracking-widest text-primary font-bold mb-4">Connect</h5>
+<ul class="text-sm text-gray-400 space-y-2">
+<li><a class="hover:text-white transition-colors" href="#">Vault Access</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Dispatch Hub</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Frequency Link</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/10 text-center">
+<p class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">System Health</p>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-headline italic text-white text-sm">Optimal Resonance</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

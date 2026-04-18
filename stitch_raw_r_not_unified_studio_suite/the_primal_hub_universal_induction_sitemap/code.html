@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Primal Onboarding Hub | raw'r'not</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#660028",
+                    "surface-dim": "#131313",
+                    "secondary-fixed-dim": "#c8c6c8",
+                    "secondary-fixed": "#e4e2e4",
+                    "on-tertiary": "#680019",
+                    "on-tertiary-fixed": "#40000c",
+                    "on-surface-variant": "#e4bdc2",
+                    "inverse-on-surface": "#313030",
+                    "surface-bright": "#393939",
+                    "tertiary": "#ffb3b5",
+                    "on-background": "#e5e2e1",
+                    "primary-container": "#ff4d81",
+                    "surface-tint": "#ffb2bf",
+                    "primary": "#ffb2bf",
+                    "tertiary-container": "#ff5167",
+                    "on-tertiary-container": "#5b0015",
+                    "background": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#920027",
+                    "on-error": "#690005",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#90003b",
+                    "surface-container": "#201f1f",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#5a0022",
+                    "surface-variant": "#353534",
+                    "tertiary-fixed-dim": "#ffb3b5",
+                    "secondary-container": "#474649",
+                    "error-container": "#93000a",
+                    "on-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary": "#c8c6c8",
+                    "outline-variant": "#5b3f43",
+                    "on-secondary": "#303032",
+                    "primary-fixed": "#ffd9de",
+                    "on-secondary-fixed-variant": "#474649",
+                    "on-secondary-container": "#b6b4b7",
+                    "tertiary-fixed": "#ffdada",
+                    "surface-container-highest": "#353534",
+                    "on-primary-fixed": "#3f0016",
+                    "on-secondary-fixed": "#1b1b1d",
+                    "inverse-primary": "#bc004f",
+                    "outline": "#ab888c",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "surface-container-high": "#2a2a2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .headline-font { font-family: 'Newsreader', serif; }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.2);
+            backdrop-filter: blur(32px);
+        }
+        .ghost-border {
+            box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Execution from JSON -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold italic text-pink-500 font-['Newsreader'] tracking-tighter">raw'r'not</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-pink-500 border-b-2 border-pink-500 pb-1 font-['Newsreader'] tracking-tighter" href="#">Media</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors font-['Newsreader'] tracking-tighter" href="#">Technical</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors font-['Newsreader'] tracking-tighter" href="#">Clients</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors font-['Newsreader'] tracking-tighter" href="#">Internal</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-400 hover:text-pink-500 transition-all active:scale-90">settings</button>
+<button class="material-symbols-outlined text-zinc-400 hover:text-pink-500 transition-all active:scale-90">share</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/20">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional creative woman with high fashion lighting and warm atmospheric glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV9uFte9cQsjPjC7LMmdy-CRTND2hrZzBGFYYZi6SqVaR_Keiinx4mC_yjstjb9f9AvbN5AF2-ZOHkuT6QIP52Aas96ZA2Shs6DXxkizK5-wYcs2MzmVAb1sHubT_oACJYdfkXXTeB2AiuggrNCqydOiZPvKwt3WK1YVkFhuixVhINzUiRE2-uXyyqoqFQzCpxJBzbHQorbwdg_0bf9QdbejVxe2ffcj3ZUJoO3whQWNrS87ACntznz4v8txs9DdR-YFEZ1y6tnps"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Execution from JSON (Supressed for this specific onboarding layout but referenced for architectural spacing) -->
+<main class="pt-24 pb-20 px-6 md:px-12 max-w-[1600px] mx-auto">
+<!-- Hero Section: Editorial Tension -->
+<section class="mb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<h1 class="headline-font text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background mb-4 leading-none">
+                    Primal <span class="text-primary italic">Onboarding</span> Hub
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl font-light leading-relaxed">
+                    Welcome to the intersection of raw instinct and technical precision. Your portal to the creative intelligence architecture of the Apex.
+                </p>
+</div>
+<div class="md:col-span-5 flex flex-col items-end">
+<div class="w-full max-w-xs glass-panel ghost-border rounded-xl p-6 bg-surface-container-low/40">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant font-label">Dominance Meter</span>
+<span class="text-primary font-bold">42%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container" style="width: 42%"></div>
+</div>
+<p class="text-[10px] mt-3 text-zinc-500 italic tracking-wide">Syncing architectural knowledge: Level 2 / Apex Tier</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Stakeholder Portal -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+<!-- Media: Press Kits -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-xl glass-panel ghost-border p-8 hover:bg-surface-container-high transition-all duration-500">
+<div class="absolute inset-0 z-0 opacity-20 grayscale transition-transform duration-700 group-hover:scale-110">
+<img alt="Media background" class="w-full h-full object-cover" data-alt="high-end futuristic technology studio with soft pink and neon violet ambient lighting and digital screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6AvYKIWuhAvL-_FSs6ELA5oNEkjRqtoUX8d9lThoeIi7Zh3GBMXJuwNZnJX3CIL-5Md1gdaaKh3JjFbFl1yeIC1TTMEzS3d7f1dDp67eAuv3Aq4EO9xIg-eW66bERrIvE2LpCMpgs72o1axEN6Yln6a98Z-FJ6O_2C8U8Jz8glpZo-gEL9y33qaZ3UGvy3s74g6FPPfKlVOD0d8DECcaOlzP6JU4PGb6IGq1Wqy930A2y49yHYpUsOD11foctha5YnmmsmlG1f38"/>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">camera</span>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Stakeholder / Media</span>
+</div>
+<h2 class="headline-font text-4xl font-bold tracking-tight text-white mb-4">Press Kits &amp; Brand Assets</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-md">Access high-fidelity visual assets, brand identity guidelines, and the official raw'r'not media repository.</p>
+</div>
+<button class="mt-12 w-fit bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-bold px-8 py-3 rounded-full hover:scale-105 active:scale-95 transition-transform flex items-center gap-2">
+                        Enter Repository
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Technical: Architectural Specs -->
+<div class="md:col-span-2 group relative overflow-hidden rounded-xl bg-surface-container-lowest ghost-border p-8 transition-all duration-300">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-2 block">Technical Deep Dive</span>
+<h3 class="headline-font text-2xl font-bold text-white">MACH/MCP Architecture</h3>
+</div>
+<span class="material-symbols-outlined text-zinc-600">terminal</span>
+</div>
+<div class="mt-8 space-y-3">
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-xs text-zinc-400">Microservices Connectivity</span>
+<span class="text-xs text-primary font-mono">READY</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-xs text-zinc-400">API First Federation</span>
+<span class="text-xs text-primary font-mono">ENCRYPTED</span>
+</div>
+</div>
+<button class="mt-6 text-sm font-semibold text-primary flex items-center gap-2 hover:translate-x-1 transition-transform">
+                    View Specs <span class="material-symbols-outlined text-xs">open_in_new</span>
+</button>
+</div>
+<!-- Clients: Guided Inductions -->
+<div class="md:col-span-1 rounded-xl glass-panel ghost-border p-6 flex flex-col justify-between hover:bg-surface-bright/20 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+</div>
+<div>
+<h4 class="font-bold text-white mb-2">Guided Induction</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Start your journey as a strategic partner with our white-glove onboarding flow.</p>
+</div>
+<a class="mt-4 text-xs font-bold text-primary hover:underline" href="#">Launch Tour</a>
+</div>
+<!-- Internal: Operations Manuals -->
+<div class="md:col-span-1 rounded-xl glass-panel ghost-border p-6 flex flex-col justify-between hover:bg-surface-bright/20 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary">menu_book</span>
+</div>
+<div>
+<h4 class="font-bold text-white mb-2">Operations Manual</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Standard operating procedures and the Apex cultural manifesto for internal teams.</p>
+</div>
+<a class="mt-4 text-xs font-bold text-tertiary hover:underline" href="#">Access Manual</a>
+</div>
+</section>
+<!-- Asymmetric Section: Universal Sitemap -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 blur-[100px] rounded-full"></div>
+<h3 class="headline-font text-4xl font-bold mb-6 italic tracking-tight">The Neural Mesh</h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                        Visualizing the app's MACH architecture: Microservices-based, API-first, Cloud-native SaaS, and Headless. Our MCP (Modular Core Platform) ensures total creative dominance with zero technical debt.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></span>
+<span class="text-sm text-zinc-300">Decoupled frontend for unlimited UI expression.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mt-2"></span>
+<span class="text-sm text-zinc-300">Real-time media ingestion and processing.</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2"></span>
+<span class="text-sm text-zinc-300">Enterprise-grade security at every node.</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<div class="bg-surface-container-low rounded-xl p-8 min-h-[400px] relative overflow-hidden shadow-2xl flex items-center justify-center">
+<!-- Mechanical linear background decorative elements -->
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<div class="w-full h-full border-[0.5px] border-zinc-500 grid grid-cols-10 grid-rows-10">
+<div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div><div class="border-[0.5px] border-zinc-500"></div>
+</div>
+</div>
+<!-- Sitemap Visualization Mockup -->
+<div class="relative z-10 w-full max-w-md">
+<div class="flex flex-col items-center gap-12">
+<div class="px-6 py-3 bg-primary-container rounded-full text-white font-bold shadow-lg shadow-primary/20">CORE ENGINE</div>
+<div class="flex gap-4 md:gap-12 w-full justify-between">
+<div class="flex flex-col items-center gap-8 flex-1">
+<div class="h-20 w-[1px] bg-gradient-to-b from-primary to-transparent"></div>
+<div class="w-full glass-panel ghost-border p-4 rounded-xl text-center text-[10px] tracking-widest uppercase">Media Node</div>
+</div>
+<div class="flex flex-col items-center gap-8 flex-1">
+<div class="h-20 w-[1px] bg-gradient-to-b from-primary to-transparent"></div>
+<div class="w-full glass-panel ghost-border p-4 rounded-xl text-center text-[10px] tracking-widest uppercase">Auth Node</div>
+</div>
+<div class="flex flex-col items-center gap-8 flex-1">
+<div class="h-20 w-[1px] bg-gradient-to-b from-primary to-transparent"></div>
+<div class="w-full glass-panel ghost-border p-4 rounded-xl text-center text-[10px] tracking-widest uppercase">Ops Node</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer: Tonal Transition -->
+<footer class="bg-surface-container-lowest pt-20 pb-10">
+<div class="max-w-[1600px] mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-outline-variant/10 pb-16 mb-8">
+<div class="md:col-span-2">
+<span class="text-3xl headline-font font-black text-primary mb-6 block">The Apex</span>
+<p class="text-on-surface-variant max-w-sm mb-8 leading-relaxed">
+                        Redefining creative intelligence through the intersection of untamed instinct and surgical technical execution.
+                    </p>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">mail</span>
+</button>
+</div>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Exploration</h5>
+<ul class="space-y-4 text-sm text-zinc-500">
+<li><a class="hover:text-primary transition-colors" href="#">Media Repository</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Technical Docs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sitemap Grid</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Specs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Legal &amp; Core</h5>
+<ul class="space-y-4 text-sm text-zinc-500">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Framework</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Dominance</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Operational Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-[10px] text-zinc-600 uppercase tracking-[0.4em]">© 2024 RAW'R'NOT CREATIVE INTELLIGENCE</span>
+<div class="flex items-center gap-6">
+<span class="text-[10px] text-zinc-600 flex items-center gap-2">
+                        SYSTEM STATUS: <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> OPTIMAL
+                    </span>
+<span class="text-[10px] text-zinc-600 uppercase tracking-[0.4em]">VER. 4.1.0-ALFA</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

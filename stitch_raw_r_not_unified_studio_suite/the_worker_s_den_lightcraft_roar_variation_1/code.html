@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Worker's Den - Lightcraft Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#90003b",
+                        "inverse-primary": "#bc004f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#ab888c",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "on-tertiary-container": "#5b0015",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#303032",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "on-primary-container": "#5a0022",
+                        "on-primary": "#660028",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#393939",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "on-tertiary": "#680019",
+                        "secondary-container": "#474649",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "primary-container": "#ff4d81",
+                        "on-secondary-fixed-variant": "#474649",
+                        "tertiary-container": "#ff5167",
+                        "tertiary": "#ffb3b5",
+                        "outline-variant": "#5b3f43",
+                        "primary": "#ffb2bf",
+                        "on-primary-fixed": "#3f0016",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#40000c",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#ffdada",
+                        "secondary": "#c8c6c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-tint": "#ffb2bf",
+                        "surface-container": "#201f1f",
+                        "primary-fixed": "#ffd9de",
+                        "on-surface-variant": "#e4bdc2",
+                        "on-secondary-container": "#b6b4b7",
+                        "on-error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .liquid-glass {
+            background-color: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .text-display-lg { font-family: 'Newsreader', serif; font-size: 3.5rem; letter-spacing: -0.02em; line-height: 1.1; }
+        .text-headline-md { font-family: 'Newsreader', serif; font-size: 1.75rem; letter-spacing: -0.02em; }
+        .text-title-lg { font-family: 'Inter', sans-serif; font-size: 1.375rem; font-weight: 600; }
+        .text-body-lg { font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .text-label-md { font-family: 'Inter', sans-serif; font-size: 0.75rem; }
+        
+        .shadow-ambient {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+        
+        /* Ampliación Automática Tooltip */
+        .tooltip-container { position: relative; display: inline-block; }
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: max-content;
+            background-color: var(--color-surface-container-lowest);
+            color: var(--color-on-surface);
+            text-align: center;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 50;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            border: 1px solid rgba(91, 63, 67, 0.2); /* outline-variant */
+        }
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Gradient Utilities */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #ffb2bf 0%, #ff4d81 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="bg-[#131313] text-[#ffb2bf] font-['Inter'] text-sm antialiased h-screen w-72 left-0 fixed border-r border-white/5 flex flex-col h-full py-8 z-40 hidden md:flex">
+<div class="px-6 mb-12 flex items-center gap-4 tooltip-container">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden shadow-ambient">
+<img alt="Lightcraft Roar Logo" class="w-full h-full object-cover" data-alt="Abstract golden lion head logo with textured paper aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ3SkPxDW2pX6nXb6yASTiGStZM-8nEqAfP2T8N6f6WyXvykC06cuilE-LxV3hDQKf1_HZ0aHsm29331Cc8AxyggXbMcf_joNNRBjtKTstJ9I4XIa0DI9NRiTuHCbhm7qMCiRsI6QLUaiE8xougcM5H905k91QypIg_19XRa8o7Kul__Z0T7rN3jrYpMJTsLKh4dW_gABDjtELdIckIONMyBnBkmLPd0Ms6CJ6JuQpQyx5O2q14pKmwX4D2f3jC8FTCqYOIBFcIYk"/>
+</div>
+<div>
+<h1 class="font-['Newsreader'] text-xl italic text-white leading-tight">Worker Hub</h1>
+<p class="text-label-md text-secondary-fixed-dim">Elite Performance</p>
+</div>
+<span class="tooltip-text">Navigate your creative empire</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<!-- Active Tab: Overview -->
+<a class="bg-gradient-to-r from-[#ffb2bf]/20 to-transparent text-[#ffb2bf] font-bold border-l-4 border-[#ffb2bf] py-3 px-6 cursor-pointer transition-transform active:scale-[0.98] flex items-center gap-3 tooltip-container group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span>Overview</span>
+<span class="tooltip-text">Your command center for all creative operations</span>
+</a>
+<a class="text-gray-500 py-3 px-6 hover:text-gray-200 hover:bg-white/5 transition-colors cursor-pointer transition-transform active:scale-[0.98] flex items-center gap-3 tooltip-container" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Earnings</span>
+<span class="tooltip-text">Track your financial milestones</span>
+</a>
+<a class="text-gray-500 py-3 px-6 hover:text-gray-200 hover:bg-white/5 transition-colors cursor-pointer transition-transform active:scale-[0.98] flex items-center gap-3 tooltip-container" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Tasks</span>
+<span class="tooltip-text">Manage your active production queue</span>
+</a>
+<a class="text-gray-500 py-3 px-6 hover:text-gray-200 hover:bg-white/5 transition-colors cursor-pointer transition-transform active:scale-[0.98] flex items-center gap-3 tooltip-container" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span>Benefits</span>
+<span class="tooltip-text">View your elite worker perks</span>
+</a>
+<a class="text-gray-500 py-3 px-6 hover:text-gray-200 hover:bg-white/5 transition-colors cursor-pointer transition-transform active:scale-[0.98] flex items-center gap-3 tooltip-container" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+<span class="tooltip-text">Configure your workspace preferences</span>
+</a>
+</div>
+<div class="px-6 mt-auto">
+<button class="w-full bg-surface-container-high text-primary border border-outline-variant/20 rounded-lg py-3 flex items-center justify-center gap-2 hover:bg-surface-bright transition-all tooltip-container">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+<span class="font-medium">Ampliación Support</span>
+<span class="tooltip-text">Connect with an elite agent immediately</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 flex flex-col relative w-full bg-background overflow-x-hidden">
+<!-- TopNavBar (Web Focus, Mobile hidden/adapted if needed, but per prompt focusing on dashboard layout) -->
+<header class="bg-[#131313]/40 backdrop-blur-3xl w-full top-0 sticky z-30 shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)] md:hidden">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto bg-gradient-to-b from-[#2a2a2a]/10 to-transparent">
+<div class="text-2xl font-bold tracking-tighter text-[#ffb2bf] font-['Newsreader'] tracking-tight">Lightcraft</div>
+<div class="flex gap-4">
+<button class="text-[#ffb2bf] hover:bg-[#2a2a2a] transition-all duration-300 p-2 rounded-full active:scale-95 duration-200 ease-out material-symbols-outlined">notifications</button>
+<button class="text-[#ffb2bf] hover:bg-[#2a2a2a] transition-all duration-300 p-2 rounded-full active:scale-95 duration-200 ease-out material-symbols-outlined">help</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 md:p-16 max-w-7xl mx-auto w-full flex flex-col gap-20">
+<!-- Hero Section / Editorial Spread -->
+<section class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[512px]">
+<div class="lg:col-span-5 z-10 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 text-primary font-body text-sm tracking-widest uppercase tooltip-container">
+<span class="w-8 h-[1px] bg-primary"></span>
+                        Worker's Den
+                        <span class="tooltip-text">Your private production suite</span>
+</div>
+<h1 class="text-display-lg text-on-surface tooltip-container">
+                        The Digital<br/><span class="text-primary italic">Apex.</span>
+<span class="tooltip-text">Where raw instinct meets elite execution</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant max-w-md">
+                        Your production queue is primed. Unleash your creative instinct and command the queue with primal precision.
+                    </p>
+<div class="flex gap-4 mt-4">
+<button class="bg-gradient-primary text-on-primary-fixed rounded-full px-8 py-4 font-bold text-sm tracking-wide shadow-ambient hover:scale-105 transition-transform tooltip-container">
+                            Initiate Protocol
+                            <span class="tooltip-text">Start your next high-priority task</span>
+</button>
+<button class="border border-outline/20 text-primary rounded-full px-6 py-4 font-bold text-sm hover:bg-surface-container-high transition-colors flex items-center gap-2 tooltip-container">
+<span class="material-symbols-outlined">help</span>
+<span class="tooltip-text">Ampliación Extra: Learn about initiation protocols</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 relative">
+<div class="aspect-[4/3] rounded-xl overflow-hidden shadow-ambient relative group">
+<img alt="Creative Workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Abstract liquid art in deep obsidian and vibrant burgundy flowing seamlessly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJGgs6LH1Z8bovR8EjGQStfw2g_8ZeY5mfauqQO_QfZ9nxdhAQZAFZlAWe78cxyy_G9Y-ceWzGP29CYtquARSQGFgTcS00WKWnr1C0uVC_ODy7KpcVoad91kXhgBK5Vf5QMv8yDMjL6G49Ocl19Zl29sIcLZATsTDwIcotxgDuoPe9AeJ7cj9fDy1oMjtHXvff2Rka1ywvcr1q10G6uwuIVN4h4l_auKr3wFdPC-G1wGvYSLVDKMtYzv6nrQF514Y89hMtTnrd804"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6 liquid-glass p-6 rounded-lg flex justify-between items-center border border-white/5">
+<div>
+<p class="text-label-md text-secondary-fixed-dim uppercase tracking-wider mb-1">Current Focus</p>
+<p class="text-title-lg text-white font-headline">Project Obsidian Roar</p>
+</div>
+<div class="tooltip-container">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+<span class="tooltip-text">Ampliación Extra: View complete project brief and asset requirements</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Management & Tracking -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Task Management -->
+<div class="md:col-span-2 bg-surface-container-high rounded-xl p-8 shadow-ambient flex flex-col gap-6 relative overflow-hidden group hover:bg-surface-bright transition-colors duration-500">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
+<div class="flex justify-between items-center relative z-10">
+<h2 class="text-headline-md text-white">Production Queue</h2>
+<button class="text-primary hover:text-primary-container transition-colors tooltip-container">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="tooltip-text">Add new asset to queue</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 relative z-10">
+<!-- Task Item -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center justify-between border border-outline-variant/10 tooltip-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-white">Hero Asset Design</p>
+<p class="text-label-md text-secondary-fixed-dim">Due in 2 hours</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20">Active</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white transition-colors">more_vert</span>
+</div>
+<span class="tooltip-text">Click to manage asset 'Hero Asset Design'</span>
+</div>
+<!-- Task Item -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex items-center justify-between border border-outline-variant/10 opacity-70 hover:opacity-100 transition-opacity tooltip-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div>
+<p class="text-body-lg font-medium text-white">Motion Graphic Intro</p>
+<p class="text-label-md text-secondary-fixed-dim">Pending Review</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface text-xs font-bold uppercase tracking-wider border border-outline-variant/30">Queued</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white transition-colors">more_vert</span>
+</div>
+<span class="tooltip-text">Waiting for approval before starting</span>
+</div>
+</div>
+</div>
+<!-- Earnings Tracker -->
+<div class="bg-surface-container-high rounded-xl p-8 shadow-ambient flex flex-col gap-6 justify-between relative group hover:bg-surface-bright transition-colors duration-500">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<h2 class="text-headline-md text-white mb-1">Earnings</h2>
+<p class="text-label-md text-secondary-fixed-dim uppercase tracking-widest tooltip-container">
+                                Current Cycle
+                                <span class="tooltip-text">Billing period: Oct 1 - Oct 31</span>
+</p>
+</div>
+<div class="tooltip-container">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<span class="tooltip-text">Ampliación Extra: Revenue is up 12% from last cycle</span>
+</div>
+</div>
+<div class="relative z-10 flex flex-col gap-2">
+<p class="text-display-lg text-primary tooltip-container">
+                            $4,280
+                            <span class="tooltip-text">Total cleared earnings this cycle</span>
+</p>
+<!-- Progress Bar (The 'Nudge') -->
+<div class="mt-4 flex flex-col gap-2 tooltip-container">
+<div class="flex justify-between text-label-md">
+<span class="text-on-surface">Target Goal</span>
+<span class="text-tertiary">85%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#ffb3b5] to-[#5b0015] rounded-full" style="width: 85%;"></div>
+</div>
+<span class="tooltip-text">You are $720 away from your Apex tier bonus</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Asset Spotlight -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-12 border-t border-outline-variant/10">
+<div class="lg:col-span-4 flex flex-col gap-4">
+<h2 class="text-headline-md text-white">Latest Inspiration</h2>
+<p class="text-body-lg text-on-surface-variant">Curated high-fidelity assets from the global collective to fuel your next project.</p>
+<button class="text-primary hover:underline text-left font-medium w-fit mt-4 tooltip-container">
+                        Explore Gallery
+                        <span class="tooltip-text">View all curated community assets</span>
+</button>
+</div>
+<div class="lg:col-span-8 grid grid-cols-2 gap-4 h-[400px]">
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-ambient h-full w-full transform translate-y-8 tooltip-container">
+<img alt="Tech Abstract" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Macro photography of dark textured paper with sharp diagonal dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC74PCItPpyUbPKiLU4VWOhhuWJRFd8Tnoh5QBtvFoLJNgci6-U2tfGN_QWN1E3tdkSax84inD47UkfdFuFAzDit8Fb79wpEY5He2b2YuyAZUAL19fpCqk6fxps6p0jBdk2QCljiM4btZm_pWPq8oHCZP9DZ3QhHCqSP8F1m4A59jjzh11GTSAenG20oJINT-rTlCWtVyC3zfZb_lGXMB9Z5mwFYr3d2UaY1hZzBsQYnhStcXF8HSlV5N8tMQbzD33g7MDS0Vw1-rg"/>
+<span class="tooltip-text">Texture pack: Dark Matte Series</span>
+</div>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-ambient h-full w-full transform -translate-y-4 tooltip-container">
+<img alt="Neon Abstract" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="3D rendered glass spheres refracting deep burgundy and obsidian colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV9sgqcRWhenm0qaY_dEzTvjIDAeZ_s55ABeoXCZF-JGcDq8MdghqR0kICSDufC5MQyuLcTXRb1azK4511VBIddYJ26Jz8SSZUBI348uLxzsGTYgjdFlHV8W3766dJ-07ZldS91lCk-3v9gFEHDfz1FAtcDi-LG57BV6IkO8pYzpwXmXf30aIqDPnJnljTyNjNvhr-t75da1GeKY_hEzsgV-YWUgQDzTcTk61rbE1TYmOpU2QllcPS8RHHSAyxur63Glv0xGiEJ94"/>
+<span class="tooltip-text">Asset bundle: Liquid Glass Primitives</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

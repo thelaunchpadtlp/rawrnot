@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lightcraft Roar | Creative Hub</title>
+<!-- Font Imports -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary-fixed-variant": "#90003b",
+                "on-primary-fixed": "#3f0016",
+                "surface-dim": "#131313",
+                "on-tertiary-container": "#5b0015",
+                "inverse-surface": "#e5e2e1",
+                "primary-fixed-dim": "#ffb2bf",
+                "background": "#131313",
+                "surface-container-high": "#2a2a2a",
+                "primary-fixed": "#ffd9de",
+                "outline": "#ab888c",
+                "inverse-on-surface": "#313030",
+                "on-secondary-container": "#b6b4b7",
+                "on-error": "#690005",
+                "inverse-primary": "#bc004f",
+                "outline-variant": "#5b3f43",
+                "secondary-fixed-dim": "#c8c6c8",
+                "tertiary-fixed-dim": "#ffb3b5",
+                "secondary-container": "#474649",
+                "tertiary-fixed": "#ffdada",
+                "tertiary": "#ffb3b5",
+                "surface-container-low": "#1c1b1b",
+                "surface-tint": "#ffb2bf",
+                "surface-bright": "#393939",
+                "primary": "#ffb2bf",
+                "on-primary": "#660028",
+                "on-tertiary-fixed": "#40000c",
+                "surface": "#131313",
+                "surface-variant": "#353534",
+                "tertiary-container": "#ff5167",
+                "on-secondary-fixed": "#1b1b1d",
+                "on-error-container": "#ffdad6",
+                "surface-container": "#201f1f",
+                "on-secondary-fixed-variant": "#474649",
+                "error": "#ffb4ab",
+                "on-surface-variant": "#e4bdc2",
+                "secondary": "#c8c6c8",
+                "on-primary-container": "#5a0022",
+                "on-secondary": "#303032",
+                "on-tertiary-fixed-variant": "#920027",
+                "surface-container-lowest": "#0e0e0e",
+                "surface-container-highest": "#353534",
+                "secondary-fixed": "#e4e2e4",
+                "primary-container": "#ff4d81",
+                "on-background": "#e5e2e1",
+                "on-tertiary": "#680019",
+                "on-surface": "#e5e2e1",
+                "error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Newsreader"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(228, 189, 194, 0.1);
+        }
+        .vintage-dial {
+            background: radial-gradient(circle at 30% 30%, #353534, #0e0e0e);
+            box-shadow: inset 0 2px 4px rgba(255, 178, 191, 0.1), 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .newspaper-border-right {
+            border-right: 1px solid rgba(228, 189, 194, 0.1);
+        }
+        .newspaper-border-bottom {
+            border-bottom: 1px solid rgba(228, 189, 194, 0.1);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary-container">
+<!-- TopNavBar from JSON -->
+<header class="flex justify-between items-center px-8 py-4 w-full fixed z-50 bg-[#131313]/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-bold italic text-[#ffb2bf] dark:text-[#ffb2bf] font-['Newsreader'] tracking-tighter">Lightcraft Roar</span>
+<nav class="hidden md:flex gap-8 ml-8">
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Archive</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Editorial</a>
+<a class="text-[#ffb2bf] border-b-2 border-[#ffb2bf] pb-1 font-['Newsreader'] tracking-tighter" href="#">The Apex</a>
+<a class="text-gray-400 font-medium hover:text-white transition-colors duration-300 font-['Newsreader'] tracking-tighter" href="#">Dispatch</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-outline-variant" placeholder="Search the archive..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="dark_mode">dark_mode</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden p-0.5">
+<img alt="User avatar in liquid glass frame" class="w-full h-full object-cover rounded-full" data-alt="Portrait of a sophisticated creative professional with soft studio lighting and dark atmospheric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwCApsLup_3ku7Y5p9d1EMR1pInKk1s2XvjMghif903r41Y1Vu_Cb26tgHt_BLm0MSgVddSXymo6VSz-G692IPjp-_zjmqWri1omIBRbcgr20nK2nH1Oz9j7HrapMp1cOOoTwQTMOHRAPDGcqfEn0tv-5baM33yUzyp-FVOHX-7TN9K09ukYOVw74SEVYMiQjRPmQVV7AcmJD57YBqfJH2nk1hX9re_PsQ3MEIUn6t8H-xK3RUE6AQTagBv4-y747JuSwa9XD5RCQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar from JSON -->
+<aside class="hidden lg:flex flex-col h-screen py-6 px-4 fixed left-0 top-0 w-64 bg-[#0e0e0e] pt-24 z-40">
+<div class="px-4 mb-10">
+<h2 class="font-['Newsreader'] text-xl text-white">The Lion</h2>
+<p class="text-[0.75rem] text-outline-variant tracking-tight font-medium uppercase mt-1">Elite Technical Execution</p>
+</div>
+<nav class="space-y-4 flex-grow">
+<a class="flex items-center gap-3 text-[#ffb2bf] font-bold border-l-4 border-[#ff4d81] pl-4 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-['Inter'] text-sm tracking-tight">Chronicle</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-['Inter'] text-sm tracking-tight">Studio</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-['Inter'] text-sm tracking-tight">Instinct</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Inter'] text-sm tracking-tight">Vault</span>
+</a>
+<a class="flex items-center gap-3 text-gray-500 pl-4 hover:bg-[#2a2a2a] hover:text-white transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-4">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold rounded-full text-sm shadow-lg shadow-primary/20">
+                Forge New
+            </button>
+<a class="flex items-center gap-3 text-gray-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:pl-64 pt-24 min-h-screen bg-[#131313] relative overflow-hidden">
+<!-- Background Texture/Aesthetic -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8Qls1lcjUA6G8F8Dqp84l4DXeGn4Ob9BPBIHC0zuxPUaLLHtzo1Vui2XhFT0XLeE-HKn5lJfDYncnFoVxtb8soOxT5gsO_5jiC1ndwbs7yay9Aht3SVLkfyFfcYgRQXA4COH9Asqb7VVz3VJcrl37u7vsGYGmwL7EzQO2j7j1vL_tgz7iCYGzeIW7zcocshGKjQIgeKeCrd74vtSNzjt3gTi3FAVVGBzorUsmSTOqxY5jkd7bY3CdUY8krQiqRka4eamEblB9Cl4');"></div>
+<div class="max-w-[1400px] mx-auto px-8 py-12 relative z-10">
+<!-- Hero Header - Asymmetric Editorial Layout -->
+<div class="grid grid-cols-12 gap-8 mb-20 items-end">
+<div class="col-span-12 md:col-span-7">
+<span class="text-primary font-headline italic text-xl mb-4 block">The Creative Hub</span>
+<h1 class="text-7xl md:text-8xl font-headline font-bold text-white tracking-tighter leading-none mb-6">
+                        Lightcraft<br/><span class="text-primary italic">Roar.</span>
+</h1>
+<p class="text-on-surface-variant text-xl max-w-lg leading-relaxed font-body">
+                        Where artisanal craft meets technical precision. Your digital workbench for elite-level execution and multimedia storytelling.
+                    </p>
+</div>
+<div class="col-span-12 md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden glass-panel p-2 rotate-2">
+<img alt="Digital creative workspace" class="w-full h-full object-cover rounded-lg grayscale hover:grayscale-0 transition-all duration-700" data-alt="High-end designer desk with vintage Leica camera, mechanical keyboard, and a high-resolution display showing abstract art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF2t1p3hoIu61inEZo5yGUwA2teV63RZkpw2oida0YZOF5lBCaMcAk-sMepYhbUCtK6snuxrRpgJ_rj-EnlpOX2ZylGa9Ts3PBeHHMIRsX0i7BNdoaORuXFIFaGJ2NqzhrpGrDEyK2HzVIMXx6-uXXIF5kvsOhzXp5e9p-T0T5Du0FkynttZr7Xe8TeZNT9kPIljLGZnrsKVEIU0dv_A5Uv1rmA0MbwWoc899NEkftfdJIVXjaqa5oihtbXID-iTtolVSmYUuCQZE"/>
+</div>
+<div class="absolute -bottom-6 -left-12 p-6 glass-panel rounded-xl shadow-2xl backdrop-blur-3xl -rotate-3 border-l-4 border-primary">
+<p class="text-primary font-bold text-lg mb-1">Status: Operational</p>
+<p class="text-xs text-on-surface-variant font-label">APEX PROTOCOL V4.2 ACTIVE</p>
+</div>
+</div>
+</div>
+<!-- Newspaper Grid Section: Tool Selection -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-0 border border-outline-variant/20 rounded-2xl overflow-hidden bg-surface-container-lowest">
+<!-- Tool 1: CRM (Asymmetric highlight) -->
+<div class="col-span-1 md:col-span-2 newspaper-border-right newspaper-border-bottom p-10 hover:bg-surface-container transition-colors group cursor-pointer relative overflow-hidden">
+<div class="flex justify-between items-start mb-12">
+<div>
+<p class="text-label text-primary uppercase tracking-[0.2em] font-bold mb-2">01 / Relations</p>
+<h3 class="text-4xl font-headline font-bold text-white">Client CRM</h3>
+</div>
+<div class="vintage-dial w-16 h-16 rounded-full flex items-center justify-center border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="groups">groups</span>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-8">Manage high-stakes relationships with the precision of a master craftsman. Track intent, history, and synergy in one liquid interface.</p>
+<div class="flex items-center gap-4 text-sm font-bold text-primary group-hover:translate-x-2 transition-transform">
+<span>OPEN VAULT</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<!-- Illustrative Watermark -->
+<span class="absolute -bottom-10 -right-10 material-symbols-outlined text-[12rem] opacity-5 pointer-events-none text-white" data-icon="contacts">contacts</span>
+</div>
+<!-- Tool 2: Portfolio -->
+<div class="col-span-1 newspaper-border-right newspaper-border-bottom p-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="vintage-dial w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-xl text-primary" data-icon="gallery_thumbnail">gallery_thumbnail</span>
+</div>
+<p class="text-label text-primary uppercase tracking-widest font-bold mb-1">02</p>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Portfolio</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Curate your legacy. High-fidelity asset management for the elite creative.</p>
+</div>
+<!-- Tool 3: Journal -->
+<div class="col-span-1 newspaper-border-bottom p-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="vintage-dial w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-xl text-primary" data-icon="auto_stories">auto_stories</span>
+</div>
+<p class="text-label text-primary uppercase tracking-widest font-bold mb-1">03</p>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Journal</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Raw instincts, recorded. A private sanctuary for sketches, notes, and first drafts.</p>
+</div>
+<!-- Tool 4: Dispatch (Linear flow) -->
+<div class="col-span-1 newspaper-border-right p-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="vintage-dial w-12 h-12 rounded-full flex items-center justify-center mb-8 border border-outline-variant group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-xl text-primary" data-icon="send">send</span>
+</div>
+<p class="text-label text-primary uppercase tracking-widest font-bold mb-1">04</p>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Dispatch</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Multichannel publication. Send your roar across the digital landscape with one click.</p>
+</div>
+<!-- Tool 5: Analytics (Wide Bento) -->
+<div class="col-span-1 md:col-span-2 newspaper-border-right p-10 hover:bg-surface-container transition-colors group cursor-pointer flex gap-10 items-center">
+<div class="flex-grow">
+<p class="text-label text-primary uppercase tracking-[0.2em] font-bold mb-2">05 / Metrics</p>
+<h3 class="text-4xl font-headline font-bold text-white mb-4">Impact Pulse</h3>
+<div class="flex items-center gap-6 mt-6">
+<div class="h-1 w-32 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-3/4"></div>
+</div>
+<span class="text-xs font-bold text-tertiary">75% GROWTH</span>
+</div>
+</div>
+<div class="vintage-dial w-24 h-24 rounded-full flex items-center justify-center border border-outline-variant group-hover:border-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="monitoring">monitoring</span>
+</div>
+</div>
+<!-- Tool 6: The Apex Forge -->
+<div class="col-span-1 p-10 bg-primary-container/10 group cursor-pointer relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary mb-6 block text-3xl" data-icon="bolt">bolt</span>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">The Forge</h3>
+<p class="text-sm text-primary/80 leading-relaxed">Advanced AI processing for creative synthesis.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+<!-- Asymmetric Secondary Section: Recent Activity -->
+<div class="mt-24">
+<div class="flex justify-between items-end mb-12">
+<h2 class="text-4xl font-headline font-bold text-white">Latest Chronicles</h2>
+<a class="text-primary hover:underline font-label font-bold tracking-widest uppercase text-xs" href="#">View Full Archive</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Activity Card 1 -->
+<div class="glass-panel p-1 rounded-2xl group cursor-pointer hover:scale-[1.02] transition-all duration-300">
+<div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+<img alt="Recent project thumbnail" class="w-full h-full object-cover" data-alt="Abstract charcoal and gold leaf painting on textured canvas with warm dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAunGJyI6gEFP21CHFl44g7sl5saAtmIG7qlNIYlIQfhsUqukYnDeT_7QU4waqfULInQyY1awCnzipoxCf-9pOaJxhhYARBaF-Xm7gdc1NnD9Ib_ckumfpJIlyJxYBpbyiv98KePds66i6KNCsOFT8Z_tRrVsNlh2KBv6GlCINtfr0ccyoOGx1DbsEAFSzzYDbRnhnIpq6RyZgjGxrov1a0VizIVUTBIMveGolbLAdGifgfPuCkMrrMx5hHFftO4Kgp7A8lVGt5bdg"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white text-background px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest">Review</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-3">
+<span class="px-2 py-0.5 border border-outline-variant/30 rounded text-[10px] text-on-surface-variant font-bold uppercase">Editorial</span>
+<span class="px-2 py-0.5 border border-outline-variant/30 rounded text-[10px] text-on-surface-variant font-bold uppercase">Archive</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-white mb-2">The Obsidian Narrative</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">A deep dive into the use of negative space in digital storytelling and high-contrast aesthetics...</p>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="glass-panel p-1 rounded-2xl group cursor-pointer hover:scale-[1.02] transition-all duration-300">
+<div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+<img alt="Recent project thumbnail" class="w-full h-full object-cover" data-alt="Close up of a classic typewriter mechanism with ink ribbons and metallic details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLyF-XCQVKX0fID6blV-JwpdBvvXXsyvaqvCLhw3OzWE2XiaTFxLnOL6jzOK-1HMYLjJghEKee4YqT9GwanZSZskqYKX2-bSQDtscQ9tVpLZ2d5w0H0pLZpfdQijHFxkxJ39ltKMEeNZvpW7MTbjHVho8eCvE2zj-4SKYAeUojhWyU7p3W003jO05J1AjE-MCOIgegD_-niIDVyD3bSQhAu_OUVCbmaake3knhijNFuUlzSK9_QcMPmb1-Y9-uFV6-XHJrfBE82f0"/>
+<div class="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white text-background px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest">Edit</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex gap-2 mb-3">
+<span class="px-2 py-0.5 border border-outline-variant/30 rounded text-[10px] text-on-surface-variant font-bold uppercase">Journal</span>
+<span class="px-2 py-0.5 border border-outline-variant/30 rounded text-[10px] text-on-surface-variant font-bold uppercase">Draft</span>
+</div>
+<h4 class="text-xl font-headline font-bold text-white mb-2">Whispers of the Roar</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Unfiltered thoughts on the evolution of artisanal tools in the age of artificial intelligence.</p>
+</div>
+</div>
+<!-- Achievement Card (Gamified Nudge) -->
+<div class="bg-surface-container-high rounded-2xl p-8 flex flex-col justify-between border-l-4 border-tertiary">
+<div>
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="workspace_premium">workspace_premium</span>
+<h4 class="text-xl font-headline font-bold text-white mb-2">Master Craftsman</h4>
+<p class="text-sm text-on-surface-variant mb-6">You've completed 12 consecutive days of elite execution. Your focus is unshakeable.</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs font-bold uppercase text-on-surface-variant tracking-widest">
+<span>Streak Progress</span>
+<span class="text-tertiary">85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Visual -->
+<footer class="mt-20 border-t border-outline-variant/10 py-12 px-8 flex justify-between items-center">
+<div class="text-on-surface-variant text-xs font-label uppercase tracking-widest opacity-50">
+                © 2024 Lightcraft Roar. Elite Technical Execution.
+            </div>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-outline-variant hover:text-primary cursor-pointer transition-colors" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary cursor-pointer transition-colors" data-icon="database">database</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary cursor-pointer transition-colors" data-icon="shield">shield</span>
+</div>
+</footer>
+</main>
+<!-- FAB for Forge New -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 md:hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

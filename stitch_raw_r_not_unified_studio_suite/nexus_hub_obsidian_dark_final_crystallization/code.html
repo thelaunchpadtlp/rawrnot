@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Hub - RAW'R'NOT Command Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#303032",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#90003b",
+                        "inverse-primary": "#bc004f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#ab888c",
+                        "secondary-fixed": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "on-tertiary-container": "#5b0015",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#680019",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "secondary-container": "#474649",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "error": "#ffb4ab",
+                        "primary-container": "#ff4d81",
+                        "on-primary": "#660028",
+                        "on-primary-container": "#5a0022",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#393939",
+                        "on-primary-fixed": "#3f0016",
+                        "primary": "#ffb2bf",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#474649",
+                        "tertiary-container": "#ff5167",
+                        "tertiary": "#ffb3b5",
+                        "outline-variant": "#5b3f43",
+                        "primary-fixed": "#ffd9de",
+                        "on-surface-variant": "#e4bdc2",
+                        "on-secondary-container": "#b6b4b7",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdada",
+                        "on-tertiary-fixed": "#40000c",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary": "#c8c6c8",
+                        "surface-tint": "#ffb2bf",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Newsreader', serif;
+            letter-spacing: -0.02em;
+        }
+        .liquid-glass {
+            background-color: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #ffb2bf, #ff4d81);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #ffb2bf, #ff4d81);
+        }
+        .ghost-border {
+            box-shadow: 0 0 0 1px rgba(91, 63, 67, 0.1);
+        }
+        .ambient-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex justify-between items-center px-8 h-20 w-full fixed top-0 z-50 bg-neutral-950/40 backdrop-blur-3xl bg-gradient-to-b from-neutral-900 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="text-2xl font-black text-pink-400 tracking-tighter font-['Newsreader'] tracking-tighter">RAW'R'NOT</div>
+<div class="flex space-x-8 items-center">
+<a class="text-pink-400 border-b-2 border-pink-500 pb-1 font-['Inter'] text-sm hover:text-pink-200 transition-colors duration-300 active:scale-95 transition-transform" href="#">Nexus</a>
+<a class="text-neutral-400 font-['Inter'] text-sm hover:text-pink-200 transition-colors duration-300 active:scale-95 transition-transform" href="#">Marketplace</a>
+<a class="text-neutral-400 font-['Inter'] text-sm hover:text-pink-200 transition-colors duration-300 active:scale-95 transition-transform" href="#">Echo</a>
+</div>
+<div class="flex space-x-6 items-center text-pink-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-pink-200 transition-colors duration-300 active:scale-95 transition-transform" data-icon="bolt">bolt</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-pink-200 transition-colors duration-300 active:scale-95 transition-transform" data-icon="notifications">notifications</span>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border border-pink-500/30 object-cover ml-2" data-alt="Close up portrait of a confident woman in dramatic lighting with a slight pink neon rim light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpbz8cw8vuqaaX1ldhig6JZ5gX1FMOdkbCdrUK6G3Bf6E2nA_FxgJtY9htwwGX5sczMlUAsdxwFmyKqRv3dVCu7hfBCNvnVPc2dUU2EWlhL7jvevOvvN3F9y3lJOsTUhHv0wjhH7pJayurgH0WAjM_3_lNGQ36ynCoWf_oPuykoyJKPHgzUietx0XkEWoq_QGm3A4t5EGHuMg1I3ICbgTvJCNz0z1V7IxETHge8Mwh2IUK8lu5f_AtJ10ViFV_wqzvQSWm0j4ldYU"/>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1600px] mx-auto space-y-24">
+<!-- Hero Section: Editorial Tension -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
+<div class="lg:col-span-5 z-10 space-y-6">
+<p class="font-body text-primary tracking-widest uppercase text-sm font-semibold">Command Center</p>
+<h1 class="font-headline text-5xl md:text-[3.5rem] leading-tight text-on-background">
+                    The Definitive <br/><span class="text-gradient-primary italic font-light">Nexus Hub</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg max-w-md">
+                    Orchestrate raw power. Elite technical execution meets untamed creative instinct. Welcome to the Apex.
+                </p>
+<div class="pt-4">
+<button class="bg-gradient-primary text-on-primary-fixed rounded-full px-8 py-3 font-body font-semibold text-sm hover:opacity-90 transition-opacity flex items-center space-x-2">
+<span>Initialize Protocol</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-8 lg:-ml-12 relative">
+<div class="liquid-glass rounded-[1.5rem] p-4 relative overflow-hidden aspect-[16/9] ambient-shadow">
+<img alt="Abstract tech visualization" class="w-full h-full object-cover rounded-xl opacity-80 mix-blend-screen" data-alt="High fidelity 3D abstract visualization of a roaring lion mane composed of glowing optical fibers and liquid glass in deep red and pink tones against obsidian black." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxw7TrxGBLiH61QlxoXy04gtIstnZj6i0sbPuMexEDS0L5mQ7f7WD9RRdAJCpSuITzcsKIS5gWiqvopwI9XUEX8DAheLIspAaq5h4Ingq0wS1gsSVpOHsp7JX0jRhhczRZvE1CDo6NE_VwAyAJ4yWCvDjd4SZHHMKVWpjbwEWXQl0XBijFZ6Zz0gBz9gCHSikgrDxr8EoZ0bWGplMIja9FK0QAC97pHkrPIVLwMSFCF15J_E7FW_psAHoRbvxjj_EzRZCy6yHYK3w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Microservices & Systems -->
+<section class="space-y-8 relative z-10">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline text-[1.75rem] text-on-background">System Diagnostics</h2>
+<p class="font-body text-on-surface-variant text-sm mt-1">Real-time microservices status</p>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-primary-container transition-colors" data-icon="info" title="Ampliación Extra">info</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<!-- Status Card 1: Large -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-high rounded-[1.5rem] p-8 ghost-border hover:bg-surface-bright transition-colors duration-300 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary" data-icon="database">database</span>
+</div>
+<div class="flex items-center space-x-3 mb-6 relative z-10">
+<div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+<h3 class="font-body text-xl font-semibold text-on-surface">Core Processing</h3>
+</div>
+<div class="space-y-4 relative z-10">
+<div class="flex justify-between items-center">
+<span class="font-body text-sm text-on-surface-variant">Latency</span>
+<span class="font-mono text-primary">12ms</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body text-sm text-on-surface-variant">Throughput</span>
+<span class="font-mono text-primary">8.4k req/s</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden mt-4">
+<div class="h-full w-[85%] bg-gradient-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Status Card 2: Small -->
+<div class="bg-surface-container-high rounded-[1.5rem] p-6 ghost-border hover:bg-surface-bright transition-colors duration-300 flex flex-col justify-between group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-lowest rounded-xl text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<span class="text-xs font-mono text-tertiary bg-surface-tint/10 px-2 py-1 rounded ghost-border">Stable</span>
+</div>
+<div>
+<h3 class="font-body text-lg font-medium text-on-surface">Neural Engine</h3>
+<p class="font-body text-xs text-on-surface-variant mt-1">Active node cluster</p>
+</div>
+</div>
+<!-- Status Card 3: Small -->
+<div class="bg-surface-container-high rounded-[1.5rem] p-6 ghost-border hover:bg-surface-bright transition-colors duration-300 flex flex-col justify-between group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-lowest rounded-xl text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<span class="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded ghost-border">Secured</span>
+</div>
+<div>
+<h3 class="font-body text-lg font-medium text-on-surface">Firewall Protocols</h3>
+<p class="font-body text-xs text-on-surface-variant mt-1">Zero breaches detected</p>
+</div>
+</div>
+<!-- Module Access: Asymmetric Wide Card -->
+<div class="md:col-span-3 lg:col-span-4 liquid-glass rounded-[1.5rem] p-8 flex flex-col md:flex-row items-center justify-between gap-6 ambient-shadow border border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-surface-container-lowest to-surface-container-high flex items-center justify-center ghost-border shadow-inner">
+<span class="material-symbols-outlined text-3xl text-primary" data-icon="dashboard_customize">dashboard_customize</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl text-on-background">Module Synthesis</h3>
+<p class="font-body text-sm text-on-surface-variant">Access sub-routines and marketplace extensions.</p>
+</div>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none py-2 px-6 rounded-full border border-outline-variant text-primary font-body text-sm hover:bg-surface-container-high transition-colors text-center" title="Ampliación Automática">
+                            Configure
+                        </button>
+<button class="flex-1 md:flex-none py-2 px-6 rounded-full bg-surface-container-highest text-on-surface font-body text-sm hover:bg-surface-bright transition-colors ghost-border text-center">
+                            Launch
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Sitemap / Quick Actions Asymmetry -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-12">
+<!-- Contextual Navigation Panel -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-[1.5rem] p-8 ghost-border">
+<h2 class="font-headline text-[1.75rem] text-on-background mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_tree">account_tree</span>
+                    Architecture
+                </h2>
+<ul class="space-y-4 font-body text-sm">
+<li class="flex items-center gap-3 text-primary group cursor-pointer">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform" data-icon="home">home</span>
+<span class="font-semibold border-b border-primary/30 pb-0.5">Nexus Root</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer pl-6">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_right">arrow_right</span>
+<span>Identity Access Management</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer pl-6">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_right">arrow_right</span>
+<span>Data Lake Topology</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer pt-2">
+<span class="material-symbols-outlined text-lg" data-icon="deployed_code">deployed_code</span>
+<span>Deployment Pipelines</span>
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer pl-6">
+<span class="material-symbols-outlined text-lg" data-icon="arrow_right">arrow_right</span>
+<span>Container Registry</span>
+</li>
+</ul>
+</div>
+<!-- Immersive Video/Action Well -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-[1.5rem] p-2 relative overflow-hidden ghost-border">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent z-10 w-1/2"></div>
+<div class="relative rounded-xl overflow-hidden aspect-video">
+<img alt="Liquid Glass interface texture" class="w-full h-full object-cover opacity-60" data-alt="Macro shot of dark, rippling liquid glass texture catching subtle pink and deep burgundy light reflections, creating a moody and sophisticated technical abstract background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVgFWHRjDWU_TGZRZ0El2FsZDfY8CVQMBeLP4X8xd24Bj0GSx_Mh4LmIB9PyfcZ7lmsllQYolYSRW637uRIKeQEw28iU9Mn0uTHvWMQwqErZC8PMHmA24FD8P-j1pUOPYErV4aCC3SPZnHq-GzTM0kEO6TFNI2s5qOyaPBkRzRVyH6Co53K0AShlpbQ70QBbOdU4luTYbqaOmoGe2OP38b4IBukD2uZ2ndOLopNQKjGRsH6DnLR9BgniNckZONYGe2SgebI0XM-e8"/>
+<div class="absolute bottom-0 left-0 p-8 z-20 w-full md:w-2/3">
+<span class="inline-block px-3 py-1 bg-surface-variant/60 backdrop-blur-md rounded-full text-xs font-label text-primary mb-3 ghost-border">Active Feed</span>
+<h3 class="font-headline text-2xl text-on-background mb-2">Echo Monitoring</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-2">Real-time telemetry from external marketplace integrations. Anomaly detection is currently nominal.</p>
+<button class="bg-transparent border border-outline/20 text-primary rounded-full px-6 py-2 font-body text-sm hover:bg-surface-variant/40 backdrop-blur-md transition-all flex items-center gap-2 w-fit">
+<span>Open Console</span>
+<span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-neutral-950/40 backdrop-blur-3xl rounded-t-[1.5rem] border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-pink-400 to-pink-600 text-white rounded-2xl p-3 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Nexus</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Echo</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,210 @@
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#131313",
+            "tertiary-container": "#ff5167",
+            "on-tertiary": "#680019",
+            "on-surface": "#e5e2e1",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed": "#40000c",
+            "primary-fixed": "#ffd9de",
+            "primary": "#ffb2bf",
+            "on-tertiary-container": "#5b0015",
+            "on-secondary-fixed-variant": "#474649",
+            "surface-container-low": "#1c1b1b",
+            "inverse-primary": "#bc004f",
+            "tertiary-fixed-dim": "#ffb3b5",
+            "on-secondary-container": "#b6b4b7",
+            "tertiary-fixed": "#ffdada",
+            "surface-container-highest": "#353534",
+            "on-surface-variant": "#e4bdc2",
+            "surface": "#131313",
+            "on-error-container": "#ffdad6",
+            "on-secondary": "#303032",
+            "secondary-fixed-dim": "#c8c6c8",
+            "on-background": "#e5e2e1",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "outline": "#ab888c",
+            "on-primary-fixed": "#3f0016",
+            "surface-tint": "#ffb2bf",
+            "secondary": "#c8c6c8",
+            "surface-variant": "#353534",
+            "surface-container": "#201f1f",
+            "outline-variant": "#5b3f43",
+            "inverse-on-surface": "#313030",
+            "surface-bright": "#393939",
+            "inverse-surface": "#e5e2e1",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-lowest": "#0e0e0e",
+            "on-tertiary-fixed-variant": "#920027",
+            "on-primary-fixed-variant": "#90003b",
+            "primary-fixed-dim": "#ffb2bf",
+            "tertiary": "#ffb3b5",
+            "surface-dim": "#131313",
+            "secondary-fixed": "#e4e2e4",
+            "secondary-container": "#474649",
+            "on-primary-container": "#5a0022",
+            "on-secondary-fixed": "#1b1b1d",
+            "primary-container": "#ff4d81",
+            "on-primary": "#660028"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Newsreader"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { background-color: #131313; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .glass-panel { background: rgba(53, 53, 52, 0.4); backdrop-filter: blur(32px); border: 1px solid rgba(171, 136, 140, 0.1); }
+    .watch-screen { aspect-ratio: 162/197; width: 324px; border-radius: 60px; overflow: hidden; position: relative; }
+    .watch-case { padding: 12px; background: linear-gradient(145deg, #2a2a2a, #0e0e0e); border-radius: 72px; box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.1); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-8 overflow-hidden">
+<!-- Mobile Preview Container (Simulated Watch Environment) -->
+<div class="relative flex flex-col items-center">
+<!-- Top HUD / Context Status -->
+<div class="mb-12 text-center">
+<h2 class="font-headline text-on-surface text-3xl font-light tracking-tighter italic">RAW'R'NOT</h2>
+<p class="text-on-surface-variant font-label text-xs uppercase tracking-[0.2em] mt-1">Companion Experience</p>
+</div>
+<!-- The Watch -->
+<div class="watch-case relative group">
+<!-- Hardware Buttons (Digital Crown) -->
+<div class="absolute -right-2 top-24 w-4 h-16 bg-gradient-to-b from-[#353534] to-[#1c1b1b] rounded-r-lg border-l border-white/5"></div>
+<div class="absolute -right-1 top-44 w-2 h-12 bg-[#2a2a2a] rounded-r-md border-l border-white/5"></div>
+<!-- Actual Watch Display Content -->
+<div class="watch-screen bg-black flex flex-col p-4 relative">
+<!-- Top Status Bar -->
+<div class="flex justify-between items-center text-[10px] font-bold text-primary px-2 pt-1 mb-2">
+<span>9:41</span>
+<div class="flex gap-1 items-center">
+<span class="material-symbols-outlined text-[12px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[12px]">battery_charging_90</span>
+</div>
+</div>
+<!-- Scrollable Canvas Area -->
+<div class="flex-1 space-y-3 overflow-y-auto no-scrollbar">
+<!-- Glance Card: Balance -->
+<div class="glass-panel p-3 rounded-[2rem] flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-label uppercase tracking-widest">Balance</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline text-2xl font-bold text-primary">2,840</span>
+<span class="text-[10px] text-primary italic font-headline">R</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="savings">savings</span>
+</div>
+</div>
+<!-- Active Team Buy: The Lion (Graphic Element) -->
+<div class="relative glass-panel rounded-[2rem] p-3 overflow-hidden h-32 flex flex-col justify-end">
+<div class="absolute top-0 right-0 p-4 opacity-40">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<div class="relative z-10">
+<p class="text-[10px] font-bold text-primary-container uppercase tracking-tighter">Team Buy Live</p>
+<h3 class="font-headline text-lg italic text-on-surface leading-none -mt-1">Lion's Pride Pool</h3>
+<div class="mt-2 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-3/4"></div>
+</div>
+<div class="flex justify-between mt-1">
+<span class="text-[9px] text-on-surface-variant">75% Filled</span>
+<span class="text-[9px] text-primary font-bold">04:12:09</span>
+</div>
+</div>
+</div>
+<!-- Notification: Project Update -->
+<div class="surface-container-low p-3 rounded-2xl flex gap-3 items-center">
+<div class="w-2 h-full bg-tertiary-container rounded-full shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<span class="text-[9px] font-bold text-tertiary">SPATIAL PROJECT</span>
+<span class="text-[8px] text-on-surface-variant">NOW</span>
+</div>
+<p class="text-[11px] leading-tight text-on-surface mt-0.5">Asset 'Nebula-9' has finished compute phase.</p>
+</div>
+</div>
+<!-- Quick Action Button -->
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container rounded-full text-on-primary-fixed text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">bolt</span>
+            Quick Claim
+          </button>
+</div>
+<!-- Minimalist Home Indicator -->
+<div class="w-10 h-1 bg-white/20 rounded-full mx-auto mt-2"></div>
+</div>
+</div>
+<!-- Bottom Navigation (Shared Component Logic - Suppression applied as this is a focused task screen) -->
+<div class="mt-12 max-w-sm w-full text-center">
+<p class="text-on-surface-variant/40 text-sm font-label tracking-tight">Syncing with <span class="text-primary/60 font-headline italic">RAW'R'NOT</span> desktop node v4.2</p>
+</div>
+</div>
+<!-- Decorative Background Layer -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 blur-[120px] rounded-full"></div>
+<div class="absolute top-0 right-0 w-full h-full" style="background-image: radial-gradient(circle at 80% 20%, rgba(255, 178, 191, 0.05) 0%, transparent 50%);"></div>
+</div>
+<!-- Shared BottomNavBar logic - Rendered here to satisfy component presence requirements but positioned for 'Experience' context -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-zinc-900/60 backdrop-blur-2xl border-t border-white/5 md:hidden">
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter'] mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-pink-500/20 text-pink-400 rounded-2xl px-6 py-2 scale-90 active:scale-110 duration-300">
+<span class="material-symbols-outlined" data-icon="watch">watch</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter'] mt-1">Watch</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter'] mt-1">Pulse</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="text-[10px] uppercase tracking-widest font-['Inter'] mt-1">Menu</span>
+</div>
+</nav>
+<!-- TopNavBar (Shared Component Logic) -->
+<header class="hidden md:flex fixed top-0 left-0 w-full z-50 bg-zinc-950/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold italic text-pink-500 font-['Newsreader'] tracking-tighter">RAW'R'NOT</div>
+<nav class="flex gap-8">
+<a class="text-zinc-400 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-pink-400 border-b-2 border-pink-500 pb-1 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Spatial</a>
+<a class="text-zinc-400 font-['Newsreader'] tracking-tighter hover:text-pink-300 transition-colors duration-300" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400 hover:text-pink-300 transition-colors duration-300 cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-zinc-400 hover:text-pink-300 transition-colors duration-300 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+</body></html>

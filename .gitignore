@@ -1,0 +1,11 @@
+# gemini-cli settings
+.gemini/
+# GitHub App credentials
+gha-creds-*.json
+
+# OS files
+.DS_Store
+
+# Local workspace files
+stitch_raw_r_not_unified_studio_suite.zip
+Terminal Saved Output.txt

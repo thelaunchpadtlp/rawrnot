@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-background": "#e5e2e1",
+                  "on-primary-container": "#5a0022",
+                  "on-surface": "#e5e2e1",
+                  "background": "#131313",
+                  "primary": "#ffb2bf",
+                  "inverse-surface": "#e5e2e1",
+                  "on-error": "#690005",
+                  "surface-container": "#201f1f",
+                  "tertiary-fixed-dim": "#ffb3b5",
+                  "on-tertiary-container": "#5b0015",
+                  "primary-fixed": "#ffd9de",
+                  "on-secondary-fixed": "#1b1b1d",
+                  "surface-container-low": "#1c1b1b",
+                  "on-primary-fixed-variant": "#90003b",
+                  "surface-bright": "#393939",
+                  "secondary-fixed-dim": "#c8c6c8",
+                  "surface-container-lowest": "#0e0e0e",
+                  "on-tertiary-fixed-variant": "#920027",
+                  "error": "#ffb4ab",
+                  "surface": "#131313",
+                  "on-surface-variant": "#e4bdc2",
+                  "outline": "#ab888c",
+                  "secondary": "#c8c6c8",
+                  "primary-container": "#ff4d81",
+                  "primary-fixed-dim": "#ffb2bf",
+                  "on-secondary": "#303032",
+                  "inverse-primary": "#bc004f",
+                  "tertiary-container": "#ff5167",
+                  "on-tertiary-fixed": "#40000c",
+                  "on-secondary-fixed-variant": "#474649",
+                  "surface-container-high": "#2a2a2a",
+                  "secondary-fixed": "#e4e2e4",
+                  "surface-variant": "#353534",
+                  "on-secondary-container": "#b6b4b7",
+                  "inverse-on-surface": "#313030",
+                  "tertiary-fixed": "#ffdada",
+                  "tertiary": "#ffb3b5",
+                  "on-error-container": "#ffdad6",
+                  "surface-dim": "#131313",
+                  "on-primary-fixed": "#3f0016",
+                  "outline-variant": "#5b3f43"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "1.5rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Newsreader", "serif"],
+                  "body": ["Inter", "sans-serif"],
+                  "label": ["Inter", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .font-newsreader { font-family: 'Newsreader', serif; }
+    .glass-panel {
+      background: rgba(53, 53, 52, 0.2);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+    }
+    .liquid-gradient {
+      background: linear-gradient(135deg, #ffb2bf 0%, #ff4d81 100%);
+    }
+    .ghost-border {
+      box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1);
+    }
+    .ambient-shadow {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- Shared TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 w-full bg-neutral-900/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full hover:bg-white/10 transition-colors scale-95 active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined text-pink-300">menu</span>
+</div>
+<h1 class="font-newsreader tracking-tighter text-2xl font-bold uppercase text-pink-300">
+        RAW'R'<span class="text-pink-400 italic font-black">NOT</span>
+</h1>
+</div>
+<div class="flex items-center gap-6">
+<!-- Streak Counter (Gamification) -->
+<div class="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-highest/30 ghost-border">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-md font-medium text-on-surface">12 DAY STREAK</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-pink-300/30 overflow-hidden hover:bg-white/10 transition-colors scale-95 active:scale-90 duration-300 cursor-pointer">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a majestic lion with golden mane in dramatic low light studio photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb3iFMtKQxzC4kekjjSPigyrNG3sbrKzDcLWt1xP770yqFNRfp0KjuKrDnRMSBNq250onLgxbn6GZUo7-3Q8EeepNOwRJA2nxRwS7PKFtsCXJXepgie0K9Qfiho4qrjr2OMKe415k2zEMYX2Cmyv0iK7JDorzqAlRnAId-1EqORXnphhlOGsuKROMhAT7_kA-hI8ZlQJAjbf8hjMA1pE6wXEvpYIZKjnsjnOdxtfCljEsdxQFiC78W207JID4rFIpvVaQq2gnJWDw"/>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen w-full overflow-x-hidden">
+<!-- Hero: Full-bleed background video/visual -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background z-10"></div>
+<div class="w-full h-full bg-neutral-900 overflow-hidden">
+<!-- Using an image to represent the high-end visual storytelling background -->
+<img alt="Hero Background" class="w-full h-full object-cover opacity-60" data-alt="Abstract 3D liquid chrome flowing in dark space with pink and magenta iridescent light reflections and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrsVVW8qEegmvTGpGiyAInL05LS8aDjbJVC2qgtlDfQPoW4YHWg82OnLJhaXfIOtafNVHmaqj5kGWURCzAoIApCZw9kecmLwi114pCKOYab_XeLHPAExDNg7V1LinIS69VK787_0YpArgWNbkwomInwxsLLCiFowCF7IJRlwBy_UdkRituMOP6syw6znjD9hJQJG7etE9IRwxlDvkYQV390xJdKYBuvadjHt-GIjKQCRAUl95OhDxNr0dQxj1Ulurk0gAQqCN0FaA"/>
+</div>
+</div>
+<!-- Hero Content -->
+<section class="relative z-20 pt-48 pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-surface-tint/10 border border-surface-tint/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-md font-bold tracking-widest uppercase text-primary">Now Live: Genesis Collection</span>
+</div>
+<h2 class="font-headline text-display-lg leading-[0.95] tracking-tighter text-on-background lg:text-[5rem]">
+          UNTAMED <br/>
+<span class="text-primary italic">PRECISION</span>
+</h2>
+<p class="font-body text-body-lg text-on-surface-variant max-w-md leading-relaxed">
+          The Digital Apex of creative agency work. We bridge the gap between visceral instinct and elite technical execution.
+        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="liquid-gradient px-8 py-4 rounded-full text-on-primary-fixed font-bold flex items-center gap-2 group hover:shadow-[0_0_30px_rgba(255,77,129,0.4)] transition-all">
+            UNLEASH PROJECT
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- The Roar Button -->
+<button class="px-8 py-4 rounded-full border border-outline-variant hover:bg-white/5 transition-all text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+            THE ROAR
+          </button>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Floating Glassmorphic Card -->
+<div class="glass-panel p-6 rounded-xl ambient-shadow border border-white/5 space-y-4 translate-y-[-20%] lg:translate-x-[-10%]">
+<div class="aspect-video rounded-lg overflow-hidden relative">
+<img alt="Featured Work" class="w-full h-full object-cover" data-alt="Minimalist architectural interior with sharp shadows and a single pink neon light sculpture against dark concrete walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTsVptYqiKkStMdK_td28-NPy2juB_u-48bombWyFYE1s584lzcyOyUOfEZA4E0dDKczTE6N8p4yTFU9Dfxr8OZbd9LfZ_e6Hq68Jh8NmLCsjVcTNbK4Keeb1t7Qq_tpZEM9vnj0gKqLt7mXVvXFMaKQPqb3WyZ5NSruTjlpWpNHcOKeJD1qcgCv6D0HJR1MHJhegtk5c03Kbvr-UIvDRZANdj2yAG6fOf_UHpl1kGWHHlYZlMijrYgwRCwLhlyNnl78MpWhGbRc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="text-label-md font-bold text-white bg-primary-container px-3 py-1 rounded-full">AWARD WINNING</span>
+</div>
+</div>
+<div>
+<h3 class="font-newsreader text-headline-md text-on-surface">Neon Monolith</h3>
+<p class="font-body text-label-md text-on-surface-variant">Brand Identity &amp; Immersive Spatial Design</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section (Featured Projects) -->
+<section class="relative z-20 px-6 py-24 max-w-7xl mx-auto space-y-12">
+<div class="flex justify-between items-end">
+<div class="space-y-2">
+<span class="font-label text-primary font-bold uppercase tracking-[0.2em]">The Vault</span>
+<h2 class="font-newsreader text-headline-md text-4xl">Featured Fragments</h2>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+          View All Projects
+          <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-high transition-all hover:bg-surface-bright">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Flowing silk textures in deep crimson and obsidian colors with high contrast lighting and soft bokeh effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp-Pu3hUz8nFjogkfeOyPYxUXukzqdBnq6Qnyk8KPjApZkfto8OwyQobCSVTH7YPuWDFj2Q0BN9oPTjntoYH-Acx74QUaGmj6Stcpy4Fk0mBxZS2b8XzQOsasnSHZEFzNQmB2fSN82itn-ICYkL8W5AnkXlg3ZmlPNsxRGGfatn5zdcfqNRCUSETEo1gW0dTMJgWwyIQQmNYJTmC1ya7pO6bZ6XV_jOFRDoCAKRt8AFU3P3EskY4ufXcYMKrHAeZSZM5irnZzYLF0"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
+<h4 class="font-newsreader text-3xl mb-2">Crimson Flow</h4>
+<p class="max-w-sm text-on-surface-variant">Exploring the boundary between digital physics and human emotion in motion graphics.</p>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-high transition-all hover:bg-surface-bright">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="Close up of a sleek carbon fiber and glass futuristic device interface with glowing pink accent lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvk7IC89RN0rV6RYDOBCJgfMA4M2V3PBadUdW-BqzvVq-OVB78TNqE5zIVm56rrSK7bPGmrfgdZgu2FwDS_Y1pbk9vjoUV_UN8f8j9meWRg1ieF_6BRZk7O4nCLI4tODEi8H2nMTkjG0gF_HeLpz8AJDFCgK__zJ-3Gqa_h8XhA07LCvWnILXNfn0alYcU2wCC4Xer1VVxvKdyoa4Q55Qxvy_oXAdnI1bqpvU6cK9wuuMf9HiTzJ40O2uh0nisikY04_eZWrTlenE"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
+<h4 class="font-newsreader text-3xl mb-2">Apex UI</h4>
+<p class="text-on-surface-variant">The interface of the next decade.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gamification/Inspiration Section -->
+<section class="relative z-20 px-6 py-24 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="glass-panel p-8 rounded-xl ambient-shadow border border-white/10 relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div class="space-y-1">
+<span class="text-label-md font-bold text-tertiary">DAILY INSPIRATION</span>
+<h4 class="text-2xl font-bold font-headline">Creative Streak</h4>
+</div>
+<div class="bg-surface-container-highest p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-4">
+<div class="flex justify-between text-label-md">
+<span>Current Goal: 15 Fragments</span>
+<span class="text-primary font-bold">12/15</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[80%] bg-gradient-to-r from-tertiary to-on-tertiary-container rounded-full"></div>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 mt-8">
+<div class="h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">M</div>
+<div class="h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">T</div>
+<div class="h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">W</div>
+<div class="h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">T</div>
+<div class="h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary font-bold text-xs">F</div>
+<div class="h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">S</div>
+<div class="h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">S</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<h2 class="font-headline text-5xl leading-tight">Feed the <span class="italic text-primary">Beast</span> inside.</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+            Creativity is a muscle that demands daily exercise. Join our community of elites who track their visual consumption to ensure their palette remains sharp, raw, and unmatched.
+          </p>
+<button class="font-bold text-primary flex items-center gap-2 group underline-offset-8 hover:underline">
+            LEARN ABOUT OUR METHODOLOGY
+            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">trending_flat</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Logo Section (Lion Reveal) -->
+<section class="relative z-20 px-6 py-32 flex flex-col items-center text-center">
+<div class="mb-12 relative">
+<div class="absolute inset-0 bg-pink-500/20 blur-[120px] rounded-full scale-150"></div>
+<img alt="Lion Logo" class="w-48 h-48 object-contain relative z-10 filter drop-shadow-2xl" data-alt="Powerful minimalist vector illustration of a lion head, geometric shapes, golden ratio lines, modern luxury branding aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlbsJ7aGjiXksFrb0Z4FuCRtLcfjsnXarKWBWSJdvdN32xcUI8Hpy2sYDIq-tChTbTeqIcvTzNWl7plYknUgnEyl2X0XXsqZtuov4TjoafQiF_8n2WgBGs7R1tRqm-e6kk4uczNyvt4NOD30sqgJtzNBJKlxep9TjHtPyeKRvP6AhOBz9DAF0fGFCvExZGvnXrkreDktJ4UFl0zU_7bX-x_OntL0vCso4nCFcRa3ao3fTwB5N7b6NZV-e8fcyqK5t_dMzBjAWLruE"/>
+</div>
+<h3 class="font-newsreader text-4xl md:text-6xl mb-6">Designed for those who lead.</h3>
+<p class="max-w-2xl text-on-surface-variant text-body-lg mb-12">
+        We don't follow trends. We set the apex. Ready to roar?
+      </p>
+<button class="liquid-gradient px-12 py-5 rounded-full text-on-primary-fixed font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all">
+        START A PROJECT
+      </button>
+</section>
+</main>
+<!-- Shared BottomNavBar -->
+<nav class="fixed bottom-6 left-0 w-full z-50 flex justify-around items-center px-4 md:hidden">
+<div class="bg-neutral-800/20 backdrop-blur-[32px] w-[90%] rounded-full max-w-md flex justify-around items-center py-2 px-2 shadow-2xl border border-white/10">
+<div class="bg-gradient-to-tr from-pink-400 to-rose-600 text-white rounded-full p-3 shadow-lg shadow-pink-500/20 active:scale-90 duration-500 ease-out cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<div class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out cursor-pointer">
+<span class="material-symbols-outlined">folder_open</span>
+</div>
+<div class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out cursor-pointer">
+<span class="material-symbols-outlined">add_circle</span>
+</div>
+<div class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out cursor-pointer">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div class="text-neutral-500 p-3 hover:text-pink-200 transition-all active:scale-90 duration-500 ease-out cursor-pointer">
+<span class="material-symbols-outlined">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Desktop Navigation (Integrated in Top Bar but highlighting active state here) -->
+<style>
+    /* Custom spacing for the top bar to match standard layout when needed */
+    .nav-spacer { height: 80px; }
+  </style>
+</body></html>

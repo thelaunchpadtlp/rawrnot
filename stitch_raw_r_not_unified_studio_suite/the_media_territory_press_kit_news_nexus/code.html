@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary": "#660028",
+                  "surface-dim": "#131313",
+                  "secondary-fixed-dim": "#c8c6c8",
+                  "secondary-fixed": "#e4e2e4",
+                  "on-tertiary": "#680019",
+                  "on-tertiary-fixed": "#40000c",
+                  "on-surface-variant": "#e4bdc2",
+                  "inverse-on-surface": "#313030",
+                  "surface-bright": "#393939",
+                  "tertiary": "#ffb3b5",
+                  "on-background": "#e5e2e1",
+                  "primary-container": "#ff4d81",
+                  "surface-tint": "#ffb2bf",
+                  "primary": "#ffb2bf",
+                  "tertiary-container": "#ff5167",
+                  "on-tertiary-container": "#5b0015",
+                  "background": "#131313",
+                  "surface-container-low": "#1c1b1b",
+                  "on-tertiary-fixed-variant": "#920027",
+                  "on-error": "#690005",
+                  "surface": "#131313",
+                  "on-primary-fixed-variant": "#90003b",
+                  "surface-container": "#201f1f",
+                  "error": "#ffb4ab",
+                  "on-primary-container": "#5a0022",
+                  "surface-variant": "#353534",
+                  "tertiary-fixed-dim": "#ffb3b5",
+                  "secondary-container": "#474649",
+                  "error-container": "#93000a",
+                  "on-surface": "#e5e2e1",
+                  "on-error-container": "#ffdad6",
+                  "surface-container-lowest": "#0e0e0e",
+                  "inverse-surface": "#e5e2e1",
+                  "secondary": "#c8c6c8",
+                  "outline-variant": "#5b3f43",
+                  "on-secondary": "#303032",
+                  "primary-fixed": "#ffd9de",
+                  "on-secondary-fixed-variant": "#474649",
+                  "on-secondary-container": "#b6b4b7",
+                  "tertiary-fixed": "#ffdada",
+                  "surface-container-highest": "#353534",
+                  "on-primary-fixed": "#3f0016",
+                  "on-secondary-fixed": "#1b1b1d",
+                  "inverse-primary": "#bc004f",
+                  "outline": "#ab888c",
+                  "primary-fixed-dim": "#ffb2bf",
+                  "surface-container-high": "#2a2a2a"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Newsreader", "serif"],
+                  "body": ["Inter", "sans-serif"],
+                  "label": ["Inter", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(53, 53, 52, 0.2);
+      backdrop-filter: blur(32px);
+    }
+    .ghost-border {
+      box-shadow: 0 0 0 1px rgba(228, 189, 194, 0.1);
+    }
+    .liquid-gradient {
+      background: linear-gradient(135deg, #ffb2bf 0%, #ff4d81 100%);
+    }
+    .blueprint-overlay {
+      background-image: radial-gradient(#5b3f43 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+    }
+    .sepia-grain {
+      filter: sepia(0.2) contrast(1.1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Shared Component: TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1920px] mx-auto">
+<div class="text-2xl font-bold italic text-pink-500 font-headline tracking-tighter">raw'r'not</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-headline tracking-tighter text-pink-500 border-b-2 border-pink-500 pb-1" href="#">Media</a>
+<a class="font-headline tracking-tighter text-zinc-400 hover:text-zinc-100 transition-colors" href="#">Technical</a>
+<a class="font-headline tracking-tighter text-zinc-400 hover:text-zinc-100 transition-colors" href="#">Clients</a>
+<a class="font-headline tracking-tighter text-zinc-400 hover:text-zinc-100 transition-colors" href="#">Internal</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-400 hover:bg-zinc-800/50 rounded-full transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 text-zinc-400 hover:bg-zinc-800/50 rounded-full transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined">share</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="User profile avatar" data-alt="high-fashion editorial portrait of a woman with sharp lighting and minimalist jewelry, neutral muted tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_WcVSAROaMirPFvNn2gWIG_wCnvdRh_lV-y48P5_yUQumZWMNDxOj9JEIXHcWp78JABpmbftUABsY3CrPLuCBCH8sDY-nuzDxLRnz-my9IJRkPfLywjy-G1aY6goEwOkFz3gz8zscDaf95V7X8XAoIR1sGyfJc15QRutRnX8xJIK6Rotn-OCY5JSb_R36-xtHFHXCHRnzok8c_jcqDE-XR6B9RYISCG0_gRN86q1HTvsNyjYAfWg0yJN_wCFnCJHnPEbSTjO0SUo"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-zinc-900/60 backdrop-blur-2xl bg-gradient-to-r from-zinc-800 to-transparent hidden xl:flex flex-col py-20">
+<div class="px-6 mb-12">
+<h2 class="text-pink-500 font-black text-xl uppercase tracking-widest font-label">The Apex</h2>
+<p class="text-zinc-500 text-[10px] uppercase tracking-[0.2em]">Creative Intelligence</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 text-zinc-500 p-3 mx-2 hover:bg-zinc-800/40 hover:text-zinc-200 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label text-sm uppercase tracking-widest">Sitemap</span>
+</a>
+<a class="flex items-center gap-3 bg-zinc-800/80 text-pink-400 rounded-lg p-3 mx-2 transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined">download</span>
+<span class="font-label text-sm uppercase tracking-widest">Assets</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 p-3 mx-2 hover:bg-zinc-800/40 hover:text-zinc-200 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label text-sm uppercase tracking-widest">Missions</span>
+</a>
+<a class="flex items-center gap-3 text-zinc-500 p-3 mx-2 hover:bg-zinc-800/40 hover:text-zinc-200 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-label text-sm uppercase tracking-widest">Config</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full liquid-gradient text-on-primary-fixed font-bold py-3 rounded-full text-xs uppercase tracking-widest">New Asset</button>
+<div class="mt-8 space-y-4">
+<a class="flex items-center gap-2 text-zinc-500 text-xs hover:text-zinc-300" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+        </a>
+<a class="flex items-center gap-2 text-zinc-500 text-xs hover:text-zinc-300" href="#">
+<span class="material-symbols-outlined text-sm">policy</span> Legal
+        </a>
+</div>
+</div>
+</aside>
+<main class="xl:ml-64 pt-24 pb-20 px-6 md:px-12 max-w-[1600px] mx-auto">
+<!-- Hero Section: Editorial Impact -->
+<header class="relative py-20 mb-20 overflow-hidden">
+<div class="absolute inset-0 blueprint-overlay opacity-20"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7">
+<h1 class="text-6xl md:text-8xl font-headline tracking-tighter leading-[0.9] mb-6">
+            Media <br/> <span class="italic text-primary">Territory</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
+            The epicenter for high-precision brand assets and creative intelligence. Access the raw'r'not visual legacy and the blueprint of our sonic roar.
+          </p>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-square glass-panel rounded-xl overflow-hidden ghost-border sepia-grain rotate-3 transform hover:rotate-0 transition-transform duration-700">
+<img alt="Abstract brutalist architecture" class="w-full h-full object-cover opacity-80" data-alt="ultra-modern brutalist concrete architecture with sharp shadows and minimalist digital blueprint overlays, cinematic sepia atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu6BZkgurJm4OfUluK416ldkZQjfVPcCn93KQK_DpeglCbBkmFIXZDm1A0r9aukKpUE5u5qPYTMQOgZWEu0puO2XDlOxW9OE9DdqszHEfL4Rfsj0osv5b3Idv0bVmaQFeNnMgJLWLfW4NCGD-YCMc8h-dKAZovRlLb4d2Gp9byJ0OCok18JX-fuVODByc4DpDfuV7APsPjpHlep9DuBhocc36DAjN247Mppio7s-tfxMaO2nCrgsxbun97BOaa9lyktZGbHvk2Y44"/>
+</div>
+<div class="absolute -bottom-8 -left-8 glass-panel p-6 rounded-xl ghost-border backdrop-blur-3xl max-w-[240px]">
+<p class="text-[10px] uppercase tracking-widest text-primary mb-2">Live Broadcast</p>
+<p class="text-sm font-headline italic">"The intersection of untamed creative instinct and elite execution."</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid: Brand Assets -->
+<section class="mb-32">
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-xs uppercase tracking-[0.3em] text-outline">Resource Vault</span>
+<h2 class="text-4xl font-headline italic mt-2">Elite Assets</h2>
+</div>
+<button class="text-primary hover:underline font-label text-sm uppercase tracking-widest">Download Full Pack (2.4GB)</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Main Video Loop -->
+<div class="md:col-span-2 md:row-span-2 glass-panel rounded-xl overflow-hidden ghost-border relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10"></div>
+<img alt="Abstract motion graphic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="fluid liquid metal textures flowing in dark space with pink and cyan highlights, high-resolution organic digital art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ_c848Z4iWP0dGfALvMuOnV_J_NIHUm6Ji8gZugaqButzxxJX0Aq4PSQLfELezcqnJ5l8MTBJEkNaMt5SO7wAzfDqtZK6LFEMSSfRzjYcuO8NcA-oa3T9v4b1-NUxefasn8_FIEZ0Z6X6RP9YbvMo-syv9BIUp3F-txf2wYUVM0RBqSlidoI5lpxVE2D20VXhknAVHdtdHGHjsV6DwpVBWTvw2DJLRIBUXzvjrwq727Cdh4mNH6IOeYp728GwRq7vfILPiUiyvvE"/>
+<div class="absolute bottom-6 left-6 z-20">
+<span class="material-symbols-outlined text-primary mb-2">play_circle</span>
+<h3 class="text-xl font-headline tracking-tight">Main Identity Loop</h3>
+<p class="text-xs text-zinc-400 uppercase tracking-widest">4K ProRes 4444 • 0:15s</p>
+</div>
+</div>
+<!-- Static Photography -->
+<div class="glass-panel rounded-xl overflow-hidden ghost-border relative group">
+<img alt="Product shot" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="minimalist glass product photography on dark reflective surface with sharp high-contrast lighting and subtle pink glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrIwAvf2QLtC0YzTIbYA3OLUyXeyHCV-vO9PSVNVskYdwEHtsl_DS9TRf4R7mSOwiRJL_NRlCzLsh1gTeDiw4GBP8mQkTIzcuqJY4U6707GwjmIRdbHWA75kG07ib6CuC3PWzKGOZjr4AaGGLM2bMefl3wF667n0i2CQQ71lV1f8Tr4sYMtjctLKgYVNzP60aE9CPA-5sZq0_66IeO9Em0QyjFwlwqyPAr4GcDgW4BLJOXimWCfzhkPcC7xxEo3rr7R9opNqZVNXc"/>
+<div class="absolute inset-0 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">download</span>
+</div>
+</div>
+<!-- Technical Blueprints -->
+<div class="glass-panel rounded-xl overflow-hidden ghost-border p-6 relative bg-zinc-900/40">
+<div class="absolute top-0 right-0 p-2 opacity-20">
+<span class="material-symbols-outlined text-6xl">architecture</span>
+</div>
+<h3 class="text-lg font-headline italic mb-4">Vector Logos</h3>
+<ul class="space-y-3">
+<li class="flex items-center justify-between text-xs text-zinc-400">
+<span>Primary SVG</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</li>
+<li class="flex items-center justify-between text-xs text-zinc-400">
+<span>Monochrome EPS</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</li>
+<li class="flex items-center justify-between text-xs text-zinc-400">
+<span>Logomark Only</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</li>
+</ul>
+</div>
+<!-- Sonic Identity -->
+<div class="glass-panel rounded-xl ghost-border p-6 flex flex-col justify-between md:col-span-2">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 liquid-gradient rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">graphic_eq</span>
+</div>
+<div>
+<h3 class="text-lg font-headline tracking-tight">Sonic Logo (The Roar)</h3>
+<p class="text-xs text-zinc-500 uppercase">Mastered for Cinema &amp; Web</p>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="flex-1 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-2/3 h-full liquid-gradient"></div>
+</div>
+<span class="text-[10px] font-mono text-primary">0:04</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Crystallized News & PDF Preview -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-start">
+<div class="lg:col-span-8">
+<h2 class="text-4xl font-headline italic mb-10">Crystallized News</h2>
+<div class="space-y-12">
+<article class="group">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="md:w-1/3 aspect-[4/3] rounded-lg overflow-hidden ghost-border">
+<img alt="Global network" class="w-full h-full object-cover sepia-grain" data-alt="satellite view of earth at night with glowing digital networks and blueprint grid overlays in cyan and sepia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ejODlTBHxqnyMMEw_b-O2OzmJyhnOvJ_yf0AojyKLPGWesgx5BSeTzROiINvxUnP0IzSxA0S4oKD5UxL1oipQLEtzamnScYhSVw49v9kjji0LmFqAOQfdUjh8JaJprAoo7Qs9Bpu1Ni3qWpE80VgNGI6eUDxQ3ygRlkHaUnX6kvp_2qjXmN-Ld2-zwZiYUuZVtJqK4ME_VcI1AmAgTaJX0vrmU6rXIzcJA_NvjTKx3xlL9Cw0n7Nwla_1cEPTma-1hFFC9HS8LQ"/>
+</div>
+<div class="md:w-2/3">
+<time class="text-[10px] uppercase tracking-widest text-primary">October 24, 2023</time>
+<h3 class="text-2xl font-headline leading-tight mt-2 mb-4 group-hover:text-primary transition-colors">The Apex Protocols: A New Era of Autonomous Creative Production</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">raw'r'not unveils a revolutionary framework for agency-level automation without sacrificing the "raw" human element of craft.</p>
+<a class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold group-hover:gap-4 transition-all" href="#">
+                  Read Full Release <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<article class="group">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="md:w-1/3 aspect-[4/3] rounded-lg overflow-hidden ghost-border">
+<img alt="Humanoid detail" class="w-full h-full object-cover sepia-grain" data-alt="close-up of a high-tech robotic hand touching a delicate flower, dramatic lighting, high-end editorial tech photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCH9nXxld_CrJQzqUIrgXKlWyMwG6TniqkmoQL3AoSUtrLJfVi01byxAEFwenZ6-QowiSZYPeYlRNg9YyGzXt_UWbMRaEkR0WxKKXI7khit16PAAaVkMpVGAfL7YM005WUgr8XYslQFpDY1AmibF3Cli_Lm9qOUpEUzBEiUxLFE8uaXenbAxASthCBP6ulz2SavIIUwf2onwxU-g5JGqCAFhE28g4MtsNf1lJPblwlCJqJ4Sw0ytB8Pm7Q-HVEY8EFDWu5zwkbNyA"/>
+</div>
+<div class="md:w-2/3">
+<time class="text-[10px] uppercase tracking-widest text-primary">September 12, 2023</time>
+<h3 class="text-2xl font-headline leading-tight mt-2 mb-4 group-hover:text-primary transition-colors">Strategic Alliance: Merging Biological Instinct with Digital Perfection</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Partnership announcement with Global Synthesis Lab to integrate haptic creative feedback into the raw'r'not engine.</p>
+<a class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold group-hover:gap-4 transition-all" href="#">
+                  Read Full Release <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="lg:col-span-4 sticky top-32">
+<div class="glass-panel rounded-xl ghost-border p-8 border-t border-white/5">
+<div class="mb-8">
+<h3 class="text-xl font-headline italic">Identity Manual</h3>
+<p class="text-xs text-zinc-500 mt-2">V2.4 • The Sovereign Edition</p>
+</div>
+<div class="relative bg-surface-container-lowest aspect-[1/1.41] rounded-lg p-6 mb-8 overflow-hidden group">
+<div class="absolute inset-0 blueprint-overlay opacity-40"></div>
+<div class="relative z-10 border border-primary/20 h-full p-4 flex flex-col justify-between">
+<p class="text-[8px] uppercase tracking-tighter text-zinc-500">Copyright © 2024 raw'r'not intel.</p>
+<div class="text-center">
+<h4 class="text-3xl font-headline tracking-tighter italic text-primary">RAW</h4>
+<p class="text-[6px] uppercase tracking-[1em] text-zinc-400">Identity Guidelines</p>
+</div>
+<div class="h-0.5 w-full bg-primary/10"></div>
+</div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">visibility</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-full border border-outline-variant hover:bg-white/5 transition-colors font-label text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+            Download PDF Manual
+          </button>
+</div>
+</div>
+</section>
+<!-- Social Sharing Nexus -->
+<section class="mb-32">
+<div class="glass-panel rounded-2xl ghost-border overflow-hidden grid grid-cols-1 md:grid-cols-2">
+<div class="p-12 border-b md:border-b-0 md:border-r border-outline-variant/20">
+<h2 class="text-4xl font-headline italic mb-6">Nexus Protocol</h2>
+<p class="text-on-surface-variant leading-relaxed mb-8">Deploy the raw'r'not roar instantly. Our media templates are calibrated for maximum impact across specialized encrypted and aesthetic networks.</p>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-high hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">message</span>
+<span class="font-label text-xs uppercase tracking-widest">iMessage Blast</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">send</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-high hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">chat_bubble</span>
+<span class="font-label text-xs uppercase tracking-widest">WhatsApp Direct</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">send</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-high hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-pink-500">grid_view</span>
+<span class="font-label text-xs uppercase tracking-widest">Pinterest Board</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</button>
+</div>
+</div>
+<div class="relative min-h-[400px]">
+<div class="absolute inset-0 bg-surface-container-lowest">
+<img alt="Digital abstract" class="w-full h-full object-cover opacity-50 grayscale" data-alt="flowing neon data streams and glitch effects in deep magenta and cyan on a dark tech background, cinematic and immersive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDARCxe-RsOuKqPk3CFZVFXFBkKaaVF4hGXQPzAYh_hZEX_IOAVGo_ucF0d-8kGmOjleGhB697vmPJpig83nFsQX-SEuIRE2Zfbk-51KTEklpN-6kRhqYWSrlmtpikbjnbuRiJ5wA_d84iAirdExGP-QjARN2-CUdIDlvPbJbs-se0ys0wyVLHCe_TC_FgLWSFnL-WLw1q5wlp6Z-voikeUz8nU4NIQrv7q6NkTTGaIYVK6_qQY_gjd8FBikcP5TmJbJ8KywVY96bg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 h-full p-12 flex flex-col justify-end">
+<div class="glass-panel p-6 rounded-xl ghost-border backdrop-blur-xl">
+<p class="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Template Preview</p>
+<div class="aspect-video bg-zinc-950 rounded border border-white/5 flex items-center justify-center">
+<div class="text-center">
+<span class="text-2xl font-headline italic">raw'r'not</span>
+<div class="h-[1px] w-12 bg-primary mx-auto mt-2"></div>
+</div>
+</div>
+<p class="text-xs text-zinc-400 mt-4 italic">"The Apex creative engine has arrived."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Stats / Archive Tones -->
+<footer class="border-t border-outline-variant/10 pt-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Assets Served</p>
+<p class="text-3xl font-headline">14.2M+</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Global Media</p>
+<p class="text-3xl font-headline">842</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Identity Iterations</p>
+<p class="text-3xl font-headline">V2.4.9</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">System Uptime</p>
+<p class="text-3xl font-headline">99.98%</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-xs text-zinc-500 font-label uppercase tracking-widest">
+          © 2024 RAW'R'NOT CREATIVE INTELLIGENCE. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-6">
+<a class="text-zinc-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">brand_family</span></a>
+<a class="text-zinc-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">terminal</span></a>
+<a class="text-zinc-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Nav Shell Toggle -->
+<div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+<div class="bg-zinc-900/80 backdrop-blur-3xl px-8 py-4 rounded-full ghost-border flex items-center gap-10">
+<span class="material-symbols-outlined text-primary">download</span>
+<span class="material-symbols-outlined text-zinc-400">newspaper</span>
+<span class="material-symbols-outlined text-zinc-400">share</span>
+<span class="material-symbols-outlined text-zinc-400">person</span>
+</div>
+</div>
+</body></html>

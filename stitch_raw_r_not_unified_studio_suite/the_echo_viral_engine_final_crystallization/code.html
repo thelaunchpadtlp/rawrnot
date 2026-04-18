@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Echo Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700;6..72,800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353534",
+                        "on-secondary": "#303032",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#90003b",
+                        "inverse-primary": "#bc004f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#ab888c",
+                        "secondary-fixed": "#e4e2e4",
+                        "on-tertiary-fixed-variant": "#920027",
+                        "tertiary-fixed-dim": "#ffb3b5",
+                        "on-tertiary-container": "#5b0015",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#680019",
+                        "primary-fixed-dim": "#ffb2bf",
+                        "secondary-container": "#474649",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "error": "#ffb4ab",
+                        "primary-container": "#ff4d81",
+                        "on-primary": "#660028",
+                        "on-primary-container": "#5a0022",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#393939",
+                        "on-primary-fixed": "#3f0016",
+                        "primary": "#ffb2bf",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#474649",
+                        "tertiary-container": "#ff5167",
+                        "tertiary": "#ffb3b5",
+                        "outline-variant": "#5b3f43",
+                        "primary-fixed": "#ffd9de",
+                        "on-surface-variant": "#e4bdc2",
+                        "on-secondary-container": "#b6b4b7",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdada",
+                        "on-tertiary-fixed": "#40000c",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary": "#c8c6c8",
+                        "surface-tint": "#ffb2bf",
+                        "surface-container": "#201f1f"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #131313; color: #e5e2e1; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Newsreader', serif; letter-spacing: -0.02em; }
+        .glass-panel { background: rgba(53, 53, 52, 0.2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+        .ambient-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228, 189, 194, 0.1); }
+        .gradient-text { background: linear-gradient(135deg, #ffb2bf, #ff4d81); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row pb-24 md:pb-0 pt-20 md:pt-0">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex bg-neutral-950/40 backdrop-blur-3xl fixed top-0 w-full z-50 bg-gradient-to-b from-neutral-900 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(228,189,194,0.1)] justify-between items-center px-8 h-20 w-full">
+<div class="text-2xl font-black text-pink-400 tracking-tighter font-headline">RAW'R'NOT</div>
+<div class="flex space-x-8">
+<a class="text-neutral-400 font-headline tracking-tighter hover:text-pink-200 transition-colors duration-300 text-lg" href="#">Nexus</a>
+<a class="text-neutral-400 font-headline tracking-tighter hover:text-pink-200 transition-colors duration-300 text-lg" href="#">Marketplace</a>
+<a class="text-pink-400 border-b-2 border-pink-500 pb-1 font-headline tracking-tighter text-lg" href="#">Echo</a>
+</div>
+<div class="flex items-center space-x-6 text-pink-400">
+<span class="material-symbols-outlined hover:text-pink-200 transition-colors duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="material-symbols-outlined hover:text-pink-200 transition-colors duration-300 cursor-pointer" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<img alt="User profile avatar" class="w-10 h-10 rounded-full border-2 border-outline-variant hover:border-primary transition-colors duration-300" data-alt="close up portrait of young woman with striking features cinematic lighting cyberpunk vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaUyS3-PjIS0QDfz-SvUyaPjHVcoi9pjaWv19ZesgGoj7Z01apafmBPDH-_AUn9n-XUNl9x9G3bzUVb3QMbQvQZULwiAIByLQH3wGbAbT5G-7LP8mNmMrJbDWpx67WZ4zwZxC76BBwduwFfds0VqfvfHhaaZjkuz-3O-TneXraXD-R4szjOdzHbw36RJvqlyiT8DOnXISrM2AokAwF9oJY9a0bRVTcKoKKuF6X1AdCQhOSBSGz4QGSe5kuN8oc8JgmIbWj_MMcp5U"/>
+</div>
+</nav>
+<!-- SideNavBar (Mobile Alternative - Actually we use Bottom Nav on mobile, so this is just for reference or tablet if needed, but per instructions, Bottom Nav for Mobile) -->
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-6 md:px-12 pt-8 md:pt-32 pb-24 md:pb-12 space-y-24">
+<!-- Hero Section: Reed's Law Engine -->
+<section class="relative">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-5/12 space-y-6 z-10">
+<h1 class="font-headline text-[3.5rem] leading-tight text-on-surface">The Viral <span class="gradient-text">Engine</span></h1>
+<p class="font-body text-body-lg text-on-surface-variant max-w-md">Activate Reed's Law. Your network value scales exponentially with every new node. Initiate a Team Buy to amplify collective bargaining power.</p>
+<div class="flex gap-4 pt-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed font-body font-semibold px-8 py-4 rounded-full hover:brightness-110 active:scale-95 transition-all shadow-[0_10px_20px_rgba(255,77,129,0.3)] flex items-center gap-2">
+<span class="material-symbols-outlined">rocket_launch</span>
+                            Initiate Ampliación
+                        </button>
+</div>
+</div>
+<div class="w-full md:w-7/12 relative h-[400px]">
+<!-- Abstract Visualization of Reed's Law -->
+<div class="absolute inset-0 glass-panel rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-center">
+<img alt="Data visualization" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-screen" data-alt="abstract glowing nodes connecting in a 3d network map dark background cyberpunk neon pink and blue lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAulCcLXU6asB7GfbdMbj1tzp4voZgclSamGM4AmK0GfXz_kPcIaGZrsVTAbo9ZgaVkG1OETVJKlxbeHGXFwBYghDSrQZzwuB0KV-HLUzOw8-nfhs072CsCEU22dz3L4nwmfXLLwEwYfa2ocivUGNvAzPCke4fzO2yURbI-CV35ux0UCM5f5n_mAFatUSOPzaWXnfcJkHzFi-X3RoGeyPioLhm7QO_uEJpVJ0oVpUMlyJlSVWxARdDiYHckVkGcmntyK5rLL0nafE4"/>
+<!-- Floating Data Nodes -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="text-display-lg font-headline text-primary mb-2">N²</div>
+<div class="text-label-md font-body text-secondary tracking-widest uppercase">Exponential Scale Reached</div>
+</div>
+</div>
+<!-- Decorative Floating Element -->
+<div class="absolute -bottom-6 -left-6 bg-surface-container-highest p-4 rounded-lg shadow-2xl border border-outline-variant/30 flex items-center gap-4">
+<div class="bg-tertiary-container/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-tertiary">trending_up</span>
+</div>
+<div>
+<div class="font-label text-label-md text-on-surface-variant">Network Multiplier</div>
+<div class="font-body font-bold text-on-surface">3.4x Velocity</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Analytics & Actions -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Viral Link Generator -->
+<div class="md:col-span-1 glass-panel rounded-xl p-8 flex flex-col justify-between ambient-shadow border border-outline-variant/10 hover:bg-surface-bright transition-colors duration-500 group">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline text-title-lg text-on-surface">Syndicate Link</h3>
+<span class="material-symbols-outlined text-primary group-hover:rotate-12 transition-transform">share</span>
+</div>
+<p class="font-body text-label-md text-on-surface-variant mb-6">Generate unique tracking links for external network propagation.</p>
+<div class="bg-surface-container-lowest rounded-sm border border-outline-variant p-3 flex justify-between items-center mb-4">
+<span class="font-body text-sm text-secondary truncate">rawr.not/echo/t8x9q</span>
+<button class="text-primary hover:text-primary-container"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/30 py-2 rounded-full font-body text-sm hover:bg-[#25D366]/20 transition-colors flex items-center justify-center gap-2">
+                        WhatsApp
+                    </button>
+<button class="flex-1 bg-[#007AFF]/10 text-[#007AFF] border border-[#007AFF]/30 py-2 rounded-full font-body text-sm hover:bg-[#007AFF]/20 transition-colors flex items-center justify-center gap-2">
+                        iMessage
+                    </button>
+</div>
+</div>
+<!-- Team Buy Rounds Visualizer -->
+<div class="md:col-span-2 glass-panel rounded-xl p-8 ambient-shadow border border-outline-variant/10 flex flex-col relative overflow-hidden">
+<!-- Background ambient glow -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10"></div>
+<h3 class="font-headline text-headline-md text-on-surface mb-2">Active Consortiums</h3>
+<p class="font-body text-label-md text-on-surface-variant mb-8">Live Team Buy rounds currently aggregating capital.</p>
+<div class="space-y-6">
+<!-- Progress Item 1 -->
+<div>
+<div class="flex justify-between font-body text-sm mb-2">
+<span class="text-on-surface font-semibold">Alpha Sector Acquire</span>
+<span class="text-primary font-mono">84%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-on-tertiary-container w-[84%] rounded-full shadow-[0_0_10px_rgba(255,179,181,0.5)]"></div>
+</div>
+<div class="flex justify-between font-label text-label-md text-on-surface-variant mt-2">
+<span>$2.4M Pledged</span>
+<span>Ends in 48h</span>
+</div>
+</div>
+<!-- Progress Item 2 -->
+<div>
+<div class="flex justify-between font-body text-sm mb-2">
+<span class="text-on-surface font-semibold">Project Obsidian</span>
+<span class="text-secondary font-mono">42%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-surface-variant w-[42%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Collective Hunt -->
+<section class="bg-surface-container-high rounded-xl border border-outline-variant/10 overflow-hidden">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/3 bg-surface-container-lowest p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-outline-variant/10">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">radar</span>
+<h2 class="font-headline text-title-lg text-on-surface">Collective Hunt</h2>
+</div>
+<p class="font-body text-body-lg text-on-surface-variant mb-8">Crowdsourced asset discovery phase active. Contribute intelligence to increase collective yield.</p>
+<button class="bg-transparent border border-outline-variant text-primary font-body px-6 py-3 rounded-full hover:bg-surface-bright transition-colors self-start">
+                        Contribute Intel
+                    </button>
+</div>
+<div class="w-full md:w-2/3 p-8 relative">
+<img alt="Map visualization" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity" data-alt="satellite map view dark mode glowing heat map spots sleek tech interface overlay" data-location="Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASuO3dhbBDTUGVFtMFpslA-ce1Q4X0MmuxmLmvB0c_stfepZUCw97t8bHHL6AGwrgPDw1E9u2-qeF_q73MiBbGfHIh1Wce0S65QQ-ywLrtxnSf694epU1IDtl-9zjoyShH5BRZmFyHQCGHnLj0NYnFuw20ezPhl16S7aTanr50xzCuV2z9B0aZYxo0BtVz_8SqTt6Iwci7XXwNAbSZfCXHwxWlhZrQNH5FVqi8l86ECKG5BxxeAbVSI6sYIkmtd4rqvTM9Y1nmy9Y"/>
+<div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Stat Blocks -->
+<div class="bg-surface/60 backdrop-blur-md p-4 rounded-lg border border-outline-variant/20">
+<div class="text-display-lg font-headline text-on-surface mb-1 text-center">14</div>
+<div class="text-label-md font-body text-secondary text-center uppercase tracking-wider">Targets Locked</div>
+</div>
+<div class="bg-surface/60 backdrop-blur-md p-4 rounded-lg border border-outline-variant/20">
+<div class="text-display-lg font-headline text-primary mb-1 text-center">8.2k</div>
+<div class="text-label-md font-body text-secondary text-center uppercase tracking-wider">Nodes Active</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-[1.5rem] bg-neutral-950/40 backdrop-blur-3xl border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex justify-around items-center px-4 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">hub</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Nexus</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">storefront</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-pink-400 to-pink-600 text-white rounded-2xl p-3 active:scale-90 transition-all duration-200 shadow-lg" href="#">
+<span class="material-symbols-outlined mb-1">sensors</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Echo</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 p-3 hover:text-pink-300 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+</body></html>
