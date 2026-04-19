@@ -39,8 +39,11 @@ jobs:
           docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }}
 
       - name: Build and Push AI Gateway
+        # Build from repo root so Dockerfile can access project docs (HANDOFF.md, VISION.md, etc.)
+        # These docs become queryable MCP Resources in the deployed Knowledge Base service.
         run: |
-          docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }} ./ai-gateway
+          docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }} \
+            -f ai-gateway/Dockerfile .
           docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }}
 
       - name: Deploy Backend to Cloud Run

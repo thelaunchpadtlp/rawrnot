@@ -21,6 +21,16 @@
   --color-outline: var(--border-outline);
   --color-outline-variant: var(--border-outline-variant);
 
+  --color-on-surface: var(--text-primary);
+  --color-on-surface-variant: var(--text-secondary);
+  --color-surface: var(--surface-base);
+  --color-primary-container: var(--brand-primary-container);
+  --color-on-primary-fixed: var(--brand-on-primary-fixed);
+  --color-tertiary: var(--accent-tertiary);
+  --color-on-tertiary-container: var(--accent-on-tertiary-container);
+  --color-inverse-surface: var(--surface-inverse);
+  --color-inverse-on-surface: var(--text-inverse);
+
   --font-headline: "Newsreader", serif;
   --font-body: "Inter", sans-serif;
 }
@@ -30,43 +40,69 @@
     /* LIGHTCRAFT ROAR (Artisanal Paper, Skeuomorphic) */
     --bg-primary: #f4f1ea;
     --text-primary: #2d2824;
-    
+    --text-secondary: #7a6e65;
+
     --surface-lowest: #ffffff;
     --surface-low: #f9f8f4;
     --surface-base: #ece8df;
     --surface-high: #e2dccf;
     --surface-highest: #d6cfbf;
     --surface-bright: #ffffff;
-    
+    --surface-inverse: #2d2824;
+    --text-inverse: #f4f1ea;
+
     --brand-primary: #90003b;
     --brand-on-primary: #ffffff;
-    
+    --brand-primary-container: #c4004e;
+    --brand-on-primary-fixed: #ffffff;
+
+    --accent-tertiary: #7a3040;
+    --accent-on-tertiary-container: #5b0015;
+
     --border-outline: #8c827a;
     --border-outline-variant: #d4cec5;
-    
+
     /* Lightcraft Specific Utilities */
     --ambient-shadow-css: inset 0 2px 4px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.05);
     --ghost-border-css: 0 0 0 1px rgba(140, 130, 122, 0.2);
     --liquid-bg: rgba(244, 241, 234, 0.7);
+
+    /* Skeuomorphic utility values (Lightcraft) */
+    --skeuo-switch-bg: linear-gradient(180deg, #e2dccf 0%, #d6cfbf 100%);
+    --skeuo-switch-shadow: inset 0 2px 4px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.8);
+    --skeuo-dial-bg: radial-gradient(circle at 30% 30%, #e2dccf, #c8c0b0);
   }
 
   .dark {
     /* OBSIDIAN DARK (Liquid Glass, High Contrast) */
     --bg-primary: #131313;
     --text-primary: #e5e2e1;
-    
+    --text-secondary: #a89294;
+
     --surface-lowest: #0e0e0e;
     --surface-low: #1c1b1b;
     --surface-base: #201f1f;
     --surface-high: #2a2a2a;
     --surface-highest: #353534;
     --surface-bright: #393939;
-    
+    --surface-inverse: #e5e2e1;
+    --text-inverse: #131313;
+
     --brand-primary: #ffb2bf;
     --brand-on-primary: #660028;
-    
+    --brand-primary-container: #ff4d81;
+    --brand-on-primary-fixed: #3f0016;
+
+    --accent-tertiary: #ffb3b5;
+    --accent-on-tertiary-container: #5b0015;
+
     --border-outline: #ab888c;
     --border-outline-variant: #5b3f43;
+
+    /* Obsidian Skeuomorphic utility values */
+    --skeuo-switch-bg: linear-gradient(180deg, #2a2a2a 0%, #131313 100%);
+    --skeuo-switch-shadow: inset 0 2px 4px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
+    --skeuo-dial-bg: radial-gradient(circle at 30% 30%, #393939, #131313);
     
     /* Obsidian Specific Utilities */
     --ambient-shadow-css: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(228,189,194,0.1);
@@ -141,5 +177,33 @@
   /* Structural Container for adaptive scaling (Watch to 4K) */
   .universal-container {
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Skeuomorphic Controls (The Vault spec builder, The Den dials) */
+  .skeuo-switch {
+    background: var(--skeuo-switch-bg);
+    box-shadow: var(--skeuo-switch-shadow);
+  }
+
+  .skeuo-dial {
+    background: var(--skeuo-dial-bg);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+  }
+
+  /* Noise texture overlay (all surfaces get subtle grain) */
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  /* Text tracking styles (Stitch design language) */
+  .text-roar {
+    letter-spacing: -0.04em;
+    line-height: 0.92;
   }
 }
