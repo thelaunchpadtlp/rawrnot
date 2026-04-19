@@ -3,11 +3,11 @@
 # ================================
 FROM swift:5.9-jammy AS build
 
-# Install OS updates
+# Install OS updates and build dependencies (Tesseract included for potential static linking or local testing)
 RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
     && apt-get -q update \
     && apt-get -q dist-upgrade -y \
-    && apt-get install -y libsqlite3-dev \
+    && apt-get install -y libsqlite3-dev tesseract-ocr tesseract-ocr-spa libtesseract-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up a build area
@@ -24,7 +24,7 @@ RUN swift build -c release --static-swift-stdlib -Xswiftc -strict-concurrency=mi
 # ================================
 FROM ubuntu:jammy
 
-# Install OS updates and dependencies
+# Install OS updates and dependencies for the final runtime
 RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
     && apt-get -q update \
     && apt-get -q dist-upgrade -y \
@@ -32,6 +32,8 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
       libjemalloc2 \
       ca-certificates \
       tzdata \
+      tesseract-ocr \
+      tesseract-ocr-spa \
     && rm -r /var/lib/apt/lists/*
 
 # Create a vapor user and group with /app as its home directory
@@ -40,9 +42,9 @@ WORKDIR /app
 
 # Copy build executable and any staged resources from builder
 COPY --from=build --chown=appuser:appuser /build/.build/release/App /app/
-# Copy any resources (Public, Resources, etc)
-RUN mkdir -p /app/Public
-RUN mkdir -p /app/Resources
+
+# Ensure all resource directories exist
+RUN mkdir -p /app/Public && mkdir -p /app/Resources
 
 # Ensure all further commands run as the vapor user
 USER appuser:appuser
@@ -50,7 +52,5 @@ USER appuser:appuser
 # Let Docker bind to port 8080
 EXPOSE 8080
 
-# Start the Vapor service when the image is run, default to listening on 0.0.0.0:8080
-
-
+# Start the Vapor service, binding to Google Cloud Run requirements
 CMD ["./App", "serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "8080"]

@@ -5,13 +5,13 @@ struct SinpeTransactionController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let payments = routes.grouped("api", "payments")
         
-        // Crear transacción
+        // Crear transacción (Checkout Frontend)
         payments.post("create", use: createPayment)
         
-        // El cliente sube el comprobante. La IA lo pre-aprueba
-        payments.post(":id", "upload-receipt", use: uploadReceiptAndAiValidate)
+        // El cliente sube el comprobante REAL. La IA lo analiza e intenta pre-aprobar.
+        payments.on(.POST, ":id", "upload-receipt", body: .collect(maxSize: "10mb"), use: uploadReceiptAndAiValidate)
         
-        // El owner hace la aprobación final
+        // El owner hace la aprobación final humana en The Architect
         let ownerRoutes = payments.grouped(RoleMiddleware(requiredRole: .owner))
         ownerRoutes.post(":id", "owner-approve", use: ownerApprove)
         
@@ -35,28 +35,33 @@ struct SinpeTransactionController: RouteCollection {
         return transaction
     }
 
-    struct UploadReceiptReq: Content {
-        let receiptImageUrl: String // Asumimos que el front ya lo subió a StorageProvider y pasa el link, o lo sube aquí.
-        let referenceNumber: String? // Número digitado por el usuario opcionalmente
-    }
-
     func uploadReceiptAndAiValidate(req: Request) async throws -> SinpeTransaction {
         guard let id = req.parameters.get("id", as: UUID.self),
               let transaction = try await SinpeTransaction.find(id, on: req.db) else {
             throw Abort(.notFound)
         }
         
-        let data = try req.content.decode(UploadReceiptReq.self)
-        transaction.receiptUrl = data.receiptImageUrl
-        transaction.referenceNumber = data.referenceNumber
+        // Extraer los bytes de la imagen del cuerpo del request
+        guard let imageData = req.body.data else {
+            throw Abort(.badRequest, reason: "No se recibió imagen del comprobante.")
+        }
         
-        // Simulación: El Gateway MCP / Agente IA procesa el OCR del comprobante
-        req.logger.info("Agente IA procesando el recibo en URL: \(data.receiptImageUrl)")
+        // INVOCACIÓN DEL PROTOCOLO APEX OCR
+        let ocrResult = try await OCRService.shared.processReceipt(imageData: imageData, on: req)
         
-        // Lógica de IA (Mock): Si parece válido, lo pre-aprueba.
-        // El estado real del cliente sigue siendo "pendiente" porque falta la aprobación del Owner.
-        transaction.aiStatus = "pre_approved"
-        transaction.ownerStatus = "pending" // Esperando al humano
+        transaction.referenceNumber = ocrResult.referenceNumber
+        
+        // Lógica de Validación: Si el número de referencia existe, la IA lo marca como pre-aprobado.
+        if transaction.referenceNumber != nil {
+            transaction.aiStatus = "pre_approved"
+            req.logger.info("IA ha pre-aprobado la transacción \(id) con éxito.")
+        } else {
+            transaction.aiStatus = "flagged"
+            req.logger.warning("IA no pudo confirmar los datos. Requiere atención inmediata.")
+        }
+        
+        // TODO: Subir la imagen a Google Cloud Storage y guardar el receiptUrl
+        transaction.receiptUrl = "storage://receipts/\(id.uuidString).png"
         
         try await transaction.save(on: req.db)
         return transaction
@@ -76,8 +81,7 @@ struct SinpeTransactionController: RouteCollection {
         
         if data.action == "approve" {
             transaction.ownerStatus = "approved"
-            req.logger.info("El OWNER ha aprobado manualmente la orden \(transaction.orderId)")
-            // TODO: Aquí se dispararía un evento para liberar The Portal al cliente
+            req.logger.info("EL OWNER (\(try req.auth.require(UserPayload.self).email)) ha liberado la orden \(transaction.orderId).")
         } else {
             transaction.ownerStatus = "rejected"
         }
