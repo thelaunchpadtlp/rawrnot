@@ -11,6 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { GoogleLogin } from '@react-oauth/google';
 import DynamicPage from './pages/DynamicPage';
 import TheArchitect from './pages/TheArchitect';
+import MasterBlueprint from './pages/MasterBlueprint';
 
 function AppContent() {
 ...
