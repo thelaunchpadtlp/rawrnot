@@ -45,6 +45,11 @@ public func configure(_ app: Application) async throws {
     try await seedExtensions(app)
 
     // 4. Register routes
+        // 5. Bind to Google Cloud Run PORT
+    let port = Environment.get("PORT").flatMap(Int.init) ?? 8080
+    app.http.server.configuration.hostname = "0.0.0.0"
+    app.http.server.configuration.port = port
+
     try routes(app)
 }
 
