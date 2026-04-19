@@ -32,29 +32,44 @@ Region:            us-east1
 - Auth (Google SSO), LanguageContext (EN/ES)
 - Backend Swift: todos los Models, Migrations, Controllers principales
 - Services: OCRService (SINPE), StorageProvider (GCS/GDrive/Local)
-- MCP Gateway: 6 tools implementados (ShadowProfile, Quote, SINPE, Echo, CRM, Apple Sync)
-- Cloud Run desplegado: core-backend + rawrnot-app
+- MCP Gateway v2.0: 8 tools + 4 MCP Resources + REST API para docs
+  - Shadow Profile, Quote, SINPE, Echo (con WhatsApp deep link), CRM, Apple Sync, rawrs economy
+  - Knowledge Base: HANDOFF/VISION/ARCHITECTURE/ATLAS baked into Docker image
+  - Endpoints: /knowledge, /knowledge/:doc, /health
+- Cloud Run desplegado: core-backend + rawrnot-app (ai-gateway via CI/CD próximo deploy)
 - Cloud SQL: rawrnot-db (PostgreSQL 15) corriendo
 - Artifact Registry: rawrnot-repo configurado
-- GitHub Actions CI/CD: deploy on push to main
+- GitHub Actions CI/CD: deploy on push to main (ai-gateway ahora incluido)
 - Diseño completo en Stitch (37 pantallas exportadas en `stitch_raw_r_not_unified_studio_suite/`)
-- VISION.md v2.0 — visión de producto mejorada
+- VISION.md v2.0 — visión de producto completamente rediseñada
+- HANDOFF.md — handoff universal para todos los agentes
+- CLAUDE.md — instrucciones específicas para Claude Code
+- agents/ — prompts de init para Codex, Manus, ChatGPT/Perplexity
+- Rawrnot/ — Project Intelligence folder con README y .gitignore
+- CSS design system completado: todos los tokens del dual-theme
+- The Vault (Marketplace) rediseñado: bento grid asimétrico, spec builder, shadow profile nudge
 
 ### 🚧 En Progreso / Pendiente
-- [ ] ai-gateway: falta Dockerfile y deploy a Cloud Run
-- [ ] DATABASE_URL secret en Secret Manager (actualmente usa env vars directas)
+- [ ] DATABASE_URL → Secret Manager (actualmente env vars directas; funcional pero no ideal)
 - [ ] Memorystore (Redis) — no configurado aún
-- [ ] Implementar todos los módulos frontend desde los exports de Stitch
-- [ ] Analytics dashboard en Nexus Hub
-- [ ] rawrs economy — definida en visión, no implementada en código
-- [ ] Mobile-first client journey (check WhatsApp referral links)
+- [ ] Resto de módulos frontend desde Stitch: TheEcho, NexusHub, Territory, Journal
+- [ ] Analytics dashboard en Nexus Hub (revenue, conversion, Echo performance)
+- [ ] rawrs economy — definida en visión + MCP tool, falta implementación en DB
+- [ ] Mobile-first para el client journey (WhatsApp referral → Vault → SINPE)
 - [ ] Email transaccional (SendGrid o similar)
-- [ ] Onboarding de cliente vs. admin (separar flujos)
-- [ ] The Echo — Team Buy completo end-to-end
-- [ ] SINPE OCR — integración real (Tesseract + Gemini fallback)
+- [ ] Onboarding separado: cliente vs. admin studio owner
+- [ ] The Echo — Team Buy completo end-to-end (UI + backend + link sharing)
+- [ ] SINPE OCR — integración real (OCRService existe en backend, falta conectar al checkout UI)
+- [ ] Testimonial automático post-delivery
+- [ ] The Pride membership (pricing page real)
 
 ### 🎯 Próximo paso prioritario
-**Implementar el Journey completo del cliente:** Vault → Brief → Quote → SINPE → Territory
+**El Echo (Team Buy):** Es el moat diferencial. Implementar UI completa + backend del Hunt.
+Después: SINPE Checkout conectado al Vault (Quote → Pay → Confirm).
+
+### 📝 Convención de sesiones
+Al terminar cada sesión, el usuario guarda la transcripción en:
+`Rawrnot/sesiones/[AgenteName] Sesión YYYY-MM-DD.txt`
 
 ---
 
