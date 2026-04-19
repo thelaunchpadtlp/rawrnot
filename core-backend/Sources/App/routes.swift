@@ -10,6 +10,7 @@ func routes(_ app: Application) throws {
     try app.register(collection: AuthController())
     try app.register(collection: FormController())
     try app.register(collection: ContractController())
+    try app.register(collection: MCPController())
 
     // Protected Routes
     let protected = app.grouped(UserPayload.authenticator(), UserPayload.guardMiddleware())
