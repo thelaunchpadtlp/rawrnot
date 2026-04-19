@@ -41,8 +41,8 @@ WORKDIR /app
 # Copy build executable and any staged resources from builder
 COPY --from=build --chown=appuser:appuser /build/.build/release/App /app/
 # Copy any resources (Public, Resources, etc)
-COPY --from=build --chown=appuser:appuser /build/Public /app/Public || true
-COPY --from=build --chown=appuser:appuser /build/Resources /app/Resources || true
+RUN mkdir -p /app/Public
+RUN mkdir -p /app/Resources
 
 # Ensure all further commands run as the vapor user
 USER appuser:appuser
