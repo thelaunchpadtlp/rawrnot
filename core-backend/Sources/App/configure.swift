@@ -9,13 +9,13 @@ public func configure(_ app: Application) async throws {
         app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
     } else {
         app.logger.warning("DATABASE_URL no encontrada. Usando configuracion local por defecto.")
-        app.databases.use(.postgres(
-            hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-            port: Environment.get("DATABASE_PORT").flatMap(Int.init) ?? 5432,
-            username: Environment.get("DATABASE_USERNAME") ?? "postgres",
-            password: Environment.get("DATABASE_PASSWORD") ?? "",
-            database: Environment.get("DATABASE_NAME") ?? "rawrnot"
-        ), as: .psql)
+        let host = Environment.get("DATABASE_HOST") ?? "localhost"
+        let port = Environment.get("DATABASE_PORT").flatMap(Int.init) ?? 5432
+        let user = Environment.get("DATABASE_USERNAME") ?? "postgres"
+        let pass = Environment.get("DATABASE_PASSWORD") ?? ""
+        let db = Environment.get("DATABASE_NAME") ?? "rawrnot"
+        let config = SQLPostgresConfiguration(hostname: host, port: port, username: user, password: pass, database: db, tls: .disable)
+        app.databases.use(.postgres(configuration: config), as: .psql)
     }
     
     // 1b. Setup JWT Signer

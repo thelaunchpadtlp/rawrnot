@@ -41,7 +41,6 @@ struct ContractController: RouteCollection {
         let pdfContent = """
         CONTRATO LEGAL: \(contract.title)
         -----------------------------------
-        Cliente ID: \(contract.$client.id)
         Fecha de firma: \(contract.signedAt?.description ?? "")
         Dirección IP: \(contract.ipAddress ?? "Desconocida")
         
@@ -49,7 +48,6 @@ struct ContractController: RouteCollection {
         """
         
         // Abstracción en acción: Usamos el StorageProvider. 
-        // Cambiar esto a LocalStorageProvider o MinIOStorageProvider es 1 línea de código.
         let storage = GoogleDriveStorageProvider()
         let filename = "Contrato_Firmado_\(contract.id?.uuidString ?? "N_A").pdf"
         let file = File(data: ByteBuffer(string: pdfContent), filename: filename)
@@ -57,7 +55,6 @@ struct ContractController: RouteCollection {
         do {
             let uploadedUrl = try await storage.upload(file: file, folder: "Rawrnot_Contratos_Legales", on: req)
             req.logger.info("PDF generado y almacenado en: \(uploadedUrl)")
-            // TODO: Si tuviéramos un campo documentUrl en Contract, lo actualizaríamos aquí.
         } catch {
             req.logger.error("Error al subir el PDF al Storage: \(error)")
         }
