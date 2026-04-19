@@ -3,9 +3,19 @@
 # GitHub App credentials
 gha-creds-*.json
 
+# Service Account Keys (NEVER commit)
+sa-key-*.json
+*-sa-key.json
+service-account-*.json
+
 # OS files
 .DS_Store
 
 # Local workspace files
 stitch_raw_r_not_unified_studio_suite.zip
 Terminal Saved Output.txt
+
+# Build artifacts
+node_modules/
+dist/
+.build/

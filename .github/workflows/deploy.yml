@@ -38,6 +38,11 @@ jobs:
           docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }} ./rawrnot-app
           docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }}
 
+      - name: Build and Push AI Gateway
+        run: |
+          docker build -t us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }} ./ai-gateway
+          docker push us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }}
+
       - name: Deploy Backend to Cloud Run
         run: |
           gcloud run deploy core-backend \
@@ -46,7 +51,7 @@ jobs:
             --platform managed \
             --allow-unauthenticated \
             --add-cloudsql-instances ${{ env.PROJECT_ID }}:${{ env.REGION }}:rawrnot-db \
-            --set-env-vars "DATABASE_HOST=localhost,DATABASE_USER=rawrnot_user,DATABASE_NAME=rawrnot_db"
+            --set-env-vars "DATABASE_URL=postgresql://rawrnot_user:${{ secrets.DB_PASSWORD }}@/rawrnot_db?host=/cloudsql/${{ env.PROJECT_ID }}:${{ env.REGION }}:rawrnot-db,JWT_SECRET=${{ secrets.JWT_SECRET }}"
 
       - name: Deploy Frontend to Cloud Run
         run: |
@@ -54,4 +59,14 @@ jobs:
             --image us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/rawrnot-app:${{ github.sha }} \
             --region ${{ env.REGION }} \
             --platform managed \
-            --allow-unauthenticated
+            --allow-unauthenticated \
+            --set-env-vars "VITE_API_URL=https://core-backend-xvt5zk3pva-ue.a.run.app"
+
+      - name: Deploy AI Gateway to Cloud Run
+        run: |
+          gcloud run deploy ai-gateway \
+            --image us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/ai-gateway:${{ github.sha }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --memory 512Mi
