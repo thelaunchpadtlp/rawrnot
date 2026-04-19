@@ -2,6 +2,8 @@ import Fluent
 import Vapor
 
 final class SinpeTransaction: Model, Content {
+    // Mantendremos el nombre de la tabla para no romper la base de datos actual, 
+    // pero conceptualmente abarca transferencias bancarias manuales también.
     static let schema = "sinpe_transactions"
     
     @ID(key: .id)
@@ -11,15 +13,25 @@ final class SinpeTransaction: Model, Content {
     var orderId: UUID
     
     @Field(key: "reference_number")
-    var referenceNumber: String // From OCR
+    var referenceNumber: String? // From OCR / User Input
     
     @Field(key: "expected_amount")
     var expectedAmount: Double
     
-    @Field(key: "status")
-    var status: String // "pending", "ocr_validated", "rejected", "manual_review"
+    @Field(key: "payment_method")
+    var paymentMethod: String // "sinpe" o "bank_transfer"
     
-    // Tax compliance: Facturación 4.4 requires code "06" for SINPE
+    @Field(key: "receipt_url")
+    var receiptUrl: String? // URL al comprobante subido a Google Drive/S3
+    
+    // TWO-STEP VERIFICATION
+    @Field(key: "ai_status")
+    var aiStatus: String // "pending", "pre_approved", "flagged"
+    
+    @Field(key: "owner_status")
+    var ownerStatus: String // "pending", "approved", "rejected"
+    
+    // Tax compliance: Facturación 4.4 requires code "06" for SINPE, "04" for Transfer
     @Field(key: "hacienda_payment_code")
     var haciendaPaymentCode: String 
     
@@ -28,12 +40,13 @@ final class SinpeTransaction: Model, Content {
     
     init() { }
 
-    init(id: UUID? = nil, orderId: UUID, referenceNumber: String, expectedAmount: Double) {
+    init(id: UUID? = nil, orderId: UUID, expectedAmount: Double, paymentMethod: String = "sinpe") {
         self.id = id
         self.orderId = orderId
-        self.referenceNumber = referenceNumber
         self.expectedAmount = expectedAmount
-        self.status = "pending"
-        self.haciendaPaymentCode = "06" // Hardcoded for SINPE
+        self.paymentMethod = paymentMethod
+        self.aiStatus = "pending"
+        self.ownerStatus = "pending"
+        self.haciendaPaymentCode = paymentMethod == "sinpe" ? "06" : "04" 
     }
 }

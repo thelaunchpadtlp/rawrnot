@@ -1,13 +1,43 @@
 import React, { useState } from 'react';
 
 function CheckoutBooking() {
-  const [paymentMethod, setPaymentMethod] = useState('sinpe');
+  const [paymentMethod, setPaymentMethod] = useState<'sinpe' | 'bank_transfer' | 'rawrs'>('sinpe');
+  const [isUploading, setIsUploading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSimulateUpload = () => {
+    setIsUploading(true);
+    setTimeout(() => {
+      setIsUploading(false);
+      setShowSuccess(true);
+    }, 1500);
+  };
+
+  if (showSuccess) {
+    return (
+      <main className="pb-24 px-6 md:px-12 max-w-[800px] mx-auto space-y-8 mt-24 text-center animate-fade-in">
+        <span className="material-symbols-outlined text-6xl text-primary mb-4 animate-bounce">verified</span>
+        <h1 className="font-headline text-5xl text-on-background">Comprobante Recibido</h1>
+        <div className="liquid-glass p-8 rounded-2xl ambient-shadow space-y-4">
+          <p className="font-body text-lg text-on-background/80">
+            Nuestra Inteligencia Artificial ha pre-aprobado el documento (OCR ✓). 
+          </p>
+          <div className="inline-block border border-primary/30 bg-primary/10 rounded-full px-4 py-2 font-mono text-xs text-primary uppercase tracking-widest mt-4">
+            Status: Pendiente de Verificación Manual (Owner)
+          </div>
+          <p className="font-body text-sm text-on-background/60 mt-6 max-w-md mx-auto">
+            Para garantizar la máxima seguridad y evitar fraudes, un miembro de la directiva (Joaquín o Anyssa) revisará la transacción y liberará el acceso a "The Portal". Serás notificado vía email en breve.
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="pb-24 px-6 md:px-12 max-w-[1200px] mx-auto space-y-16 mt-16">
       
-      <section className="text-center space-y-4 max-w-2xl mx-auto border-b border-outline-variant pb-12">
-        <p className="font-mono text-xs text-primary uppercase tracking-[0.2em]">Acquisition Protocol</p>
+      <section className="text-center space-y-4 max-w-2xl mx-auto border-b border-outline-variant/30 pb-12">
+        <p className="font-mono text-xs text-primary uppercase tracking-[0.2em]">Protocolo Transaccional</p>
         <h1 className="font-headline text-5xl text-on-background">The Checkout</h1>
       </section>
 
@@ -20,11 +50,11 @@ function CheckoutBooking() {
           <div className="space-y-6">
             <h2 className="font-headline text-3xl text-on-background flex items-center gap-4">
               <span className="font-headline italic text-primary text-xl">01.</span>
-              Reservation
+              Reservación
             </h2>
-            <div className="bg-surface-container-high p-8 rounded-sm ghost-border">
-              <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-4">Select Target Date</label>
-              <input type="date" className="w-full bg-surface-container-low border border-outline rounded-sm px-4 py-3 font-body text-on-background focus:outline-none focus:border-primary shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)] custom-date-input" />
+            <div className="bg-surface-container-high p-8 rounded-2xl ghost-border">
+              <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-4">Seleccionar Fecha Objetivo</label>
+              <input type="date" className="w-full bg-surface-container-low border border-outline/30 rounded-xl px-4 py-3 font-body text-on-background focus:outline-none focus:border-primary shadow-[inset_0_1px_3px_rgba(0,0,0,0.05)]" />
             </div>
           </div>
 
@@ -32,50 +62,112 @@ function CheckoutBooking() {
           <div className="space-y-6">
             <h2 className="font-headline text-3xl text-on-background flex items-center gap-4">
               <span className="font-headline italic text-primary text-xl">02.</span>
-              Liquidation
+              Liquidación (0% Fees)
             </h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <button 
                 onClick={() => setPaymentMethod('sinpe')}
-                className={`p-6 border rounded-sm text-left transition-all ${paymentMethod === 'sinpe' ? 'border-primary bg-primary/5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.05)]' : 'border-outline bg-surface-container-high hover:bg-surface-bright ghost-border'}`}
+                className={`p-6 border rounded-2xl text-left transition-all ${paymentMethod === 'sinpe' ? 'border-primary bg-primary/5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.05)]' : 'border-outline/20 bg-surface-container hover:bg-surface-container-high ghost-border'}`}
               >
                 <h3 className="font-headline text-xl text-on-background">SINPE Móvil</h3>
-                <p className="font-mono text-[10px] text-on-surface-variant uppercase mt-2">Zero Fee • Automated</p>
+                <p className="font-mono text-[10px] text-on-surface-variant uppercase mt-2">Transferencia Inmediata</p>
               </button>
               
               <button 
-                onClick={() => setPaymentMethod('rawrs')}
-                className={`p-6 border rounded-sm text-left transition-all ${paymentMethod === 'rawrs' ? 'border-primary bg-primary/5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.05)]' : 'border-outline bg-surface-container-high hover:bg-surface-bright ghost-border'}`}
+                onClick={() => setPaymentMethod('bank_transfer')}
+                className={`p-6 border rounded-2xl text-left transition-all ${paymentMethod === 'bank_transfer' ? 'border-primary bg-primary/5 shadow-[inset_0_2px_8px_rgba(0,0,0,0.05)]' : 'border-outline/20 bg-surface-container hover:bg-surface-container-high ghost-border'}`}
               >
-                <h3 className="font-headline text-xl text-on-background">Rawrs Treasury</h3>
-                <p className="font-mono text-[10px] text-on-surface-variant uppercase mt-2">Internal Token • Fast</p>
+                <h3 className="font-headline text-xl text-on-background">Cuenta IBAN</h3>
+                <p className="font-mono text-[10px] text-on-surface-variant uppercase mt-2">Transferencia Bancaria</p>
               </button>
             </div>
 
             {/* Dynamic Payment UI */}
             {paymentMethod === 'sinpe' && (
-              <div className="bg-surface-container-lowest p-8 border border-outline-variant rounded-sm shadow-inner space-y-6 animate-fade-in">
+              <div className="bg-surface-container-lowest p-8 border border-outline-variant/30 rounded-2xl shadow-inner space-y-6 animate-fade-in">
                 <div>
-                  <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest mb-1">Official Number</p>
-                  <p className="font-headline text-3xl text-primary tracking-widest">+506 8888-8888</p>
+                  <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest mb-1">Número Oficial (SINPE)</p>
+                  <p className="font-headline text-3xl text-primary tracking-widest">8888-8888</p>
+                  <p className="font-body text-sm text-on-background/60 mt-2">A nombre de: The Launch Pad TLP S.A.</p>
                 </div>
                 
                 <div className="border-t border-dashed border-outline/30 pt-6">
-                  <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-2">Upload Receipt (OCR Verification)</label>
-                  <div className="border-2 border-dashed border-outline-variant rounded-sm p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group">
-                    <span className="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-colors">cloud_upload</span>
-                    <p className="font-body text-sm text-on-surface-variant mt-2">Drag image or click to browse</p>
+                  <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-2">Subir Comprobante</label>
+                  <div 
+                    onClick={handleSimulateUpload}
+                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group"
+                  >
+                    {isUploading ? (
+                      <span className="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
+                    ) : (
+                      <>
+                        <span className="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-colors">cloud_upload</span>
+                        <p className="font-body text-sm text-on-surface-variant mt-2">Haz clic para subir la captura de pantalla</p>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
             )}
+
+            {paymentMethod === 'bank_transfer' && (
+              <div className="bg-surface-container-lowest p-8 border border-outline-variant/30 rounded-2xl shadow-inner space-y-6 animate-fade-in">
+                <div>
+                  <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest mb-4">Coordenadas Bancarias</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-body text-sm">
+                    <div>
+                      <p className="text-on-surface-variant text-xs uppercase">Banco</p>
+                      <p className="text-on-background font-medium">Banco Nacional de Costa Rica</p>
+                    </div>
+                    <div>
+                      <p className="text-on-surface-variant text-xs uppercase">A Nombre De</p>
+                      <p className="text-on-background font-medium">The Launch Pad TLP S.A.</p>
+                    </div>
+                    <div className="md:col-span-2">
+                      <p className="text-on-surface-variant text-xs uppercase">Cuenta IBAN (Colones)</p>
+                      <p className="text-primary font-mono text-lg mt-1 tracking-widest">CR12 3456 7890 1234 5678 90</p>
+                    </div>
+                    <div className="md:col-span-2">
+                      <p className="text-on-surface-variant text-xs uppercase">Cédula Jurídica</p>
+                      <p className="text-on-background font-mono mt-1">3-101-123456</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="border-t border-dashed border-outline/30 pt-6 mt-6">
+                  <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-2">Subir Comprobante</label>
+                  <div 
+                    onClick={handleSimulateUpload}
+                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group"
+                  >
+                    {isUploading ? (
+                      <span className="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
+                    ) : (
+                      <>
+                        <span className="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-colors">cloud_upload</span>
+                        <p className="font-body text-sm text-on-surface-variant mt-2">Sube el PDF o captura de transferencia</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            <div className="bg-surface-container-low p-4 rounded-xl border border-outline/10 flex items-start gap-3 mt-4">
+              <span className="material-symbols-outlined text-primary text-xl">security</span>
+              <p className="font-body text-xs text-on-background/70 leading-relaxed">
+                <strong>Verificación en Dos Pasos Activa:</strong> Su comprobante será pre-analizado por el Gateway de IA de Rawrnot para validación inmediata, seguido por una aprobación final humana (Owner) para liberar los accesos al portal.
+              </p>
+            </div>
+
           </div>
         </div>
 
         {/* Order Summary (The Ledger) */}
         <div className="lg:col-span-5">
-          <div className="bg-surface-bright p-8 rounded-sm ghost-border sticky top-28 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
-            <div className="border-b-2 border-on-background pb-4 mb-6">
+          <div className="liquid-glass p-8 rounded-3xl ghost-border sticky top-28 ambient-shadow">
+            <div className="border-b border-outline-variant/30 pb-4 mb-6">
               <h3 className="font-headline text-2xl text-on-background">Acquisition Ledger</h3>
             </div>
             
@@ -97,12 +189,12 @@ function CheckoutBooking() {
             </div>
 
             <div className="flex justify-between items-end mb-8">
-              <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">Total Liquidation</p>
+              <p className="font-mono text-xs text-on-surface-variant uppercase tracking-widest">Liquidación Total</p>
               <p className="font-headline text-4xl text-primary">65,000 ₡</p>
             </div>
 
-            <button className="w-full bg-on-background text-background font-headline tracking-wide py-4 px-4 rounded-sm shadow-[inset_0_-2px_0_rgba(0,0,0,0.5)] hover:bg-surface-container-highest active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] active:translate-y-[1px] transition-all">
-              Confirm Transaction
+            <button className="w-full bg-primary text-on-primary font-headline text-xl tracking-wide py-4 px-4 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">
+              Confirmar Transacción
             </button>
             <p className="text-center font-mono text-[10px] text-on-surface-variant mt-4 uppercase">Secured via MACH Architecture</p>
           </div>
