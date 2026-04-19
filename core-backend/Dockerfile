@@ -17,7 +17,7 @@ WORKDIR /build
 COPY . .
 
 # Build everything, with optimizations
-RUN swift build -c release --static-swift-stdlib
+RUN swift build -c release --static-swift-stdlib -Xswiftc -strict-concurrency=minimal
 
 # ================================
 # Run Image
