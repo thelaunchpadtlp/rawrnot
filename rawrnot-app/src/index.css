@@ -74,20 +74,50 @@
     --liquid-bg: rgba(53, 53, 52, 0.4);
   }
 
+  /* Universal Baseline for Cross-Device Strict Responsiveness */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* Fallback */
+    min-height: 100dvh; /* Dynamic Viewport for iOS Safari / Android */
+    overflow-x: hidden;
+    /* Safe Area Insets for Notch Devices (iPhone, visionOS) */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
   body {
-    @apply bg-background text-on-background font-body transition-colors duration-500 ease-in-out;
+    @apply bg-background text-on-background font-body transition-colors duration-500 ease-in-out antialiased selection:bg-primary/30;
+    /* Optimize typography rendering for high-DPI displays (Mac, Retina, Vision) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
   }
+
+  /* Core accessibility & touch focus baseline */
+  button, a {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    /* Ensures Apple Watch/Mobile minimum touch targets */
+    min-height: 44px;
+    min-width: 44px;
+    /* Remove tap highlight on mobile for native feel */
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @layer utilities {
+  /* Liquid Glass: Critical for Apple Vision Pro Spatial Computing */
   .liquid-glass {
     background-color: var(--liquid-bg);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
+    /* Heavy blur for spatial computing depth */
+    backdrop-filter: blur(40px) saturate(150%);
+    -webkit-backdrop-filter: blur(40px) saturate(150%);
     @apply border border-outline-variant/10;
   }
   
@@ -108,11 +138,8 @@
     background: linear-gradient(135deg, var(--brand-primary), #ff4d81);
   }
 
-  .font-headline {
-    font-family: 'Newsreader', serif;
-  }
-
-  .font-body {
-    font-family: 'Inter', sans-serif;
+  /* Structural Container for adaptive scaling (Watch to 4K) */
+  .universal-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
