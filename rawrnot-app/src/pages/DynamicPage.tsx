@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiClient } from '../api';
 import RenderFactory from '../components/RenderFactory';
 
 const DynamicPage: React.FC = () => {

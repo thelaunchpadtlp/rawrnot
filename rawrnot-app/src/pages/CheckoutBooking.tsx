@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function CheckoutBooking() {
   const [paymentMethod, setPaymentMethod] = useState<'sinpe' | 'bank_transfer' | 'rawrs'>('sinpe');

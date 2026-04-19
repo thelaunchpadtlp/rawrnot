@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth, type UserRole } from './contexts/AuthContext';
+import { useAuth, type UserRole } from '../contexts/AuthContext';
 
 interface ProtectedRouteProps {
-  children: JSX.Element;
+  children: React.ReactElement;
   requiredRole?: UserRole;
 }
 

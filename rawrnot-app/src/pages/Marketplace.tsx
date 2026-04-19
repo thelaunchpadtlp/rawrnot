@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Marketplace() {
   const services = [
@@ -24,7 +23,7 @@ function Marketplace() {
             <div className="space-y-4 relative z-10">
               <span className="text-xs font-mono uppercase tracking-widest text-primary border-b border-outline-variant pb-1">{service.type}</span>
               <h3 className="font-headline text-4xl text-on-background group-hover:italic transition-all">{service.title}</h3>
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{service.description}</p>
+              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{service.desc}</p>
             </div>
             
             <div className="relative z-10 pt-12 flex justify-between items-end border-t border-dashed border-outline-variant mt-8">
