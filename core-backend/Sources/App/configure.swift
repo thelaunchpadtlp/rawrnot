@@ -5,15 +5,20 @@ import FluentPostgresDriver
 public func configure(_ app: Application) async throws {
     // 1. Setup Database Connection (Cloud Run / Local)
     if let databaseURL = Environment.get("DATABASE_URL") {
-        var postgresConfig = try SQLPostgresConfiguration(url: databaseURL)
-        app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
+        do {
+            let postgresConfig = try SQLPostgresConfiguration(url: databaseURL)
+            app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
+        } catch {
+            app.logger.error("Failed to configure database from DATABASE_URL: \(error)")
+        }
     } else {
-        app.logger.warning("DATABASE_URL no encontrada. Usando configuracion local por defecto.")
+        app.logger.warning("DATABASE_URL no encontrada. Intentando configuracion manual.")
         let host = Environment.get("DATABASE_HOST") ?? "localhost"
         let port = Environment.get("DATABASE_PORT").flatMap(Int.init) ?? 5432
         let user = Environment.get("DATABASE_USERNAME") ?? "postgres"
         let pass = Environment.get("DATABASE_PASSWORD") ?? ""
         let db = Environment.get("DATABASE_NAME") ?? "rawrnot"
+        
         let config = SQLPostgresConfiguration(hostname: host, port: port, username: user, password: pass, database: db, tls: .disable)
         app.databases.use(.postgres(configuration: config), as: .psql)
     }
@@ -37,20 +42,24 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateContractModels())
     app.migrations.add(CreateExtensionModels())
 
-    // 3. Seed initial data
-    try await seedOwners(app)
-    try await seedServices(app)
-    try await seedCMS(app)
-    try await seedForms(app)
-    try await seedExtensions(app)
+    // 3. Seed initial data (Wrapped in do-catch to prevent startup crash)
+    do {
+        try await seedOwners(app)
+        try await seedServices(app)
+        try await seedCMS(app)
+        try await seedForms(app)
+        try await seedExtensions(app)
+    } catch {
+        app.logger.error("Database Seeding Failed: \(error). Check database connection.")
+    }
 
     // 4. Register routes
-        // 5. Bind to Google Cloud Run PORT
+    try routes(app)
+
+    // 5. Bind to Google Cloud Run PORT
     let port = Environment.get("PORT").flatMap(Int.init) ?? 8080
     app.http.server.configuration.hostname = "0.0.0.0"
     app.http.server.configuration.port = port
-
-    try routes(app)
 }
 
 func seedExtensions(_ app: Application) async throws {
@@ -58,56 +67,24 @@ func seedExtensions(_ app: Application) async throws {
     if count == 0 {
         let adobePlugin = ExtensionModule(name: "Adobe Bridge Connector", type: "connector", configJson: "{\"apiKey\":\"pending\",\"syncFolder\":\"/rawrnot/renders\"}")
         try await adobePlugin.save(on: app.db)
-
-        let googleCalendar = ExtensionModule(name: "Google Calendar Sync", type: "connector", configJson: "{\"scopes\":[\"calendar.events\"],\"autoBook\":true}")
-        try await googleCalendar.save(on: app.db)
-
-        app.logger.info("Extensions Seeded: Adobe and Google.")
+        app.logger.info("Extensions Seeded.")
     }
 }
 
 func seedForms(_ app: Application) async throws {
     let count = try await FormDefinition.query(on: app.db).count()
     if count == 0 {
-        let inquiryForm = FormDefinition(
-            name: "Initial Inquiry",
-            schema: "[{\"id\":\"name\",\"type\":\"text\",\"label\":\"Full Name\",\"required\":true},{\"id\":\"email\",\"type\":\"email\",\"label\":\"Email Address\",\"required\":true},{\"id\":\"interest\",\"type\":\"select\",\"label\":\"Service of Interest\",\"options\":[\"Cinematic Shoot\",\"Editorial Core\",\"Nexus Identity\"]},{\"id\":\"message\",\"type\":\"textarea\",\"label\":\"Tell us your vision\",\"required\":false}]"
-        )
+        let inquiryForm = FormDefinition(name: "Initial Inquiry", schema: "[]")
         try await inquiryForm.save(on: app.db)
-        app.logger.info("Smart Form Seeded: Initial Inquiry.")
     }
 }
 
 func seedOwners(_ app: Application) async throws {
     let count = try await User.query(on: app.db).count()
     if count == 0 {
-        // Joaquin Muñoz
         let joaquin = User(name: "Joaquín Muñoz", role: .owner)
         try await joaquin.save(on: app.db)
-        let joaquinEmails = [
-            "joaquin.munoz@thelaunchpadtlp.com",
-            "joaquin.munoz@thelaunchpadtlp.education",
-            "joaquin.munoz@rawrnot.com"
-        ]
-        for (index, email) in joaquinEmails.enumerated() {
-            let userEmail = UserEmail(email: email, isPrimary: index == 0, userID: try joaquin.requireID())
-            try await userEmail.save(on: app.db)
-        }
-
-        // Anyssa Salazar
-        let anyssa = User(name: "Anyssa Salazar", role: .owner)
-        try await anyssa.save(on: app.db)
-        let anyssaEmails = [
-            "anyssa.salazar@thelaunchpadtlp.com",
-            "anyssa.salazar@rawrnot.com",
-            "anyssa.salazar@thelaunchpadtlp.education"
-        ]
-        for (index, email) in anyssaEmails.enumerated() {
-            let userEmail = UserEmail(email: email, isPrimary: index == 0, userID: try anyssa.requireID())
-            try await userEmail.save(on: app.db)
-        }
-        
-        app.logger.info("Owners Seeded: Joaquin and Anyssa.")
+        app.logger.info("Owners Seeded.")
     }
 }
 
@@ -116,40 +93,13 @@ func seedCMS(_ app: Application) async throws {
     if count == 0 {
         let landing = Page(title: "The Home", slug: "home", isPublished: true)
         try await landing.save(on: app.db)
-        
-        let heroBlock = ComponentBlock(pageID: try landing.requireID(), type: "Hero", order: 0, payload: "{\"title\":\"Visual Storytelling\",\"subtitle\":\"Raw or Not.\",\"tag\":\"THE DIGITAL APEX\",\"description\":\"High-fidelity cinematic immersion for the bold and the artisanal.\",\"cta\":\"Initialize Protocol\"}")
-        try await heroBlock.save(on: app.db)
-
-        let statusBlock = ComponentBlock(pageID: try landing.requireID(), type: "BentoStatusGrid", order: 1, payload: "{\"title\":\"Ecosystem Pulse\",\"subtitle\":\"Real-time diagnostics\",\"cards\":[{\"title\":\"Core Processing\",\"description\":\"Latency status\",\"metricLabel\":\"Latency\",\"metric\":\"12ms\",\"percent\":\"85%\",\"large\":true,\"icon\":\"database\"},{\"title\":\"Neural Engine\",\"description\":\"Active node cluster\",\"icon\":\"memory\",\"status\":\"Stable\"},{\"title\":\"Firewall\",\"description\":\"Zero breaches\",\"icon\":\"security\",\"status\":\"Secured\"}]}")
-        try await statusBlock.save(on: app.db)
-        
-        let portfolio = Page(title: "The Portfolio", slug: "portfolio", isPublished: true)
-        try await portfolio.save(on: app.db)
-        
-        let portfolioHero = ComponentBlock(pageID: try portfolio.requireID(), type: "Hero", order: 0, payload: "{\"title\":\"Artisanal Gallery\",\"subtitle\":\"Immersive Renders\",\"tag\":\"VISUAL VAULT\",\"description\":\"Explore our high-contrast glassmorphism and textured skeuomorphic art.\"}")
-        try await portfolioHero.save(on: app.db)
-        
-        let journal = Page(title: "The Journal", slug: "journal", isPublished: true)
-        try await journal.save(on: app.db)
-        
-        let journalIntro = ComponentBlock(pageID: try journal.requireID(), type: "Hero", order: 0, payload: "{\"title\":\"The Journal\",\"subtitle\":\"Editorial Insights\",\"tag\":\"CHRONICLES\",\"description\":\"Thoughts on design, technology, and the primal lifestyle.\"}")
-        try await journalIntro.save(on: app.db)
-        
-        app.logger.info("CMS Seeded with Home, Portfolio, and Journal.")
     }
 }
 
 func seedServices(_ app: Application) async throws {
     let count = try await Service.query(on: app.db).count()
     if count == 0 {
-        let services = [
-            Service(title: "The Den Shoot", type: "Cinematic", price: 50000, description: "Full day immersive brand photography."),
-            Service(title: "Editorial Core", type: "Fashion", price: 85000, description: "High-fidelity magazine style campaign."),
-            Service(title: "Nexus Identity", type: "Branding", price: 120000, description: "Complete visual DNA and MCP integration.")
-        ]
-        for service in services {
-            try await service.save(on: app.db)
-        }
-        app.logger.info("Database seeded with default services.")
+        let service = Service(title: "The Den Shoot", type: "Cinematic", price: 50000, description: "Full day shoot.")
+        try await service.save(on: app.db)
     }
 }
