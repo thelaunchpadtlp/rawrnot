@@ -51,5 +51,6 @@ USER appuser:appuser
 EXPOSE 8080
 
 # Start the Vapor service when the image is run, default to listening on 0.0.0.0:8080
-ENTRYPOINT ["./App"]
+
+
 CMD ["serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "8080"]
