@@ -13,7 +13,6 @@ struct AuthController: RouteCollection {
     }
 
     func login(req: Request) async throws -> TokenResponse {
-        // ... (keep existing login logic)
         struct LoginRequest: Content {
             let email: String
         }
@@ -37,11 +36,11 @@ struct AuthController: RouteCollection {
         let googleReq = try req.content.decode(GoogleLoginRequest.self)
         
         // 1. Verify token with Google
-        let googleResponse = try await req.client.get("https://oauth2.googleapis.com/tokeninfo") { query in
-            try query.query.set(["id_token": googleReq.idToken])
+        let googleResponse = try await req.client.get("https://oauth2.googleapis.com/tokeninfo") { clientReq in
+            try clientReq.query.encode(["id_token": googleReq.idToken])
         }
         
-        guard googleResponse.status == .ok else {
+        guard googleResponse.status.code == 200 else {
             throw Abort(.unauthorized, reason: "Invalid Google token.")
         }
         
@@ -67,8 +66,9 @@ struct AuthController: RouteCollection {
             try await newUser.save(on: req.db)
             let newUserEmail = UserEmail(email: info.email, isPrimary: true, userID: try newUser.requireID())
             try await newUserEmail.save(on: req.db)
+            let newId = try newUserEmail.requireID()
             userEmail = try await UserEmail.query(on: req.db)
-                .filter(\.$id == newUserEmail.id)
+                .filter(\.$id == newId)
                 .with(\.$user)
                 .first()
         }
@@ -94,7 +94,6 @@ struct AuthController: RouteCollection {
     }
 
     func getOwnerToken(req: Request) async throws -> TokenResponse {
-        // ... (keep existing logic)
         guard let email = req.query[String.self, at: "email"] else {
             throw Abort(.badRequest, reason: "Missing email query parameter.")
         }

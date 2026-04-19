@@ -8,7 +8,7 @@ public func configure(_ app: Application) async throws {
         var postgresConfig = try SQLPostgresConfiguration(url: databaseURL)
         app.databases.use(.postgres(configuration: postgresConfig), as: .psql)
     } else {
-        app.logger.warning("DATABASE_URL no encontrada. Usando configuración local por defecto.")
+        app.logger.warning("DATABASE_URL no encontrada. Usando configuracion local por defecto.")
         app.databases.use(.postgres(
             hostname: Environment.get("DATABASE_HOST") ?? "localhost",
             port: Environment.get("DATABASE_PORT").flatMap(Int.init) ?? 5432,
@@ -38,7 +38,7 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateExtensionModels())
 
     // 3. Seed initial data
-    try await seedUsers(app)
+    try await seedOwners(app)
     try await seedServices(app)
     try await seedCMS(app)
     try await seedForms(app)
@@ -46,32 +46,33 @@ public func configure(_ app: Application) async throws {
 
     // 4. Register routes
     try routes(app)
-    }
-    }
+}
 
-    async func seedExtensions(_ app: Application) throws {
+func seedExtensions(_ app: Application) async throws {
     let count = try await ExtensionModule.query(on: app.db).count()
     if count == 0 {
-    let adobePlugin = ExtensionModule(name: "Adobe Bridge Connector", type: "connector", configJson: "{\"apiKey\":\"pending\",\"syncFolder\":\"/rawrnot/renders\"}")
-    try await adobePlugin.save(on: app.db)
+        let adobePlugin = ExtensionModule(name: "Adobe Bridge Connector", type: "connector", configJson: "{\"apiKey\":\"pending\",\"syncFolder\":\"/rawrnot/renders\"}")
+        try await adobePlugin.save(on: app.db)
 
-    let googleCalendar = ExtensionModule(name: "Google Calendar Sync", type: "connector", configJson: "{\"scopes\":[\"calendar.events\"],\"autoBook\":true}")
-    try await googleCalendar.save(on: app.db)
+        let googleCalendar = ExtensionModule(name: "Google Calendar Sync", type: "connector", configJson: "{\"scopes\":[\"calendar.events\"],\"autoBook\":true}")
+        try await googleCalendar.save(on: app.db)
 
-    app.logger.info("Extensions Seeded: Adobe and Google.")
+        app.logger.info("Extensions Seeded: Adobe and Google.")
     }
-    }
-    async func seedForms(_ app: Application) throws {
+}
+
+func seedForms(_ app: Application) async throws {
     let count = try await FormDefinition.query(on: app.db).count()
     if count == 0 {
-    let inquiryForm = FormDefinition(
-        name: "Initial Inquiry",
-        schema: "[{\"id\":\"name\",\"type\":\"text\",\"label\":\"Full Name\",\"required\":true},{\"id\":\"email\",\"type\":\"email\",\"label\":\"Email Address\",\"required\":true},{\"id\":\"interest\",\"type\":\"select\",\"label\":\"Service of Interest\",\"options\":[\"Cinematic Shoot\",\"Editorial Core\",\"Nexus Identity\"]},{\"id\":\"message\",\"type\":\"textarea\",\"label\":\"Tell us your vision\",\"required\":false}]"
-    )
-    try await inquiryForm.save(on: app.db)
-    app.logger.info("Smart Form Seeded: Initial Inquiry.")
+        let inquiryForm = FormDefinition(
+            name: "Initial Inquiry",
+            schema: "[{\"id\":\"name\",\"type\":\"text\",\"label\":\"Full Name\",\"required\":true},{\"id\":\"email\",\"type\":\"email\",\"label\":\"Email Address\",\"required\":true},{\"id\":\"interest\",\"type\":\"select\",\"label\":\"Service of Interest\",\"options\":[\"Cinematic Shoot\",\"Editorial Core\",\"Nexus Identity\"]},{\"id\":\"message\",\"type\":\"textarea\",\"label\":\"Tell us your vision\",\"required\":false}]"
+        )
+        try await inquiryForm.save(on: app.db)
+        app.logger.info("Smart Form Seeded: Initial Inquiry.")
     }
-    }
+}
+
 func seedOwners(_ app: Application) async throws {
     let count = try await User.query(on: app.db).count()
     if count == 0 {
@@ -108,7 +109,6 @@ func seedOwners(_ app: Application) async throws {
 func seedCMS(_ app: Application) async throws {
     let count = try await Page.query(on: app.db).count()
     if count == 0 {
-        // 1. Landing Page
         let landing = Page(title: "The Home", slug: "home", isPublished: true)
         try await landing.save(on: app.db)
         
@@ -118,14 +118,12 @@ func seedCMS(_ app: Application) async throws {
         let statusBlock = ComponentBlock(pageID: try landing.requireID(), type: "BentoStatusGrid", order: 1, payload: "{\"title\":\"Ecosystem Pulse\",\"subtitle\":\"Real-time diagnostics\",\"cards\":[{\"title\":\"Core Processing\",\"description\":\"Latency status\",\"metricLabel\":\"Latency\",\"metric\":\"12ms\",\"percent\":\"85%\",\"large\":true,\"icon\":\"database\"},{\"title\":\"Neural Engine\",\"description\":\"Active node cluster\",\"icon\":\"memory\",\"status\":\"Stable\"},{\"title\":\"Firewall\",\"description\":\"Zero breaches\",\"icon\":\"security\",\"status\":\"Secured\"}]}")
         try await statusBlock.save(on: app.db)
         
-        // 2. Portfolio
         let portfolio = Page(title: "The Portfolio", slug: "portfolio", isPublished: true)
         try await portfolio.save(on: app.db)
         
         let portfolioHero = ComponentBlock(pageID: try portfolio.requireID(), type: "Hero", order: 0, payload: "{\"title\":\"Artisanal Gallery\",\"subtitle\":\"Immersive Renders\",\"tag\":\"VISUAL VAULT\",\"description\":\"Explore our high-contrast glassmorphism and textured skeuomorphic art.\"}")
         try await portfolioHero.save(on: app.db)
         
-        // 3. The Journal (Blog)
         let journal = Page(title: "The Journal", slug: "journal", isPublished: true)
         try await journal.save(on: app.db)
         
