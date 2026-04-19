@@ -1,0 +1,17 @@
+# Rawrnot/ = Project Brain Folder
+# Este folder es local — contexto e inteligencia del proyecto para agentes de IA.
+# No se despliega. No va a Cloud Run. No afecta CI/CD.
+
+# ---- DUPLICADOS (fuentes canónicas están en la raíz del workspace) ----
+# Los originals están en /Rawrnot_Workspace/mds/ y /stitch_raw_r_not_unified_studio_suite/
+mds/
+stitch_raw_r_not_unified_studio_suite/
+*.zip
+
+# ---- SESIONES: solo commitear el README y el archivo unificado ----
+# Las transcripciones raw (.txt) son demasiado pesadas para git
+sesiones/Terminal Saved Output*.txt
+sesiones/*.txt
+
+# ---- Archivos del sistema ----
+.DS_Store

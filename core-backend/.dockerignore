@@ -1,0 +1,10 @@
+.build/
+Packages/
+*.resolved
+Rawrnot/
+stitch_raw_r_not_unified_studio_suite/
+mds/
+agents/
+*.txt
+*.zip
+.DS_Store
