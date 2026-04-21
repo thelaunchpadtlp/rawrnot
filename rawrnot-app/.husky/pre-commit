@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🛡️ [Rawrnot Zero-Defect Policy] Checking code before commit..."
+npm run build || { echo "❌ Build failed! Please fix TypeScript/Vite errors."; exit 1; }
+npx lint-staged

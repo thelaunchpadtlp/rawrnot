@@ -144,7 +144,7 @@ const Quoting: React.FC = () => {
           </div>
         </div>
 
-        <aside className="w-full lg:w-[450px] shrink-0 lg:sticky lg:top-24 h-fit">
+        <aside className="w-full lg:w-1/3 xl:w-[450px] shrink-0 lg:sticky lg:top-24 h-fit">
           <motion.div 
             layout
             className="liquid-glass p-10 rounded-3xl border border-white/5 shadow-2xl space-y-10"

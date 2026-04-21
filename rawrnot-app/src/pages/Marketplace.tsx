@@ -278,7 +278,7 @@ export default function Marketplace() {
         </div>
 
         {/* Right: Build Your Spec Panel */}
-        <aside className="w-full xl:w-[380px] shrink-0 xl:sticky xl:top-28 space-y-5">
+        <aside className="w-full xl:w-[380px] xl:max-w-xs shrink-0 xl:sticky xl:top-28 space-y-5">
           <div className="liquid-glass p-7 rounded-xl border border-white/5 shadow-2xl">
             <div className="flex items-center justify-between mb-7">
               <h2 className="font-headline text-2xl font-bold text-on-background">Build Your Spec</h2>

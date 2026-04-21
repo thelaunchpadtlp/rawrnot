@@ -1,43 +1,17 @@
-# Rawrnot — Instrucciones para Claude Code
+# Rawrnot - Claude Code / AI Agent Entry Point
 
-## Inicialización Obligatoria
-Al iniciar cualquier sesión en este proyecto, leer en este orden:
-1. `HANDOFF.md` — Estado actual del proyecto
-2. `VISION.md` — Visión de producto
-3. `MASTER_ATLAS.md` — Índice y links
+**STOP.** Do not start writing code until you read the exact rules in `HANDOFF.md` in this repository's root.
 
-## Capacidades Especiales de Claude en este Proyecto
-- **Lectura visual de Stitch**: Claude puede leer los `screen.png` de cada módulo como imágenes multimodales. Hacerlo SIEMPRE que se trabaje en un módulo nuevo para calibrar el diseño.
-- **MCP Tools disponibles**: Figma MCP disponible (para Figma, no Stitch). Los demás MCPs del proyecto están en `ai-gateway/`.
-- **Herramientas de terminal**: Acceso completo a `gcloud`, `gh`, `docker`, `swift`, `npm`.
+## 🛡️ ZERO-DEFECT POLICY ENFORCED
+The project has a strict quality control system in place:
+- **Husky & Git Hooks** will block your commits if `npm run build` fails in `rawrnot-app`.
+- **Responsive Invariants:** You MUST use Tailwind's responsive prefixes (sm:, md:, lg:, xl:). NEVER use fixed sizes like `w-[500px]` that break the Apple Watch or iPhone 13 mini views. Use `w-full max-w-md` instead.
+- **Local Dev:** You MUST test against the local dockerized database (`docker-compose up -d` in `infra/local_dev`).
+- **Hierarchy:** You MUST respect the 4-level hierarchy (Agencies -> Clients -> Projects -> Deliverables) in your database models and interfaces.
 
-## Autenticación GCP
-```bash
-gcloud auth activate-service-account --key-file=/Users/piqui/Rawrnot_Workspace/sa-key-rawrnot.json
-gcloud config set project thelaunchpadtlp
-```
-
-## Comandos Frecuentes
-```bash
-# Deploy manual a Cloud Run (si es urgente, sin esperar CI/CD)
-gcloud run deploy [SERVICE] --image [IMAGE] --region us-east1 --platform managed
-
-# Ver logs de un servicio
-gcloud run services logs read core-backend --region us-east1 --limit 50
-
-# Build frontend local
-cd rawrnot-app && npm run dev
-
-# Test backend local
-cd core-backend && swift run
-```
-
-## Convención de Commits
-Usar mensajes descriptivos en español o inglés (como vinieron haciéndolo).
-Hacer commit de cambios importantes al terminar la sesión.
-**Nunca** commitear: `sa-key-*.json`, `.env`, archivos con credenciales.
-
-## Al Terminar la Sesión
-1. Hacer commit de todos los cambios relevantes
-2. Actualizar la sección "Estado Actual" de `HANDOFF.md`
-3. El usuario guardará la transcripción como: `Claude Sesión YYYY-MM-DD.txt` en `Rawrnot/sesiones/`
+## HOW TO START YOUR TASK
+1. Read `HANDOFF.md` to understand the state.
+2. Read the prompt/instruction.
+3. Code the Swift models or React views.
+4. Execute the 6-Mode Verification (CLI, API, MCP, Agent, App, Human).
+5. Only then, commit and report success.
