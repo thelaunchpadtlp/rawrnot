@@ -28,6 +28,19 @@ Para maximizar la eficiencia de los agentes de IA (reducción de tokens y alucin
 
 ---
 
+## ARQUITECTURA DE DATOS Y JERARQUÍA (NUEVO MODELO)
+El sistema debe respetar la siguiente jerarquía relacional estricta en la base de datos y la UI:
+1. **Agencias o Medios (Opcional):** Entidades corporativas de alto nivel.
+2. **Clientes:** Clientes finales (pueden ser independientes o pertenecer a una Agencia).
+3. **Proyectos o Contratos:** Agrupan el trabajo.
+4. **Entregables o Piezas:** (Incluye Cotizaciones y Contratos). Soporte estricto para **versiones** (v1, v2, v3...).
+
+## SISTEMA DE COMUNICACIÓN (THE DARK ROOM / PORTAL)
+- **Threads Polimórficos:** Los hilos de mensajes/cambios pueden anclarse a *cualquier* nivel de la jerarquía (Agencia, Cliente, Proyecto o Entregable).
+- **Características de Threads:** Archivar, Finalizar, Etiquetar, Delegar.
+- **Adjuntos Independientes:** Un mensaje puede tener adjuntos que no se mezclen con las versiones oficiales del "Entregable" base.
+- **Captura de Leads (Fricción Cero):** Si un visitante anónimo intenta enviar un mensaje/solicitud, se piden datos mínimos (email/teléfono) creando un `ShadowProfile` pre-registrado para seguimiento y retargeting, incentivando el registro completo posteriormente.
+
 ## STACK TÉCNICO
 ```
 Database:          GCP Cloud SQL (PostgreSQL 15) — instancia: rawrnot-db (Local via Docker)
