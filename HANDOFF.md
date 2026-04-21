@@ -53,6 +53,18 @@ Domain:            rawrnot.com (Proyectado para Google Cloud/Vercel)
 
 ---
 
+
+## PROTOCOLO DE VERIFICACIÓN OBLIGATORIA (ZERO-DEFECT POLICY)
+**REGLA INQUEBRANTABLE PARA TODOS LOS AGENTES Y DESARROLLADORES:**
+Antes de dar por finalizado CUALQUIER entregable (módulo, conexión, UI, backend, etc.), el agente responsable DEBE ejecutar una verificación exhaustiva bajo los siguientes 6 modos. Nadie se escapa de esta regla:
+
+1. **Modo CLI:** Revisar logs, warnings y builds (`npm run build`, `swift build`, etc.). Cero errores permitidos.
+2. **Modo API:** Probar los endpoints con `curl` o equivalentes reales. No asumir que "el código se ve bien".
+3. **Modo MCP:** Verificar que los tools expuestos al gateway funcionen y retornen la data esperada.
+4. **Modo Agente:** Leer el propio código generado con mentalidad crítica: ¿Es eficiente? ¿Es escalable? ¿Sigue la arquitectura MACH y la estética Rawrnot?
+5. **Modo App:** Confirmar que la UI renderiza correctamente, que no hay componentes rotos y que el estado de React fluye.
+6. **MODO HUMANO (El más importante):** Preguntarse: "¿Esto es útil, hermoso, intuitivo y perfecto para el usuario final?" Si la respuesta es "meh", se repite el trabajo antes de entregarlo.
+
 ## ESTADO ACTUAL
 ### ✅ Completado
 - Limpieza arquitectónica profunda del espacio de trabajo.
