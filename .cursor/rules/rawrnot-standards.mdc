@@ -1,0 +1,7 @@
+---
+description: Reglas maestras para Cursor, Windsurf y agentes de código.
+globs: *.{ts,tsx,swift,js}
+---
+1. Todo frontend en React debe usar Tailwind v4 y los tokens de index.css.
+2. Nunca hardcodear credenciales. Usar .env y Secret Manager.
+3. Leer HANDOFF.md en la raíz antes de cualquier sesión.

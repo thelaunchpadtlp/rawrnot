@@ -1,138 +1,69 @@
-# RAWRNOT — UNIVERSAL AGENT HANDOFF
-> **Lee esto primero.** Este documento es para cualquier agente de IA (Claude, Gemini, Codex, ChatGPT, Manus, Perplexity) que se una al proyecto. Es la fuente de verdad del estado actual.
+# RAWRNOT — UNIVERSAL AGENT HANDOFF (CLEAN ARCHITECTURE EDITION)
+> **Lee esto primero.** Este documento es para cualquier agente de IA (Claude, Gemini, Codex, ChatGPT, Manus, Perplexity) que se una al proyecto. Es la única fuente de verdad operativa. Si buscas teoría o manifiestos, revisa la carpeta `docs/`.
 
 ---
 
 ## ¿QUÉ ES ESTE PROYECTO?
-**raw'r'not (The Digital Apex)** — Sistema operativo comercial completo para un estudio de producción visual de élite. No es solo un sitio web. Reemplaza: CRM, portfolio, checkout, blog, portal de clientes, herramientas de equipo, y sistema de referidos virales.
-
-**Documento de visión completo:** `VISION.md` (leerlo antes de hacer cualquier decisión de producto)
+**raw'r'not (The Digital Apex)** — Sistema operativo comercial completo para un estudio de producción visual de élite. Reemplaza: CRM, portfolio, checkout, blog, portal de clientes, herramientas de equipo, y sistema de referidos virales.
 
 ---
 
-## STACK TÉCNICO (no cambiar sin razón)
+## ESTRUCTURA DEL ESPACIO DE TRABAJO (NUEVA ORGANIZACIÓN)
+- `docs/architecture/INFRASTRUCTURE_LOG.md` → Registro cronológico de todas las instalaciones y configuraciones.
+
+Para maximizar la eficiencia de los agentes de IA (reducción de tokens y alucinaciones), el espacio de trabajo se ha reorganizado estrictamente:
+
+- `rawrnot-app/`     → Frontend: React 19 + Vite + Tailwind 4 (TypeScript)
+- `core-backend/`    → Backend: Swift + Vapor (Desplegado en GCP Cloud Run)
+- `ai-gateway/`      → MCP Server: Node.js + TypeScript (Desplegado en GCP Cloud Run)
+- `docs/`            → Documentación
+  - `product/`       → `VISION.md`, `MASTER_ATLAS.md` (Specs y visión)
+  - `architecture/`  → `SYSTEM_ARCHITECTURE.md`, guidelines, integrations.
+  - `sessions/`      → Transcripciones de sesiones (ej. Gemini Sesión.txt)
+  - `theory_and_manifestos/` → Archivos `.md` teóricos antiguos y exportados.
+- `design/`          → Assets Visuales (Stitch exports, zips).
+- `infra/`           → Infraestructura
+  - `local_dev/`     → `docker-compose.yml` (Postgres 15, Redis 7 local)
+  - `security/`      → Service accounts, políticas (IGNORED en Git)
+
+---
+
+## STACK TÉCNICO
 ```
-rawrnot-app/     → Frontend: React 19 + Vite + Tailwind 4 (TypeScript)
-core-backend/    → Backend: Swift + Vapor → GCP Cloud Run
-ai-gateway/      → MCP Server: Node.js + TypeScript → GCP Cloud Run
-Database:          GCP Cloud SQL (PostgreSQL 15) — instancia: rawrnot-db
-Cache:             GCP Memorystore (Redis) — pendiente configurar
+Database:          GCP Cloud SQL (PostgreSQL 15) — instancia: rawrnot-db (Local via Docker)
+Cache:             GCP Memorystore (Redis) (Local via Docker)
 CI/CD:             GitHub Actions → Artifact Registry → Cloud Run
 Repo:              github.com/thelaunchpadtlp/rawrnot
 GCP Project:       thelaunchpadtlp (ID: 662148571449)
-Region:            us-east1
+Domain:            rawrnot.com (Proyectado para Google Cloud/Vercel)
 ```
 
 ---
 
-## ESTADO ACTUAL (actualizar al final de cada sesión)
-
+## ESTADO ACTUAL
 ### ✅ Completado
-- Frontend base con toggle Obsidian/Lightcraft funcional (ThemeContext)
-- Auth (Google SSO), LanguageContext (EN/ES)
-- Backend Swift: todos los Models, Migrations, Controllers principales
-- Services: OCRService (SINPE), StorageProvider (GCS/GDrive/Local)
-- MCP Gateway v2.0: 8 tools + 4 MCP Resources + REST API para docs
-  - Shadow Profile, Quote, SINPE, Echo (con WhatsApp deep link), CRM, Apple Sync, rawrs economy
-  - Knowledge Base: HANDOFF/VISION/ARCHITECTURE/ATLAS baked into Docker image
-  - Endpoints: /knowledge, /knowledge/:doc, /health
-- Cloud Run desplegado: core-backend + rawrnot-app (ai-gateway via CI/CD próximo deploy)
-- Cloud SQL: rawrnot-db (PostgreSQL 15) corriendo
-- Artifact Registry: rawrnot-repo configurado
-- GitHub Actions CI/CD: deploy on push to main (ai-gateway ahora incluido)
-- Diseño completo en Stitch (37 pantallas exportadas en `stitch_raw_r_not_unified_studio_suite/`)
-- VISION.md v2.0 — visión de producto completamente rediseñada
-- HANDOFF.md — handoff universal para todos los agentes
-- CLAUDE.md — instrucciones específicas para Claude Code
-- agents/ — prompts de init para Codex, Manus, ChatGPT/Perplexity
-- Rawrnot/ — Project Intelligence folder con README y .gitignore
-- CSS design system completado: todos los tokens del dual-theme
-- The Vault (Marketplace) rediseñado: bento grid asimétrico, spec builder, shadow profile nudge
+- Limpieza arquitectónica profunda del espacio de trabajo.
+- Frontend base con toggle Obsidian/Lightcraft funcional.
+- Auth, LanguageContext (EN/ES).
+- Backend Swift: Migrations y Controllers principales.
+- MCP Gateway v2.0 (8 tools, 4 resources).
+- Diseño Stitch consolidado en `design/`.
+- Entorno local Dockerizado (`infra/local_dev/docker-compose.yml`).
 
-### 🚧 En Progreso / Pendiente
-- [ ] DATABASE_URL → Secret Manager (actualmente env vars directas; funcional pero no ideal)
-- [ ] Memorystore (Redis) — no configurado aún
-- [ ] Resto de módulos frontend desde Stitch: TheEcho, NexusHub, Territory, Journal
-- [ ] Analytics dashboard en Nexus Hub (revenue, conversion, Echo performance)
-- [ ] rawrs economy — definida en visión + MCP tool, falta implementación en DB
-- [ ] Mobile-first para el client journey (WhatsApp referral → Vault → SINPE)
-- [ ] Email transaccional (SendGrid o similar)
-- [ ] Onboarding separado: cliente vs. admin studio owner
-- [ ] The Echo — Team Buy completo end-to-end (UI + backend + link sharing)
-- [ ] SINPE OCR — integración real (OCRService existe en backend, falta conectar al checkout UI)
-- [ ] Testimonial automático post-delivery
-- [ ] The Pride membership (pricing page real)
-
-### 🎯 Próximo paso prioritario
-**El Echo (Team Buy):** Es el moat diferencial. Implementar UI completa + backend del Hunt.
-Después: SINPE Checkout conectado al Vault (Quote → Pay → Confirm).
-
-### 📝 Convención de sesiones
-Al terminar cada sesión, el usuario guarda la transcripción en:
-`Rawrnot/sesiones/[AgenteName] Sesión YYYY-MM-DD.txt`
+### 🚧 En Progreso / Pendiente prioritario
+- Levantar backend y gateway localmente conectados a Docker.
+- Mover DATABASE_URL y secrets de `.env` a Secret Manager en GCP.
+- Conexión real E2E: Frontend -> Swift Backend -> Base de Datos (Checkout SINPE y Marketplace "The Vault").
+- Implementación de "The Echo" (Team Buy).
 
 ---
 
-## DISEÑOS DE STITCH
-Los diseños visuales están en: `stitch_raw_r_not_unified_studio_suite/`
-- Cada módulo tiene: `screen.png` (visual) + `code.html` (HTML/CSS exportado)
-- Los agentes con visión (Claude, Gemini) pueden leer los PNGs directamente
-- Gemini CLI tiene acceso nativo a Stitch vía MCP (cuando funciona)
-- Google Stitch URL: https://stitch.withgoogle.com/projects/15210566021067634587
-
-### Pantallas principales disponibles:
-| Módulo | Carpeta |
-|---|---|
-| Nexus Hub (admin) | `nexus_hub_obsidian_dark_final_crystallization/` |
-| The Echo (viral) | `the_echo_viral_engine_final_crystallization/` |
-| SINPE Checkout | `the_checkout_primal_transaction/` |
-| Marketplace (The Vault) | `the_vault_service_marketplace_quoting/` |
-| Client Portal | `the_territory_client_portal_reservations/` |
-| Worker Den | `the_worker_s_den_lightcraft_roar_variation_1/` |
-| Pricing | `the_sub_apex_tiered_subscription_plans/` |
-| CRM Dashboard | `obsidian_dashboard_crm_management/` |
-| Portfolio | `the_apex_immersive_portfolio/` |
-| Journal/Blog | `the_journal_multimedia_blog/` |
-| Membership | `the_pride_membership_registration_nudge/` |
-| Team Buy Dynamics | `the_echo_viral_dynamics_team_buys/` |
+## REGLAS DEL PROYECTO (Para todos los Agentes)
+1. **No inventar archivos en la raíz.** Usa `rawrnot-app`, `core-backend` o `ai-gateway`.
+2. **Desarrollo Local Primero.** Usa `docker-compose up -d` en `infra/local_dev` para BD.
+3. **No leer manifiestos al inicio.** Usa este HANDOFF.md para contexto técnico. Lee los documentos en `docs/theory_and_manifestos/` SOLO si el usuario pide explícitamente revisar una regla de negocio teórica.
+4. **No commitear secrets**: Jamás tocar `infra/security/` para commits. Todo va a `.env` local.
+5. **Componer, no sobrescribir.** Actualiza ESTE archivo (`HANDOFF.md`) en la sección "Estado Actual" al terminar tu sesión.
 
 ---
-
-## ARCHIVOS CRÍTICOS (leer en este orden)
-1. `VISION.md` — Visión de producto completa v2.0
-2. `HANDOFF.md` — Este archivo (estado actual)
-3. `MASTER_ATLAS.md` — Índice general + links a Stitch y GCP
-4. `SYSTEM_ARCHITECTURE.md` — Arquitectura técnica
-5. `COMPONENT_GUIDELINES.md` — Reglas de componentes React
-6. `GEMINI.md` / `CLAUDE.md` — Instrucciones específicas por agente
-
----
-
-## CREDENCIALES Y ACCESOS (no commitear nunca)
-- **SA Key GCP**: `sa-key-rawrnot.json` (en .gitignore — usar Secret Manager en prod)
-- **GitHub Repo**: `thelaunchpadtlp/rawrnot`
-- **Stitch Account 1**: `joaquin.munoz@thelaunchpadtlp.education`
-- **Stitch Account 2**: `jotform@thelaunchpadtlp.education`
-- **gcloud profile activo**: `rawrnot-master-sa@thelaunchpadtlp.iam.gserviceaccount.com`
-
----
-
-## REGLAS DEL PROYECTO (para todos los agentes)
-1. **Estética es ley**: Todo componente nuevo usa las variables CSS de `index.css`. Nunca hardcodear colores.
-2. **API-first**: Toda feature nueva = endpoint en core-backend primero, luego UI.
-3. **RenderFactory**: Todo bloque visual se registra en `rawrnot-app/src/components/RenderFactory.tsx`.
-4. **MACH estricto**: No coupling directo entre servicios. Todo va por API o MCP.
-5. **i18n**: Todo string visible al usuario va en `src/i18n/en.json` y `es.json`.
-6. **No commitear secrets**: SA keys, JWT secrets, DB passwords → Secret Manager o .env local.
-7. **Actualizar HANDOFF.md**: Al terminar cualquier sesión, actualizar la sección "Estado Actual".
-
----
-
-## HISTORIAL DE SESIONES
-Ver: `Rawrnot/sesiones/` — transcripciones completas ordenadas cronológicamente
-- `Terminal Saved Output.txt` → `Terminal Saved Output 8.txt`: Sesiones de Gemini CLI
-- `00_UNIFIED_MASTER_SESSIONS.md`: Compilación y resumen de todas las sesiones
-- Convención para nuevas sesiones: `[AgenteName] Sesión YYYY-MM-DD.txt`
-
----
-*Actualizado: 2026-04-18 — Sesión Claude Code (revisión de visión + setup multi-agente)*
+*Actualizado: Sesión de reestructuración profunda.*

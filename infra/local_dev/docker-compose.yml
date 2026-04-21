@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  rawrnot-db:
+    image: postgres:15-alpine
+    container_name: rawrnot-db-local
+    environment:
+      POSTGRES_USER: rawrnot_admin
+      POSTGRES_PASSWORD: rawrnot_password
+      POSTGRES_DB: rawrnot_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - rawrnot_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rawrnot_admin -d rawrnot_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rawrnot-redis:
+    image: redis:7-alpine
+    container_name: rawrnot-redis-local
+    ports:
+      - "6379:6379"
+    volumes:
+      - rawrnot_redisdata:/data
+
+volumes:
+  rawrnot_pgdata:
+  rawrnot_redisdata:

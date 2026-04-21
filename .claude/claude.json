@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "rawrnot-gateway": {
+      "command": "node",
+      "args": ["ai-gateway/build/index.js"]
+    }
+  }
+}

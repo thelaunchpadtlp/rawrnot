@@ -19,3 +19,6 @@ Terminal Saved Output.txt
 node_modules/
 dist/
 .build/
+
+# Security & Secrets
+infra/security/
