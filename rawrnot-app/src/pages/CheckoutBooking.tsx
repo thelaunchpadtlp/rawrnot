@@ -5,12 +5,39 @@ function CheckoutBooking() {
   const [isUploading, setIsUploading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSimulateUpload = () => {
+  const handleSimulateUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
     setIsUploading(true);
-    setTimeout(() => {
-      setIsUploading(false);
+    try {
+      // 1. Create Order
+      const createRes = await fetch('http://localhost:8080/api/payments/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId: '00000000-0000-0000-0000-000000000001', // Mock Order ID
+          expectedAmount: 65000,
+          paymentMethod: paymentMethod
+        })
+      });
+      const order = await createRes.json();
+
+      // 2. Upload Receipt
+      const buffer = await file.arrayBuffer();
+      await fetch(`http://localhost:8080/api/payments/${order.id}/upload-receipt`, {
+        method: 'POST',
+        headers: { 'Content-Type': file.type },
+        body: buffer
+      });
+
       setShowSuccess(true);
-    }, 1500);
+    } catch (error) {
+      console.error('Error uploading receipt:', error);
+      alert('Error connecting to backend');
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   if (showSuccess) {
@@ -93,10 +120,9 @@ function CheckoutBooking() {
                 
                 <div className="border-t border-dashed border-outline/30 pt-6">
                   <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-2">Subir Comprobante</label>
-                  <div 
-                    onClick={handleSimulateUpload}
-                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group"
-                  >
+                  <label 
+                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group block">
+                    <input type="file" className="hidden" onChange={handleSimulateUpload} accept="image/*,application/pdf" />
                     {isUploading ? (
                       <span className="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
                     ) : (
@@ -105,7 +131,7 @@ function CheckoutBooking() {
                         <p className="font-body text-sm text-on-surface-variant mt-2">Haz clic para subir la captura de pantalla</p>
                       </>
                     )}
-                  </div>
+                  </label>
                 </div>
               </div>
             )}
@@ -137,10 +163,9 @@ function CheckoutBooking() {
                 
                 <div className="border-t border-dashed border-outline/30 pt-6 mt-6">
                   <label className="block font-mono text-xs uppercase tracking-widest text-on-surface-variant mb-2">Subir Comprobante</label>
-                  <div 
-                    onClick={handleSimulateUpload}
-                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group"
-                  >
+                  <label 
+                    className="border-2 border-dashed border-outline-variant/50 rounded-xl p-8 text-center hover:bg-surface-container-high hover:border-primary transition-colors cursor-pointer group block">
+                    <input type="file" className="hidden" onChange={handleSimulateUpload} accept="image/*,application/pdf" />
                     {isUploading ? (
                       <span className="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
                     ) : (
@@ -149,7 +174,7 @@ function CheckoutBooking() {
                         <p className="font-body text-sm text-on-surface-variant mt-2">Sube el PDF o captura de transferencia</p>
                       </>
                     )}
-                  </div>
+                  </label>
                 </div>
               </div>
             )}

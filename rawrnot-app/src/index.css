@@ -111,6 +111,11 @@
   }
 
   /* Universal Baseline for Cross-Device Strict Responsiveness */
+  html {
+    /* Fluid Typography: min 14px, max 18px, based on viewport width 320px-1920px */
+    font-size: clamp(14px, 0.8rem + 0.25vw, 18px);
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -119,10 +124,15 @@
     min-height: 100dvh; /* Dynamic Viewport for iOS Safari / Android */
     overflow-x: hidden;
     /* Safe Area Insets for Notch Devices (iPhone, visionOS) */
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* Apple Watch & Tiny Screens Optimization */
+  @media (max-width: 300px) {
+    html { font-size: 12px; }
+    .universal-container { padding-left: 8px; padding-right: 8px; }
+    button, a { min-height: 36px; min-width: 36px; padding: 4px; }
+    .hide-on-watch { display: none !important; }
   }
 
   body {
@@ -130,6 +140,7 @@
     /* Optimize typography rendering for high-DPI displays (Mac, Retina, Vision) */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   h1, h2, h3, h4, h5, h6 {

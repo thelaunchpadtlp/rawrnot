@@ -81,7 +81,8 @@ struct SinpeTransactionController: RouteCollection {
         
         if data.action == "approve" {
             transaction.ownerStatus = "approved"
-            req.logger.info("EL OWNER (\(try req.auth.require(UserPayload.self).email)) ha liberado la orden \(transaction.orderId).")
+            let ownerEmail = try req.auth.require(UserPayload.self).email
+            req.logger.info("EL OWNER (\(ownerEmail)) ha liberado la orden \(transaction.orderId).")
         } else {
             transaction.ownerStatus = "rejected"
         }

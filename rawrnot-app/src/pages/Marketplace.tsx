@@ -103,26 +103,26 @@ export default function Marketplace() {
       </nav>
 
       {/* Main Layout */}
-      <main className="pt-28 pb-36 px-6 md:px-8 max-w-[1920px] mx-auto flex gap-8 xl:gap-12 items-start">
+      <main className="pt-24 md:pt-28 pb-36 px-4 md:px-8 max-w-[1920px] mx-auto flex flex-col xl:flex-row gap-8 xl:gap-12 items-start">
 
         {/* Left: Service Grid */}
-        <div className="flex-grow min-w-0 space-y-10">
+        <div className="flex-grow w-full min-w-0 space-y-10">
           <header className="max-w-2xl">
-            <h1 className="font-headline text-6xl md:text-7xl font-extrabold text-roar text-primary mb-4">
+            <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-extrabold text-roar text-primary mb-4">
               The Vault
             </h1>
-            <p className="font-headline text-lg italic text-on-surface-variant">
+            <p className="font-headline text-base sm:text-lg italic text-on-surface-variant">
               Access elite technical execution for your most raw creative instincts.
               Select services to begin your spec.
             </p>
           </header>
 
           {/* Bento Grid */}
-          <div className="grid grid-cols-12 gap-5">
+          <div className="grid grid-cols-12 gap-4 sm:gap-5">
 
             {/* Featured Service (8 cols) */}
             <div
-              className="col-span-12 lg:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-high transition-all duration-500 hover:bg-surface-bright ghost-border cursor-pointer"
+              className="col-span-12 lg:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-high transition-all duration-500 hover:bg-surface-bright ghost-border cursor-pointer min-h-[300px]"
               onClick={() => toggleService(featuredService.id)}
             >
               <div className="aspect-video w-full relative">
@@ -133,22 +133,22 @@ export default function Marketplace() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 p-7 w-full">
+              <div className="absolute bottom-0 left-0 p-5 sm:p-7 w-full">
                 <div className="flex justify-between items-end flex-wrap gap-4">
                   <div>
-                    <span className="text-xs uppercase tracking-widest text-primary font-bold mb-2 block">
+                    <span className="text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold mb-2 block">
                       {featuredService.category}
                     </span>
-                    <h3 className="font-headline text-4xl font-bold text-on-background mb-2">
+                    <h3 className="font-headline text-3xl sm:text-4xl font-bold text-on-background mb-2">
                       {featuredService.title}
                     </h3>
-                    <p className="text-on-surface-variant max-w-md text-sm">
+                    <p className="text-on-surface-variant max-w-md text-xs sm:text-sm">
                       {featuredService.description}
                     </p>
                   </div>
                   <button
                     onClick={(e) => { e.stopPropagation(); toggleService(featuredService.id); }}
-                    className={`px-7 py-3 rounded-full font-bold shadow-lg transition-all text-sm ${
+                    className={`px-6 sm:px-7 py-2.5 sm:py-3 rounded-full font-bold shadow-lg transition-all text-xs sm:text-sm ${
                       specItems.includes(featuredService.id)
                         ? 'bg-primary text-on-primary'
                         : 'bg-gradient-to-br from-primary to-primary-container text-on-primary-fixed hover:opacity-90 active:scale-95'
@@ -167,22 +167,22 @@ export default function Marketplace() {
 
             {/* Editorial Photography (4 cols) */}
             <div
-              className="col-span-12 lg:col-span-4 flex flex-col justify-between p-7 rounded-xl bg-surface-container-low ghost-border hover:bg-surface-container-high transition-colors cursor-pointer group"
+              className="col-span-12 lg:col-span-4 flex flex-col justify-between p-5 sm:p-7 rounded-xl bg-surface-container-low ghost-border hover:bg-surface-container-high transition-colors cursor-pointer group"
               onClick={() => toggleService(sideServices[0].id)}
             >
               <div className="mb-5">
-                <span className="material-symbols-outlined text-primary text-4xl mb-4 block">
+                <span className="material-symbols-outlined text-primary text-3xl sm:text-4xl mb-4 block">
                   {sideServices[0].icon}
                 </span>
                 <h3 className="font-headline text-2xl font-bold text-on-background mb-2 group-hover:italic transition-all">
                   {sideServices[0].title}
                 </h3>
-                <p className="text-sm text-on-surface-variant">{sideServices[0].description}</p>
+                <p className="text-xs sm:text-sm text-on-surface-variant">{sideServices[0].description}</p>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-headline text-xl font-bold text-primary">
                   ${sideServices[0].priceUSD.toLocaleString()}
-                  <span className="text-xs text-on-surface-variant font-normal font-body ml-1">/day</span>
+                  <span className="text-[10px] sm:text-xs text-on-surface-variant font-normal font-body ml-1">/day</span>
                 </span>
                 <button
                   onClick={(e) => { e.stopPropagation(); toggleService(sideServices[0].id); }}
@@ -202,21 +202,21 @@ export default function Marketplace() {
 
             {/* AI Narrative (5 cols) */}
             <div
-              className="col-span-12 md:col-span-5 relative p-7 rounded-xl bg-surface-container-highest ghost-border overflow-hidden cursor-pointer hover:bg-surface-bright transition-colors"
+              className="col-span-12 sm:col-span-6 lg:col-span-5 relative p-5 sm:p-7 rounded-xl bg-surface-container-highest ghost-border overflow-hidden cursor-pointer hover:bg-surface-bright transition-colors"
               onClick={() => toggleService(sideServices[1].id)}
             >
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="font-headline text-2xl md:text-3xl font-bold text-on-background">
+                  <h3 className="font-headline text-2xl font-bold text-on-background">
                     {sideServices[1].title}
                   </h3>
                   {specItems.includes(sideServices[1].id) && (
                     <span className="material-symbols-outlined text-primary ml-2">check_circle</span>
                   )}
                 </div>
-                <p className="text-on-surface-variant mb-6 text-sm">{sideServices[1].description}</p>
+                <p className="text-on-surface-variant mb-6 text-xs sm:text-sm">{sideServices[1].description}</p>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs uppercase tracking-widest font-bold text-tertiary bg-tertiary/10 px-2 py-1 rounded-full">
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-tertiary bg-tertiary/10 px-2 py-1 rounded-full">
                     AI-Powered
                   </span>
                   <span className="font-headline text-lg font-bold text-primary">
@@ -231,10 +231,10 @@ export default function Marketplace() {
 
             {/* Spatial Audio (7 cols) */}
             <div
-              className="col-span-12 md:col-span-7 bg-surface-container-high rounded-xl p-7 ghost-border flex items-center gap-6 cursor-pointer hover:bg-surface-bright transition-colors"
+              className="col-span-12 sm:col-span-6 lg:col-span-7 bg-surface-container-high rounded-xl p-5 sm:p-7 ghost-border flex items-center gap-6 cursor-pointer hover:bg-surface-bright transition-colors"
               onClick={() => toggleService(sideServices[2].id)}
             >
-              <div className="w-28 h-28 rounded-lg overflow-hidden shrink-0">
+              <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-lg overflow-hidden shrink-0 hide-on-watch">
                 <img
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
                   src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=400"
@@ -245,7 +245,7 @@ export default function Marketplace() {
                 <h3 className="font-headline text-2xl font-bold text-on-background mb-1">
                   {sideServices[2].title}
                 </h3>
-                <p className="text-on-surface-variant mb-3 text-sm">{sideServices[2].description}</p>
+                <p className="text-on-surface-variant mb-3 text-xs sm:text-sm">{sideServices[2].description}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
@@ -253,7 +253,7 @@ export default function Marketplace() {
                         <div key={i} className="w-7 h-7 rounded-full bg-primary-container border-2 border-background opacity-80" />
                       ))}
                     </div>
-                    <span className="text-xs text-on-surface-variant">
+                    <span className="text-[10px] sm:text-xs text-on-surface-variant">
                       Trusted by {sideServices[2].trustedBy} Prides
                     </span>
                   </div>

@@ -16,6 +16,7 @@ import MasterBlueprint from './pages/MasterBlueprint';
 function AppContent() {
   const { user, loginWithGoogle, logout } = useAuth();
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Apply theme to HTML tag
   useEffect(() => {
@@ -37,11 +38,11 @@ function AppContent() {
         {/* Navigation Bar */}
         <nav className="fixed top-0 w-full liquid-glass z-50 border-b border-outline/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-20 items-center">
+            <div className="flex justify-between h-16 md:h-20 items-center">
               
               {/* Logo / Brand */}
               <div className="flex-shrink-0 flex items-center cursor-pointer group">
-                <Link to="/" className="font-headline text-3xl font-semibold tracking-tighter text-on-background group-hover:text-primary transition-colors">
+                <Link to="/" className="font-headline text-2xl md:text-3xl font-semibold tracking-tighter text-on-background group-hover:text-primary transition-colors">
                   rawr'not<span className="text-primary text-xl">.</span>
                 </Link>
               </div>
@@ -55,17 +56,18 @@ function AppContent() {
               </div>
 
               {/* Actions & Auth */}
-              <div className="flex items-center space-x-4">
-                <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-on-background/5 transition-colors text-on-background" aria-label="Toggle Theme">
+              <div className="flex items-center space-x-2 md:space-x-4">
+                <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-on-background/5 transition-colors text-on-background hide-on-watch" aria-label="Toggle Theme">
                   <span className="material-symbols-outlined text-xl">
                     {theme === 'dark' ? 'light_mode' : 'dark_mode'}
                   </span>
                 </button>
                 
+                <div className="hidden sm:block">
                 {user ? (
                   <div className="flex items-center space-x-4">
                     {user.role === 'OWNER' && (
-                      <Link to="/architect" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors uppercase tracking-widest hidden sm:block">
+                      <Link to="/architect" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors uppercase tracking-widest hidden lg:block">
                         The Architect
                       </Link>
                     )}
@@ -92,13 +94,48 @@ function AppContent() {
                     text="continue_with"
                   />
                 )}
+                </div>
+
+                {/* Mobile Menu Toggle */}
+                <button 
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="md:hidden p-2 rounded-lg hover:bg-on-background/5 text-on-background"
+                  aria-label="Toggle Menu"
+                >
+                  <span className="material-symbols-outlined">{isMenuOpen ? 'close' : 'menu'}</span>
+                </button>
               </div>
             </div>
           </div>
+
+          {/* Mobile Menu Overlay */}
+          {isMenuOpen && (
+            <div className="md:hidden liquid-glass border-t border-outline/10 animate-fade-in-down overflow-y-auto max-h-[calc(100dvh-64px)]">
+              <div className="px-6 py-8 space-y-6 flex flex-col">
+                <Link to="/portfolio" onClick={() => setIsMenuOpen(false)} className="text-2xl font-headline text-on-background">Portfolio</Link>
+                <Link to="/marketplace" onClick={() => setIsMenuOpen(false)} className="text-2xl font-headline text-on-background">Services</Link>
+                <Link to="/journal" onClick={() => setIsMenuOpen(false)} className="text-2xl font-headline text-on-background">Journal</Link>
+                <Link to="/quote" onClick={() => setIsMenuOpen(false)} className="text-2xl font-headline text-on-background">Quote</Link>
+                <div className="pt-6 border-t border-outline/10 flex flex-col gap-4">
+                  {!user && (
+                    <button className="bg-primary text-on-primary py-4 rounded-xl font-bold uppercase tracking-widest">
+                      Sign In
+                    </button>
+                  )}
+                  {user && (
+                    <>
+                      <Link to="/portal" onClick={() => setIsMenuOpen(false)} className="text-lg text-primary">Access Portal</Link>
+                      <button onClick={() => { logout(); setIsMenuOpen(false); }} className="text-left text-on-surface-variant">Sign Out</button>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </nav>
 
-        {/* Main Content Area with top padding for fixed nav */}
-        <div className="relative z-10 pt-20">
+        {/* Main Content Area with responsive top padding */}
+        <div className="relative z-10 pt-16 md:pt-20">
           <Routes>
             {/* Dynamic Public Routes */}
             <Route path="/" element={<DynamicPage />} />

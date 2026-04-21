@@ -37,7 +37,8 @@ final class GoogleDriveIntegration {
         // Media Part
         body.writeString("--\(boundary)\r\n")
         body.writeString("Content-Type: \(file.contentType?.description ?? "application/octet-stream")\r\n\r\n")
-        body.writeBuffer(&file.data)
+        var fileData = file.data
+        body.writeBuffer(&fileData)
         body.writeString("\r\n")
         
         body.writeString("--\(boundary)--\r\n")

@@ -67,17 +67,29 @@ final class OCRService {
         
         let geminiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(apiKey)"
         
-        let payload: [String: Any] = [
-            "contents": [[
-                "parts": [
-                    ["text": prompt],
-                    ["inline_data": ["mime_type": "image/png", "data": base64Image]]
-                ]
-            ]]
-        ]
+        struct GeminiRequest: Content {
+            struct ContentItem: Content {
+                struct Part: Content {
+                    var text: String?
+                    var inline_data: InlineData?
+                    struct InlineData: Content {
+                        var mime_type: String
+                        var data: String
+                    }
+                }
+                var parts: [Part]
+            }
+            var contents: [ContentItem]
+        }
+        let payload = GeminiRequest(contents: [
+            .init(parts: [
+                .init(text: prompt),
+                .init(inline_data: .init(mime_type: "image/png", data: base64Image))
+            ])
+        ])
         
         let response = try await req.client.post(URI(string: geminiUrl)) { clientReq in
-            try clientReq.content.encode(payload, as: .json)
+            try clientReq.content.encode(payload)
         }
         
         // Simplified extraction for the demo logic

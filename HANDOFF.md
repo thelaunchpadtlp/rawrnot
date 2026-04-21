@@ -67,19 +67,16 @@ Antes de dar por finalizado CUALQUIER entregable (módulo, conexión, UI, backen
 
 ## ESTADO ACTUAL
 ### ✅ Completado
-- Limpieza arquitectónica profunda del espacio de trabajo.
-- Frontend base con toggle Obsidian/Lightcraft funcional.
-- Auth, LanguageContext (EN/ES).
-- Backend Swift: Migrations y Controllers principales.
-- MCP Gateway v2.0 (8 tools, 4 resources).
-- Diseño Stitch consolidado en `design/`.
-- Entorno local Dockerizado (`infra/local_dev/docker-compose.yml`).
+- **Zero-Defect Policy:** Protocolo de verificación obligatoria inyectado.
+- **Universal Responsiveness:** Soporte para Apple Watch, Apple Vision, iOS, Android y todos los navegadores principales (Fluid Typography + Mobile Menu).
+- **Domain Mapping:** `rawrnot.com` configurado vía Cloudflare Proxy Worker (SSL + CORS Friendly).
+- **Local Dev E2E:** PostgreSQL/Redis activos y Backend Swift conectado al Checkout Real.
+- **Security:** Secretos aislados en `infra/security/secrets.env` (Redacted en Git).
 
 ### 🚧 En Progreso / Pendiente prioritario
-- Levantar backend y gateway localmente conectados a Docker.
-- Mover DATABASE_URL y secrets de `.env` a Secret Manager en GCP.
-- Conexión real E2E: Frontend -> Swift Backend -> Base de Datos (Checkout SINPE y Marketplace "The Vault").
-- Implementación de "The Echo" (Team Buy).
+- **Jerarquía de 4 Niveles:** Implementación de Agencias -> Clientes -> Proyectos -> Entregables.
+- **Threads Polimórficos:** Sistema de chat adaptable a la jerarquía.
+- **Shadow Profiles:** Mejora en la captura de leads anónimos.
 
 ---
 

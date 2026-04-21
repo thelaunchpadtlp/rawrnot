@@ -1,0 +1,7 @@
+name = "rawrnot-proxy"
+main = "src/index.js"
+compatibility_date = "2024-04-05"
+
+[[routes]]
+pattern = "*rawrnot.com/*"
+zone_name = "rawrnot.com"
