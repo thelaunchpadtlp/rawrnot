@@ -3,7 +3,10 @@ import Vapor
 
 enum UserRole: String, Codable {
     case owner = "OWNER"
+    case admin = "ADMIN"
+    case agency = "AGENCY"
     case client = "CLIENT"
+    case guest = "GUEST"
     case lead = "LEAD"
 }
 

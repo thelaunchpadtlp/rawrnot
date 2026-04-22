@@ -80,6 +80,38 @@ Antes de dar por finalizado CUALQUIER entregable (módulo, conexión, UI, backen
 
 ---
 
+## SISTEMA DIDÁCTICO (Activo desde Sesión 12 — Claude Code)
+
+**EL SISTEMA DIDÁCTICO ES OBLIGATORIO E IRRENUNCIABLE.** Todos los agentes — Claude, Gemini, ChatGPT, Manus, Cursor, Kimi, Grok, Codex, Jules, cualquier IA — deben usarlo.
+
+- **Skill short name:** `/didactic` o `didactic skill`
+- **Full invocation:** `/didactic-explanatory-educational-formative-ai-teaching-human-development-mode`
+- **Skill file (user-level):** `~/.claude/commands/didactic.md` (short) · `~/.claude/commands/didactic-explanatory-educational-formative-ai-teaching-human-development-mode.md` (full)
+- **Skill file (project-level):** `.claude/commands/didactic.md`
+- **Teaching journal:** `docs/didactic/DIDACTIC_LOG.md` — 3+ entries as of Session 12
+- **Learner progress:** `docs/didactic/SKILLS_REGISTRY.md`
+- **QA standards:** `docs/didactic/QA_STANDARDS.md`
+
+**Before ANY execution:** produce the Instruction Interpretation TUI. **For multi-step tasks:** produce the Planning Preamble TUI. **After each action:** append to DIDACTIC_LOG.md.
+
+---
+
+## USUARIOS INICIALES DEL SISTEMA
+
+Los primeros usuarios autorizados del sistema, con roles y emails definidos:
+
+| Nombre | Rol | Emails (todos equivalentes, sin jerarquía) |
+|---|---|---|
+| Anyssa Salazar | OWNER | anyssa.salazar@thelaunchpadtlp.education · anyssa.salazar@thelaunchpadtlp.com · anyssa.salazar@rawrnot.com |
+| Joaquín Muñoz | ADMIN | joaquin.munoz@thelaunchpadtlp.com · joaquin.munoz@thelaunchpadtlp.education |
+| Agencia (test) | AGENCY | agencia@thelaunchpadtlp.com · agencia@thelaunchpadtlp.education |
+| Cliente (test) | CLIENT | cliente@thelaunchpadtlp.education · cliente@thelaunchpadtlp.com |
+| Guest (test) | GUEST | guest@thelaunchpadtlp.com · guest@thelaunchpadtlp.education |
+
+**Nota:** Google Sign-In (OAuth) debe funcionar para todos. Error activo: `Error 401: invalid_client` — requiere configurar OAuth Client ID en GCP Console → APIs & Services → Credentials.
+
+---
+
 ## REGLAS DEL PROYECTO (Para todos los Agentes)
 1. **No inventar archivos en la raíz.** Usa `rawrnot-app`, `core-backend` o `ai-gateway`.
 2. **Desarrollo Local Primero.** Usa `docker-compose up -d` en `infra/local_dev` para BD.

@@ -82,9 +82,38 @@ func seedForms(_ app: Application) async throws {
 func seedOwners(_ app: Application) async throws {
     let count = try await User.query(on: app.db).count()
     if count == 0 {
-        let joaquin = User(name: "Joaquín Muñoz", role: .owner)
+        // Anyssa Salazar — OWNER (full access, all modules)
+        let anyssa = User(name: "Anyssa Salazar", role: .owner)
+        try await anyssa.save(on: app.db)
+        try await UserEmail(email: "anyssa.salazar@thelaunchpadtlp.education", isPrimary: true, userID: anyssa.id!).save(on: app.db)
+        try await UserEmail(email: "anyssa.salazar@thelaunchpadtlp.com", isPrimary: false, userID: anyssa.id!).save(on: app.db)
+        try await UserEmail(email: "anyssa.salazar@rawrnot.com", isPrimary: false, userID: anyssa.id!).save(on: app.db)
+
+        // Joaquín Muñoz — ADMIN (creative + administrative, near-owner)
+        let joaquin = User(name: "Joaquín Muñoz", role: .admin)
         try await joaquin.save(on: app.db)
-        app.logger.info("Owners Seeded.")
+        try await UserEmail(email: "joaquin.munoz@thelaunchpadtlp.com", isPrimary: true, userID: joaquin.id!).save(on: app.db)
+        try await UserEmail(email: "joaquin.munoz@thelaunchpadtlp.education", isPrimary: false, userID: joaquin.id!).save(on: app.db)
+
+        // Agencia — AGENCY (test account)
+        let agencia = User(name: "Agencia Test", role: .agency)
+        try await agencia.save(on: app.db)
+        try await UserEmail(email: "agencia@thelaunchpadtlp.com", isPrimary: true, userID: agencia.id!).save(on: app.db)
+        try await UserEmail(email: "agencia@thelaunchpadtlp.education", isPrimary: false, userID: agencia.id!).save(on: app.db)
+
+        // Cliente — CLIENT (test account, client portal only)
+        let cliente = User(name: "Cliente Test", role: .client)
+        try await cliente.save(on: app.db)
+        try await UserEmail(email: "cliente@thelaunchpadtlp.education", isPrimary: true, userID: cliente.id!).save(on: app.db)
+        try await UserEmail(email: "cliente@thelaunchpadtlp.com", isPrimary: false, userID: cliente.id!).save(on: app.db)
+
+        // Guest — GUEST (visitor, no membership)
+        let guest = User(name: "Guest Test", role: .guest)
+        try await guest.save(on: app.db)
+        try await UserEmail(email: "guest@thelaunchpadtlp.com", isPrimary: true, userID: guest.id!).save(on: app.db)
+        try await UserEmail(email: "guest@thelaunchpadtlp.education", isPrimary: false, userID: guest.id!).save(on: app.db)
+
+        app.logger.info("Initial users seeded: Anyssa (OWNER), Joaquín (ADMIN), Agencia, Cliente, Guest.")
     }
 }
 

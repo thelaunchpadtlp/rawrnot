@@ -52,3 +52,6 @@ Al terminar una sesión con Claude Code:
 | `Terminal Saved Output 10.txt` | Sesión — Añadida automáticamente |
 | `Terminal Saved Output 9.txt` | Sesión — Añadida automáticamente |
 | `Terminal Saved Output 11.txt` | Sesión 11 — Master Reset, Reorganización, Análisis Crítico y Plan de Acción |
+| `Terminal Saved Output 11B.txt` | Sesión 11B — Continuación Gemini: Domain mapping, responsiveness, Husky, Modelo.tsx + Prototype.tsx creados con 4 errores TS sin resolver. Sesión terminó congelada (23+ min thinking). |
+| `Terminal Saved Output 12.txt` | Sesión 12 — Claude Code toma el relevo: corrige 4 errores TS, configura permissions, crea sistema didáctico completo (skill + log + registry + QA). |
+| `Terminal Saved Output 13.txt` | Sesión 13 — Claude Code: upgrading didactic skill con planning dimension + instruction interpretation. User accounts definidos. En progreso. |

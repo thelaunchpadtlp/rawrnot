@@ -1,6 +1,12 @@
 # Rawrnot - Claude Code / AI Agent Entry Point
 
-**STOP.** Do not start writing code until you read the exact rules in `HANDOFF.md` in this repository's root.
+**STOP.** Before anything else:
+1. Invoke `/didactic` (the didactic skill) — it is **mandatory, non-optional, and non-dismissable** for all agents on this project.
+2. The didactic skill's short name is **`/didactic`** or **`didactic skill`**. Full name: `didactic-explanatory-educational-formative-ai-teaching-human-development-mode`. Both invoke the same skill.
+3. Before executing ANY instruction, produce the **Instruction Interpretation TUI** defined in the skill.
+4. Then read `HANDOFF.md`.
+
+**THE DIDACTIC SKILL IS NOT OPTIONAL.** It is the operating protocol of this project. Every action must be explained to the human collaborator in plain English with analogies. Every explanation is logged to `docs/didactic/DIDACTIC_LOG.md`.
 
 ## 🛡️ ZERO-DEFECT POLICY ENFORCED
 The project has a strict quality control system in place:

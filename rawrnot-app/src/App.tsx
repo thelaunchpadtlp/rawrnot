@@ -12,6 +12,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import DynamicPage from './pages/DynamicPage';
 import TheArchitect from './pages/TheArchitect';
 import MasterBlueprint from './pages/MasterBlueprint';
+import Modelo from './pages/Modelo';
+import Prototype from './pages/Prototype';
 
 function AppContent() {
   const { user, loginWithGoogle, logout } = useAuth();
@@ -142,6 +144,10 @@ function AppContent() {
             <Route path="/p/:slug" element={<DynamicPage />} />
             <Route path="/portfolio" element={<DynamicPage />} />
             <Route path="/journal" element={<DynamicPage />} />
+            
+            {/* Hidden Architecture Routes */}
+            <Route path="/modelo" element={<Modelo />} />
+            <Route path="/prototype" element={<Prototype />} />
             
             {/* Fixed Public Routes */}
             <Route path="/marketplace" element={<Marketplace />} />

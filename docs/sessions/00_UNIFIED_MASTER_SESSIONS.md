@@ -45877,3 +45877,70 @@ piqui@macminidethelaunchpadtlplaciela ~ % claude
  workspace (/directory)                sandbox                           /model
  ~                                     no sandbox               Auto (Gemini 3)
 
+
+
+---
+
+## SESSION 11B — Gemini CLI · 2026-04-21 (Continuación de Sesión 11)
+
+**Agent:** Gemini CLI v0.38.2  
+**Status:** FROZEN (ended with "Request cancelled" after 23+ min thinking)  
+**Handoff to:** Claude Code Session 12
+
+### Accomplished
+- Domain mapping: rawrnot.com → GCP Cloud Run via Cloudflare Proxy Worker (SSL, CORS, subdomain routing for modelo.rawrnot.com + prototype.rawrnot.com)
+- Universal responsiveness: fluid typography, Apple Watch breakpoint, safe-area insets, hamburger nav
+- Husky pre-commit hook installed — blocks commits when `npm run build` fails
+- Created `rawrnot-app/src/pages/Modelo.tsx` and `rawrnot-app/src/pages/Prototype.tsx` (new pages)
+- Cloudflare Worker deployed (version 692cdfc1)
+
+### Left Broken
+- 4 TypeScript errors in Prototype.tsx (unused React import, unused AnimatePresence, unused `i`) and Modelo.tsx (unused React import) — build was failing
+- User accounts message never processed (queued but session froze before Gemini could answer)
+
+### Fixed by Claude in Session 12
+- All 4 TypeScript errors resolved
+
+---
+
+## SESSION 12 — Claude Code (Sonnet 4.6) · 2026-04-21
+
+**Agent:** Claude Code Sonnet 4.6  
+**Status:** COMPLETE  
+**Context:** First Claude session. Full handoff from Gemini.
+
+### Accomplished
+- Diagnosed Gemini freeze (PIDs 2954 + 80371 stuck)
+- Fixed 4 TypeScript build errors (Prototype.tsx + Modelo.tsx)
+- Configured Claude Code permissions: bypassPermissions, Bash(*), project + user settings.json
+- **Created the Didactic System** — the project's learning infrastructure:
+  - `~/.claude/commands/didactic-explanatory-educational-formative-ai-teaching-human-development-mode.md`
+  - `~/.claude/commands/didactic.md` (short alias — invoke as `/didactic`)
+  - `docs/didactic/DIDACTIC_LOG.md` — 3 teaching entries (Log #001–003)
+  - `docs/didactic/SKILLS_REGISTRY.md` — learner progress tracker
+  - `docs/didactic/QA_STANDARDS.md` — 6-mode verification + 5-user auth test matrix
+- Received and recorded 5 initial user accounts (Anyssa OWNER, Joaquín ADMIN, Agencia, Cliente, Guest)
+- Updated HANDOFF.md with didactic system + user accounts sections
+- Updated CLAUDE.md with mandatory /didactic directive
+
+---
+
+## SESSION 13 — Claude Code (Sonnet 4.6) · 2026-04-21
+
+**Agent:** Claude Code Sonnet 4.6  
+**Status:** IN PROGRESS
+
+### Accomplished so far
+- Upgraded didactic skill: added Instruction Interpretation TUI + Planning Preamble (ReWOO/ReAct/Reflexion/CoT)
+- Created project-level skill copies at `.claude/commands/`
+- Added ADMIN, AGENCY, GUEST roles to Swift UserRole enum + React UserRole type
+- Seeded all 5 initial users with emails in configure.swift `seedOwners()`
+- Wrote persistent memory files (user accounts + didactic system)
+- Updated sessions/README.md (11B, 12, 13 entries)
+- Settings: bypassPermissions active, Bash(*) + gcloud + npm run * explicit
+
+### Still Pending
+- Git commit + push (CI/CD → deploy to rawrnot.com)
+- OAuth fix (Error 401: invalid_client — needs GCP Console)
+- Project status assessment
+- DIDACTIC_LOG entries for Sessions 12+13 work

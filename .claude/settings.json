@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "/Users/piqui/Rawrnot_Workspace/.claude",
+      "/Users/piqui/.claude"
+    ],
+    "allow": [
+      "Read(/Users/piqui/Rawrnot_Workspace/.claude/**)",
+      "Edit(/Users/piqui/Rawrnot_Workspace/.claude/**)",
+      "Write(/Users/piqui/Rawrnot_Workspace/.claude/**)",
+      "Read(/Users/piqui/.claude/**)",
+      "Edit(/Users/piqui/.claude/**)",
+      "Write(/Users/piqui/.claude/**)",
+      "Bash(*)",
+      "Bash(gcloud *)",
+      "Bash(gcloud alpha *)"
+    ]
+  }
+}
